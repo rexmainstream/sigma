@@ -1,0 +1,22 @@
+nav {
+    float: right;
+    padding-top: 15px;
+    padding-right: 50px;
+}
+
+nav a {
+    display: flex;
+    float: right;
+    padding-right: 20px;
+    color: var(--navt);
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logo_title {
+    color: var(--navt);
+    font-size: 40px;
+    text-decoration: none;
+    left: 0%
+}
