@@ -1,23 +1,23 @@
 /* || GENERAL STYLES*/
 html {
-    font-size: 10px; /*use relative font-size values. This will make things much more convenient*/
+    font-size: 10px; /*use relative font-size values. This will make things much more convenient especially when trying to make it compatiable with all devices*/
     font-family: 'Segoe UI', Helvetica, sans-serif; /*San-serif as a fallback for older browsers*/
 }
 
 body {
-    margin-block-start: 0rem;
+    margin: 0rem 0rem 0rem 0rem;
     background-color: rgb(242,242,242);
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
 }
 
 header {
     font-size: 1.5rem;
     background-color: white;
-    padding: inherit;
+    padding: 0 0 0 0;
 }
 
 footer {
-    padding: inherit;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 main {
@@ -43,7 +43,7 @@ p {
     font-size: 1.5rem
 }
 
-.time_until_transition {
+#time_until_transition {
     font-size: 3rem;
     font-weight: bolder;
 }
@@ -60,10 +60,9 @@ p {
     inline-size: 100%;
 }
 
-.period, .teacher{
+.period, .teacher {
     text-align: left;
     min-inline-size: 80%;
-
 }
 
 .room {
@@ -87,9 +86,24 @@ div ul li {
     padding-inline-end: 2rem;
 }
 
+.drop_down {
+    list-style-type: circle;
+}
+
 /* || LAYOUTS*/
-.wrapper {
-    display: grid; 
+.flex {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.header {
+    justify-content: left;
+    align-items: center;
+}
+
+.grid_wrapper {
+    display: grid;
     grid-gap: 4rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 8rem 8rem 8rem 8rem;
@@ -111,16 +125,8 @@ div ul li {
     grid-row: 1/end;
     text-align: center;    
 }
-.flex {
-    display: flex;
-    vertical-align: middle;
-    justify-content: center;
-}
 
-.header {
-    justify-content: left;
-    align-items: center;
-}
+
 
 .calendar {
     grid-column: 4/end;
@@ -144,7 +150,18 @@ tbody {
 
 
 /* || UTILITES */
+a {
+    font-size: inherit;
+    color: inherit;
+}
 
+p a {
+    color: blue;
+}
+
+p a:visited {
+    color: purple;
+}
 
 /* || SITEWIDE */
 

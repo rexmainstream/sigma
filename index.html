@@ -15,15 +15,16 @@
                 </a>
                 <nav>
                     <ul>
-                        <li>
-                            Services
+                        <li class="drop_down">
+                            <a>Services</a>
                         </li>
                         <li>
-                            Settings
+                            <a>Settings</a>
                         </li>
                         <li>
-                            Feedback
+                            <a>Feedback</a>
                         </li>
+                        <li class="log_out"><a>Log out</a></li>
                     </ul>
                 </nav>
 
@@ -31,7 +32,7 @@
             </div>
         </header>
         <main>
-            <div class="wrapper">
+            <div class="grid_wrapper">
                 <!--Elements inside the box such as timetable, calendar whatever -->
                 <div class="box timetable">
                     <div class="tab_container">
@@ -39,7 +40,7 @@
                         <p class="tab">Timetable</p>
                     </div>
                     <p>Transition in</p>
-                    <p class="time_until_transition">5:01</p>
+                    <p id="time_until_transition">5:01</p>
                     <div class="flex">
                         <table id="daily_timetable">
                             <!--Table to display timetable-->
@@ -54,28 +55,32 @@
                                     <td class="room">69</td>                                  
                                 </tr>
                                 <tr class="secondary_line">
-                                    <td>with Someone</td>
+                                    <td class="teacher">with Someone</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="main_line">
                                     <td class="period">Period 1</td>
                                     <td class="room">69</td>
                                 </tr>
                                 <tr class="secondary_line">
-                                    <td>with Someone</td>
+                                    <td class="teacher">with Someone</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="main_line">
                                     <td class="period">Period 2</td>
                                     <td class="room">69</td>
                                 </tr>
                                 <tr class="secondary_line">
-                                    <td>with Someone</td>
+                                    <td class="teacher">with Someone</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="main_line">
                                     <td class="period">Period 3</td>
                                     <td class="room">69</td>
                                 </tr>
                                 <tr class="secondary_line">
-                                    <td>with Someone</td>
+                                    <td class="teacher">with Someone</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="main_line">
                                     <td class="period">Period 4</td>
@@ -83,6 +88,7 @@
                                 </tr>
                                 <tr class="secondary_line">
                                     <td>with Someone</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="main_line">
                                     <td class="period">Period 5</td>
@@ -90,6 +96,7 @@
                                 </tr>
                                 <tr class="secondary_line">
                                     <td>with Someone</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
