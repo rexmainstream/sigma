@@ -1,26 +1,108 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sigma | Home</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="scripts/hover.js" defer></script>
+    </head>
 
-<head>
-    <title>Sigma | Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" type="image/jpg" href="fav.jpg">
-</head>
+    <body><!--Header and Footer must be in the body! The body is everything visible by the user-->
+        <header class="navigation">
+            <div class="flex header">
+                <a href="">
+                    <img class="logo" src="resources/Logo-Vector-Graphics.svg" alt="The logo for Sigma">
+                </a>
+                <nav>
+                    <ul>
+                        <li>
+                            Services
+                        </li>
+                        <li>
+                            Settings
+                        </li>
+                        <li>
+                            Feedback
+                        </li>
+                    </ul>
+                </nav>
 
-<header class="navigation">
-    <a class="logo_title" href="home.html">Sigma</a>
-    <nav>
-        <a href="#">LOG IN</a>
-        <a href="#">HELP</a>
-    </nav>
-</header>
 
-<body>
-
-    <main></main>
-
-</body>
-<footer>
-    Copyright (c) 2022 Sigma
-</footer>
-
+            </div>
+        </header>
+        <main>
+            <div class="wrapper">
+                <!--Elements inside the box such as timetable, calendar whatever -->
+                <div class="box timetable">
+                    <div class="tab_container">
+                        <p class="tab">My Day</p>
+                        <p class="tab">Timetable</p>
+                    </div>
+                    <p>Transition in</p>
+                    <p class="time_until_transition">5:01</p>
+                    <div class="flex">
+                        <table id="daily_timetable">
+                            <!--Table to display timetable-->
+                            <caption></caption>
+                            <thead>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <!--For recess and lunch we will have to nest elements via JavaScript.-->
+                                <tr class="main_line">
+                                    <td class="period">Period 0</td>
+                                    <td class="room">69</td>                                  
+                                </tr>
+                                <tr class="secondary_line">
+                                    <td>with Someone</td>
+                                </tr>
+                                <tr class="main_line">
+                                    <td class="period">Period 1</td>
+                                    <td class="room">69</td>
+                                </tr>
+                                <tr class="secondary_line">
+                                    <td>with Someone</td>
+                                </tr>
+                                <tr class="main_line">
+                                    <td class="period">Period 2</td>
+                                    <td class="room">69</td>
+                                </tr>
+                                <tr class="secondary_line">
+                                    <td>with Someone</td>
+                                </tr>
+                                <tr class="main_line">
+                                    <td class="period">Period 3</td>
+                                    <td class="room">69</td>
+                                </tr>
+                                <tr class="secondary_line">
+                                    <td>with Someone</td>
+                                </tr>
+                                <tr class="main_line">
+                                    <td class="period">Period 4</td>
+                                    <td class="room">69</td>
+                                </tr>
+                                <tr class="secondary_line">
+                                    <td>with Someone</td>
+                                </tr>
+                                <tr class="main_line">
+                                    <td class="period">Period 5</td>
+                                    <td class="room">69</td>
+                                </tr>
+                                <tr class="secondary_line">
+                                    <td>with Someone</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+                <div class="box calendar"></div>
+            </div>
+        </main>
+        <footer>
+            Copyright (c) 2022 Sigma
+        </footer>
+    </body>
 </html>
+
+
