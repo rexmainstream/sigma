@@ -7,7 +7,7 @@
         <script src="scripts/hover.js" defer></script>
     </head>
 
-    <body><!--Header and Footer must be in the body! The body is everything visible by the user-->
+    <body>
         <header class="navigation">
             <div class="flex header">
                 <a href="">
@@ -40,7 +40,7 @@
                         <p class="tab">Timetable</p>
                     </div>
                     <p>Transition in</p>
-                    <p id="time_until_transition">5:01</p>
+                    <p><b id="time_until_transition">5:01</b></p>
                     <div class="flex">
                         <table id="daily_timetable">
                             <!--Table to display timetable-->
@@ -103,7 +103,36 @@
                     </div>
                     
                 </div>
-                <div class="box calendar"></div>
+                <div class="box calendar">
+                    <div class="flex">
+                        <div id="mini_calendar">This is a static Calendar. This where a small calendar will be placed</div>
+                    </div>
+                    <div class="flex">
+                        <div id="mini_events">
+                            This is a static box. THis is where an event list will be placed
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box quote">
+                    <p><b>Quote of the Day</b></p>
+                    <blockquote id="quote_of_the_day">"I am a quote"</blockquote>
+                    <p id="quote_author">Some guy</p>
+                </div>
+
+                <div class="focus">
+                    <b>Current Focus</b>
+                    <div class="box">
+                        This is where the motivation functionality will be placed
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <b>Recent Notes</b>
+                    <div class="box">
+                        This is where the note functionality will be placed
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
