@@ -4,6 +4,8 @@ html {
     font-family: 'Segoe UI', Helvetica, sans-serif; /*San-serif as a fallback for older browsers*/
 }
 
+@media
+
 body {
     margin: 0rem 0rem 0rem 0rem;
     background-color: rgb(242,242,242);
@@ -44,7 +46,7 @@ p {
 }
 
 #time_until_transition {
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: bolder;
 }
 
