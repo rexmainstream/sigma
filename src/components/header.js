@@ -1,0 +1,28 @@
+import React from 'react';
+import logo from '../res/images/Logo-Vector-Graphics.svg'
+
+export default function Header() {
+    return (
+        <header className='navigation'>
+            <div className='flex header'>
+                <a href=''>
+                    <img src={logo} className='logo' alt='logo for Sigma'></img>
+                </a>
+                <nav>
+                    <ul className='link_list'>
+                        <li className="drop_down">
+                            <a href=''>Services</a>
+                        </li>
+                        <li>
+                            <a href=''>Settings</a>
+                        </li>
+                        <li>
+                            <a href=''>Help</a>
+                        </li>
+                        <li className="log_out"><a href=''>Log out</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    );
+}
