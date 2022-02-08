@@ -4,8 +4,8 @@ export default function Focus_mini() {
     return (
         <div class="focus">
             <b>Current Focus</b>
-            <div class="box">
-                This is where the motivation functionality will be placed
+            <div class="goals box">
+                <p>Get better for software design</p>
             </div>
         </div>
     );

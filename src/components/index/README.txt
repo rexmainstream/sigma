@@ -1,1 +1,0 @@
-This folder contains React js. files exclusive to the index.
