@@ -1,5 +1,4 @@
 let table_main_rows
-const delay = ms => new Promise(res => setTimeout(res, ms))
 
 //This subroutine assigns some variables when the webpage loads
 function web_page_loaded() {

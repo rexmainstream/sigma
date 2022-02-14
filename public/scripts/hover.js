@@ -1,29 +1,12 @@
-let table_main_rows
-const delay = ms => new Promise(res => setTimeout(res, ms))
-
-//This subroutine assigns some variables when the webpage loads
-function web_page_loaded() {
-    table_main_rows = document.querySelectorAll('.main_line');
-
-    for (i = 0; i < table_main_rows.length; i++) {
-        table_main_rows[i].addEventListener('mouseover', function () { hover(event); });
-        table_main_rows[i].addEventListener('mouseout', function () { time_out(event); });
-    }
+function hover(e) { //When user hovers over table row, it highlights the whole row. Can add more features later.
+    console.log('hover function has run')
+    e.currentTarget.style.backgroundColor = `rgb(209,231,246)`;
+    e.currentTarget.nextElementSibling.style.backgroundColor = `rgb(209,231,246)`;
 }
 
-//This subroutine will outline hovered element
-function hover(event) {
-    event.currentTarget.style.backgroundColor = `rgb(209,231,246)`;
-    event.currentTarget.nextElementSibling.style.backgroundColor = `rgb(209,231,246)`;
-    console.log('hover.js has been run');
+function time_out(e) {//When user's mouse leaves the table rows the row refreshes.
+    console.log('time_out function has run')
+    e.currentTarget.style.backgroundColor = `white`;
+    e.currentTarget.nextElementSibling.style.backgroundColor = `white`;
 }
 
-// reset the color
-function time_out(event) {
-    event.currentTarget.style.backgroundColor = `white`;
-    event.currentTarget.nextElementSibling.style.backgroundColor = `white`;
-    console.log('time_out.js has been run')
-}
-
-
-window.addEventListener('DOMContentLoaded', function () { web_page_loaded(); })

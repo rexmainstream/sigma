@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Focus_mini() {
     return (
-        <div class="focus">
+        <div className="focus">
             <b>Current Focus</b>
-            <div class="goals box">
+            <div className="goals box">
                 <p>Get better for software design</p>
             </div>
         </div>

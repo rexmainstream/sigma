@@ -1,0 +1,185 @@
+/* || GENERAL STYLES*/
+html {
+    font-size: 10px; /*use relative font-size values. This will make things much more convenient especially when trying to make it compatiable with all devices*/
+    font-family: 'Segoe UI', Helvetica, sans-serif; /*San-serif as a fallback for older browsers*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0rem 0rem 0rem 0rem;
+    background-color: rgb(242,242,242);
+}
+
+header {
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 0 0 0 0;
+}
+
+footer {
+    font-size: 1.2rem;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    display: block;
+    line-height: 1.5;
+    margin-block-start: 2rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+main {
+    padding-block-start: 2rem;
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
+}
+
+p {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+}
+
+b {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    margin-block-end: 1rem;
+}
+
+.tab_container {
+    display: flex;
+}
+
+.tab {
+    display: inline;
+    padding-inline-end: 2rem;
+    text-align: left;
+    font-size: 1.5rem
+}
+
+ul[class] {
+  list-style-type: none;
+}
+
+.logo {
+    max-inline-size: 4.5vh;
+    margin-inline-start: 2rem;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    display: inline;
+}
+
+.link_list li{
+    text-align: center;
+    list-style-type: none;
+    margin-inline-end: none;
+    display: inline;
+    padding-inline-start: none;
+    padding-inline-end: 2rem;
+}
+
+.notes + b { /*Fix this later, doesn't work now*/
+    display: block;
+    text-align: right;
+}
+
+.drop_down {
+    list-style-type: circle;
+}
+
+#license {
+  grid-row: 2/3;
+}
+
+#reference_links {
+  font-size: 1.7rem;
+  padding-block-end: 2rem;
+  border-block-end: 2px solid white;
+}
+
+/* || LAYOUTS*/
+.flex {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.header {
+    justify-content: left;
+    align-items: center;
+}
+
+.grid_wrapper { /*should this even be a grid? A flexbox will still work but it won't be as responsive i think.*/
+    display: grid;
+}
+
+.box {
+    background-color: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+    /*
+    transition-property: box-shadow, transform;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(.16,1,.29,.99);
+    */
+}
+
+/* || UTILITES */
+a {
+    font-size: inherit;
+    color: inherit;
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+li a[href]:hover {
+  text-decoration: underline;
+}
+
+p a {
+    color: blue;
+}
+
+p a:visited {
+    color: purple;
+}
+
+/* || SVG AND ANIMATIONS*/
+
+.line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: move 0.8s linear;
+    animation-fill-mode: forwards;
+}
+
+.box {
+    animation-name: fade-top;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
