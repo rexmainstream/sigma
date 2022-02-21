@@ -6,6 +6,12 @@ html {
     overflow-x: hidden;
 }
 
+@media screen and (min-width: 999px) {
+    .vertical_link_list {
+        padding-inline-end: 4rem;
+    }
+}
+
 body {
     margin: 0rem 0rem 0rem 0rem;
     background-color: rgb(242,242,242);
@@ -24,7 +30,7 @@ footer {
     display: block;
     line-height: 1.5;
     margin-block-start: 2rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 2rem 0.5rem 2rem 0.5rem;
 }
 
 main {
@@ -59,6 +65,7 @@ blockquote {
     font-size: 1.5rem
 }
 
+
 ul[class] {
   list-style-type: none;
 }
@@ -72,12 +79,22 @@ ul[class] {
 }
 
 .link_list li{
-    text-align: center;
+    text-align: none;
     list-style-type: none;
-    margin-inline-end: none;
     display: inline;
-    padding-inline-start: none;
     padding-inline-end: 2rem;
+}
+
+
+
+.vertical_link_list li {
+    font-size: 1.3rem;
+    padding-bottom: 1rem;
+    text-align: left;
+}
+
+.vertical_link_list + li {
+    font-weight: bold;
 }
 
 .notes + b { /*Fix this later, doesn't work now*/
@@ -89,14 +106,9 @@ ul[class] {
     list-style-type: circle;
 }
 
-#license {
-  grid-row: 2/3;
-}
-
-#reference_links {
-  font-size: 1.7rem;
-  padding-block-end: 2rem;
-  border-block-end: 2px solid white;
+#footer_container {
+    display: flex;
+    align-items: center;
 }
 
 /* || LAYOUTS*/
@@ -125,6 +137,15 @@ ul[class] {
     */
 }
 
+#social_container {
+    min-inline-size: 50%;
+}
+
+#company_name {
+    text-align: center;
+    display: block;
+}
+
 /* || UTILITES */
 a {
     font-size: inherit;
@@ -143,7 +164,7 @@ p a {
     color: blue;
 }
 
-p a:visited {
+p a:visited { /*Probably not*/
     color: purple;
 }
 
@@ -156,13 +177,42 @@ p a:visited {
     animation-fill-mode: forwards;
 }
 
-.box {
+.timetable, .calendar {
     animation-name: fade-top;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
 }
 
+/*.quote, .focus {
+    opacity: 0;
+}*/
+
+#container {
+    min-height: 2rem;
+}
+
+/*This animation plays when user hovers over a row. Highlights the row basically */
+@keyframes highlight {
+    0% {
+        background-color: inherit;
+    }
+    
+    100% {
+        background-color: rgb(209,231,246);
+    }
+}
+/*Removes the highlight when user's mouse leaves element*/
+@keyframes remove_highlight {
+    0% {
+    }
+
+    100% {
+        background-color: unset;
+    }
+}
+
+/*This is the animation that draws the lines*/
 @keyframes move {
     0% {
         opacity: 0;
@@ -172,14 +222,51 @@ p a:visited {
         opacity: 1;
     }
 }
-
+/*This is the animation that plays when a box/card is loaded*/
 @keyframes fade-top {
     0% {
         opacity: 0;
         transform: translateY(-10px);
     }
+    62.5% {
+        opacity: 1;
+    }
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/*This is the animation that plays when the user scrolls down. Displays the quote of the day and the Current focus*/
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Typing animation used for the quote*/
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/*Blinking animation*/
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+@keyframes letter-animation {
+    0% {
+        stroke-dashoffset: 2600;
+    }
+    100% {
+        stroke-dashoffset: 0;
     }
 }

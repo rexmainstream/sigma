@@ -1,5 +1,6 @@
 @import url(styles.css);/*Import default styling*/
 
+/*This is the stylesheet for the index. Includes specific styles not included in the base stylesheet*/
 
 /* || GENERAL STYLES*/
 .main_line {
@@ -44,15 +45,6 @@
     list-style-type: circle;
 }
 
-#license {
-  grid-row: 2/3;
-}
-
-#reference_links {
-  font-size: 1.7rem;
-  padding-block-end: 2rem;
-  border-block-end: 2px solid white;
-}
 
 #next_period {
     font-size: 1.2rem;
@@ -85,6 +77,10 @@
     padding-inline-end: 2rem;
     padding-block-start: 2rem;
     padding-block-end: 2rem;
+}
+
+#quote_container svg {
+    min-width: 100%;
 }
 
 .focus {
