@@ -50,7 +50,8 @@ b {
 }
 
 blockquote {
-    font-size: 1.5rem;
+    font-size: 25px;
+    line-height: 1.5;
     margin-block-end: 1rem;
 }
 
@@ -184,9 +185,9 @@ p a:visited { /*Probably not*/
     animation-fill-mode: both;
 }
 
-/*.quote, .focus {
-    opacity: 0;
-}*/
+.quote, .focus {
+    visibility: hidden;
+}
 
 #container {
     min-height: 2rem;
@@ -241,12 +242,26 @@ p a:visited { /*Probably not*/
 @keyframes fade_in {
     0% {
         opacity: 0;
-        transform: translateY(-100%);
+        background-color: inherit;
     }
 
     100% {
+        visibility: visible;
+        background-color: rgb(209,231,246);
         opacity: 1;
-        transform: translateY(0);
+    }
+}
+
+/*Fade in animation but for text*/
+@keyframes fade_in_text {
+    from {
+        opacity: 0;
+        transform: perspective(500px) translate(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+    }
+    
+    to {
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
     }
 }
 

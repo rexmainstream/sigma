@@ -17,7 +17,7 @@ function time_out(e) {//When user's mouse leaves the table rows the row refreshe
 export default function Main_line() {
     return (        
         <tr className="main_line"
-            onMouseOver={(e) => hover(e)} //This causes a lot of errors on the console but it still works
+            onMouseOver={(e) => hover(e)}
             onMouseLeave={(e) => time_out(e)}
             >
             <td className="period">Period</td>
