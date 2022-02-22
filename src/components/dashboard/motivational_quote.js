@@ -1,6 +1,6 @@
 import React from "react";
-import Vara from "../res/scripts/vara.js"
-import {Add_scroll_event} from "../res/scripts/scroll"
+import Vara from "../../res/scripts/vara.js"
+import {Add_scroll_event} from "../../res/scripts/scroll"
 
 let quote = {
     the_quote: "Me, We", //Default quote

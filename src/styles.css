@@ -55,6 +55,12 @@ blockquote {
     margin-block-end: 1rem;
 }
 
+.center_vertical { /*Centers elements vertically and horizontallt*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .tab_container {
     display: flex;
 }
