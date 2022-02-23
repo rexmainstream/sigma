@@ -1,28 +1,13 @@
-let table_main_rows
-
-//This subroutine assigns some variables when the webpage loads
-function web_page_loaded() {
-    table_main_rows = document.querySelectorAll('.main_line');
-
-    for (i = 0; i < table_main_rows.length; i++) {
-        table_main_rows[i].addEventListener('mouseover', function () { hover(event); });
-        table_main_rows[i].addEventListener('mouseout', function () { time_out(event); });
-    }
+//This JS file contains hover functionality. When a user hovers over a table row this module is run
+//Animations located in styles.css in public
+export function Hover(e) { //When user hovers over table row, it plays a small animation that highlights the row.
+    e.currentTarget.style.animation = `highlight 0.4s ease-out both`
+    e.currentTarget.nextElementSibling.style.animation = `highlight 0.4s ease-out both`;
+    console.log('hover function has run')
 }
 
-//This subroutine will outline hovered element
-function hover(event) {
-    event.currentTarget.style.backgroundColor = `rgb(209,231,246)`;
-    event.currentTarget.nextElementSibling.style.backgroundColor = `rgb(209,231,246)`;
-    console.log('hover.js has been run');
+export function Time_out(e) {//When user's mouse leaves the table rows the row refreshes.
+    console.log('time_out function has run')
+    e.currentTarget.style.animation = `remove_highlight 0.3s ease-out both`;
+    e.currentTarget.nextElementSibling.style.animation = `remove_highlight 0.3s ease-out both`;
 }
-
-// reset the color
-function time_out(event) {
-    event.currentTarget.style.backgroundColor = `white`;
-    event.currentTarget.nextElementSibling.style.backgroundColor = `white`;
-    console.log('time_out.js has been run')
-}
-
-
-window.addEventListener('DOMContentLoaded', function () { web_page_loaded(); })
