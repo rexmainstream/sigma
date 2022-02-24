@@ -6,12 +6,6 @@ html {
     overflow-x: hidden;
 }
 
-@media screen and (min-width: 999px) {
-    .vertical_link_list {
-        padding-inline-end: 4rem;
-    }
-}
-
 body {
     margin: 0rem 0rem 0rem 0rem;
     background-color: rgb(242,242,242);
@@ -25,12 +19,12 @@ header {
 
 footer {
     font-size: 1.2rem;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(124, 124, 124);
     color: white;
     display: block;
     line-height: 1.5;
     margin-block-start: 2rem;
-    padding: 2rem 0.5rem 2rem 0.5rem;
+    padding: 0.5rem 0.5rem 2rem 0.5rem;
 }
 
 main {
@@ -92,16 +86,27 @@ ul[class] {
     padding-inline-end: 2rem;
 }
 
-
-
-.vertical_link_list li {
-    font-size: 1.3rem;
-    padding-bottom: 1rem;
-    text-align: left;
+.end_user_agreements li {
+    border-inline-end: 1px solid white;
+    margin-inline-end: 1rem;
+    padding-inline-end: 1rem;
 }
 
-.vertical_link_list + li {
-    font-weight: bold;
+@media screen and (max-width: 999px) {
+    .end_user_agreements li {
+        font-size: 1rem;
+    }
+}
+
+.footer_copyright {
+    font-size: 1rem;
+    padding-inline-start: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.end_user_agreements :last-child {
+    border-inline-end: none;
 }
 
 .notes + b { /*Fix this later, doesn't work now*/
@@ -113,10 +118,6 @@ ul[class] {
     list-style-type: circle;
 }
 
-#footer_container {
-    display: flex;
-    align-items: center;
-}
 
 /* || LAYOUTS*/
 .flex {
@@ -146,11 +147,6 @@ ul[class] {
 
 #social_container {
     min-inline-size: 50%;
-}
-
-#company_name {
-    text-align: center;
-    display: block;
 }
 
 /* || UTILITES */

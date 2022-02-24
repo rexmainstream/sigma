@@ -31,7 +31,7 @@
 }
 
 #time_until_transition{
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 #quote_author {
@@ -46,14 +46,16 @@
 }
 
 
-#next_period {
+#next_period+p{
     font-size: 1.2rem;
-    font-weight: bold;
+    padding-block-end: 0;
 }
+
 /* || LAYOUTS*/
 .timetable {
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
+    padding-block-start: 3rem;
     padding-block-end: 3rem;
     min-block-size: 73vh;
     grid-column: 1/4;
@@ -98,7 +100,13 @@
     display: table;
     border-collapse: collapse;
     margin-block-start: 2rem;
-    inline-size: 70%;
+    inline-size: 55%;
+}
+
+@media screen and (max-width: 999px) { /*Table size adjusts for screen size*/
+    #daily_timetable {
+        inline-size: 70%;
+    }
 }
 
 tbody {
