@@ -19,7 +19,7 @@ header {
 
 footer {
     font-size: 1.2rem;
-    background-color: rgb(124, 124, 124);
+    background-color: black;
     color: white;
     display: block;
     line-height: 1.5;
@@ -49,23 +49,28 @@ blockquote {
     margin-block-end: 1rem;
 }
 
-.center_vertical { /*Centers elements vertically and horizontallt*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.tab_container {
-    display: flex;
-}
-
-.tab {
+.slide_button {
+    border: none !important;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 2.5rem);
+    color: black;
+    background-color: white;
+    border: revert;
+    text-decoration: none;
     display: inline;
-    padding-inline-end: 2rem;
-    text-align: left;
-    font-size: 1.5rem
+    font-size: 2.5rem;
+    padding: 0.4rem 1.4rem; 
 }
 
+.next {
+    right: 0.5%;
+}
+
+.previous {
+    left: 0.5%;
+}
 
 ul[class] {
   list-style-type: none;
@@ -98,13 +103,6 @@ ul[class] {
     }
 }
 
-.footer_copyright {
-    font-size: 1rem;
-    padding-inline-start: 1.5rem;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .end_user_agreements :last-child {
     border-inline-end: none;
 }
@@ -113,11 +111,6 @@ ul[class] {
     display: block;
     text-align: right;
 }
-
-.drop_down {
-    list-style-type: circle;
-}
-
 
 /* || LAYOUTS*/
 .flex {
@@ -137,12 +130,19 @@ ul[class] {
 
 .box {
     background-color: white;
+    border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
     /*
     transition-property: box-shadow, transform;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier(.16,1,.29,.99);
     */
+}
+
+.center_vertical { /*Centers elements vertically and horizontallt*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #social_container {
@@ -171,6 +171,25 @@ p a:visited { /*Probably not*/
     color: purple;
 }
 
+.tab {
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.3rem 0.3rem;
+    margin-inline-end: 0.8rem;
+}
+
+.current {
+    background-color: black;
+}
+
+.tab_container {
+    padding-block-end: 1rem;
+}
+
+.slide_button:hover {
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+}
 /* || SVG AND ANIMATIONS*/
 
 .line {
