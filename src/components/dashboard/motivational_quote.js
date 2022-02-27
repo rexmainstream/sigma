@@ -57,9 +57,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //Adds scroll events, change to loop later
     Add_scroll_event(document.querySelector('.quote'), function() {
-        document.querySelector(".quote").style.animation = `fade_in 0.3s ease-out both`; //plays animation
+        //plays animation
+        document.querySelector(".quote").style.animation = `fade_in 0.8s ease-out both`; 
         document.querySelector(".quote").style.visibility = "visible";
-        document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`; //Reveals the quote
+
+        //Reveals the quote
+        document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`; 
         Write_quote_author()
     }, false)
 })

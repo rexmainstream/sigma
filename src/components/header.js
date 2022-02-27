@@ -6,7 +6,12 @@ export default function Header() {
         <header className='navigation'>
             <div className='flex header'>
                 <a href=''>
-                    <img src={logo} className='logo' alt='logo for Sigma'></img>
+                    <img src={logo} 
+                        className='logo' 
+                        alt='logo for Sigma'
+                        title='Return home'
+                        aria-hidden='true'>
+                    </img>
                 </a>
                 <nav>
                     <ul className='link_list'>
