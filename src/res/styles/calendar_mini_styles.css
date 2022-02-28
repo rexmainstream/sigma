@@ -1,0 +1,153 @@
+.rolyart-calendar {
+  border: 1px solid #DDDDDD;
+  max-width: 430px;
+  background-color: white;
+  border-radius: 6px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.calendar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.calendar-header h3 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1  1 auto;
+          flex: 1  1 auto;
+  margin: 0;
+}
+
+.calendar-header .calendar-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar-header .calendar-control button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid #DDDDDD;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 18px;
+  border-radius: 3px;
+  color: rgb(29 98 149);
+}
+
+.calendar-header .calendar-control button.control-current-month {
+  margin: 0 8px;
+}
+
+.calendar-header .calendar-control button.control-current-month .current-month {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(29 98 149);
+  content: '';
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.week-days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding: 10px 0;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.week-days div {
+  width: calc(100% / 7);
+  text-align: center;
+}
+
+.calendar-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 16px 0;
+}
+
+.calendar-body .day {
+  width: calc(100% / 7);
+  text-align: center;
+  padding: 5px 0;
+  background-color: white;
+  cursor: pointer;
+}
+
+.calendar-body .day span {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.calendar-body .day.active {
+  color: rgb(29 98 149);
+  font-weight: bold;
+}
+
+.calendar-body .day.selected {
+  font-weight: bold;
+}
+
+.calendar-body .day.selected span {
+  background-color: rgb(29 98 149);
+  display: inline-block;
+  color: white;
+  border-radius: 50%;
+  -webkit-animation: pulse .4s ease;
+          animation: pulse .4s ease;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  85% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  85% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.calendar-body .day.not-current {
+  color: #999999;
+  background-color: rgb(242,242,242);
+}
+/*# sourceMappingURL=style.css.map */
