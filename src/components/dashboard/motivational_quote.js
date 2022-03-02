@@ -10,8 +10,8 @@ let quote = {
 // This function gets the quote
 function Get_quote () {
     //Gets the quote from database
-    quote['the_quote'] = "Defeat, my Defeat, my solitude and my aloofness. You are dearer to me than a thousand triumphs, And sweeter to my heart than all world-glory."
-    quote['quote_author'] = "Khalil Gibran"
+    quote['the_quote'] = "Evil is not capable of creating anything new, it can only distort and destroy what has been invented or made by the forces of good."
+    quote['quote_author'] = "J.R.R. Tolkien"
 
 
     //sets text content to the quote of the day

@@ -1,10 +1,14 @@
 import React from "react";
+import '../../res/styles/calendar_mini_styles.css'
+import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
+
+
 
 export default function Calendar_mini() {
     return (
         <div className="box calendar">
             <div className="flex">
-                <div id="mini_calendar">This is a static Calendar. This where a small calendar will be placed</div>
+                <div id="calendar"></div>
             </div>
             <div className="flex">
                 <div id="mini_events">
@@ -14,3 +18,13 @@ export default function Calendar_mini() {
         </div>
     );
 }
+
+document.addEventListener("DOMContentLoaded", function (){
+    let calendarConfig = {
+        container: 'calendar',
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    }
+    const calendar = new RolyartCalendar(calendarConfig);
+})
+
