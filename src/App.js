@@ -4,6 +4,7 @@ import Footer from './components/footer'
 import Dashboard from './components/dashboard';
 import Timetable from './components/timetable/timetable_dashboard';
 import logo from './res/images/Logo-Vector-Graphics.svg'
+
 import {
   BrowserRouter,
   Routes,
@@ -11,6 +12,8 @@ import {
   Link,
   Outlet
 } from "react-router-dom";
+
+
 import Timetable_mini from './components/dashboard/timetable_mini';
 import Calendar_mini from './components/dashboard/calendar_mini';
 

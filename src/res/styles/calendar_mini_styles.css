@@ -1,8 +1,7 @@
 .rolyart-calendar {
-  border: 1px solid #DDDDDD;
-  max-width: 430px;
   background-color: white;
-  border-radius: 6px;
+  padding-inline-start: 2rem;
+  padding-inline-end: 2rem;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
 }
@@ -14,15 +13,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 16px;
+  padding: 1rem 1.6rem;
   border-bottom: 1px solid #DDDDDD;
 }
 
-.calendar-header h3 {
+.calendar-header .month-year {
   -webkit-box-flex: 1;
       -ms-flex: 1  1 auto;
           flex: 1  1 auto;
   margin: 0;
+  text-align: center;
 }
 
 .calendar-header .calendar-control {
@@ -31,29 +31,15 @@
   display: flex;
 }
 
-.calendar-header .calendar-control button {
-  width: 34px;
-  height: 34px;
-  padding: 0;
-  cursor: pointer;
-  border: 1px solid #DDDDDD;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  font-size: 18px;
-  border-radius: 3px;
-  color: rgb(29 98 149);
-}
+
 
 .calendar-header .calendar-control button.control-current-month {
   margin: 0 8px;
 }
 
 .calendar-header .calendar-control button.control-current-month .current-month {
-  width: 12px;
-  height: 12px;
+  width: 1.2rem;
+  height: 1.2rem;
   background-color: rgb(29 98 149);
   content: '';
   display: inline-block;
@@ -66,7 +52,7 @@
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  padding: 10px 0;
+  padding: 1rem 0;
   border-bottom: 1px solid #DDDDDD;
 }
 
@@ -81,21 +67,21 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 16px 0;
+  margin: 1.6rem 0;
 }
 
 .calendar-body .day {
   width: calc(100% / 7);
   text-align: center;
-  padding: 5px 0;
+  padding: 1rem 0;
   background-color: white;
   cursor: pointer;
 }
 
 .calendar-body .day span {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 2.2rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
 }
 
 .calendar-body .day.active {

@@ -1,3 +1,4 @@
+//External library that draws the calendar. https://www.cssscript.com/es6-calendar-rolyart/
 export function RolyartCalendar(config){
     this.container = document.getElementById(config.container);
     this.container.classList.add('rolyart-calendar');
@@ -91,30 +92,35 @@ export function RolyartCalendar(config){
         let header = document.createElement('header');
         header.classList.add('calendar-header');
         let monthAndYear = document.createElement('h3');
-        let calendarControl = document.createElement('div');
         let prevMonth = document.createElement('button');
         let currentMonth =  document.createElement('button');
         let nextMonth = document.createElement('button');
 
         monthAndYear.classList.add('month-year');
-        calendarControl.classList.add('calendar-control');
+        monthAndYear.style.cursor = `pointer`;
+        monthAndYear.title = `Return to current month`;
         monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         
-        prevMonth.innerHTML = '←'
+        prevMonth.innerHTML = '&#8249;';
+        prevMonth.className = 'slide_button show';
+        prevMonth.ariaLabel = `previous month`;
+        prevMonth.title = `Previous Month`;
         prevMonth.addEventListener('click', ()=>{
             this.prevMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         })
 
-        nextMonth.innerHTML = '→'
+        nextMonth.innerHTML = '&#8250;'
+        nextMonth.className = `slide_button show`
+        nextMonth.ariaLabel = `next month`;
+        nextMonth.title = `Next Month`;
         nextMonth.addEventListener('click', ()=>{
             this.nextMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         })
 
 
-        currentMonth.innerHTML = '<i class="current-month"></i>'
-        currentMonth.addEventListener('click', ()=>{
+        monthAndYear.addEventListener('click', ()=>{
             this.currentYear = new Date().getFullYear();
             this.currentMonth = new Date().getMonth();
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
@@ -129,11 +135,9 @@ export function RolyartCalendar(config){
 
         currentMonth.classList.add('control-current-month');
         
-       calendarControl.appendChild(prevMonth)
-       calendarControl.appendChild(currentMonth)
-       calendarControl.appendChild(nextMonth);
+       header.appendChild(prevMonth)
        header.appendChild(monthAndYear)
-       header.appendChild(calendarControl);
+       header.appendChild(nextMonth);
   
         this.container.appendChild(header);
         this.container.appendChild(weekDays);

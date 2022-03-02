@@ -1,3 +1,4 @@
+//External library that Writes the quote
 const Vara = function (elem, fontSource, text, properties) {
   var _this = this;
   this.elementName = elem;

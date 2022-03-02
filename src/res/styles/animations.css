@@ -1,0 +1,111 @@
+/*Contains CSS animations which are going to be used*/
+/* || SVG AND ANIMATIONS*/
+.line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: move 0.8s linear;
+    animation-fill-mode: forwards;
+}
+
+.timetable, .calendar {
+    animation-name: fade-top;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+.quote, .focus {
+    opacity: 0;
+}
+
+#container {
+    min-height: 2rem;
+}
+
+/*This animation plays when user hovers over a row. Highlights the row basically */
+@keyframes highlight {
+    0% {
+        background-color: inherit;
+    }
+    
+    100% {
+        background-color: rgb(209,231,246);
+    }
+}
+/*Removes the highlight when user's mouse leaves element*/
+@keyframes reset_background {
+    0% {
+    }
+
+    100% {
+        background-color: unset;
+    }
+}
+
+@keyframes fade_out {
+    0% {
+
+    }
+    
+    100% {
+        opacity: 0;
+    }
+}
+
+/*This is the animation that draws the lines*/
+@keyframes move {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+/*This is the animation that plays when a box/card is loaded*/
+@keyframes fade-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    62.5% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*This is the animation that plays when the user scrolls down. Displays the quote of the day and the Current focus*/
+@keyframes fade_in {
+    0%{
+        opacity: 0;
+        background-color: inherit;
+        transform: translateY(40%);
+    }
+    10% {
+        opacity: 0;
+        background-color: inherit;
+        transform: translateY(40%);
+    }
+
+    100% {
+        background-color: rgb(209,231,246);
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+/*Fade in animation but for text*/
+@keyframes fade_in_text {
+    from {
+        opacity: 0;
+        transform: perspective(500px) translate(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+    }
+    
+    to {
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
+    }
+}

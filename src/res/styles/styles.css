@@ -33,6 +33,15 @@ main {
     padding-inline-end: 2rem;
 }
 
+h1 {
+
+}
+
+h2 {
+    margin-block-start: 0;
+    margin-block-end: 0.5rem;
+}
+
 p {
     margin-block-start: 0.5rem;
     margin-block-end: 0.5rem;
@@ -53,15 +62,19 @@ blockquote {
 .slide_button {
     border: none !important;
     border-radius: 50%;
-    position: absolute;
-    top: calc(50% - 2.5rem);
     color: black;
     background-color: white;
     border: revert;
     text-decoration: none;
     display: inline;
     font-size: 2.5rem;
-    padding: 0.4rem 1.4rem; 
+    padding: 0.4rem 1.4rem;
+    opacity: 0;
+}
+
+#timetable_container div .slide_button {
+    position: absolute;
+    top: calc(50% - 2.5rem);
 }
 
 .next {
@@ -73,8 +86,10 @@ blockquote {
 }
 
 ul[class] {
-  list-style-type: none;
+    padding-inline-start: none;
+    list-style-type: none;
 }
+
 
 .logo {
     max-inline-size: 4.5vh;
@@ -82,6 +97,11 @@ ul[class] {
     margin-block-start: 1rem;
     margin-block-end: 1rem;
     display: inline;
+}
+
+.drop_down_logo {
+    padding-inline-end: 1rem;
+    cursor: pointer;
 }
 
 .link_list li{
@@ -159,7 +179,8 @@ a[href] {
   text-decoration: none;
 }
 
-li a[href]:hover {
+li a[href]:hover
+{
   text-decoration: underline;
 }
 
@@ -174,9 +195,18 @@ p a:visited { /*Probably not*/
 .tab {
     border-radius: 50%;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid rgb(124, 124, 124);
     padding: 0.2rem 0.2rem;
     margin-inline-end: 0.8rem;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+button {
+    cursor: pointer;
 }
 
 .current {
@@ -184,125 +214,19 @@ p a:visited { /*Probably not*/
 }
 
 .tab_container {
-    padding-block-end: 1rem;
+    padding-block-end: 2rem;
+    padding-block-start: 3rem;
+    opacity: 0;
+}
+
+/*The tab container doesn't fade in and out (when hovered) if the device is mobile.
+This is because the 'hovering' isn't common on mobile */
+@media screen and (max-width: 999px) {
+    .tab_container {
+        opacity: 1 !important; 
+    }
 }
 
 .slide_button:hover {
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
-}
-/* || SVG AND ANIMATIONS*/
-
-.line {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: move 0.8s linear;
-    animation-fill-mode: forwards;
-}
-
-.timetable, .calendar {
-    animation-name: fade-top;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: both;
-}
-
-.quote, .focus {
-    visibility: hidden;
-}
-
-#container {
-    min-height: 2rem;
-}
-
-/*This animation plays when user hovers over a row. Highlights the row basically */
-@keyframes highlight {
-    0% {
-        background-color: inherit;
-    }
-    
-    100% {
-        background-color: rgb(209,231,246);
-    }
-}
-/*Removes the highlight when user's mouse leaves element*/
-@keyframes remove_highlight {
-    0% {
-    }
-
-    100% {
-        background-color: unset;
-    }
-}
-
-/*This is the animation that draws the lines*/
-@keyframes move {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        opacity: 1;
-    }
-}
-/*This is the animation that plays when a box/card is loaded*/
-@keyframes fade-top {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    62.5% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/*This is the animation that plays when the user scrolls down. Displays the quote of the day and the Current focus*/
-@keyframes fade_in {
-    0% {
-        opacity: 0;
-        background-color: inherit;
-    }
-
-    100% {
-        visibility: visible;
-        background-color: rgb(209,231,246);
-        opacity: 1;
-    }
-}
-
-/*Fade in animation but for text*/
-@keyframes fade_in_text {
-    from {
-        opacity: 0;
-        transform: perspective(500px) translate(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
-    }
-    
-    to {
-        opacity: 1;
-        transform: perspective(500px) translate3d(0, 0, 0);
-    }
-}
-
-/*Typing animation used for the quote*/
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-/*Blinking animation*/
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: black; }
-}
-
-@keyframes letter-animation {
-    0% {
-        stroke-dashoffset: 2600;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Vara from "../../res/scripts/vara.js"
 import {Add_scroll_event} from "../../res/scripts/scroll"
 
+
 let quote = {
     the_quote: "Me, We", //Default quote
     quote_author: "Muhammad Ali"
@@ -10,8 +11,8 @@ let quote = {
 // This function gets the quote
 function Get_quote () {
     //Gets the quote from database
-    quote['the_quote'] = "Evil is not capable of creating anything new, it can only distort and destroy what has been invented or made by the forces of good."
-    quote['quote_author'] = "J.R.R. Tolkien"
+    quote['the_quote'] = "To live is to suffer, to survive is to find meaning in suffering."
+    quote['quote_author'] = "Friedrich Nietzsche"
 
 
     //sets text content to the quote of the day
@@ -30,7 +31,7 @@ function Write_quote_author() {
     new Vara("#container", "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json", [{
         text: quote['quote_author'],
         y: text_size,
-        delay: 500,
+        delay: 1000,
         quote_duration: quote_duration
     }        
     ], {
@@ -58,11 +59,12 @@ document.addEventListener("DOMContentLoaded", function(){
     //Adds scroll events, change to loop later
     Add_scroll_event(document.querySelector('.quote'), function() {
         //plays animation
-        document.querySelector(".quote").style.animation = `fade_in 0.8s ease-out both`; 
+        document.querySelector(".quote").style.animation = `fade_in 0.5s ease-out both`; 
         document.querySelector(".quote").style.visibility = "visible";
 
         //Reveals the quote
-        document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`; 
+        document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`;   
+        
         Write_quote_author()
     }, false)
 })

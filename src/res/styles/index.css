@@ -1,4 +1,5 @@
  @import url(styles.css);
+ @import url(animations.css);
 
 /*Import default styling*/
 
@@ -42,11 +43,10 @@
 }
 
 .transition_time_container {
-    background: white;
     border-radius: 5px;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
     margin-block-end: 3rem;
+    background-color: white;
 }
 
 #quote_author {
@@ -73,6 +73,7 @@
     grid-row: 1;
     text-align: center;
 }
+
 .calendar {
     grid-column: 4/end;
     grid-row: 1;
@@ -89,6 +90,11 @@
     padding-block-start: 2rem;
     padding-block-end: 2rem;
 }
+
+.quote #container {
+    min-height: 6.32rem;
+}
+
 #quote_container svg {
     min-width: 100%;
 }
@@ -103,7 +109,6 @@
 #timetable_container {
     display: flex;
     flex-wrap: wrap;
-    padding-block-end: 3rem;
     inline-size: 90%;
     position: relative;
     left: 5%
@@ -118,6 +123,31 @@
     margin-block-start: 2rem;
     inline-size: 55%;
 }
+
+.timetable .box {
+    inline-size: 90%;
+    position: relative;
+    left: 5%;
+}
+
+#events_list {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+    font-size: 1.5rem;
+    padding: 0;    
+}
+
+#events_list li {
+    display: block;
+    list-style-position: inside;
+    min-block-size: 1.5rem;
+    padding-block-end: 0.3rem;
+}
+
+/*#events_list li :hover{
+    background-color: rgb(209, 231, 246);
+}*/
+
 /*Padding for table*/
 @media screen and (max-width: 999px) {
     /*Table size adjusts for screen size*/
@@ -134,6 +164,7 @@
 #mini_events {
     inline-size: 80%;
     border: 1px solid black;
+    margin-block-end: 1rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 main .grid_wrapper {
@@ -146,7 +177,9 @@ main .grid_wrapper {
 /* || SITEWIDE */
 /* || STOREPAGES */
 @media screen and (max-width: 999px) {
-    /* font-size and layout for mobile devices. Essentially this will increase font size for smaller res machines and also stack the boxes differently.*/
+    /* font-size and layout for mobile devices. 
+    Essentially this will increase font size 
+    for smaller res machines and also stack the boxes differently.*/
     html {
         font-size: 25px;
     }

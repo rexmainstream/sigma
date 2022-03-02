@@ -1,7 +1,9 @@
+//This contains the timetable framework that will display the tabs
 import React from "react";
-import Main_line from "./main_lines";
-import  Secondary_line from "./secondary_lines"
 import Transition_time from "./transition_time"
+import Today_timetable from "./timetable_today"; //Daily timetable, todays periods
+import Weekly_timetable from "./timetable_week"; //Weekly timetable
+import { Hover_buttons, Time_out_button, Show_element, Fade_out_element} from "../../res/scripts/hover";
 import { Add_tabs } from "../../res/scripts/tabs";
 
 export default function Timetable_mini() {
@@ -10,7 +12,9 @@ export default function Timetable_mini() {
             <Transition_time />
             <div className="box">            
                 <div id="timetable_container">
-                    <div>
+                    <div 
+                        onMouseEnter={(e) => Hover_buttons(e)}
+                        onMouseLeave={(e) => Time_out_button(e)}>
                         <button 
                             className="slide_button previous"
                             aria-label="Previous"
@@ -19,21 +23,10 @@ export default function Timetable_mini() {
                             &#8249;
                         </button>
                     </div>               
-                    <table id="daily_timetable" cellPadding={0} cellSpacing={0}>
-                        <tbody>
-                            <Main_line />
-                            <Secondary_line />
-                            <Main_line />
-                            <Secondary_line />
-                            <Main_line />
-                            <Secondary_line />
-                            <Main_line />
-                            <Secondary_line />
-                            <Main_line />
-                            <Secondary_line />
-                        </tbody>
-                    </table>
-                    <div>
+                    <Today_timetable />
+                    <div 
+                        onMouseEnter={(e) => Hover_buttons(e)}
+                        onMouseLeave={(e) => Time_out_button(e)}>
                             <button 
                                 className="slide_button next"
                                 aria-label="next"
@@ -46,7 +39,9 @@ export default function Timetable_mini() {
                 <div 
                     className="tab_container center_vertical"
                     role={'tablist'}
-                    aria-hidden="false">
+                    aria-hidden="false"
+                    onMouseEnter={(e) => Show_element(e)}
+                    onMouseLeave={(e) => Fade_out_element(e)}>                 
                 </div>                 
             </div>
         </div>
