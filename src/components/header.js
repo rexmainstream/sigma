@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../res/images/Logo-Vector-Graphics.svg'
-
+import { NavLink } from 'react-router-dom';
 export default function Header() {
     return (
         <header className='navigation'>
@@ -16,7 +16,7 @@ export default function Header() {
                 <nav>
                     <ul className='link_list'>
                         <li className="drop_down">
-                            <a href=''>Services</a>
+                            <a href='' to="/icecream">Services</a>
                         </li>
                         <li>
                             <a href=''>Settings</a>
