@@ -1,6 +1,7 @@
 import React from "react";
 import '../../res/styles/calendar_mini_styles.css'
 import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
+import Events_list_item from "./event_list_item";
 
 
 
@@ -12,19 +13,23 @@ export default function Calendar_mini() {
             </div>
             <div className="center_vertical">
                 <div id="mini_events">
-                    <h2>Events Today</h2>
                     <ul id="events_list">
-                        <li><a href="">Event 1</a></li>
-                        <li><a href="">Event 2</a></li>
-                        <li><a href="">Event 3</a></li>
-                        <li><a href=""></a></li>
-                        <li><a href=""></a></li>
+                        <Events_list_item />
+                        <Events_list_item />
+                        <Events_list_item />
+                        <Events_list_item />
+                        <Events_list_item />
+                        <Events_list_item />
                     </ul>
+                    <div className="center_vertical">
+                        <button className="clickable_button">View all events</button>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
+
 
 document.addEventListener("DOMContentLoaded", function (){
     let calendarConfig = {
@@ -33,5 +38,9 @@ document.addEventListener("DOMContentLoaded", function (){
         weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     }
     const calendar = new RolyartCalendar(calendarConfig);
+    
+
+    //Testing overflow effect
+    document.querySelector('#events_list').querySelector('a').textContent = `Overflow Test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`;
 })
 

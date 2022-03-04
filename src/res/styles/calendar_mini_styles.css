@@ -22,7 +22,8 @@
       -ms-flex: 1  1 auto;
           flex: 1  1 auto;
   margin: 0;
-  text-align: center;
+  margin: 0 1rem 0 1rem;
+  top: 0.25rem;
 }
 
 .calendar-header .calendar-control {
@@ -52,7 +53,7 @@
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid #DDDDDD;
 }
 
@@ -67,7 +68,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 1.6rem 0;
+  margin: 1rem 0;
 }
 
 .calendar-body .day {
@@ -79,9 +80,9 @@
 }
 
 .calendar-body .day span {
-  width: 2.2rem;
-  height: 2.2rem;
-  line-height: 2.2rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
 }
 
 .calendar-body .day.active {

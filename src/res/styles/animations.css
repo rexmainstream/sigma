@@ -14,7 +14,7 @@
     animation-fill-mode: both;
 }
 
-.quote, .focus {
+.quote .box, .focus, .quote h1{
     opacity: 0;
 }
 
@@ -29,7 +29,7 @@
     }
     
     100% {
-        background-color: rgb(209,231,246);
+        background-color: rgba(209,231,246, 0.2);
     }
 }
 /*Removes the highlight when user's mouse leaves element*/
@@ -38,7 +38,7 @@
     }
 
     100% {
-        background-color: unset;
+        background-color: white;
     }
 }
 
@@ -91,7 +91,6 @@
     }
 
     100% {
-        background-color: rgb(209,231,246);
         transform: translateY(0%);
         opacity: 1;
     }
@@ -109,3 +108,4 @@
         transform: perspective(500px) translate3d(0, 0, 0);
     }
 }
+

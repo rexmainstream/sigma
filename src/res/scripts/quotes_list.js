@@ -1,0 +1,143 @@
+//This js file contains the quotes
+
+let quotes_list = [];
+
+function quote(quote_input, author) {
+    this.the_quote = quote_input;
+    this.quote_author = author;
+}
+
+export function Quote_list_initialisation() {
+    //Quote database
+    quotes_list = [
+        new quote('To belittle you have to be little','Khalil Gibran'),
+        new quote('The battleline between good and evil runs through the heart of every man.','Aleksandr Solzhenitsyn'),
+        new quote('Defeat, my Defeat, my solitude and my aloofness. You are dearer to me than a thousand triumphs, and sweeter to my heart than all world-glory.','Khalil Gibran'),
+        new quote('Trust in dreams, for in them is hidden the gate to eternity.','Khalil Gibran'),
+        new quote("Yesterday is but today's memory, and tomorrow is today's dream.",'Khalil Gibran'),
+        new quote('Your pain is the breaking of the shell that encloses your understanding.','Khalil Gibran'),
+        new quote('The fault, dear Brutus, is not in our stars, but in ourselves.','William Shakespeare'),
+        new quote('We know what we are, but not what we may be.','William Shakespeare'),
+        new quote('Some are born great, others achieve greatness.','William Shakespeare'),
+        new quote("Those who have a 'why' to live, can bear with almost any 'how'.",'Viktor Frankl'),
+        new quote('The fool doth think he is wise, but the wise man knows himself to be a fool','William Shakespeare'),
+        new quote('What the superior man seeks is in himself; what the small man seeks is in others.','Confucius'),
+        new quote('Our greatest glory is not in never falling, but in rising every time we fall.','Confucius'),
+        new quote('It does not matter how slowly you go so long as you do not stop.','Confucius'),
+        new quote('The secret of life, though, is to fall seven times and to get up eight times.','Paulo Coelho'),
+        new quote('Veni Vidi Vici','Julius Caesar'),
+        new quote('The beginnings of all things are small.','Roman proverb'),
+        new quote('There is only one thing that makes a dream impossible to achieve: the fear of failure.','Paulo Coelho'),
+        new quote('Deep into that darkness peering, long I stood there, wondering, fearing, doubting, dreaming dreams no mortal ever dared to dream before.','Edgar Allan Poe'),
+        new quote('To live is to suffer, to survive is to find some meaning in the suffering.','Friedrich Nietzsche'),
+        new quote('Hope in reality is the worst of all evils because it prolongs the torments of man.','Friedrich Nietzsche'),
+        new quote('Nothing great in the world was accomplished without passion.','Georg Wilhelm Friedrich Hegel'),
+        new quote('We learn from history that we do not learn from history.','Georg Wilhelm Friedrich Hegel'),
+        new quote('Genuine tragedies in the world are not conflicts between right and wrong. They are conflicts between two rights','Georg Wilhelm Friedrich Hegel'),
+        new quote('Truth is found neither in the thesis nor the antithesis, but in an emergent synthesis which reconciles the two.','Georg Wilhelm Friedrich Hegel'),
+        new quote('The valor that struggles is better than the weakness that endures.','Georg Wilhelm Friedrich Hegel'),
+        new quote('That which does not kill us makes us stronger.','Friedrich Nietzsche'),
+        new quote('There are no beautiful surfaces without a terrible depth.','Friedrich Nietzsche'),
+        new quote('Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened.','Jesus Christ'),
+        new quote('Blessed are the merciful for they will be shown mercy.','Jesus Christ'),
+        new quote('Talent hits a target no one else can hit. Genius hits a target no one else can see.','Arthur Schopenhauer'),
+        new quote('Mostly it is loss which teaches us about the worth of things.','Arthur Schopenhauer'),
+        new quote('A man can be himself only so long as he is alone; and if he does not love solitude, he will not love freedom; for it is only when he is alone that he is really free.','Arthur Schopenhauer'),
+        new quote('One should use common words to say uncommon things','Arthur Schopenhauer'),
+        new quote('Great men are like eagles, and build their nest on some lofty solitude.','Arthur Schopenhauer'),
+        new quote('Hope is the confusion of the desire for a thing with its probability.','Arthur Schopenhauer'),
+        new quote('The safest way of not being very miserable is not to expect to be very happy.','Arthur Schopenhauer'),
+        new quote('Change alone is eternal, perpetual, immortal.','Arthur Schopenhauer'),
+        new quote('We seldom think of what we have, but always of what we lack.','Arthur Schopenhauer'),
+        new quote('Life can only be understood backwards; but it must be lived forwards.','Soren Kierkegaard'),
+        new quote('People demand freedom of speech as a compensation for the freedom of thought which they seldom use.','Soren Kierkegaard'),
+        new quote('Life is not a problem to be solved, but a reality to be experienced.','Soren Kierkegaard'),
+        new quote('Marry, and you will regret it; do not marry, you will also regret it; marry or don’t marry, you will regret it either way.','Soren Kierkegaard'),
+        new quote('Face the facts of being what you are, for that is what changes what you are.','Soren Kierkegaard'),
+        new quote("To go wrong in one's own way is better than to go right in someone else's.",'Fyodor Dostoevsky'),
+        new quote('It takes something more than intelligence to act intelligently.','Fyodor Dostoevsky'),
+        new quote('Nothing in this world is harder than speaking the truth, nothing easier than flattery.','Fyodor Dostoevsky'),
+        new quote('You can be sincere and still be stupid.','Fyodor Dostoevsky'),
+        new quote('Attitude is a choice. Happiness is a choice. Optimism is a choice. Kindness is a choice. Giving is a choice. Respect is a choice. Whatever choice you make makes you. Choose wisely.','Roy T. Bennett'),
+        new quote("Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.",'Roy T. Bennett'),
+        new quote('Instead of worrying about what you cannot control, shift your energy to what you can create.','Roy T. Bennett'),
+        new quote('If you want to fly, you have to give up what weighs you down.','Roy T. Bennett'),
+        new quote('Becoming a great leader does not mean being perfect. it means living with your imperfections.','Lolly Daskal'),
+        new quote('To improve is to change, so to be perfect is to change often.','Winston Churchill'),
+        new quote('The price of greatness is responsibility.','Winston Churchill'),
+        new quote('You have enemies? Good. That means you’ve stood up for something in your life.','Winston Churchill'),
+        new quote('Success is the ability to go from one failure to another with no loss of enthusiasm.','Winston Churchill'),
+        new quote('I like things to happen, and if they don’t happen I like to make them happen.','Winston Churchill'),
+        new quote('What is adequacy? Adequacy is no standard at all.','Winston Churchill'),
+        new quote('Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.','Martin Luther King jr.'),
+        new quote('Our lives begin to end the day we become silent about things that matter.','Martin Luther King jr.'),
+        new quote('I did not have sexual relations with that woman','Bill Clinton'),
+        new quote('The best books... are those that tell you what you know already.','George Orwell'),
+        new quote('Who controls the past controls the future. Who controls the present controls the past.','George Orwell'),
+        new quote('Is it better for a man to have chosen evil than to have good imposed upon him?','Anthony Burgess'),
+        new quote('One day, in retrospect, the years of struggle will strike you as the most beautiful.','Sigmund Freud'),
+        new quote('Most people do not really want freedom, because freedom involves responsibility, and most people are frightened of responsibility.','Sigmund Freud'),
+        new quote('Everything that irritates us about others can lead us to an understanding of ourselves.','Carl Gustav Jung'),
+        new quote("You are what you do, not what you say you'll do.",'Carl Gustav Jung'),
+        new quote('The privilege of a lifetime is to become who you truly are.','Carl Gustav Jung'),
+        new quote("There's no coming to consciousness without pain.",'Carl Gustav Jung'),
+        new quote('Mistakes are, after all, the foundations of truth, and if a man does not know what a thing is, it is at least an increase in knowledge if he knows what it is not. ','Carl Gustav Jung'),
+        new quote('Thinking is difficult, that’s why most people judge.','Carl Gustav Jung'),
+        new quote('We cannot change anything unless we accept it.','Carl Gustav Jung'),
+        new quote('The first half of life is devoted to forming a healthy ego, the second half is going inward and letting go of it.','Carl Gustav Jung'),
+        new quote('Wholeness is not achieved by cutting off a portion of one’s being, but by integration of the contraries.','Carl Gustav Jung'),
+        new quote('Who looks outside, dreams; who looks inside, awakes.','Carl Gustav Jung'),
+        new quote("Trees are poems the earth writes upon the sky, We fell them down and turn them into paper, so that we may record our emptiness.","Khalil Gibran"),
+        new quote("Out of suffering have emerged the strongest souls; the most massive characters are seared with scars.","Khalil Gibran"),
+        new quote("Tenderness and kindness are not signs of weakness and despair, but manifestations of strength and resolution.","Khalil Gibran"),
+        new quote("Some of you say, “Joy is greater than sorrow,” and others say, “Nay, sorrow is the greater.” But I say unto you, they are inseparable. Together they come, and when one sits alone with you at your board, remember that the other is asleep upon your bed.","Khalil Gibran"),
+        new quote("Generosity is giving more than you can, and pride is taking less than you need.","Khalil Gibran"),
+        new quote("The smallest act of kindness is worth more than the greatest intention.","Khalil Gibran"),
+        new quote("Solitude has soft, silky hands, but with strong fingers it grasps the heart and makes it ache with sorrow.","Khalil Gibran"),
+        new quote("An eye for an eye, and the whole world would be blind.","Khalil Gibran"),
+        new quote("The deeper that sorrow carves into your being, the more joy you can contain.","Khalil Gibran"),
+        new quote("Desire is half of life; indifference is half of death.","Khalil Gibran"),
+        new quote("Under the White Cliff’s battlemented crown, Hushed to a depth of more than Sabbath peace.","William Wordsworth"),
+        new quote("It is not the mountain we conquer but ourselves.","Sir Edmund Hillary"),
+        new quote("If there are no dogs in Heaven, then when I die I want to go where they went.","Will Rogers"),
+        new quote("When you find yourself in a hole, quit digging.","Will Rogers"),
+        new quote("Money, if it does not bring you happiness, will at least help you be miserable in comfort.","Helen Gurley Brown"),
+        new quote("Wealth consists not in having great possessions, but in having few wants.","Epictetus"),
+        new quote("Create with the heart; build with the mind.","Criss Jami"),
+        new quote("The purpose of education is to replace an empty mind with an open one.","Malcolm Forbes"),
+        new quote("All that glisters is not gold; often have you heard that told.","William Shakespeare"),
+        new quote("I don't like to commit myself about Heaven and Hell, you see, I have friends in both places.","Mark Twain"),
+        new quote("It is nationalism which engenders nations, and not the other way round.","Ernest Gellner"),
+        new quote("Never was anything great achieved without danger.","Niccolo Machiavelli"),
+        new quote("He who wishes to be obeyed must know how to command","Niccolo Machiavelli"),
+        new quote("Few men are born brave, many become so through training and force of discipline.","Vegetius"),
+        new quote("All men make mistakes, but a good man yields when he knows his course is wrong, and repairs the evil. The only crime is pride.","Sophocles"),
+        new quote("Fortune is not on the side of the faint-hearted.","Sophocles"),
+        new quote("A man, though wise, should never be ashamed of learning more, and must unbend his mind.","Sophocles"),
+        new quote("Fear? What has a man to do with fear? Chance rules our lives, and the future is all unknown. Best live as we may, from day to day.","Sophocles"),
+        new quote("Wisdom outweighs any wealth.","Sophocles"),
+        new quote("Knowing yourself is the beginning of all wisdom.","Aristotle"),
+        new quote("It is the mark of an educated mind to be able to entertain a thought without accepting it.","Aristotle"),
+        new quote("Educating the mind without educating the heart is no education at all.","Aristotle"),
+        new quote("No great mind has ever existed without a touch of madness.","Aristotle"),
+        new quote("A friend to all is a friend to none.","Aristotle"),     
+        new quote("Patience is bitter, but its fruit is sweet.","Aristotle"),
+        new quote("He who has overcome his fears will truly be free.","Aristotle"),
+        new quote("The more you know, the more you know you don't know.","Aristotle"),
+        new quote("It is during our darkest moments that we must focus to see the light.","Aristotle"),
+        new quote("Through discipline comes freedom.","Aristotle")
+        //new quote("",""),
+        
+    ]       
+   
+}
+
+
+//returns quote_list to motivational_quote
+export function Return_quote_list(index) {
+    return quotes_list[index];
+}
+
+export function Return_quote_list_length() {
+    return quotes_list.length;
+}

@@ -11,7 +11,7 @@ export default function Footer() {
                         <li><a href="">Contact us</a></li>
                         <li><a href="">License Agreement</a></li>
                         <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Github</a></li>
+                        <li><a href="https://github.com/rexmainstream/sigma" target="_blank" rel="noopener noreferrer">Github</a></li>
                     </ul>
                 </div>
             </div>

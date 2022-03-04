@@ -1,182 +1,183 @@
-            @import url(styles.css);
-            /*Import default styling*/
-            /*This is the stylesheet for the index. Includes specific styles not included in the base stylesheet*/
-            /* || GENERAL STYLES*/
+@import url(styles.css);
+/*Import default styling*/
+/*This is the stylesheet for the index. Includes specific styles not included in the base stylesheet*/
+/* || GENERAL STYLES*/
+
+.main_line {
+    font-size: 2.3rem;
+    inline-size: 100%;
+}
+
+.secondary_line {
+    font-size: 1.2rem;
+    text-align: left;
+    color: rgb(127, 127, 127);
+    inline-size: 100%;
+}
+
+.period,
+.teacher {
+    text-align: left;
+    min-inline-size: 80%;
+}
+
+.room {
+    text-align: right;
+    min-inline-size: 20%;
+    min-inline-size: 3rem;
+    /*3rem because all rooms are 3 digits*/
+}
+
+.teacher {
+    font-size: 0.9rem;
+}
+
+#time_until_transition {
+    font-size: 4.5rem;
+}
+
+.transition_time_container {
+    background: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+    margin-block-end: 3rem;
+}
+
+#quote_author {
+    text-align: center;
+    font-size: 2rem;
+    margin-block-start: 0;
+    font-style: italic;
+}
+
+.drop_down {
+    list-style-type: circle;
+}
+
+#next_period {}
+
+#next_period+p {
+    font-size: 1.2rem;
+    padding-block-end: 0;
+}
+
+/* || LAYOUTS*/
+
+.timetable {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    padding-block-start: 1rem;
+    grid-column: 1/4;
+    grid-row: 1;
+    text-align: center;
+}
+
+.calendar {
+    grid-column: 4/end;
+    grid-row: 1;
+}
+
+.quote {
+    grid-row: 2;
+    grid-column: 1/end;
+    background-color: rgb(209, 231, 246);
+    box-shadow: none;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
+    padding-block-start: 2rem;
+    padding-block-end: 2rem;
+}
+
+#quote_container svg {
+    min-width: 100%;
+}
+
+.focus {
+    grid-row: 3;
+    grid-column: 1/3;
+}
+
+.notes {
+    grid-row: 3;
+    grid-column: 3/end;
+}
+
+#timetable_container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-block-end: 3rem;
+    inline-size: 90%;
+    position: relative;
+    left: 5%
+}
+
+#timetable_container div {
+    flex-grow: 1;
+}
+
+#daily_timetable {
+    table-layout: fixed;
+    display: table;
+    border-collapse: collapse;
+    margin-block-start: 2rem;
+    inline-size: 55%;
+}
+/*Padding for table*/
+
+@media screen and (max-width: 999px) {
+    /*Table size adjusts for screen size*/
+    #daily_timetable {
+        inline-size: 70%;
+    }
+}
+
+#mini_calendar {
+    inline-size: 80%;
+    border: 1px solid black;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin-block-start: 2rem;
+}
+
+#mini_events {
+    inline-size: 80%;
+    border: 1px solid black;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+main .grid_wrapper {
+    grid-gap: 4rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    /*1st row timetable and calendar, 2nd row for quote of the day, 3rd row for functions*/
+}
+/* || UTILITES */
+/* || SITEWIDE */
+/* || STOREPAGES */
             
-            .main_line {
-                font-size: 2.3rem;
-                inline-size: 100%;
-            }
-            
-            .secondary_line {
-                font-size: 1.2rem;
-                text-align: left;
-                color: rgb(127, 127, 127);
-                inline-size: 100%;
-            }
-            
-            .period,
-            .teacher {
-                text-align: left;
-                min-inline-size: 80%;
-            }
-            
-            .room {
-                text-align: right;
-                min-inline-size: 20%;
-                min-inline-size: 3rem;
-                /*3rem because all rooms are 3 digits*/
-            }
-            
-            .teacher {
-                font-size: 0.9rem;
-            }
-            
-            #time_until_transition {
-                font-size: 4.5rem;
-            }
-            
-            .transition_time_container {
-                background: white;
-                border-radius: 5px;
-                padding: 0.5rem 1rem 0.5rem 1rem;
-                box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
-                margin-block-end: 3rem;
-            }
-            
-            #quote_author {
-                text-align: center;
-                font-size: 2rem;
-                margin-block-start: 0;
-                font-style: italic;
-            }
-            
-            .drop_down {
-                list-style-type: circle;
-            }
-            
-            #next_period {}
-            
-            #next_period+p {
-                font-size: 1.2rem;
-                padding-block-end: 0;
-            }
-            /* || LAYOUTS*/
-            
-            .timetable {
-                padding-inline-start: 1rem;
-                padding-inline-end: 1rem;
-                padding-block-start: 1rem;
-                grid-column: 1/4;
-                grid-row: 1;
-                text-align: center;
-            }
-            
-            .calendar {
-                grid-column: 4/end;
-                grid-row: 1;
-            }
-            
-            .quote {
-                grid-row: 2;
-                grid-column: 1/end;
-                background-color: rgb(209, 231, 246);
-                box-shadow: none;
-                font-size: 1.5rem;
-                text-align: center;
-                padding-inline-start: 2rem;
-                padding-inline-end: 2rem;
-                padding-block-start: 2rem;
-                padding-block-end: 2rem;
-            }
-            
-            #quote_container svg {
-                min-width: 100%;
-            }
-            
-            .focus {
-                grid-row: 3;
-                grid-column: 1/3;
-            }
-            
-            .notes {
-                grid-row: 3;
-                grid-column: 3/end;
-            }
-            
-            #timetable_container {
-                display: flex;
-                flex-wrap: wrap;
-                padding-block-end: 3rem;
-                inline-size: 90%;
-                position: relative;
-                left: 5%
-            }
-            
-            #timetable_container div {
-                flex-grow: 1;
-            }
-            
-            #daily_timetable {
-                table-layout: fixed;
-                display: table;
-                border-collapse: collapse;
-                margin-block-start: 2rem;
-                inline-size: 55%;
-            }
-            /*Padding for table*/
-            
-            @media screen and (max-width: 999px) {
-                /*Table size adjusts for screen size*/
-                #daily_timetable {
-                    inline-size: 70%;
-                }
-            }
-            
-            #mini_calendar {
-                inline-size: 80%;
-                border: 1px solid black;
-                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-                margin-block-start: 2rem;
-            }
-            
-            #mini_events {
-                inline-size: 80%;
-                border: 1px solid black;
-                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-            }
-            
-            main .grid_wrapper {
-                grid-gap: 4rem;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                grid-template-rows: auto auto auto;
-                /*1st row timetable and calendar, 2nd row for quote of the day, 3rd row for functions*/
-            }
-            /* || UTILITES */
-            /* || SITEWIDE */
-            /* || STOREPAGES */
-            
-            @media screen and (max-width: 999px) {
-                /* font-size and layout for mobile devices. Essentially this will increase font size for smaller res machines and also stack the boxes differently.*/
-                html {
-                    font-size: 25px;
-                }
-                .box {}
-                .timetable {
-                    grid-column: 1/end;
-                }
-                .calendar {
-                    grid-row: 2;
-                }
-                .quote {
-                    grid-row: 3;
-                }
-                .focus {
-                    grid-row: 4;
-                    grid-column: 1/end;
-                }
-                .notes {
-                    grid-row: 5;
-                    grid-column: 1/end;
-                }
-            }
+@media screen and (max-width: 999px) {
+    /* font-size and layout for mobile devices. Essentially this will increase font size for smaller res machines and also stack the boxes differently.*/
+    html {
+        font-size: 25px;
+    }
+    .box {}
+    .timetable {
+        grid-column: 1/end;
+    }
+    .calendar {
+        grid-row: 2;
+    }
+    .quote {
+        grid-row: 3;
+    }
+    .focus {
+        grid-row: 4;
+        grid-column: 1/end;
+    }
+    .notes {
+        grid-row: 5;
+        grid-column: 1/end;
+    }
+}

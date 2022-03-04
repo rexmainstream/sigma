@@ -1,35 +1,38 @@
 import React from "react";
 import Vara from "../../res/scripts/vara.js"
 import {Add_scroll_event} from "../../res/scripts/scroll"
+import {Return_quote_list, Return_quote_list_length} from "../../res/scripts/quotes_list"
+import {Quote_list_initialisation} from "../../res/scripts/quotes_list"
 
 
-let quote = {
-    the_quote: "Me, We", //Default quote
-    quote_author: "Muhammad Ali"
+//generates random number for the quote
+function random_number_generator(min, max) {
+    return Math.round(Math.random() *(max - min) + min);
 }
+
 
 // This function gets the quote
 function Get_quote () {
-    //Gets the quote from database
-    quote['the_quote'] = "To live is to suffer, to survive is to find meaning in suffering."
-    quote['quote_author'] = "Friedrich Nietzsche"
-
-
-    //sets text content to the quote of the day
-    document.querySelector('#quote_of_the_day').textContent = quote['the_quote'];
+    let today_quote = Return_quote_list(random_number_generator(0,Return_quote_list_length() - 1));
     console.log("get_quote function has been run")
+    console.log(today_quote.quote_author)
+
+    
+    //sets text content to the quote of the day
+    document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
+    Write_quote_author(today_quote)
 }
 
 //this function writes the quote
 //Too slow maybe just animate the quote author
-function Write_quote_author() {
+function Write_quote_author(today_quote) {
     let text_size = 25;
-    let quote_duration = quote['quote_author'].length * 250
+    let quote_duration = today_quote.quote_author.length * 250
     if (window.screen.width < 1000) {
         text_size = 50;
     }
     new Vara("#container", "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json", [{
-        text: quote['quote_author'],
+        text: today_quote['quote_author'],
         y: text_size,
         delay: 1000,
         quote_duration: quote_duration
@@ -42,32 +45,54 @@ function Write_quote_author() {
     )
     console.log("Write quote has been executed")
 }
+
+function play_slide_in_animation() {
+    let quote_box = (document.querySelector('.quote')).querySelector('.box');
+    //Removes previous animation
+    quote_box.style.animation = `none`;
+    quote_box.style.animation = null; 
+    //plays animation
+    quote_box.style.animation = `fade_in 0.5s ease-out both`; 
+
+    //Reveals the quote
+    document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`;  
+}
+
 export default function Motivational_quote() {
     return (
-        <div className="box quote">
-            <p><b>Quote of the Day</b></p>
-            <blockquote id="quote_of_the_day"></blockquote>
-            <div id="container"></div>
+        <div className="quote">
+            <h1>Quote Generator</h1>   
+            <div className="box">                  
+                <blockquote id="quote_of_the_day"></blockquote>
+                <div id="container"></div>
+                <button className="clickable_button"
+                    onClick={function() {
+                        let old_quote = document.querySelector('#container').querySelector('svg');
+
+                        play_slide_in_animation();
+                        old_quote.remove();
+                        Get_quote();
+                    }}
+                    title="Click to generate a new quote">
+                    Generate New Quote</button>
+            </div>
         </div>
     );
 }
 
-//Document load
-document.addEventListener("DOMContentLoaded", function(){
-    Get_quote(); //Gets the quote
+//Document initialisation put in initialisation module
+document.addEventListener("DOMContentLoaded", function() {
+    Quote_list_initialisation();
+    console.log('Quote_list_ini has run');
 
+
+    const quote = document.querySelector('.quote');
+    const heading = quote.querySelector('h1');
     //Adds scroll events, change to loop later
-    Add_scroll_event(document.querySelector('.quote'), function() {
-        //plays animation
-        document.querySelector(".quote").style.animation = `fade_in 0.5s ease-out both`; 
-        document.querySelector(".quote").style.visibility = "visible";
-
-        //Reveals the quote
-        document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`;   
-        
-        Write_quote_author()
-    }, false)
+    Add_scroll_event(quote.querySelector('.box'), function() {Get_quote(); play_slide_in_animation()}, false);
+    Add_scroll_event(heading, function() {heading.style.animation = `fade_in_text 0.5s ease-out both`;}, false)
 })
+
 
 
  

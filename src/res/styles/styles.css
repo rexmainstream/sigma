@@ -52,6 +52,45 @@ b {
     font-weight: bolder;
 }
 
+.clickable_button {
+    position: relative;
+    color: rgb(29, 98, 149);
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    background-color: inherit;
+    border: 0;
+    padding: 0.5rem;
+    margin-block-start: 1rem;
+    min-inline-size: 10rem;
+    z-index: 1;
+    transition:         0.08s ease-in;
+    -o-transition:      0.08s ease-in;
+    -ms-transition:     0.08s ease-in;
+    -moz-transition:    0.08s ease-in;
+    -webkit-transition: 0.08s ease-in;
+}
+
+.clickable_button:hover {
+    color: white;
+}
+
+.clickable_button:before {
+    content: "";
+    position: absolute;
+    background: rgb(29, 98, 149);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    -webkit-transition: top 0.09s ease-in;
+}
+
+.clickable_button:hover:before {
+    top: 0;
+  }
+
 blockquote {
     font-size: 25px;
     line-height: 1.5;
@@ -86,7 +125,7 @@ blockquote {
 }
 
 ul[class] {
-    padding-inline-start: none;
+    padding-inline-start: 2rem;
     list-style-type: none;
 }
 
@@ -132,6 +171,10 @@ ul[class] {
     text-align: right;
 }
 
+.footer_copyright {
+    font-size: 10px;
+}
+
 /* || LAYOUTS*/
 .flex {
     display: flex;
@@ -159,14 +202,11 @@ ul[class] {
     */
 }
 
+
 .center_vertical { /*Centers elements vertically and horizontallt*/
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#social_container {
-    min-inline-size: 50%;
 }
 
 /* || UTILITES */
@@ -217,6 +257,29 @@ button {
     padding-block-end: 2rem;
     padding-block-start: 3rem;
     opacity: 0;
+}
+
+.root_checkmark {
+    border-radius: 50%;
+    margin-inline-end: 1rem;
+    min-inline-size: 2rem;
+    block-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    border: 0.1rem solid rgb(124, 124, 124);
+  }
+
+.checkmark {
+    display: inline-block;
+    position: relative;
+    left: 32%;
+    bottom: 10%;
+    height: 0.9rem;
+    width: 0.5rem;
+    transform: rotate(45deg);
+    border-bottom: 0.22rem solid transparent;
+    border-right: 0.22rem solid transparent;
+    border-radius: 0.1rem;
 }
 
 /*The tab container doesn't fade in and out (when hovered) if the device is mobile.

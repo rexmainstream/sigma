@@ -7,10 +7,9 @@ export default function Main_line() {
     return (        
         <tr className="main_line"
             onMouseOver={(e) => Hover_table(e)}
-            onMouseLeave={(e) => Time_out(e)}
-            >
-            <td className="period">Period</td>
-            <td className="room">69</td>                                  
+            onMouseLeave={(e) => Time_out(e)}>    
+            <td className="period"><span>Period</span></td>
+            <td className="room"><span>69</span></td>                                  
         </tr>
     );
 }

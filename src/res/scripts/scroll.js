@@ -6,9 +6,9 @@ export function Add_scroll_event(the_element, output_function, repeat) {
         let current_position = (document.body.getBoundingClientRect()).top;
         let element_position = (the_element.getBoundingClientRect()).top;
                 
-        console.log(current_position)
-        console.log(element_position)
-        if (current_position <= element_position) {
+        //console.log(current_position)
+        //console.log(element_position)
+        if (-current_position >= element_position+50) {
             if (repeat === true) {
                 output_function()
             } else {

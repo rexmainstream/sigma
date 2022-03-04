@@ -91,14 +91,15 @@ export function RolyartCalendar(config){
     this.calendarHeader = () =>{
         let header = document.createElement('header');
         header.classList.add('calendar-header');
-        let monthAndYear = document.createElement('h3');
+        let monthAndYear = document.createElement('button');
+        monthAndYear.className = `clickable_button`;
         let prevMonth = document.createElement('button');
         let currentMonth =  document.createElement('button');
         let nextMonth = document.createElement('button');
 
         monthAndYear.classList.add('month-year');
         monthAndYear.style.cursor = `pointer`;
-        monthAndYear.title = `Return to current month`;
+        monthAndYear.title = `Return to current day`;
         monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         
         prevMonth.innerHTML = '&#8249;';
@@ -133,7 +134,7 @@ export function RolyartCalendar(config){
             weekDays.innerHTML +=`<div>${this.weekDays[i]}</div>`;
         }
 
-        currentMonth.classList.add('control-current-month');
+       currentMonth.classList.add('control-current-month');
         
        header.appendChild(prevMonth)
        header.appendChild(monthAndYear)
