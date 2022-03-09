@@ -29,7 +29,7 @@
     }
     
     100% {
-        background-color: rgba(209,231,246, 0.2);
+        background-color: rgba(209,231,246, 0.5);
     }
 }
 /*Removes the highlight when user's mouse leaves element*/
