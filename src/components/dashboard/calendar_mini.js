@@ -14,16 +14,19 @@ export default function Calendar_mini() {
             <div className="center_vertical">
                 <div id="mini_events">
                     <ul id="events_list">
+                        {/**/}
                         <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
+                        <li id="Add_new_event" className="center_vertical">
+                            <button className="clickable_button"
+                                aria-label="add new event"
+                                title="Click this button to add a new event">
+                                Add New Event
+                            </button>
+                        </li>
                     </ul>
-                    <div className="center_vertical">
+                    {/*<div className="center_vertical">
                         <button className="clickable_button">View all events</button>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         </div>

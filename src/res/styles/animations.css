@@ -14,7 +14,7 @@
     animation-fill-mode: both;
 }
 
-.quote .box, .focus, .quote h1{
+.quote .box, .focus h1, .quote h1, .steps, .focus .box{
     opacity: 0;
 }
 
@@ -109,3 +109,12 @@
     }
 }
 
+@keyframes progress_bar_move {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}

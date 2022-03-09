@@ -249,6 +249,11 @@ button {
     cursor: pointer;
 }
 
+.buttons_container button {
+    margin-inline-end: 2rem;
+}
+
+
 .current {
     background-color: black;
 }

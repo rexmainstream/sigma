@@ -226,6 +226,8 @@ export function Quote_list_initialisation() {
         new quote("Imaginary evil is romantic and varied; real evil is gloomy, monotonous, barren, boring. Imaginary good is boring; real good is always new, marvelous, intoxicating.","Simone Weil"),
         new quote("It is not only in literature that fiction generates immorality. It does it also in life itself. For the substance of our life is almost exclusively composed of fiction","Simone Weil"),
         new quote("There is a level of cowardice lower than that of the conformist: the fashionable non-conformist.","Ayn Rand"),
+        new quote("Human beings are born with different capacities. If they are free, they are not equal. And if they are equal, they are not free.", "Aleksandr Solzhenitsyn"),
+        new quote("Nothing is more difficult, and therefore more precious, than to be able to decide.", "Napoleon Bonaparte"),
         new quote("Never test another man by your own weakness.", "Joseph Conrad")
         //new quote("", ""),
     ]       
