@@ -26,16 +26,18 @@ function Get_quote () {
 //this function writes the quote
 //Too slow maybe just animate the quote author
 function Write_quote_author(today_quote) {
+    let written_quote = `- ${today_quote['quote_author']} -`
+    console.log(written_quote.length);
     let text_size = 25;
-    let quote_duration = today_quote.quote_author.length * 250
+    
     if (window.screen.width < 1000) {
         text_size = 50;
     }
     new Vara("#container", "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json", [{
-        text: today_quote['quote_author'],
+        text: written_quote,
         y: text_size,
         delay: 1000,
-        quote_duration: quote_duration
+        quote_duration: written_quote.length * 250
     }        
     ], {
         fontSize: text_size,
@@ -65,16 +67,17 @@ export default function Motivational_quote() {
             <div className="box">                  
                 <blockquote id="quote_of_the_day"></blockquote>
                 <div id="container"></div>
-                <button className="clickable_button"
+                {/*<button className="clickable_button"
                     onClick={function() {
                         let old_quote = document.querySelector('#container').querySelector('svg');
 
-                        play_slide_in_animation();
+                        
                         old_quote.remove();
                         Get_quote();
+                        play_slide_in_animation();
                     }}
                     title="Click to generate a new quote">
-                    Generate New Quote</button>
+                    Generate New Quote</button>*/}
             </div>
         </div>
     );
@@ -92,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function() {
     Add_scroll_event(quote.querySelector('.box'), function() {Get_quote(); play_slide_in_animation()}, false);
     Add_scroll_event(heading, function() {heading.style.animation = `fade_in_text 0.5s ease-out both`;}, false)
 })
-
 
 
  
