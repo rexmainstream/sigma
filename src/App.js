@@ -54,7 +54,7 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<Dashboard />} />
-            <Route path="/timetable" element={<Timetable_mini />} exact />
+            <Route path="/timetable" element={<Timetable />} exact />
             <Route path="/calendar" element={<Calendar_mini />} exact />
             <Route path="/help" element={<Header />} exact />
           </Routes>
