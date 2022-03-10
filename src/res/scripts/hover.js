@@ -1,6 +1,8 @@
 //This JS file contains hover functionality. When a user hovers over a table row this module is run
 //Animations located in styles.css in public
 
+import { Return_currently_playing_animation } from "../../components/checkmark_button";
+
 //Default fade in element when hovered over
 export function Show_element(e) {
     e.currentTarget.style.animation = `revert`;
@@ -19,6 +21,7 @@ export function Hover_table(e) {
     console.log('hover function has run')
 }
 
+//Hover over secondary table row
 export function Hover_table_secondary(e) {
     e.currentTarget.style.animation = `highlight 0.2s ease-out both`
     e.currentTarget.previousElementSibling.style.animation = `highlight 0.2s ease-out both`;
@@ -55,8 +58,9 @@ export function Time_out_button(e) {
 
 
 export function Hover_list_item(e) {
-    e.currentTarget.style.boxShadow = `0 2px 8px rgb(0 0 0 / 20%)` 
-
+    if (Return_currently_playing_animation() === false) {
+        e.currentTarget.style.animation = `highlight 0.2s ease-out both`; 
+    }
     /* This subroutine is not included
     //Checks if the element has overflow
     if (e.currentTarget.clientWidth < e.currentTarget.scrollWidth) {
@@ -70,7 +74,13 @@ export function Hover_list_item(e) {
 }
 
 export function Time_out_list_item(e) {
-    e.currentTarget.style.boxShadow = `0 2px 8px rgb(0 0 0 / 5%)` 
+    if (Return_currently_playing_animation() === false) {
+        e.currentTarget.style.animation = null; 
+        e.currentTarget.style.backgroundColor = `rgba(242,242,242,0.7)`;
+    } else {
+        //console.log('currently playing animation');
+    }
+
 }
 
 export function Show_checkmark(e) {

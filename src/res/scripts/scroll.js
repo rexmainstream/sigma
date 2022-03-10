@@ -8,7 +8,7 @@ export function Add_scroll_event(the_element, output_function, repeat) {
                 
         //console.log(`Current position is at ${current_position}`);
         //console.log(`Element position is at ${element_position}`);
-        if (current_position >= element_position+150) {
+        if (current_position >= element_position+200) {
             if (repeat === true) {
                 output_function()
             } else {

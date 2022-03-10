@@ -171,6 +171,17 @@ export function RolyartCalendar(config){
                 }         
                 cell.className += " selected"; 
             });
+            
+            cell.addEventListener('dblclick', ()=>{
+                this.add_event = num.id;
+                
+                let add_event = document.getElementsByClassName("add_event");
+                if (add_event.length > 0) { 
+                    add_event[0].className = add_event[0].className.replace(" add_event", "");
+                }         
+                cell.className += " add_event"; 
+            });
+
             num.type === 'not-current'?cell.classList.add('not-current'):cell.classList.add('current');
             if(num.id === this.YYYYmmdd(this.today)){
                 cell.classList.add('active');

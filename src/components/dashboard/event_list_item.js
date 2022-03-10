@@ -1,3 +1,4 @@
+//Alex
 import React from "react";
 import { Hover_list_item } from "../../res/scripts/hover";
 import { Time_out_list_item } from "../../res/scripts/hover";
@@ -9,18 +10,11 @@ export default function Events_list_item() {
     return (
         <li
             aria-label="list item for events"
+            //This is a hover shadow function
             onMouseEnter={(e) => Hover_list_item(e)}
-            onMouseLeave={(e) => Time_out_list_item(e)}
-            onClick={(e) => Complete_event(e)}>
+            onMouseLeave={(e) => Time_out_list_item(e)}>
             <Check_button />
             <a href="" className="event_item">Event example</a>
         </li>
     );
-}
-
-//This function runs when the user presses complete event
-function Complete_event(e) {
-    //Plays animation, translates the previous element up and the removes the completed event
-
-    //Removes event from the list and puts it at the end with line-through and grey font styling
 }
