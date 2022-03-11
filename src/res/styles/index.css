@@ -114,8 +114,40 @@
 }
 .focus {
     grid-row: 3;
-    grid-column: 1/3;
+    grid-column: 1/end;
+    padding: 2rem;
+    font-size: 1.5rem;
 }
+
+.focus .box {
+    padding: 2rem;
+    margin: 2rem 0 4rem 0;
+}
+
+#progress_bar {
+    border: 1px solid rgba(124,124,124, 0.5);
+    margin: 0 0 1rem 0;
+    block-size: 1.5rem;
+    overflow: hidden;
+}
+
+#progress {
+    position: relative;
+    right: 50%;/*This will need javascript, will have to depend on actual progress*/
+    height: 100%;
+    width: 50%;
+    /*This animation will play when the user scrolls down far enough*/
+    animation: progress_bar_move 3s ease-out both;
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    overflow: hidden;
+    background-color: rgb(255, 91, 91);
+}
+
+#current_focus {
+    font-size: 2.5rem;
+}
+
 .notes {
     grid-row: 3;
     grid-column: 3/end;
@@ -195,16 +227,23 @@
     border-radius: 5px;
 }
 
+hr {
+    background-color: #DDDDDD;
+    block-size: 0.05rem;
+    border: none;
+    margin: 1rem 0 1rem;
+}
+
 
 #events_list {
     overflow-y: auto;
-    block-size: 14rem;
+    overflow-x: hidden;
+    block-size: 18rem;
     margin-block-end: 0.5rem;
-    border-radius: 0.5rem;
     font-size: 1.5rem;
     padding: 1rem;
     margin-block-start: 0;
-    background-color: rgb(242,242,242);
+    /*background-color: rgb(242, 242, 242);*/
 }
 
 #events_list li {
@@ -212,19 +251,33 @@
     overflow: hidden;
     block-size: calc(0.64rem + 0.64rem + 1rem);
     list-style-position: inside;
-    padding-block-end: 0.8rem;
-    padding-block-start: 0.8rem;
+    padding-block-end: 0.64rem;
+    padding-block-start: 0.64rem;
     background-color: white;
     padding-inline-start: 0.5rem;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
-    border-radius: 0.5rem;
-    margin-block-end: 1.2rem;
+    background-color: rgba(242,242,242, 0.7);
+    /*box-shadow: 0 2px 8px rgb(0 0 0 / 5%);*/
+    border-radius: 1rem;
+    margin-block-end: 0.9rem;
     white-space: nowrap;
+}
+
+#events_list #Add_new_event {
+    box-shadow: none;
+    background-color: inherit;
 }
 
 #events_list li a {
     block-size: calc(0.64rem + 0.64rem + 1rem);
     display: inline-block;
+}
+
+#calendar_tutorial {
+    position: relative;
+    bottom: 10%;
+    text-align: center;
+    color: rgba(124,124,124, 0.8);
+    inline-size: 70%;
 }
 
 
@@ -249,8 +302,7 @@
 }
 #mini_events {
     inline-size: 90%;
-    margin-block-end: 1rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0 0.5rem 0 0.5rem;
 }
 main .grid_wrapper {
     grid-gap: 4rem;

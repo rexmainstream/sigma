@@ -1,3 +1,4 @@
+/*Alex*/
 /*Contains CSS animations which are going to be used*/
 /* || SVG AND ANIMATIONS*/
 .line {
@@ -14,7 +15,7 @@
     animation-fill-mode: both;
 }
 
-.quote .box, .focus, .quote h1{
+.quote .box, .focus h1, .quote h1, .steps, .focus .box{
     opacity: 0;
 }
 
@@ -25,20 +26,21 @@
 /*This animation plays when user hovers over a row. Highlights the row basically */
 @keyframes highlight {
     0% {
-        background-color: inherit;
+        background-color: initial;
     }
     
     100% {
         background-color: rgba(209,231,246, 0.5);
     }
 }
-/*Removes the highlight when user's mouse leaves element*/
-@keyframes reset_background {
+
+@keyframes reset_background_list {
     0% {
+        
     }
 
     100% {
-        background-color: white;
+        background-color: rgba(242,242,242,0.7);
     }
 }
 
@@ -109,3 +111,29 @@
     }
 }
 
+@keyframes progress_bar_move {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+@keyframes complete_event {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    10% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

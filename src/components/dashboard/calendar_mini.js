@@ -13,21 +13,39 @@ export default function Calendar_mini() {
             </div>
             <div className="center_vertical">
                 <div id="mini_events">
+                    <hr></hr>
                     <ul id="events_list">
                         <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
-                        <Events_list_item />
+                        {/**/}
                     </ul>
-                    <div className="center_vertical">
+                    {/*<div className="center_vertical">
                         <button className="clickable_button">View all events</button>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         </div>
     );
+}
+
+//Checks if their are any events, if not then it gives instructions
+export function calendar_tutorial() {
+    const parent = document.querySelector('#events_list');
+    const tutorial = document.createElement('div');
+
+    //If the calendar doesn't have events it shows instructions
+    if (parent.hasChildNodes() === false) {
+        parent.className = `center_vertical`;
+        tutorial.id = `calendar_tutorial`;
+        tutorial.textContent = `Double click a calendar date to add an event at that date.`;
+        tutorial.style.animation = `fade_in_text 0.5s ease-out both`
+        
+        parent.append(tutorial);
+        //console.log('no child nodes')
+    }else {
+        parent.removeChild(tutorial);
+        parent.className = ``;
+        //console.log('has child nodes')
+    }
 }
 
 
@@ -38,9 +56,11 @@ document.addEventListener("DOMContentLoaded", function (){
         weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     }
     const calendar = new RolyartCalendar(calendarConfig);
+
+    //checks if their are any events
+    calendar_tutorial()
     
 
-    //Testing overflow effect
-    document.querySelector('#events_list').querySelector('a').textContent = `Overflow Test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`;
+   
 })
 

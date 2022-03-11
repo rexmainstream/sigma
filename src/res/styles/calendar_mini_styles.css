@@ -68,7 +68,12 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .calendar-body .day {
@@ -101,6 +106,10 @@
   border-radius: 50%;
   -webkit-animation: pulse .4s ease;
           animation: pulse .4s ease;
+}
+
+.calendar-body .day.hovered {
+  background-color: rgba(209,231,246, 0.5);
 }
 
 @-webkit-keyframes pulse {

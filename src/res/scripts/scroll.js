@@ -3,13 +3,12 @@
 export function Add_scroll_event(the_element, output_function, repeat) {
     window.addEventListener('scroll', function handler() {
         //Gets the position of the element and the position of the user
-        //let current_position = -(document.body.getBoundingClientRect()).top;
         let current_position = window.innerHeight;
         let element_position = the_element.getBoundingClientRect().top;
                 
-        console.log(`Current position is at ${current_position}`);
-        console.log(`Element position is at ${element_position}`);
-        if (current_position >= element_position) {
+        //console.log(`Current position is at ${current_position}`);
+        //console.log(`Element position is at ${element_position}`);
+        if (current_position >= element_position+200) {
             if (repeat === true) {
                 output_function()
             } else {
