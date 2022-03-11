@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './res/styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Initialisation from './res/scripts/initialisation';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,3 +17,5 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
+//Initialise everything
+Initialisation();

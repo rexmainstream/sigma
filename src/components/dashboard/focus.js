@@ -30,7 +30,8 @@ export default function Focus() {
     );
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+//Initialises the focus box
+export function initialise_focus() {
     let headings = (document.querySelector('.focus')).querySelector('h1');
     let box = (document.querySelector('.focus')).querySelectorAll('.box');
     let steps = (document.querySelector('.focus')).querySelectorAll('.steps');
@@ -38,19 +39,19 @@ document.addEventListener("DOMContentLoaded", function() {
     //Adds scroll events to the headings
     Add_scroll_event(headings, function() {
         headings.style.animation = `fade_in_text 0.5s ease-out both`;
-    }, false)
+    }, false, 200)
     //Adds scroll event to the boxes 
     Add_scroll_event(box[0], function() {
         box[0].style.animation = `fade_in_text 0.5s ease-out both`;
-    }, false);
+    }, false, 100);
 
     //Adds an animation for each of the steps
     for (const element of steps) {
         Add_scroll_event(element, function() {
             element.style.animation = `fade_in 0.5s ease-out both`;
-        }, false);
+        }, false, 100);
     }
 
 
 
-})
+}

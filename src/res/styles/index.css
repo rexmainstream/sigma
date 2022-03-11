@@ -1,4 +1,3 @@
- @import url(styles.css);
  @import url(animations.css);
 
 /*Import default styling*/
@@ -8,6 +7,205 @@
 
 
 /* || GENERAL STYLES*/
+html {
+    font-size: 10px; /*use relative font-size values. This will make things much more convenient especially when trying to make it compatiable with all devices*/
+    font-family: 'Segoe UI', Helvetica, sans-serif; /*San-serif as a fallback for older browsers*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0rem 0rem 0rem 0rem;
+    background-color: rgb(242,242,242);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 0 0 0 0;
+}
+.navigation {
+    top: 0;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+    position: sticky;
+    z-index: 1;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+footer {
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    display: block;
+    line-height: 1.5;
+    margin-block-start: 20rem;
+    padding: 0.5rem 0.5rem 2rem 0.5rem;
+}
+
+main {
+    padding-block-start: 2rem;
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
+}
+
+h1 {
+
+}
+
+h2 {
+    margin-block-start: 0;
+    margin-block-end: 0.5rem;
+}
+
+p {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+}
+
+b {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.clickable_button {
+    position: relative;
+    color: rgb(29, 98, 149);
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    background-color: inherit;
+    border: 0;
+    padding: 0.5rem;
+    margin-block-start: 1rem;
+    min-inline-size: 10rem;
+    z-index: 1;
+    transition:         0.08s ease-in;
+    -o-transition:      0.08s ease-in;
+    -ms-transition:     0.08s ease-in;
+    -moz-transition:    0.08s ease-in;
+    -webkit-transition: 0.08s ease-in;
+}
+
+.delete_button {
+    color:rgb(255, 91, 91);
+}
+
+.clickable_button:hover {
+    color: white;
+}
+
+.clickable_button:before {
+    content: "";
+    position: absolute;
+    background: rgb(29, 98, 149);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    -webkit-transition: top 0.09s ease-in;
+}
+
+.delete_button::before {
+    background:rgb(255, 91, 91);
+}
+
+.clickable_button:hover:before {
+    top: 0;
+  }
+
+blockquote {
+    font-size: 25px;
+    line-height: 1.5;
+    margin-block-end: 1rem;
+}
+
+
+.slide_button {
+    border: none !important;
+    border-radius: 50%;
+    color: black;
+    background-color: white;
+    border: revert;
+    text-decoration: none;
+    display: inline;
+    font-size: 2.5rem;
+    padding: 0.4rem 1.4rem;
+    opacity: 0;
+}
+
+#timetable_container div .slide_button {
+    position: absolute;
+    top: calc(50% - 2.5rem);
+}
+
+.next {
+    right: 0.5%;
+}
+
+.previous {
+    left: 0.5%;
+}
+
+ul[class] {
+    padding-inline-start: 2rem;
+    list-style-type: none;
+}
+
+
+.logo {
+    max-inline-size: 4.5vh;
+    margin-inline-start: 2rem;
+    margin-inline-end: 2rem;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    display: inline;
+}
+
+.drop_down_logo {
+    padding-inline-end: 1rem;
+    cursor: pointer;
+}
+
+.link_list {
+    list-style-position: inside;
+    padding-inline-start: 0rem !important;
+}
+
+.link_list li{
+    text-align: none;
+    list-style-type: none;
+    display: inline;
+    padding-inline-end: 2rem;
+}
+
+.end_user_agreements li {
+    border-inline-end: 1px solid white;
+    margin-inline-end: 1rem;
+    padding-inline-end: 1rem;
+}
+
+@media screen and (max-width: 999px) {
+    .end_user_agreements li {
+        font-size: 1rem;
+    }
+}
+
+.end_user_agreements :last-child {
+    border-inline-end: none;
+}
+
+.notes + b { /*Fix this later, doesn't work now*/
+    display: block;
+    text-align: right;
+}
+
+.footer_copyright {
+    font-size: 10px;
+}
 
 .main_line {
     font-size: 2.3rem;
@@ -21,8 +219,7 @@
     inline-size: 100%;
 }
 
-.period,
-.teacher {
+.period, .teacher {
     text-align: left;
     min-inline-size: 80%;
 }
@@ -91,6 +288,7 @@
 .quote .box{
     background-color: rgb(209, 231, 246);
     box-shadow: none;
+    background-position: cover;
     text-align: center;
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
@@ -280,7 +478,129 @@ hr {
     inline-size: 70%;
 }
 
+.flex {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
 
+.header {
+    justify-content: left;
+    align-items: center;
+}
+
+.grid_wrapper { /*should this even be a grid? A flexbox will still work but it won't be as responsive i think.*/
+    display: grid;
+}
+
+.box {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+    /*
+    transition-property: box-shadow, transform;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(.16,1,.29,.99);
+    */
+}
+
+
+.center_vertical { /*Centers elements vertically and horizontallt*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* || UTILITES */
+a {
+    font-size: inherit;
+    color: inherit;
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+li a[href]:hover
+{
+  text-decoration: underline;
+}
+
+p a {
+    color: blue;
+}
+
+p a:visited { /*Probably not*/
+    color: purple;
+}
+
+.tab {
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid rgb(124, 124, 124);
+    padding: 0.2rem 0.2rem;
+    margin-inline-end: 0.8rem;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+button {
+    cursor: pointer;
+}
+
+.buttons_container button {
+    margin-inline-end: 2rem;
+}
+
+
+.current {
+    background-color: black;
+}
+
+.tab_container {
+    padding-block-end: 2rem;
+    padding-block-start: 3rem;
+    opacity: 0;
+}
+
+.root_checkmark {
+    border-radius: 50%;
+    margin-inline-end: 1.5rem;
+    min-inline-size: 2rem;
+    block-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    border: 0.15rem solid rgb(124, 124, 124);
+    background-color: white;
+  }
+
+.checkmark {
+    display: inline-block;
+    position: relative;
+    left: 32%;
+    bottom: 10%;
+    height: 0.9rem;
+    width: 0.5rem;
+    transform: rotate(45deg);
+    border-bottom: 0.22rem solid transparent;
+    border-right: 0.22rem solid transparent;
+    border-radius: 0.1rem;
+}
+
+/*The tab container doesn't fade in and out (when hovered) if the device is mobile.
+This is because the 'hovering' isn't common on mobile */
+@media screen and (max-width: 999px) {
+    .tab_container {
+        opacity: 1 !important; 
+    }
+}
+
+.slide_button:hover {
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+}
 
 
 /*#events_list li :hover{
@@ -305,7 +625,8 @@ hr {
     padding: 0 0.5rem 0 0.5rem;
 }
 main .grid_wrapper {
-    grid-gap: 4rem;
+    column-gap: 4rem;
+    row-gap: 50rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
     /*1st row timetable and calendar, 2nd row for quote of the day, 3rd row for functions*/

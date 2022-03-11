@@ -16,7 +16,7 @@ export default function Transition_time() {
                 <svg width={line_width} height={line_height}>
                     <line className="left-to-right line" x1={0} y1= {line_height/2} x2={3/4 * line_width} y2={line_height/2} stroke="rgb(29 98 149)" strokeWidth={stroke_width}></line>
                 </svg>
-                <div id="time_until_transition">105:05:01</div>
+                <div id="time_until_transition">Recess in 105:05:01</div>
                 <svg width={line_width} height={line_height}>
                     <line className="right-to-left line" x1={line_width} y1={line_height/2} x2={line_width/4} y2={line_height/2} stroke="rgb(29 98 149)" strokeWidth={stroke_width}></line>
                 </svg>

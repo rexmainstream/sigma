@@ -36,7 +36,7 @@ export function calendar_tutorial() {
     if (parent.hasChildNodes() === false) {
         parent.className = `center_vertical`;
         tutorial.id = `calendar_tutorial`;
-        tutorial.textContent = `Double click a calendar date to add an event at that date.`;
+        tutorial.textContent = `Click and hold on a calendar date to add an event.`;
         tutorial.style.animation = `fade_in_text 0.5s ease-out both`
         
         parent.append(tutorial);
@@ -48,8 +48,7 @@ export function calendar_tutorial() {
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function (){
+export function initialise_calendar() {
     let calendarConfig = {
         container: 'calendar',
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -59,8 +58,5 @@ document.addEventListener("DOMContentLoaded", function (){
 
     //checks if their are any events
     calendar_tutorial()
-    
-
-   
-})
-
+    console.log('Calendar has been loaded');
+}

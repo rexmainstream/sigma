@@ -11,11 +11,11 @@ function random_number_generator(min, max) {
 }
 
 
-// This function gets the quote
+// This function gets the quote from the database
 function Get_quote () {
     let today_quote = Return_quote_list(random_number_generator(0,Return_quote_list_length() - 1));
-    console.log("get_quote function has been run")
-    console.log(today_quote.quote_author)
+    //console.log("get_quote function has been run")
+    //console.log(today_quote.quote_author)
 
     
     //sets text content to the quote of the day
@@ -23,16 +23,18 @@ function Get_quote () {
     Write_quote_author(today_quote)
 }
 
-//this function writes the quote
-//Too slow maybe just animate the quote author
+//this function writes the quote with the animation, which uses an external lib
 function Write_quote_author(today_quote) {
     let written_quote = `- ${today_quote['quote_author']} -`
     console.log(written_quote.length);
     let text_size = 25;
     
+    //Different text-size for smaller devices
     if (window.screen.width < 1000) {
         text_size = 50;
     }
+
+    //External library writes the quote
     new Vara("#container", "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json", [{
         text: written_quote,
         y: text_size,
@@ -48,6 +50,7 @@ function Write_quote_author(today_quote) {
     console.log("Write quote has been executed")
 }
 
+//Plays slide animation, very cool
 function play_slide_in_animation() {
     let quote_box = (document.querySelector('.quote')).querySelector('.box');
     //Removes previous animation
@@ -63,38 +66,26 @@ function play_slide_in_animation() {
 export default function Motivational_quote() {
     return (
         <div className="quote">
-            <h1>Quote Generator</h1>   
-            <div className="box">                  
-                <blockquote id="quote_of_the_day"></blockquote>
-                <div id="container"></div>
-                {/*<button className="clickable_button"
-                    onClick={function() {
-                        let old_quote = document.querySelector('#container').querySelector('svg');
-
-                        
-                        old_quote.remove();
-                        Get_quote();
-                        play_slide_in_animation();
-                    }}
-                    title="Click to generate a new quote">
-                    Generate New Quote</button>*/}
-            </div>
+            <h1>Quote Generator</h1>
+                <div className="box">                  
+                    <blockquote id="quote_of_the_day"></blockquote>
+                    <div id="container"></div>
+                </div>   
         </div>
     );
 }
 
-//Document initialisation put in initialisation module
-document.addEventListener("DOMContentLoaded", function() {
-    Quote_list_initialisation();
-    console.log('Quote_list_ini has run');
 
 
+export function initialise_quotes() {
     const quote = document.querySelector('.quote');
     const heading = quote.querySelector('h1');
+    Quote_list_initialisation();
     //Adds scroll events, change to loop later
-    Add_scroll_event(quote.querySelector('.box'), function() {Get_quote(); play_slide_in_animation()}, false);
-    Add_scroll_event(heading, function() {heading.style.animation = `fade_in_text 0.5s ease-out both`;}, false)
-})
+    Add_scroll_event(quote.querySelector('.box'), function() {Get_quote(); play_slide_in_animation()}, false, 200, 'down');
+    Add_scroll_event(heading, function() {heading.style.animation = `fade_in_text 0.5s ease-out both`;}, false, 200, 'down')
+
+}
 
 
  
