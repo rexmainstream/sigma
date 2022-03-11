@@ -2,7 +2,7 @@ import './res/styles/index.css';
 import Header from './components/header';
 import Footer from './components/footer'
 import Dashboard from './components/dashboard';
-import Timetable from './components/timetable/timetable_dashboard';
+import Display_timetable from './components/timetable/timetable_dashboard';
 import logo from './res/images/Logo-Vector-Graphics.svg'
 
 import {
@@ -54,7 +54,7 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<Dashboard />} />
-            <Route path="/timetable" element={<Timetable />} exact />
+            <Route path="/timetable" element={<Display_timetable />} exact />
             <Route path="/calendar" element={<Calendar_mini />} exact />
             <Route path="/help" element={<Header />} exact />
           </Routes>
