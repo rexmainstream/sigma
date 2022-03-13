@@ -24,8 +24,13 @@ export function Add_scroll_event(the_element, output_function, repeat, extra_pos
 
 //Function adds a simple scroll event, e.g. scrolling down or scrolling up or just scrolling
 export function Scrolling_event(element, up_down_both, output_function){
-    element.addEventListener('wheel', (e) => {
-        if(e.deltaY >= 0){
+    let last_scroll = 0;
+    element.addEventListener('scroll', (e) => {
+        //gets current scroll position
+        let current_scroll = element.pageYOffset;
+
+        //if current position is smaller than last scroll position it is going down
+        if(current_scroll > 0 && last_scroll <= current_scroll){
             // Scrolling Down with mouse
             if (up_down_both === 'down') {
                 output_function()
@@ -37,7 +42,10 @@ export function Scrolling_event(element, up_down_both, output_function){
                 output_function()
             }
             //console.log('Scroll Up');
-          }
+        }
+
+        //sets last scroll to current
+        last_scroll = current_scroll;
     })
 
 }

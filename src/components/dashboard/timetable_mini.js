@@ -54,24 +54,26 @@ export default function Timetable_mini() {
 //THis function shows the header if user scrolls up and hides it if the user scrolls down
 function Intuitive_header_reveal_hide() {
     let hidden = false;
-    let header = document.querySelector('header')
-    Scrolling_event(document,'up',()=>{   
+    let header = document.querySelector('header');
+    Scrolling_event(window,'up',()=>{   
         if (hidden === true || window.offsetHeight === 0) {
             header.style.animation = null;
             header.style.animation = `show_header 0.5s ease-out both`;
-            hidden = false;
+            header.onanimationend = () => {
+                hidden = false;
+            }               
         }
-
-
         //console.log('Show the header');
     });
-    Scrolling_event(document,'down',()=>{
+    Scrolling_event(window,'down',()=>{
         if (hidden === false) {
             header.style.animation = null;           
             header.style.animation = `hide_header 0.5s ease-out both`
-            hidden = true;
+            header.onanimationend = () => {
+                hidden = true;
+            }
+            
         }
-
         //console.log('Hide the header');
     });
 
