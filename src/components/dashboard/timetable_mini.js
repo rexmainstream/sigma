@@ -5,7 +5,7 @@ import Today_timetable from "./timetable_today"; //Daily timetable, todays perio
 import Weekly_timetable from "./timetable_week"; //Weekly timetable
 import { Hover_buttons, Time_out_button, Show_element, Fade_out_element} from "../../res/scripts/hover";
 import { Add_tabs } from "../../res/scripts/tabs";
-import { Add_scroll_event, Scrolling_event } from "../../res/scripts/scroll";
+import { Scrolling_event } from "../../res/scripts/scroll";
 
 export default function Timetable_mini() {
     return (

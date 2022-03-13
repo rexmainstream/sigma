@@ -137,21 +137,3 @@
         transform: translateX(100%);
     }
 }
-
-@keyframes show_header {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-}
-
-@keyframes hide_header {
-    0% {
-        transform: translateY(0%)
-    }
-    100% {
-        transform: translateY(-100%)
-    }
-}
