@@ -83,18 +83,13 @@ export default function Motivational_quote() {
     );
 }
 
-//Document initialisation put in initialisation module
-document.addEventListener("DOMContentLoaded", function() {
-    Quote_list_initialisation();
-    console.log('Quote_list_ini has run');
-
-
+export function initialise_quotes() {
     const quote = document.querySelector('.quote');
     const heading = quote.querySelector('h1');
+    Quote_list_initialisation();
     //Adds scroll events, change to loop later
-    Add_scroll_event(quote.querySelector('.box'), function() {Get_quote(); play_slide_in_animation()}, false);
-    Add_scroll_event(heading, function() {heading.style.animation = `fade_in_text 0.5s ease-out both`;}, false)
-})
-
+    Add_scroll_event(quote.querySelector('.box'), function() {Get_quote(); play_slide_in_animation()}, false, 200, 'down');
+    Add_scroll_event(heading, function() {heading.style.animation = `fade_in_text 0.5s ease-out both`;}, false, 200, 'down')
+}
 
  

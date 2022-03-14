@@ -36,7 +36,7 @@ export function calendar_tutorial() {
     if (parent.hasChildNodes() === false) {
         parent.className = `center_vertical`;
         tutorial.id = `calendar_tutorial`;
-        tutorial.textContent = `Double click a calendar date to add an event at that date.`;
+        tutorial.textContent = `Click and hold on a calendar date to add an event.`;
         tutorial.style.animation = `fade_in_text 0.5s ease-out both`
         
         parent.append(tutorial);
@@ -63,4 +63,19 @@ document.addEventListener("DOMContentLoaded", function (){
 
    
 })
+
+export function initialise_calendar() {
+    let calendarConfig = {
+        container: 'calendar',
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    }
+    const calendar = new RolyartCalendar(calendarConfig);
+
+    //checks if their are any events
+    calendar_tutorial()
+
+}
+
+
 

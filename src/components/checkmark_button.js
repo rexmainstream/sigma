@@ -23,7 +23,7 @@ function Complete_event(e) {
     currently_playing_animation = true;
     
     //Plays animation
-    completed_event.style.animation = `complete_event 0.3s ease-out both`;
+    completed_event.style.animation = `complete_event 0.3s ease-in both`;
 
     completed_event.onanimationend = () => {
         //console.log('Animation ended');        
