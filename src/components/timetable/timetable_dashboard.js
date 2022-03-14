@@ -56,23 +56,31 @@ function check_timetable(today_data) {
   var current_period_minutes_end = 0
   var current_period_minutes_start = 0
   var current_time_minutes = parseInt(current_time.split(":")[0]) * 60 + parseInt(current_time.split(":")[1])
-  while (today_data.start_bell[current_period] == null) {
+  while (today_data.start_bell[current_period] == null && current_period <= 5) {
+    if (current_period = 5) {
+      return "END OF DAY"
+    }
     current_period += 1
   }
   function updateminutes(data, period_number) {
     current_period_minutes_start = parseInt(data.start_bell[period_number].split(":")[0]) * 60 + parseInt(data.start_bell[period_number].split(":")[1])
     current_period_minutes_end = parseInt(data.end_bell[period_number].split(":")[0]) * 60 + parseInt(data.end_bell[period_number].split(":")[1])
   }
-  updateminutes(today_data,current_period)
+  updateminutes(today_data, current_period)
   // Check if the period has ended, if so then checks next period etc
   while ((current_period_minutes_end < current_time_minutes) && (current_period <= 5)) {
     current_period = current_period + 1
-    while (today_data.start_bell[current_period] == null) {
+    while (today_data.start_bell[current_period] == null && current_period <= 5) {
+      if (current_period = 5) {
+        time_left = ""
+        return "End of Day"
+      }
       current_period += 1
     }
-    updateminutes(today_data,current_period)
+    updateminutes(today_data, current_period)
   }
   time_left = current_period_minutes_end - current_time_minutes
+  time_left = ((time_left - time_left%60)/60).toString() + (time_left%60).toString()
   final_message = today_data.class_name[current_period]
   return final_message
 }
@@ -87,7 +95,7 @@ function Mini_timetable(today_data) {
   var final = ""
   for (var item in today_data.routine) {
     current_period = item //meant to be the name of the period, returns as either 1,2, recess, 3, lunch, 4, 5x
-    if (current_period == fake_period_number.toString()) {
+    if (current_period === fake_period_number.toString()) {
       //if (current_period = "5") { --> use this if you want to make period 5 special
       //return end of day one
       final = final + `<tr className="main_line"
@@ -97,9 +105,23 @@ function Mini_timetable(today_data) {
         <td className="room">` + today_data.room[item] + `</td>
         <td className="teacher">` + today_data.teacher[item] + `</td>
       </tr>`
-      //} //input else statement here to return breaks as a period
       fake_period_number = fake_period_number + 1
-    } //input else statement here if you want to display end of day as a period
+      //} //input else statement here to return breaks as a period
+    } else {
+      if (current_period.toString() === "Recess" || current_period.toString() === "Lunch") {
+        //if (current_period = "5") { --> use this if you want to make period 5 special
+        //return end of day one
+        final = final + `<tr className="main_line"
+          onMouseLeave={(e) => Time_out(e)}
+        >
+          <td className="period">` + today_data.class_name[item] + `</td>
+          <td className="room">` + today_data.start_bell[item] + `</td>
+        </tr>` + current_period
+      } else {
+        fake_period_number = fake_period_number + 1
+      }
+      //input else statement here if you want to display end of day as a period
+    }
   }
   return final
 };
@@ -137,7 +159,7 @@ function Timetable() {
           <svg width={line_width} height={line_height}>
             <line className="left-to-right line" x1={0} y1={line_height / 2} x2={3 / 4 * line_width} y2={line_height / 2} stroke="rgb(29 98 149)" strokeWidth={stroke_width}></line>
           </svg>
-          <div id="time_until_transition">{statement} <br></br>in {time_left} mins</div>
+          <div id="time_until_transition">{statement} <br></br>{time_left}</div>
           <svg width={line_width} height={line_height}>
             <line className="right-to-left line" x1={line_width} y1={line_height / 2} x2={line_width / 4} y2={line_height / 2} stroke="rgb(29 98 149)" strokeWidth={stroke_width}></line>
           </svg>
@@ -157,7 +179,7 @@ function Timetable() {
 
 function Display_timetable() {
   return (
-  <Timetable />
+    <Timetable />
   );
 }
 
