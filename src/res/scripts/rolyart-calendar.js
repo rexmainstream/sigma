@@ -172,7 +172,7 @@ export function RolyartCalendar(config){
                 cell.className += " selected"; 
             });
             
-            cell.addEventListener('dblclick', ()=>{
+            cell.addEventListener('mousedown', ()=>{
                 this.add_event = num.id;
                 
                 let add_event = document.getElementsByClassName("add_event");

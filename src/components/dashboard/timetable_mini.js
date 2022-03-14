@@ -5,6 +5,7 @@ import Today_timetable from "./timetable_today"; //Daily timetable, todays perio
 import Weekly_timetable from "./timetable_week"; //Weekly timetable
 import { Hover_buttons, Time_out_button, Show_element, Fade_out_element} from "../../res/scripts/hover";
 import { Add_tabs } from "../../res/scripts/tabs";
+import { Scrolling_event } from "../../res/scripts/scroll";
 
 export default function Timetable_mini() {
     return (
@@ -49,7 +50,43 @@ export default function Timetable_mini() {
     );
 }
 
-document.addEventListener('DOMContentLoaded', function() {Add_tabs(3);});
+
+//THis function shows the header if user scrolls up and hides it if the user scrolls down
+function Intuitive_header_reveal_hide() {
+    let hidden = false;
+    let header = document.querySelector('header');
+    Scrolling_event(window,'up',()=>{   
+        if (hidden === true || window.offsetHeight === 0) {
+            header.style.animation = null;
+            header.style.animation = `show_header 0.5s ease-out both`;
+            header.onanimationend = () => {
+                hidden = false;
+            }               
+        }
+        //console.log('Show the header');
+    });
+    Scrolling_event(window,'down',()=>{
+        if (hidden === false) {
+            header.style.animation = null;           
+            header.style.animation = `hide_header 0.5s ease-out both`
+            header.onanimationend = () => {
+                hidden = true;
+            }
+            
+        }
+        //console.log('Hide the header');
+    });
+
+}
+
+export function initialise_timetable() {
+    Add_tabs(3);
+    Intuitive_header_reveal_hide();
+
+    //This is for the header
+
+    //Add more stuff later
+}
 
 
 
