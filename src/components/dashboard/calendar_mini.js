@@ -2,7 +2,7 @@ import React from "react";
 import '../../res/styles/calendar_mini_styles.css'
 import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
 import Events_list_item from "./event_list_item";
-
+import {Event_form} from "../../res/scripts/add_event"
 
 
 export default function Calendar_mini() {
@@ -16,6 +16,10 @@ export default function Calendar_mini() {
                     <hr></hr>
                     <ul id="events_list">
                         <Events_list_item />
+                        <Events_list_item />
+                        <button
+                        onClick = {(e) => Event_form()}
+                        >HELLO</button>
                         {/**/}
                     </ul>
                     {/*<div className="center_vertical">
@@ -48,21 +52,6 @@ export function calendar_tutorial() {
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function (){
-    let calendarConfig = {
-        container: 'calendar',
-        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-    }
-    const calendar = new RolyartCalendar(calendarConfig);
-
-    //checks if their are any events
-    calendar_tutorial()
-    
-
-   
-})
 
 export function initialise_calendar() {
     let calendarConfig = {

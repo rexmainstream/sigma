@@ -36,7 +36,7 @@ function Write_quote_author(today_quote) {
     new Vara("#container", "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json", [{
         text: written_quote,
         y: text_size,
-        delay: 1000,
+        delay: 200,
         quote_duration: written_quote.length * 250
     }        
     ], {
