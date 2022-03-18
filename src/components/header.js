@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <header className='navigation'>
             <div className='flex header'>
-                <a href=''>
+                <a href='' className='logo_link'>
                     <img src={logo} 
                         className='logo' 
                         alt='logo for Sigma'

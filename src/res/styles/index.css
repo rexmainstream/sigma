@@ -23,15 +23,14 @@ body {
 header {
     font-size: 1.5rem;
     background-color: white;
-    padding: 0 0 0 0;
+    padding: 0;
 }
+
 .navigation {
     top: 0;
     box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
     position: sticky;
     z-index: 1;
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
 }
 
 footer {
@@ -92,68 +91,61 @@ textarea {
     -webkit-transition: 0.08s ease-in;
 }
 .exit_button {
-    background: none;
-    border: 0;
-    box-sizing: border-box;
-    position: relative;
-    top: 2.5rem;
-    left: calc(100% - 2.5rem);
-    color: transparent;
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-weight: bolder;
-    letter-spacing: 0.0375rem;
-    line-height: 2.25rem;
-    outline: none;
-    overflow: hidden;
-    padding: 0.25rem 0 0;
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid black;
+    color: white;
     position: absolute;
-    text-transform: uppercase;
-    transform: translate(-50%, -50%);
-    transition: all 0.2s ease-in;
-    width: 2.5rem;
-    z-index: 2;
+    top: 4%;
+    right:8%;
+
 }
 
-.exit_button::before,
-.exit_button::after {
-  background-color: black;
-  content: '';
-  display: block;
-  height: 0.15rem;
-  left: 0;
-  position: absolute;
-  transform-origin: center left;
-  transition: all 0.2s ease-in;
-  width: 7rem;
-  z-index: -1;
+.exit_button:hover {
+    background-color: white;
+    color: rgb(242,242,242);
+  }
+
+.exit_button:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: black;
+    height: 0.2rem;
+    top: 1.2rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    transform: rotate(45deg);
 }
 
+.exit_button:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: black;
+    width: 0.2rem;
+    left: 1.2rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    transform: rotate(45deg);
+}
+
+input[type='radio'] {
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: rgb(29, 98, 149);
+    background-color: red;
+}
+
+input[type='radio']:after {
+    padding-inline-end: 4rem;
+}
 .prevent_scroll {
     overflow-Y: hidden;
     position: fixed;
 }
-
-.exit_button::before {
-  top: 0;
-  transform: rotate(45deg);
-}
-
-.exit_button::after {
-  bottom: 0;
-  transform: rotate(-45deg);
-}
-
-.exit_button:hover {
-  color: white;
-}
-
-.exit_button:hover::before,
-.exit_button:hover::after {
-  height: 2.5rem;
-  transform: rotate(0deg);
-}
-
 .delete_button {
     color:rgb(255, 91, 91);
 }
@@ -223,10 +215,8 @@ ul[class] {
 
 .logo {
     max-inline-size: 4.5vh;
-    margin-inline-start: 2rem;
-    margin-inline-end: 2rem;
-    margin-block-start: 1rem;
-    margin-block-end: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-inline-end: 1rem;
     display: inline;
 }
 
@@ -595,7 +585,7 @@ p a {
     color: blue;
 }
 
-p a:visited { /*Probably not*/
+p a:visited {
     color: purple;
 }
 
@@ -677,7 +667,7 @@ button {
 }
 
 .open_modal {
-    animation: fade_in_text 0.5s ease-in both;  
+    animation: fade_in_text 0.1s ease-in both;  
 }
 
 .close_modal {
@@ -688,6 +678,9 @@ button {
     background-color: white;
     min-block-size: 5rem;
     border-radius: 1rem;
+    max-height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .show_modal_content {
@@ -742,7 +735,9 @@ main .grid_wrapper {
 /* || FORM STYLING */
 #form {
     font-size: 1rem;
-    inline-size: 65%;
+    inline-size: 80%;
+    position: relative;
+    left: 0%;
     padding-block-start: 3rem;
 }
 
@@ -754,7 +749,8 @@ main .grid_wrapper {
 #form .priority_radio_btn_container {
     border-radius: 0.5rem;
     background-color: rgb(242,242,242);
-    justify-content: left;
+    justify-content: middle;
+    vertical-align: middle;
 }
 
 #form input {
@@ -799,17 +795,20 @@ main .grid_wrapper {
     border-bottom: 1px solid black;
     margin-block: 1rem;
     padding: 1rem 1rem 0.5rem 1rem;
+    outline: 0;
+    color: rgba(124,124,124,0.5)
 }
 
 
 #form .event_due_date {
     border: none;
     border-radius: 0.5rem;
+    font-family: 'Segoe UI';
     background-color: rgb(242,242,242);
 }
 
 #form textarea {
-    inline-size: 100%;
+    inline-size: calc(100% - 2rem);
     background-color: rgba(242,242,242, 1);
     padding: 1rem;
     font-size: 1.5rem;
@@ -817,8 +816,62 @@ main .grid_wrapper {
     font-family: 'Segoe UI', sans-serif;
     margin-block: 1.5rem;
     block-size: 30rem;
+    color: rgba(124,124,124,0.5);
+}
+#form .clickable_button {
+    margin: 0 2rem 2rem 0;
 }
 
+#form .clickable_button {
+    margin: 0 0 1.7rem 0;
+    min-width: none;
+    margin-inline-start: 2rem;
+}
+
+#form .delete_button {
+    float: right;
+    margin-inline-end: 2rem;
+}
+
+/* || ALERTS */
+#alert {
+    padding: 2rem;
+}
+#alert i {
+    margin-inline-end: 1rem;
+    user-select: none;
+    font-size: 6rem;
+    color: rgba(29, 98, 149);
+    float: inline-start;
+    display: block;
+    position: relative;
+    left: calc(50% - 3rem)
+}
+
+.alert_title {
+    font-size: 2rem;
+    text-align: center;
+    padding-block: 1rem;
+    border-block: 0.2rem solid rgba(29, 98, 149);
+}
+
+.alert_desc {
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    background-color: rgba(242,242,242, 1);
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+#alert button{
+    margin-inline: 3rem;
+    margin-block: 1.5rem;
+    inline-size: 50%;
+}
 /* || RESPONSIVE DESIGN */
 @media screen and (max-width: 999px) {
     /* font-size and layout for mobile devices. 
