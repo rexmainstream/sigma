@@ -64,7 +64,7 @@ function check_timetable(today_data) {
   }
   function updateminutes(data, period_number) {
     current_period_minutes_start = parseInt(data.start_bell[period_number].split(":")[0]) * 60 + parseInt(data.start_bell[period_number].split(":")[1])
-    current_period_minutes_end = parseInt(data.end_bell[period_number].split(":")[0]) * 60 + parseInt(data.end_bell[period_number].split(":")[1])
+    current_period_minutes_end = parseInt(data.end_bell[period_number].split(":")[0]) * 60 + parseInt(data.end_bell[(period_number)].split(":")[1])
   }
   updateminutes(today_data, current_period)
   // Check if the period has ended, if so then checks next period etc
@@ -72,7 +72,8 @@ function check_timetable(today_data) {
     current_period = current_period + 1
     while (today_data.start_bell[current_period] == null && current_period <= 5) {
       if (current_period = 5) {
-        time_left = ""
+        time_left = current_period_minutes_end - current_time_minutes
+        time_left = ((time_left - time_left % 60) / 60).toString() + (time_left % 60).toString() + current_period_minutes_end.toString()
         return "End of Day"
       }
       current_period += 1
@@ -80,7 +81,7 @@ function check_timetable(today_data) {
     updateminutes(today_data, current_period)
   }
   time_left = current_period_minutes_end - current_time_minutes
-  time_left = ((time_left - time_left%60)/60).toString() + (time_left%60).toString()
+  time_left = ((time_left - time_left % 60) / 60).toString() + ":" + (time_left % 60).toString() //displays time until end of next period, gotta fix. plus add seconds into this
   final_message = today_data.class_name[current_period]
   return final_message
 }
