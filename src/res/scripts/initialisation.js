@@ -4,6 +4,7 @@ import { initialise_focus } from "../../components/dashboard/focus";
 import { initialise_quotes } from "../../components/dashboard/motivational_quote";
 import { initialise_timetable } from "../../components/dashboard/timetable_mini";
 
+
 export default function Initialisation() {
     document.addEventListener("DOMContentLoaded", function (){
         loading_screen()
@@ -12,6 +13,7 @@ export default function Initialisation() {
         initialise_quotes();
         initialise_focus();
         initialise_calendar();
+
 
         
         

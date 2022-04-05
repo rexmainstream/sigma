@@ -32,13 +32,13 @@ export function Scrolling_event(element, up_down_both, output_function){
         //if current position is smaller than last scroll position it is going down
         if(current_scroll > 0 && last_scroll <= current_scroll){
             // Scrolling Down with mouse
-            if (up_down_both === 'down') {
+            if (up_down_both === 'down' || up_down_both === 'both') {
                 output_function()
             }
             //console.log('Scroll Down');
           } else {
             // Scrolling Up with mouse
-            if (up_down_both === 'up') {
+            if (up_down_both === 'up'|| up_down_both === 'both') {
                 output_function()
             }
             //console.log('Scroll Up');

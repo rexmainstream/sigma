@@ -1,6 +1,5 @@
  @import url(animations.css);
-
-/*Import default styling*/
+/*Import animations stylesheet*/
 
 
 /*This is the stylesheet for the index. Includes specific styles not included in the base stylesheet*/
@@ -24,15 +23,14 @@ body {
 header {
     font-size: 1.5rem;
     background-color: white;
-    padding: 0 0 0 0;
+    padding: 0;
 }
+
 .navigation {
     top: 0;
     box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
     position: sticky;
     z-index: 1;
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
 }
 
 footer {
@@ -70,6 +68,10 @@ b {
     font-weight: bolder;
 }
 
+textarea {
+    resize: none;
+}
+
 .clickable_button {
     position: relative;
     color: rgb(29, 98, 149);
@@ -88,7 +90,62 @@ b {
     -moz-transition:    0.08s ease-in;
     -webkit-transition: 0.08s ease-in;
 }
+.exit_button {
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid black;
+    color: white;
+    position: absolute;
+    top: 4%;
+    right:8%;
 
+}
+
+.exit_button:hover {
+    background-color: white;
+    color: rgb(242,242,242);
+  }
+
+.exit_button:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: black;
+    height: 0.2rem;
+    top: 1.2rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    transform: rotate(45deg);
+}
+
+.exit_button:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: black;
+    width: 0.2rem;
+    left: 1.2rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    transform: rotate(45deg);
+}
+
+input[type='radio'] {
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: rgb(29, 98, 149);
+    background-color: red;
+}
+
+input[type='radio']:after {
+    padding-inline-end: 4rem;
+}
+.prevent_scroll {
+    overflow-Y: hidden;
+    position: fixed;
+}
 .delete_button {
     color:rgb(255, 91, 91);
 }
@@ -158,10 +215,8 @@ ul[class] {
 
 .logo {
     max-inline-size: 4.5vh;
-    margin-inline-start: 2rem;
-    margin-inline-end: 2rem;
-    margin-block-start: 1rem;
-    margin-block-end: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-inline-end: 1rem;
     display: inline;
 }
 
@@ -530,7 +585,7 @@ p a {
     color: blue;
 }
 
-p a:visited { /*Probably not*/
+p a:visited {
     color: purple;
 }
 
@@ -590,6 +645,52 @@ button {
     border-radius: 0.1rem;
 }
 
+.visible_header {
+    animation: show_header 0.5s ease-out both;
+}
+
+.invisible_header {
+    animation: hide_header 0.5s ease-out both;
+}
+
+
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+}
+
+.open_modal {
+    animation: fade_in_text 0.1s ease-in both;  
+}
+
+.close_modal {
+    animation: remove_modal 0.4s ease-in both;
+}
+
+.modal_content_wrapper {
+    background-color: white;
+    min-block-size: 5rem;
+    border-radius: 1rem;
+    max-height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.show_modal_content {
+    animation: show_modal 0.3s ease-in both;
+}
+
+.fade_out_modal {
+    animation: fade_out 0.7s ease-out both;
+}
+
 /*The tab container doesn't fade in and out (when hovered) if the device is mobile.
 This is because the 'hovering' isn't common on mobile */
 @media screen and (max-width: 999px) {
@@ -631,9 +732,147 @@ main .grid_wrapper {
     grid-template-rows: auto auto auto;
     /*1st row timetable and calendar, 2nd row for quote of the day, 3rd row for functions*/
 }
-/* || UTILITES */
-/* || SITEWIDE */
-/* || STOREPAGES */
+/* || FORM STYLING */
+#form {
+    font-size: 1rem;
+    inline-size: 80%;
+    position: relative;
+    left: 0%;
+    padding-block-start: 3rem;
+}
+
+#form label {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+}
+
+#form .priority_radio_btn_container {
+    border-radius: 0.5rem;
+    background-color: rgb(242,242,242);
+    justify-content: middle;
+    vertical-align: middle;
+}
+
+#form input {
+    font-size: 1.5rem;
+}
+
+#form .grid_wrapper {
+    grid-template-rows: auto auto;
+    grid-template-columns: fit-content(50%) fit-content(100%);
+    row-gap: 1rem;
+    column-gap: 2rem;
+}
+
+@media screen and (max-width: 999px) {
+    #form .grid_wrapper {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto;
+    }
+
+    #form .priority_radio_btn_container {
+        display: block;
+    }
+
+    .priority_radio_btn_container {
+        grid-row: 2;
+    }
+
+    label[for='due_date'] {
+        grid-row: 3;
+    }
+
+    .event_due_date {
+        grid-row: 4;
+    }
+    
+}
+
+#form .event_title {
+    inline-size: 100%;
+    font-size: 2.2rem;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-block: 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    outline: 0;
+    color: rgba(124,124,124,0.5)
+}
+
+
+#form .event_due_date {
+    border: none;
+    border-radius: 0.5rem;
+    font-family: 'Segoe UI';
+    background-color: rgb(242,242,242);
+}
+
+#form textarea {
+    inline-size: calc(100% - 2rem);
+    background-color: rgba(242,242,242, 1);
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: none;
+    font-family: 'Segoe UI', sans-serif;
+    margin-block: 1.5rem;
+    block-size: 30rem;
+    color: rgba(124,124,124,0.5);
+}
+#form .clickable_button {
+    margin: 0 2rem 2rem 0;
+}
+
+#form .clickable_button {
+    margin: 0 0 1.7rem 0;
+    min-width: none;
+    margin-inline-start: 2rem;
+}
+
+#form .delete_button {
+    float: right;
+    margin-inline-end: 2rem;
+}
+
+/* || ALERTS */
+#alert {
+    padding: 2rem;
+}
+#alert i {
+    margin-inline-end: 1rem;
+    user-select: none;
+    font-size: 6rem;
+    color: rgba(29, 98, 149);
+    float: inline-start;
+    display: block;
+    position: relative;
+    left: calc(50% - 3rem)
+}
+
+.alert_title {
+    font-size: 2rem;
+    text-align: center;
+    padding-block: 1rem;
+    border-block: 0.2rem solid rgba(29, 98, 149);
+}
+
+.alert_desc {
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    background-color: rgba(242,242,242, 1);
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+#alert button{
+    margin-inline: 3rem;
+    margin-block: 1.5rem;
+    inline-size: 50%;
+}
+/* || RESPONSIVE DESIGN */
 @media screen and (max-width: 999px) {
     /* font-size and layout for mobile devices. 
     Essentially this will increase font size 

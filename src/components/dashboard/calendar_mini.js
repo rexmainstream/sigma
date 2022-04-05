@@ -4,7 +4,6 @@ import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
 import Events_list_item from "./event_list_item";
 
 
-
 export default function Calendar_mini() {
     return (
         <div className="box calendar">
@@ -15,6 +14,7 @@ export default function Calendar_mini() {
                 <div id="mini_events">
                     <hr></hr>
                     <ul id="events_list">
+                        <Events_list_item />
                         <Events_list_item />
                         {/**/}
                     </ul>
@@ -36,7 +36,7 @@ export function calendar_tutorial() {
     if (parent.hasChildNodes() === false) {
         parent.className = `center_vertical`;
         tutorial.id = `calendar_tutorial`;
-        tutorial.textContent = `Click and hold on a calendar date to add an event.`;
+        tutorial.textContent = `Double click a calendar date to add an event.`;
         tutorial.style.animation = `fade_in_text 0.5s ease-out both`
         
         parent.append(tutorial);
@@ -48,21 +48,6 @@ export function calendar_tutorial() {
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function (){
-    let calendarConfig = {
-        container: 'calendar',
-        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-    }
-    const calendar = new RolyartCalendar(calendarConfig);
-
-    //checks if their are any events
-    calendar_tutorial()
-    
-
-   
-})
 
 export function initialise_calendar() {
     let calendarConfig = {

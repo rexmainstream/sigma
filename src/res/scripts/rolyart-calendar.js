@@ -1,3 +1,6 @@
+import { custom_alert } from "./add_alert";
+import { Event_form } from "./add_event";
+
 //External library that draws the calendar. https://www.cssscript.com/es6-calendar-rolyart/
 export function RolyartCalendar(config){
     this.container = document.getElementById(config.container);
@@ -172,15 +175,34 @@ export function RolyartCalendar(config){
                 cell.className += " selected"; 
             });
             
-            cell.addEventListener('mousedown', ()=>{
-                this.add_event = num.id;
-                
-                let add_event = document.getElementsByClassName("add_event");
-                if (add_event.length > 0) { 
-                    add_event[0].className = add_event[0].className.replace(" add_event", "");
-                }         
-                cell.className += " add_event"; 
+            cell.addEventListener('dblclick', ()=>{
+                let selected_day = parseInt(document.querySelector('.selected').textContent);
+                let selected_month = this.currentMonth + 1;
+                const selected_year = this.currentYear;
+                const max_year = selected_year + 3;
+                const current_date = new Date();
+                const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
+                //console.log(selected_date);
+                //console.log(current_date);
+                //Adds zero in front if one digit
+                if (selected_month.toString().length === 1) {
+                    selected_month = `0${selected_month}`;
+                }
+
+                if (selected_day.toString().length === 1) {
+                    selected_day = `0${selected_day}`;
+                }
+
+                if (selected_date < current_date) {
+                    custom_alert('Please select a valid date','warning',`You cannot add events to previous days`);
+                }else {
+                    Event_form(`${selected_year}-${selected_month}-${selected_day}`,
+                    `${max_year}-${selected_month}-${selected_day}`);
+                }
+
             });
+
+
 
             num.type === 'not-current'?cell.classList.add('not-current'):cell.classList.add('current');
             if(num.id === this.YYYYmmdd(this.today)){

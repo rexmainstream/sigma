@@ -55,7 +55,12 @@ export default function Timetable_mini() {
 function Intuitive_header_reveal_hide() {
     let hidden = false;
     let header = document.querySelector('header');
-    Scrolling_event(window,'up',()=>{   
+    Scrolling_event(window,'up',()=>{ 
+        //IF header is invisible due to external means then it shows it  
+        if (header.style.opacity === `0`) {
+            header.style.opacity = `1`;
+            hidden = true;
+        }
         if (hidden === true || window.offsetHeight === 0) {
             header.style.animation = null;
             header.style.animation = `show_header 0.5s ease-out both`;
@@ -66,9 +71,11 @@ function Intuitive_header_reveal_hide() {
         //console.log('Show the header');
     });
     Scrolling_event(window,'down',()=>{
+        //If the header is hidden then set it to false
         if (hidden === false) {
-            header.style.animation = null;           
-            header.style.animation = `hide_header 0.5s ease-out both`
+
+            header.style.animation = null;
+            header.classList.add('invisible_header');           
             header.onanimationend = () => {
                 hidden = true;
             }
