@@ -4,33 +4,12 @@ import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
 import { create_modal, exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "./hover";
-import { return_events_list, show_events_today } from "./rolyart-calendar";
+import { return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
 
 
 //Form for user input
 export function Event_form(current_selected_date, today, max_date) {
     //form initialisation
-
-    /* What it looks like 
-    <div id="form">
-        <input class="event_title">
-        <div class="grid_wrapper">
-            <label for="priority">Priority:</label>
-            <div class="priority_radio_btn_container center_vertical">
-                <input type="radio" name="priority">
-                <input type="radio" name="priority">
-                <input type="radio" name="priority">
-            </div>
-            <label for="due_date">Due Date:</label>
-            <input class="event_due_date" type="date">
-        </div>
-        <textarea maxlength="2000"></textarea>
-        <div>
-            <button class="clickable_button">Create Event</button>
-            <button class="clickable_button delete_button">Delete Event</button>
-        </div>
-    </div>
-    */
     const form = document.createElement('div');
     const center = document.createElement('div');
     const grid = document.createElement('div')
@@ -133,16 +112,17 @@ export function Event_form(current_selected_date, today, max_date) {
 
 //This function executes when the user presses add new event. Adds the event to DOM and stores it in database
 export function Add_new_event(e, title, description, priority, due_date) {
-    //console.log(title);
-    //console.log(description);
-    //console.log(priority);
-    //console.log(due_date);
- 
     if (string_validation(title, 2, 50, 'title') === true) {
         //Adds event to events_list and writes to database
         return_events_list().push(new Event_constructor(title, description, priority, due_date, false));
+
+
         //Adds event to DOM
-        show_events_today()
+        if (due_date === user_selected_date()) {
+            calendar_tutorial()
+            insert_event_to_DOM(title, description, priority, due_date, false)
+        }
+        
         //Exits the modal
         exit_modal(e);
     }  
@@ -158,14 +138,16 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
 
     if (completed === false) {
         event_container = document.getElementById('events_list');
+        check_button.setAttribute('title', 'Complete event');
     } else {
-        event_container = document.getElementById('completed_events')
+        event_container = document.getElementById('completed_events');
+        check_button.setAttribute('title', 'Redo event');
     }
     checkmark.className = 'checkmark';
-    check_button.setAttribute('title', 'Complete event'); 
     check_button.className = 'root_checkmark';
     event_item.ariaLabel = `list item for events`;
     event_item.classList.add('added_event');
+    event_item.classList.add(`${priority}_priority`);
     event_desc.className = 'event_item';
     event_desc.textContent = title;
     event_desc.setAttribute('href', '#');
@@ -181,11 +163,12 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
     check_button.addEventListener('mouseover', (e)=>{Show_checkmark(e);});
     check_button.addEventListener('mouseleave', (e)=>{Hide_checkmark(e);});
     check_button.addEventListener('click', (e)=>{Complete_event(e, title, description, priority, due_date, completed);});
-    event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
-    event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
 
     event_item.addEventListener('animationend', () => {
         event_item.classList.remove('added_event');
+        event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
+        event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
+    
     });
 
 }

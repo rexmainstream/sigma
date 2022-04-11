@@ -18,16 +18,12 @@ export default function Checkmark_button() {
     );
 }
 
-let currently_playing_animation = false;
-
 //This function runs when the user presses complete event
 export function Complete_event(e, title, description, priority, due_date, completed) {
     const completed_event = e.currentTarget.parentElement;
     const event_temporary = completed_event.cloneNode(true);
     const checkmark = event_temporary.querySelector('.root_checkmark')
     const events_list = return_events_list()
-
-    currently_playing_animation = true;
 
     //Plays animation
     completed_event.style.animation = `complete_event 0.3s ease-in both`;
@@ -49,8 +45,6 @@ export function Complete_event(e, title, description, priority, due_date, comple
         checkmark.addEventListener('mouseover', (e)=>{Show_checkmark(e);});
         checkmark.addEventListener('mouseleave', (e)=>{Hide_checkmark(e);});
         checkmark.addEventListener('click', (e)=>{Complete_event(e, title, description, priority, due_date, !completed);});
-        event_temporary.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
-        event_temporary.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
 
         //Changes the status of the completed
         if (completed === true) {
@@ -61,17 +55,14 @@ export function Complete_event(e, title, description, priority, due_date, comple
 
         event_temporary.addEventListener('animationend', ()=>{
             event_temporary.classList.remove('added_event');
-            currently_playing_animation = false;
+            event_temporary.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
+            event_temporary.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
         })
+
 
         
 
         calendar_tutorial();
         completed_event.removeEventListener('animationend', handler);
     })
-}
-
-export function Return_currently_playing_animation() {
-    //console.log(currently_playing_animation)
-    return currently_playing_animation;
 }

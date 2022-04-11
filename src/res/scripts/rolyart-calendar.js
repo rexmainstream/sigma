@@ -117,6 +117,9 @@ export function RolyartCalendar(config){
         prevMonth.addEventListener('click', ()=>{
             this.prevMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
+            if (monthAndYear.textContent === `${this.months[this.currentMonth]} ${this.currentYear}`) {
+                show_events_today()
+            }
         })
 
         nextMonth.innerHTML = '&#8250;'
@@ -126,6 +129,9 @@ export function RolyartCalendar(config){
         nextMonth.addEventListener('click', ()=>{
             this.nextMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
+            if (monthAndYear.textContent === `${this.months[this.currentMonth]} ${this.currentYear}`) {
+                show_events_today()
+            }
         })
 
 
@@ -134,6 +140,7 @@ export function RolyartCalendar(config){
             this.currentMonth = new Date().getMonth();
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
             this.showCalendar();
+            show_events_today();
         })
 
         let weekDays = document.createElement('div');
@@ -170,21 +177,21 @@ export function RolyartCalendar(config){
             
             day.innerHTML = num.date;
             cell.appendChild(day);
-            cell.addEventListener('mousedown', ()=>{
-                this.selected = num.id;
-                
-                let selected = document.getElementsByClassName("selected");
-                if (selected.length > 0) { 
-                    selected[0].className = selected[0].className.replace(" selected", "");
-                }         
-                cell.className += " selected"; 
+            cell.addEventListener('mousedown', (e)=>{
+                this.selected = num.id;         
+                let selected = [].slice.call(document.getElementsByClassName("selected"));
+
+                if (selected.includes(e.currentTarget) === false) {
+                    if (selected.length > 0) { 
+                        selected[0].className = selected[0].className.replace(" selected", "");
+                    }         
+                    cell.className += " selected";
+
+                    show_events_today(); 
+                }
             });
 
-            //Adds an event listener to the clicking of the calendar which will show events on that day
-            cell.addEventListener('mousedown', () =>{
-                show_events_today()
-            })
-
+            //Click and holding on a calendar cell will open up event creation form
             cell.addEventListener('mousedown', (e)=>{
                 let selected_day = parseInt(document.querySelector('.selected').textContent);
                 let selected_month = this.currentMonth + 1;
@@ -198,10 +205,11 @@ export function RolyartCalendar(config){
                 
                 today = yyyy + '-' + mm + '-' + dd;
                 let max_date = `${yyyy + 10}-${mm}-${dd}`;
+
+                //Prevents user from selected greyed out tiles
                 if (e.currentTarget.classList.contains('not-current') === false) {
-                    timeoutID = setTimeout(function(){    
-                        //console.log(selected_date);
-                        //console.log(current_date);
+                    timeoutID = setTimeout(function(){
+
                         //Adds zero in front if one digit
                         if (selected_month.toString().length === 1) {
                             selected_month = `0${selected_month}`;
