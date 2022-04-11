@@ -18,7 +18,7 @@ export function Fade_out_element(e) {
 export function Hover_table(e) { 
     e.currentTarget.style.animation = `highlight 0.2s ease-out both`
     e.currentTarget.nextElementSibling.style.animation = `highlight 0.2s ease-out both`;
-    console.log('hover function has run')
+    //console.log('hover function has run')
 }
 
 //Hover over secondary table row
@@ -29,7 +29,7 @@ export function Hover_table_secondary(e) {
 
 //When user's mouse leaves the table rows the row refreshes.
 export function Time_out(e) {
-    console.log('time_out function has run')
+    //console.log('time_out function has run')
     e.currentTarget.style.animation = `reset_background 0.3s ease-out both`;
     e.currentTarget.nextElementSibling.style.animation = `reset_background 0.3s ease-out both`;
 }

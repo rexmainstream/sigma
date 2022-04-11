@@ -12,7 +12,7 @@ export function create_modal(modal_content_width, dark_background, content, incl
 			modal.addEventListener('keydown', function handler(e) {
 				let keypressed = e.key;
 				if (keypressed === 'Escape') {
-					console.log('exit modal has run')
+					//console.log('exit modal has run')
 					if (document.querySelectorAll('.modal').length === 1) {
 						exit_modal(e);
 						modal.removeEventListener('keydown', handler);
@@ -31,7 +31,7 @@ export function create_modal(modal_content_width, dark_background, content, incl
         body.append(modal);
 		
 		//Removes scrolling ability
-		console.log(document.querySelectorAll('.modal').length)
+		//console.log(document.querySelectorAll('.modal').length)
 		if (document.querySelectorAll('.modal').length === 1) {
 			current_position = window.scrollY;
 			body.classList.add('prevent_scroll');

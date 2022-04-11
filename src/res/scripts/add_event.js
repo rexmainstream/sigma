@@ -1,10 +1,10 @@
 //This subroutine adds an event
-
 import { Complete_event } from "../../components/checkmark_button";
 import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
 import { create_modal, exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "./hover";
+import { return_events_list, show_events_today } from "./rolyart-calendar";
 
 
 //Form for user input
@@ -71,6 +71,7 @@ export function Event_form(current_selected_date, today, max_date) {
     priority3.setAttribute('tabindex', 1);
     due_date.setAttribute('type', 'date');
     due_date.setAttribute('tabindex', 1)
+    due_date.setAttribute('required', 'required')
     due_date_label.setAttribute('for', 'due_date');
     description_input.setAttribute('maxlength', '2000');
     description_input.setAttribute('tabindex', 0);
@@ -83,8 +84,12 @@ export function Event_form(current_selected_date, today, max_date) {
     due_date.setAttribute('min', today);
     due_date.setAttribute('max', max_date);
     due_date.setAttribute('clear', false);
+    due_date.setAttribute('onkeydown', 'return false');
 
     priority_label.innerHTML = 'Priority:';
+    priority1.title = `Low`;
+    priority2.title = `Medium`;
+    priority3.title = `High`;
     due_date_label.innerHTML = 'Due Date:'
     create_event_btn.innerHTML = 'Create Event';
     delete_event_btn.innerHTML = 'Delete';
@@ -102,7 +107,9 @@ export function Event_form(current_selected_date, today, max_date) {
 
     //Adds event listeners to form items
     create_event_btn.addEventListener('click', (e) => {
-        Add_new_event(e, title.value, description_input.value);
+        Add_new_event(e, title.value, description_input.value, 
+            priority.querySelector("input[name='priority']:checked").title,
+            due_date.value, false);
         //Add_new_event();
     })
 
@@ -119,56 +126,80 @@ export function Event_form(current_selected_date, today, max_date) {
         }
     })
 
-    title.addEventListener('click', select_all_input);
-    description_input.addEventListener('click', select_all_input)
+    title.addEventListener('dblclick', select_all_input);
+    description_input.addEventListener('dblclick', select_all_input)
 }
 
 
 //This function executes when the user presses add new event. Adds the event to DOM and stores it in database
-export function Add_new_event(e, title, description) {
+export function Add_new_event(e, title, description, priority, due_date) {
     //console.log(title);
     //console.log(description);
-    const event_container = document.getElementById('events_list');
+    //console.log(priority);
+    //console.log(due_date);
+ 
+    if (string_validation(title, 2, 50, 'title') === true) {
+        //Adds event to events_list and writes to database
+        return_events_list().push(new Event_constructor(title, description, priority, due_date, false));
+        //Adds event to DOM
+        show_events_today()
+        //Exits the modal
+        exit_modal(e);
+    }  
+}
+
+//THis function inserts the event to the DOM
+export function insert_event_to_DOM(title, description, priority, due_date, completed) {
+    let event_container
     const event_item = document.createElement('li');
     const check_button = document.createElement('div');
     const checkmark = document.createElement('div');
     const event_desc = document.createElement('a');
- 
-    if (string_validation(title, 2, 50, 'title') === true) {
-        checkmark.className = 'checkmark';
-        check_button.setAttribute('title', 'Complete event'); 
-        check_button.className = 'root_checkmark';
-        event_item.ariaLabel = `list item for events`;
-        event_item.classList.add('added_event');
-        event_desc.className = 'event_item';
-        event_desc.textContent = title;
-        event_desc.setAttribute('href', '#');
 
-        //Exits the modal
-        exit_modal(e);
-        //appends event into the event list
-        check_button.append(checkmark);
-        event_item.append(check_button);
-        event_item.append(event_desc);
-        event_container.append(event_item);
-        
+    if (completed === false) {
+        event_container = document.getElementById('events_list');
+    } else {
+        event_container = document.getElementById('completed_events')
+    }
+    checkmark.className = 'checkmark';
+    check_button.setAttribute('title', 'Complete event'); 
+    check_button.className = 'root_checkmark';
+    event_item.ariaLabel = `list item for events`;
+    event_item.classList.add('added_event');
+    event_desc.className = 'event_item';
+    event_desc.textContent = title;
+    event_desc.setAttribute('href', '#');
 
-        //event listeners for animations
-        check_button.addEventListener('mouseover', (e)=>{Show_checkmark(e);});
-        check_button.addEventListener('mouseleave', (e)=>{Hide_checkmark(e);});
-        check_button.addEventListener('click', (e)=>{Complete_event(e);});
-        event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
-        event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
+    //appends event into the event list
+    check_button.append(checkmark);
+    event_item.append(check_button);
+    event_item.append(event_desc);
+    event_container.append(event_item);
+    
 
-        event_item.addEventListener('animationend', () => {
-            event_item.classList.remove('added_event');
-        });
+    //event listeners for animations
+    check_button.addEventListener('mouseover', (e)=>{Show_checkmark(e);});
+    check_button.addEventListener('mouseleave', (e)=>{Hide_checkmark(e);});
+    check_button.addEventListener('click', (e)=>{Complete_event(e, title, description, priority, due_date, completed);});
+    event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
+    event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
 
-        //writes event into database
-    }  
+    event_item.addEventListener('animationend', () => {
+        event_item.classList.remove('added_event');
+    });
+
 }
 
 //Selects all the input text in the field
 function select_all_input(e) {
     e.currentTarget.setSelectionRange(0, e.currentTarget.value.length)
+}
+
+//This function is a constructor for an event.
+export function Event_constructor(title, description, priority, due_date, completed) {
+    this.title = title;
+    this.description = description;
+    this.priority = priority;
+    this.due_date = due_date;
+    this.completed = completed;
 }

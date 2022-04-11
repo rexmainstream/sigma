@@ -16,7 +16,6 @@ export default function Calendar_mini() {
                     <hr></hr>
                     <div id="events_container">
                         <ul id="events_list">
-                            <Events_list_item event_title='Hello'/>
                             {/**/}
                         </ul>
                         <ul id="completed_events">
@@ -33,23 +32,25 @@ export default function Calendar_mini() {
     );
 }
 
-//Checks if their are any events, if not then it gives instructions
+//Checks if their are any events, if not then it gives instructions on how to add events
 export function calendar_tutorial() {
-    const parent = document.querySelector('#events_container');
+    const events_list = document.querySelector('#events_list');
+    const events_completed = document.querySelector('#completed_events')
     const tutorial = document.createElement('div');
 
     //If the calendar doesn't have events it shows instructions
-    if (parent.hasChildNodes() === false) {
-        parent.className = `center_vertical`;
+    if (events_list.hasChildNodes() === false && events_completed.hasChildNodes() === false) {
+        events_list.classList.add('center_vertical');
         tutorial.id = `calendar_tutorial`;
-        tutorial.textContent = `Double click a calendar date to add an event.`;
+        tutorial.textContent = `There are no events on this day. Click and hold on a calendar date to add an event.`;
         tutorial.style.animation = `fade_in_text 0.5s ease-out both`
+        tutorial.style.paddingTop = `4rem`;
         
-        parent.append(tutorial);
+        events_list.append(tutorial);
         //console.log('no child nodes')
-    }else {
-        parent.removeChild(parent.querySelector('#calendar_tutorial'));
-        parent.className = ``;
+    }else if (document.querySelectorAll('#calendar_tutorial').length !== 0   ) {
+        events_list.classList.remove('center_vertical');
+        events_list.removeChild(document.querySelector('#calendar_tutorial'));
         //console.log('has child nodes')
     }
 }
@@ -64,7 +65,7 @@ export function initialise_calendar() {
     const calendar = new RolyartCalendar(calendarConfig);
 
     //checks if their are any events
-    calendar_tutorial()
+    calendar_tutorial();
 
 }
 

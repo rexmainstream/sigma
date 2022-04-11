@@ -14,8 +14,8 @@ function random_number_generator(min, max) {
 // This function gets the quote
 function Get_quote () {
     let today_quote = Return_quote_list(random_number_generator(0,Return_quote_list_length() - 1));
-    console.log("get_quote function has been run")
-    console.log(today_quote.quote_author)
+    //console.log("get_quote function has been run")
+    //console.log(today_quote.quote_author)
 
     
     //sets text content to the quote of the day
@@ -27,7 +27,7 @@ function Get_quote () {
 //Too slow maybe just animate the quote author
 function Write_quote_author(today_quote) {
     let written_quote = `- ${today_quote['quote_author']} -`
-    console.log(written_quote.length);
+    //console.log(written_quote.length);
     let text_size = 25;
     
     if (window.screen.width < 1000) {
@@ -45,7 +45,7 @@ function Write_quote_author(today_quote) {
         strokeWidth: 1.3
     }  
     )
-    console.log("Write quote has been executed")
+    //console.log("Write quote has been executed")
 }
 
 function play_slide_in_animation() {

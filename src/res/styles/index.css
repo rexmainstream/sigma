@@ -166,7 +166,15 @@ input[type="radio"]::before {
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1rem 1rem rgb(29, 98, 149);
+    box-shadow: inset 1rem 1rem #F4BB44;
+}
+
+input[type="radio"]:first-child::before{
+    box-shadow: inset 1rem 1rem #71C671;
+}
+
+input[type="radio"]:last-child::before{
+    box-shadow: inset 1rem 1rem #FF5733;
 }
 
 input[type="radio"]:checked::before {
@@ -857,6 +865,7 @@ main .grid_wrapper {
     border-radius: 0.5rem;
     font-family: 'Segoe UI';
     background-color: rgb(242,242,242);
+    user-select: none;
 }
 
 input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-clear-button {
