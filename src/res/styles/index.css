@@ -24,6 +24,7 @@ header {
     font-size: 1.5rem;
     background-color: white;
     padding: 0;
+    border-bottom: 0.1rem solid rgba(242,242,242,1);
 }
 
 .navigation {
@@ -132,11 +133,44 @@ textarea {
     transform: rotate(45deg);
 }
 
+input[type="radio"] {
+/* Add if not using autoprefixer */
+-webkit-appearance: none;
+appearance: none;
+/* For iOS < 15 to remove gradient background */
+background-color: #fff;
+/* Not removed via appearance */
+margin: 0;
+}
+
 input[type='radio'] {
+    appearance: none;
+    background-color: #fff;
+    border-radius: 50%;
     inline-size: 2rem;
     block-size: 2rem;
+    border: 0.2rem solid black;
     color: rgb(29, 98, 149);
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: inherit;
+    margin-inline: 0.3rem;
+    transform: translateY(-0.075rem);
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1rem 1rem rgb(29, 98, 149);
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
 }
 
 input[type='radio']:after {
@@ -480,6 +514,7 @@ ul[class] {
     border-radius: 5px;
 }
 
+
 hr {
     background-color: #DDDDDD;
     block-size: 0.05rem;
@@ -487,19 +522,21 @@ hr {
     margin: 1rem 0 1rem;
 }
 
-
-#events_list {
+#events_container {
     overflow-y: auto;
-    overflow-x: hidden;
     block-size: 18rem;
-    margin-block-end: 0.5rem;
+    margin-block-end: 1rem;
+}
+
+#events_list, #completed_events {
+    overflow-x: hidden;
     font-size: 1.5rem;
-    padding: 1rem;
-    margin-block-start: 0;
+    padding-inline: 1rem;
+    margin: 0;
     /*background-color: rgb(242, 242, 242);*/
 }
 
-#events_list li {
+#events_list li, #completed_events li {
     display: flex;
     overflow: hidden;
     block-size: calc(0.64rem + 0.64rem + 1rem);
@@ -515,12 +552,20 @@ hr {
     white-space: nowrap;
 }
 
+#events_list .hovered_item {
+    animation: hover_list 0.2s ease-out both;
+}
+
+.added_event {
+    animation: add_event 0.5s ease-out both;
+}
+
 #events_list #Add_new_event {
     box-shadow: none;
     background-color: inherit;
 }
 
-#events_list li a {
+#events_list li a, #completed_events li a {
     block-size: calc(0.64rem + 0.64rem + 1rem);
     display: inline-block;
 }
@@ -531,6 +576,12 @@ hr {
     text-align: center;
     color: rgba(124,124,124, 0.8);
     inline-size: 70%;
+}
+
+
+#completed_events li {
+    color: rgb(124,124,124);
+    text-decoration: line-through;
 }
 
 .flex {
@@ -604,6 +655,11 @@ p a:visited {
 
 button {
     cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 .buttons_container button {
@@ -770,10 +826,6 @@ main .grid_wrapper {
         grid-template-columns: auto;
     }
 
-    #form .priority_radio_btn_container {
-        display: block;
-    }
-
     .priority_radio_btn_container {
         grid-row: 2;
     }
@@ -796,7 +848,7 @@ main .grid_wrapper {
     margin-block: 1rem;
     padding: 1rem 1rem 0.5rem 1rem;
     outline: 0;
-    color: rgba(124,124,124,0.5)
+    color: rgba(124,124,124,0.5);
 }
 
 
@@ -805,6 +857,14 @@ main .grid_wrapper {
     border-radius: 0.5rem;
     font-family: 'Segoe UI';
     background-color: rgb(242,242,242);
+}
+
+input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-clear-button {
+    display: none; 
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
 }
 
 #form textarea {

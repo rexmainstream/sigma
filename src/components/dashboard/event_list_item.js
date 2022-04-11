@@ -7,7 +7,7 @@ import Check_button from "../checkmark_button";
 
 
 //This subroutine exports the event list item that will be in the calendar 
-export default function Events_list_item() {
+export default function Events_list_item(props) {
     return (
         <li
             aria-label="list item for events"
@@ -15,7 +15,7 @@ export default function Events_list_item() {
             onMouseEnter={(e) => Hover_list_item(e)}
             onMouseLeave={(e) => Time_out_list_item(e)}>
             <Check_button />
-            <a href="" className="event_item">Event example</a>
+            <a href="" className="event_item">{props.event_title}</a>
         </li>
     );
 }

@@ -175,13 +175,20 @@ export function RolyartCalendar(config){
                 cell.className += " selected"; 
             });
             
-            cell.addEventListener('dblclick', ()=>{
+            cell.addEventListener('click', ()=>{
                 let selected_day = parseInt(document.querySelector('.selected').textContent);
                 let selected_month = this.currentMonth + 1;
                 const selected_year = this.currentYear;
-                const max_year = selected_year + 3;
                 const current_date = new Date();
                 const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
+                let today = new Date;
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                
+                today = yyyy + '-' + mm + '-' + dd;
+                let max_date = `${yyyy + 10}-${mm}-${dd}`;
+
                 //console.log(selected_date);
                 //console.log(current_date);
                 //Adds zero in front if one digit
@@ -193,11 +200,13 @@ export function RolyartCalendar(config){
                     selected_day = `0${selected_day}`;
                 }
 
+                //Error checking
                 if (selected_date < current_date) {
-                    custom_alert('Please select a valid date','warning',`You cannot add events to previous days`);
-                }else {
-                    Event_form(`${selected_year}-${selected_month}-${selected_day}`,
-                    `${max_year}-${selected_month}-${selected_day}`);
+                    custom_alert('Please select a valid date','warning',`You cannot add events to previous days.`);
+                } else if (`${selected_year}-${selected_month}-${selected_day}`> max_date){
+                    custom_alert('Please select a valid date', 'warning', 'Please select a due date within 10 years from today.')
+                } else {
+                    Event_form(`${selected_year}-${selected_month}-${selected_day}`, today, max_date);
                 }
 
             });

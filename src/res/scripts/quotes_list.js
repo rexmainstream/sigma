@@ -11,7 +11,21 @@ function quote(quote_input, author) {
 export function Quote_list_initialisation() {
     //Quote database
     quotes_list = [
+        new quote("Has it ever struck you that life is all memory, except for the one present moment that goes by you so quick you hardly catch it going?","Tennessee Williams"),
+        new quote("In a world filled with hate, we must still dare to hope.","Michael Jackson"),
+        new quote("Lies run sprints, but the truth runs marathons.","Michael Jackson"),
+        new quote("To give someone a piece of your heart, is worth more than all the wealth in the world.","Michael Jackson"),
+        new quote("A star can never die. It just turns into a smile and melts back into the cosmic music, the dance of life.","Michael Jackson"),
         new quote('To belittle you have to be little','Khalil Gibran'),
+        new quote("Do, or do not. There is no 'try'","Yoda"),
+        new quote("When things go wrong, don't go with them.","Elvis Presley"),
+        new quote("Truth is like the sun. You can shut it out for a time, but it ain't going away.","Elvis Presley"),
+        new quote("If you let your head get too big, it'll break your neck.","Elvis Presley"),
+        new quote("It ain’t about how hard you can hit. It’s about how hard you can get hit and keep moving forward.","Rocky Balboa"),
+        new quote("To judge a man by his weakest link or deed is like judging the power of the ocean by one wave.","Elvis Presley"),
+        new quote("The man who views the world at 50 the same as he did at 20 has wasted 30 years of his life.","Muhammad Ali"),
+        new quote("Some mountains are higher than others, some roads steeper than the next. There are hardships and setbacks, but you can't let them stop you. ","Muhammad Ali"),
+        new quote("The hero and the coward both feel the same thing. But the hero uses his fear, projects it onto his opponent, while the coward runs. It’s the same thing, fear, but it’s what you do with it that matters.","Cus D’amato"),
         new quote('The battleline between good and evil runs through the heart of every man.','Aleksandr Solzhenitsyn'),
         new quote('Defeat, my Defeat, my solitude and my aloofness. You are dearer to me than a thousand triumphs, and sweeter to my heart than all world-glory.','Khalil Gibran'),
         new quote('Trust in dreams, for in them is hidden the gate to eternity.','Khalil Gibran'),
@@ -387,6 +401,9 @@ export function Quote_list_initialisation() {
         new quote("Time is too slow for those who wait, too swift for those who fear, too long for those who grieve, too short for those who rejoice, but for those who love, time is eternity.","Henry Van Dyke"),
         new quote("Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.","Marcus Aurelius"),
         new quote("A little nonsense now and then, is cherished by the wisest men.","Roald Dahl"),
+        new quote("Such is life","Ned Kelly"),
+        new quote("To play a wrong note is insignificant; to play without passion is inexcusable.","Ludwig van Beethoven"),
+        new quote("All the world’s a stage, and all the men and women merely players","William Shakespeare"),
         new quote("Never test another man by your own weakness.", "Joseph Conrad")
         //new quote("",""),
     ]       

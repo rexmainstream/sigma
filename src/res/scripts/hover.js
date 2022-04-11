@@ -59,7 +59,7 @@ export function Time_out_button(e) {
 
 export function Hover_list_item(e) {
     if (Return_currently_playing_animation() === false) {
-        e.currentTarget.style.animation = `highlight 0.2s ease-out both`; 
+        e.currentTarget.classList.add('hovered_item'); 
     }
     /* This subroutine is not included
     //Checks if the element has overflow
@@ -75,7 +75,7 @@ export function Hover_list_item(e) {
 
 export function Time_out_list_item(e) {
     if (Return_currently_playing_animation() === false) {
-        e.currentTarget.style.animation = null; 
+        e.currentTarget.classList.remove('hovered_item'); 
         e.currentTarget.style.backgroundColor = `rgba(242,242,242,0.7)`;
     } else {
         //console.log('currently playing animation');

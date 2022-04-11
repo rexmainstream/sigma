@@ -1,13 +1,14 @@
 //This subroutine adds an event
 
-import Events_list_item from "../../components/dashboard/event_list_item";
+import { Complete_event } from "../../components/checkmark_button";
+import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
 import { create_modal, exit_modal } from "./add_modal";
-
-
+import { string_validation } from "./data_validation";
+import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "./hover";
 
 
 //Form for user input
-export function Event_form(current_date, max_date) {
+export function Event_form(current_selected_date, today, max_date) {
     //form initialisation
 
     /* What it looks like 
@@ -64,16 +65,24 @@ export function Event_form(current_date, max_date) {
     priority2.setAttribute('name', 'priority');
     priority3.setAttribute('name', 'priority');
     priority_label.setAttribute('for', 'priority');
+    priority.setAttribute('tabindex', 1);
+    priority1.setAttribute('tabindex', 1);
+    priority2.setAttribute('tabindex', 1);
+    priority3.setAttribute('tabindex', 1);
     due_date.setAttribute('type', 'date');
+    due_date.setAttribute('tabindex', 1)
     due_date_label.setAttribute('for', 'due_date');
     description_input.setAttribute('maxlength', '2000');
+    description_input.setAttribute('tabindex', 0);
     title.setAttribute('placeholder', 'Add Title');
     title.setAttribute('required', 'required');
+    title.setAttribute('autofocus', true)
     description_input.setAttribute('placeholder', 'Description: Max 2000 characters')
     title.setAttribute('type', 'text');
-    due_date.setAttribute('value', current_date);
-    due_date.setAttribute('min', current_date);
+    due_date.setAttribute('value', current_selected_date);
+    due_date.setAttribute('min', today);
     due_date.setAttribute('max', max_date);
+    due_date.setAttribute('clear', false);
 
     priority_label.innerHTML = 'Priority:';
     due_date_label.innerHTML = 'Due Date:'
@@ -92,10 +101,9 @@ export function Event_form(current_date, max_date) {
 
 
     //Adds event listeners to form items
-    create_event_btn.addEventListener('click', () => {
-        Add_new_event(title.value, description_input.value, )
+    create_event_btn.addEventListener('click', (e) => {
+        Add_new_event(e, title.value, description_input.value);
         //Add_new_event();
-        exit_modal();
     })
 
     //If the value is not add title then the font colour is grey
@@ -116,15 +124,51 @@ export function Event_form(current_date, max_date) {
 }
 
 
-
-export function Add_new_event(title, description) {
-    //appends event into the event list
+//This function executes when the user presses add new event. Adds the event to DOM and stores it in database
+export function Add_new_event(e, title, description) {
     //console.log(title);
     //console.log(description);
+    const event_container = document.getElementById('events_list');
+    const event_item = document.createElement('li');
+    const check_button = document.createElement('div');
+    const checkmark = document.createElement('div');
+    const event_desc = document.createElement('a');
+ 
+    if (string_validation(title, 2, 50, 'title') === true) {
+        checkmark.className = 'checkmark';
+        check_button.setAttribute('title', 'Complete event'); 
+        check_button.className = 'root_checkmark';
+        event_item.ariaLabel = `list item for events`;
+        event_item.classList.add('added_event');
+        event_desc.className = 'event_item';
+        event_desc.textContent = title;
+        event_desc.setAttribute('href', '#');
 
-    //writes event into database
+        //Exits the modal
+        exit_modal(e);
+        //appends event into the event list
+        check_button.append(checkmark);
+        event_item.append(check_button);
+        event_item.append(event_desc);
+        event_container.append(event_item);
+        
+
+        //event listeners for animations
+        check_button.addEventListener('mouseover', (e)=>{Show_checkmark(e);});
+        check_button.addEventListener('mouseleave', (e)=>{Hide_checkmark(e);});
+        check_button.addEventListener('click', (e)=>{Complete_event(e);});
+        event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
+        event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
+
+        event_item.addEventListener('animationend', () => {
+            event_item.classList.remove('added_event');
+        });
+
+        //writes event into database
+    }  
 }
 
+//Selects all the input text in the field
 function select_all_input(e) {
     e.currentTarget.setSelectionRange(0, e.currentTarget.value.length)
 }

@@ -7,9 +7,18 @@ export function create_modal(modal_content_width, dark_background, content, incl
 		const content_wrapper = document.createElement('div');
 		const close_button = document.createElement('button');
 		const body = document.querySelector('body');
-		current_position = window.scrollY;
 		if(include_close_button === true) {
 			modal.append(content_wrapper, close_button);
+			modal.addEventListener('keydown', function handler(e) {
+				let keypressed = e.key;
+				if (keypressed === 'Escape') {
+					console.log('exit modal has run')
+					if (document.querySelectorAll('.modal').length === 1) {
+						exit_modal(e);
+						modal.removeEventListener('keydown', handler);
+					}
+				}
+			})
 		} else {
 			modal.append(content_wrapper);
 		}
@@ -22,7 +31,12 @@ export function create_modal(modal_content_width, dark_background, content, incl
         body.append(modal);
 		
 		//Removes scrolling ability
-		body.classList.add('prevent_scroll');
+		console.log(document.querySelectorAll('.modal').length)
+		if (document.querySelectorAll('.modal').length === 1) {
+			current_position = window.scrollY;
+			body.classList.add('prevent_scroll');
+		}
+		//Moves the modal to body position
 		body.style.top = `-${current_position}px`
 		modal.style.top = `${current_position}px`;
 
@@ -38,7 +52,7 @@ export function create_modal(modal_content_width, dark_background, content, incl
 		content_wrapper.style.inlineSize = modal_content_width;
 
 		//If user clicks close, closes the modal
-		close_button.addEventListener('click', exit_modal);
+		close_button.addEventListener('click', (e) => {exit_modal(e)});
 
 		/*
 		//If user clicks the modal (not including content) closes the modal
@@ -69,8 +83,8 @@ export function create_modal(modal_content_width, dark_background, content, incl
 
 //modal is exited
 export function exit_modal(e) {
-	const modal = document.querySelector('.modal');
-	const content_wrapper = document.querySelector('.modal_content_wrapper');
+	const modal = e.currentTarget.closest('.modal');
+	const content_wrapper = modal.querySelector('.modal_content_wrapper');
 	const body = document.querySelector('body');
 	//modal.classList.remove('open_modal');
 	modal.classList.add('fade_out_modal');
@@ -79,14 +93,15 @@ export function exit_modal(e) {
 	//Removes modal if animation ends	
 	modal.onanimationend = () => {
 		body.removeChild(modal);
-		//Enables scrolling
-		body.style.top = '0';
-		body.classList.remove('prevent_scroll');
-		document.querySelector('header').style.opacity = `0`;
-		window.scrollBy(0,current_position);
-		
+		if (document.querySelectorAll('.modal').length < 1) {
+			//Enables scrolling
+			body.style.top = '0';
+			body.classList.remove('prevent_scroll');
+			//document.querySelector('header').style.opacity = `0`;
+			window.scrollBy(0,current_position);
+		}
 		//remove event listeners for performance
-		e.removeEventListener('click', exit_modal);
+		//e.removeEventListener('click', exit_modal);
 
 	}		
 }

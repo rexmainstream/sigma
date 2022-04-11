@@ -34,15 +34,16 @@
     }
 }
 
-@keyframes reset_background_list {
-    0% {
-        
-    }
 
-    100% {
+@keyframes hover_list {
+    0% {
         background-color: rgba(242,242,242,0.7);
     }
+    100% {
+        background-color: rgba(209,231,246, 0.5);
+    }
 }
+
 
 @keyframes fade_out {
     0% {
@@ -138,6 +139,17 @@
     }
 }
 
+@keyframes add_event {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%)
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
 @keyframes show_header {
     0% {
         transform: translateY(-100%);
@@ -183,3 +195,4 @@
     }
     
 }
+

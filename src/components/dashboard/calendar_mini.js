@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDom from "react-dom";
 import '../../res/styles/calendar_mini_styles.css'
 import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
 import Events_list_item from "./event_list_item";
@@ -13,11 +14,16 @@ export default function Calendar_mini() {
             <div className="center_vertical">
                 <div id="mini_events">
                     <hr></hr>
-                    <ul id="events_list">
-                        <Events_list_item />
-                        <Events_list_item />
-                        {/**/}
-                    </ul>
+                    <div id="events_container">
+                        <ul id="events_list">
+                            <Events_list_item event_title='Hello'/>
+                            {/**/}
+                        </ul>
+                        <ul id="completed_events">
+
+                        </ul>
+                    </div>
+
                     {/*<div className="center_vertical">
                         <button className="clickable_button">View all events</button>
                     </div>*/}
@@ -29,7 +35,7 @@ export default function Calendar_mini() {
 
 //Checks if their are any events, if not then it gives instructions
 export function calendar_tutorial() {
-    const parent = document.querySelector('#events_list');
+    const parent = document.querySelector('#events_container');
     const tutorial = document.createElement('div');
 
     //If the calendar doesn't have events it shows instructions
@@ -42,7 +48,7 @@ export function calendar_tutorial() {
         parent.append(tutorial);
         //console.log('no child nodes')
     }else {
-        parent.removeChild(tutorial);
+        parent.removeChild(parent.querySelector('#calendar_tutorial'));
         parent.className = ``;
         //console.log('has child nodes')
     }
