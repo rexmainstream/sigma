@@ -198,14 +198,8 @@ export function RolyartCalendar(config){
                 const selected_year = this.currentYear;
                 const current_date = new Date();
                 const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
-                let today = new Date;
-                var dd = String(today.getDate()).padStart(2, '0');
-                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                var yyyy = today.getFullYear();
-                
-                today = yyyy + '-' + mm + '-' + dd;
-                let max_date = `${yyyy + 10}-${mm}-${dd}`;
-
+                const today = get_date().today;
+                const max_date = get_date().max_date;
                 //Prevents user from selected greyed out tiles
                 if (e.currentTarget.classList.contains('not-current') === false) {
                     timeoutID = setTimeout(function(){
@@ -321,4 +315,22 @@ export function user_selected_date() {
 
     selected_date = `${selected_year}-${selected_month}-${String(selected_day)}`;
     return selected_date;
+}
+
+//Gets the current date and returns it
+export function get_date() {
+    let today = new Date;
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    
+    const date = {
+        day: dd,
+        month: mm,
+        year: yyyy,
+        today: `${yyyy}-${mm}-${dd}`,
+        max_date: `${yyyy+10}-${mm}-${dd}`
+    }
+    return date;
 }

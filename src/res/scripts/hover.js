@@ -57,6 +57,7 @@ export function Time_out_button(e) {
 
 export function Hover_list_item(e) {
     e.currentTarget.classList.add('hovered_item'); 
+    console.log('hey')
     /* This subroutine is not included
     //Checks if the element has overflow
     if (e.currentTarget.clientWidth < e.currentTarget.scrollWidth) {
