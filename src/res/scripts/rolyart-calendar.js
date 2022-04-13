@@ -226,7 +226,47 @@ export function RolyartCalendar(config){
 
             });
 
+            //for mobile
+            cell.addEventListener('touchstart', (e)=>{
+                let selected_day = parseInt(document.querySelector('.selected').textContent);
+                let selected_month = this.currentMonth + 1;
+                const selected_year = this.currentYear;
+                const current_date = new Date();
+                const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
+                const today = get_date().today;
+                const max_date = get_date().max_date;
+                //Prevents user from selected greyed out tiles
+                if (e.currentTarget.classList.contains('not-current') === false) {
+                    timeoutID = setTimeout(function(){
+
+                        //Adds zero in front if one digit
+                        if (selected_month.toString().length === 1) {
+                            selected_month = `0${selected_month}`;
+                        }
+        
+                        if (selected_day.toString().length === 1) {
+                            selected_day = `0${selected_day}`;
+                        }
+        
+                        //Error checking
+                        if (selected_date < current_date) {
+                            custom_alert('Please select a valid date','warning',`You cannot add events to previous days.`);
+                        } else if (`${selected_year}-${selected_month}-${selected_day}`> max_date){
+                            custom_alert('Please select a valid date', 'warning', 'Please select a due date within 10 years from today.')
+                        } else {
+                            Event_form(`${selected_year}-${selected_month}-${selected_day}`, today, max_date);
+                        }
+                    }, 350);
+            }
+
+            });
+
             cell.addEventListener('mouseup', () => {
+                clearTimeout(timeoutID);
+            })
+
+            
+            cell.addEventListener('touchend', () => {
                 clearTimeout(timeoutID);
             })
 

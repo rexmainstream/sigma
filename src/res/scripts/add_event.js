@@ -4,6 +4,7 @@ import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
 import { create_modal, exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { edit_event } from "./edit_event";
+import { event_tooltip, tooltip_time_out } from "./event_tooltip";
 import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "./hover";
 import { return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
 import { return_event_index } from "./search_and_sort_events";
@@ -140,11 +141,11 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
     const index = return_event_index(new Event_constructor(title, description, priority, due_date, completed));
 
     if (completed === false) {
-        event_item.setAttribute('title', 'Edit event');
+        event_desc.setAttribute('title', 'Edit event');
         event_container = document.getElementById('events_list');
         check_button.setAttribute('title', 'Complete event');
     } else {
-        event_item.removeAttribute('title');
+        event_desc.removeAttribute('title');
         event_container = document.getElementById('completed_events');
         check_button.setAttribute('title', 'Redo event');
     }
@@ -175,7 +176,9 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
         event_item.classList.remove('added_event');
         event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
         event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
-        event_item.addEventListener('click', (e) => {edit_event(e, index)})
+        event_desc.addEventListener('click', (e) => {edit_event(e, index)});
+        event_item.addEventListener('mouseenter', (e) => {event_tooltip(e, index)}, false);
+        event_item.addEventListener('mouseleave', () => {tooltip_time_out()}, false)
         event_item.removeEventListener('animationend', handler);
     });
 

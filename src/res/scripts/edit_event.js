@@ -4,6 +4,8 @@ import { exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { get_date, return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
 
+let timeoutID
+
 //Edits the event
 export function edit_event(e, index) {
     const events_list = return_events_list();
@@ -53,11 +55,12 @@ export function edit_event(e, index) {
             events_list[index].due_date = due_date.value;
 
             //Adds event to DOM and removes old event
-            document.querySelector('#events_list').removeChild(e.target)
+            document.querySelector('#events_list').removeChild(e.target.parentElement)
             if (events_list[index].due_date === user_selected_date()) {
                 insert_event_to_DOM(events_list[index].title, events_list[index].description, events_list[index].priority, events_list[index].due_date, false);
             } else {
                 show_events_today();
+                calendar_tutorial();
             }            
         }
     })

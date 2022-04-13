@@ -546,6 +546,7 @@ hr {
 
 #events_list li, #completed_events li {
     display: flex;
+    overflow: hidden;
     block-size: calc(0.64rem + 0.64rem + 1rem);
     list-style-position: inside;
     padding-block-end: 0.64rem;
@@ -594,6 +595,49 @@ hr {
 #events_list li a, #completed_events li a {
     block-size: calc(0.64rem + 0.64rem + 1rem);
     display: inline-block;
+}
+
+.event_tooltip {
+    content: '';
+    white-space: nowrap;
+    text-transform: none;
+    inline-size: 40vw;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    padding: 1rem;
+    right: 110%;
+    transform: translateY(-25rem);
+    height: 40vh;
+}
+
+
+.event_tooltip h3 {
+    margin: 0;
+    margin-block-end: 1rem;
+    border-block-end: 0.2rem solid black;
+    background-color: white;
+}
+
+.event_tooltip .event_description {
+    padding: 1rem;
+    margin: 1rem 0 1rem 0;
+    border-radius: 1rem;
+    border: none;
+    block-size: 13rem;
+    background-color: rgb(242,242,242);
+    font-family: 'Segoe UI';
+    inline-size: calc(100% - 2rem);
+}
+
+.show_tooltip {
+    animation: show_tooltip 0.2s ease-out both;
+}
+
+.hide_tooltip {
+    animation: show_tooltip 0.2s ease-out both reverse;
 }
 
 #calendar_tutorial {

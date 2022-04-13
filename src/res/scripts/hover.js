@@ -56,18 +56,7 @@ export function Time_out_button(e) {
 
 
 export function Hover_list_item(e) {
-    e.currentTarget.classList.add('hovered_item'); 
-    console.log('hey')
-    /* This subroutine is not included
-    //Checks if the element has overflow
-    if (e.currentTarget.clientWidth < e.currentTarget.scrollWidth) {
-        console.log("Overflowing text");
-        //if overflow then scrolls the text right to show rest of text
-
-        e.currentTarget.style.animation = `show_overflow 15s linear infinite`;
-    }
-    //console.log(e.currentTarget.scrollWidth)
- */
+    e.currentTarget.classList.add('hovered_item');
 }
 
 export function Time_out_list_item(e) {

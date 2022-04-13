@@ -168,6 +168,21 @@
     }
 }
 
+@keyframes show_tooltip {
+    0% {
+        opacity: 0;
+        transform:rotateY(45deg);
+        transform: translateY(-20rem);
+        /*transform: scale(0%);*/
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+        transform: translateY(-25rem);
+        /*transform: scale(100%);*/
+    }
+}
 @keyframes remove_modal {
     0% {
         opacity: 1;
