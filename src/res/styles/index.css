@@ -613,6 +613,10 @@ hr {
     height: 40vh;
 }
 
+.event_tooltip:hover {
+    box-shadow: 0 12px 20px rgb(0 0 0 / 40%);
+}
+
 
 .event_tooltip h3 {
     margin: 0;
@@ -630,6 +634,8 @@ hr {
     background-color: rgb(242,242,242);
     font-family: 'Segoe UI';
     inline-size: calc(100% - 2rem);
+    cursor: pointer;
+    outline: none;
 }
 
 .show_tooltip {
@@ -946,7 +952,7 @@ input[type="date"]::-webkit-inner-spin-button {
     border: none;
     font-family: 'Segoe UI', sans-serif;
     margin-block: 1.5rem;
-    block-size: 30rem;
+    block-size: 20rem;
     color: rgba(124,124,124,0.5);
 }
 
@@ -957,7 +963,6 @@ input[type="date"]::-webkit-inner-spin-button {
 
 #form .delete_button {
     float: right;
-    margin-inline-end: 2rem;
 }
 
 /* || ALERTS */

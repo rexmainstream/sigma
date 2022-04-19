@@ -67,8 +67,9 @@ export function Complete_event(e, completed, index) {
             if (events_list[index].completed === false) {
                 event_desc.addEventListener('click', (e) => {edit_event(e, index)});
                 event_temporary.addEventListener('mouseenter', (e)=> {
+                    e.stopPropagation();
                     event_tooltip(e, index);})
-                event_temporary.addEventListener('mouseleave', () => tooltip_time_out())
+                event_temporary.addEventListener('mouseleave', (e) => tooltip_time_out(e))
             }       
             event_temporary.removeEventListener('animationend', handler);
         });

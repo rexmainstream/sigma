@@ -27,6 +27,7 @@ export function Event_form(current_selected_date, today, max_date) {
     const description_input = document.createElement('textarea');
     const button_container= document.createElement('div');
     const create_event_btn = document.createElement('button');
+    let modal_width = '75vw'
     //const delete_event_btn = document.createElement('button');
 
     form.id = 'form';
@@ -84,7 +85,10 @@ export function Event_form(current_selected_date, today, max_date) {
 
 
     //Creates the form by appending the stuff into modal
-    create_modal(`75vw`, true, center, true);
+    if (window.screen.width < 1000) {     
+        modal_width = `90vw`;
+    }
+    create_modal(modal_width, true, center, true);
 
 
     //Adds event listeners to form items
@@ -177,8 +181,11 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
         event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
         event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
         event_desc.addEventListener('click', (e) => {edit_event(e, index)});
-        event_item.addEventListener('mouseenter', (e) => {event_tooltip(e, index)}, false);
-        event_item.addEventListener('mouseleave', () => {tooltip_time_out()}, false)
+        event_item.addEventListener('mouseenter', (evt) => {
+            event_tooltip(evt, index);
+            evt.stopPropagation();
+        });
+        event_item.addEventListener('mouseleave', (e) => {tooltip_time_out(e)})
         event_item.removeEventListener('animationend', handler);
     });
 

@@ -191,6 +191,20 @@ export function RolyartCalendar(config){
                 }
             });
 
+            cell.addEventListener('touchstart', (e)=>{
+                this.selected = num.id;         
+                let selected = [].slice.call(document.getElementsByClassName("selected"));
+
+                if (selected.includes(e.currentTarget) === false) {
+                    if (selected.length > 0) { 
+                        selected[0].className = selected[0].className.replace(" selected", "");
+                    }         
+                    cell.className += " selected";
+
+                    show_events_today(); 
+                }
+            });
+
             //Click and holding on a calendar cell will open up event creation form
             cell.addEventListener('mousedown', (e)=>{
                 let selected_day = parseInt(document.querySelector('.selected').textContent);
