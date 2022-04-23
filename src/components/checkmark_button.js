@@ -60,6 +60,8 @@ export function Complete_event(e, completed, index) {
             events_list[index].completed = true;
         }
 
+        tooltip_time_out(e, 0);
+
         event_temporary.addEventListener('animationend', function handler(){
             event_temporary.classList.remove('added_event');
             event_temporary.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
@@ -69,7 +71,7 @@ export function Complete_event(e, completed, index) {
                 event_temporary.addEventListener('mouseenter', (e)=> {
                     e.stopPropagation();
                     event_tooltip(e, index);})
-                event_temporary.addEventListener('mouseleave', (e) => tooltip_time_out(e))
+                event_temporary.addEventListener('mouseleave', (e) => tooltip_time_out(e, 600))
             }       
             event_temporary.removeEventListener('animationend', handler);
         });

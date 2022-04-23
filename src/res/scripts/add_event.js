@@ -90,6 +90,9 @@ export function Event_form(current_selected_date, today, max_date) {
     }
     create_modal(modal_width, true, center, true);
 
+    //Focus on element
+    title.focus();
+
 
     //Adds event listeners to form items
     create_event_btn.addEventListener('click', (e) => {
@@ -99,18 +102,6 @@ export function Event_form(current_selected_date, today, max_date) {
         //Add_new_event();
     })
 
-    //If the value is not add title then the font colour is grey
-    title.addEventListener('input', () => {
-        if (title.value !== `Add Title`) {
-            title.style.color = `black`
-        }
-    })
-
-    description_input.addEventListener('input', () => {
-        if (description_input.value !== `Description: Max 2000 characters`) {
-            description_input.style.color = `black`
-        }
-    })
 
     title.addEventListener('dblclick', select_all_input);
     description_input.addEventListener('dblclick', select_all_input)
@@ -185,14 +176,14 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
             event_tooltip(evt, index);
             evt.stopPropagation();
         });
-        event_item.addEventListener('mouseleave', (e) => {tooltip_time_out(e)})
+        event_item.addEventListener('mouseleave', (e) => {tooltip_time_out(e, 600)})
         event_item.removeEventListener('animationend', handler);
     });
 
 }
 
 //Selects all the input text in the field
-function select_all_input(e) {
+export function select_all_input(e) {
     e.currentTarget.setSelectionRange(0, e.currentTarget.value.length)
 }
 

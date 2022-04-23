@@ -7,7 +7,7 @@ import { initialise_timetable } from "../../components/dashboard/timetable_mini"
 
 export default function Initialisation() {
     document.addEventListener("DOMContentLoaded", function (){
-        loading_screen()
+        loading_screen();
 
         initialise_timetable();
         initialise_quotes();

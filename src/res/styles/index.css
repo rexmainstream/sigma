@@ -350,6 +350,8 @@ ul[class] {
     font-style: italic;
 }
 
+
+
 .drop_down {
     list-style-type: circle;
 }
@@ -390,7 +392,7 @@ ul[class] {
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
     padding-block-start: 2rem;
-    padding-block-end: 2rem;
+    padding-block-end: 5.5rem;
 }
 
 .quote #container {
@@ -404,9 +406,34 @@ ul[class] {
     left: 40%;
 }
 
-#quote_container svg {
+.quote .button_container{
+    float: right;
+    display: flex;
+}
+
+.quote .button_container > .icon_button{
+    flex: 1;
+    margin-inline-end: 1rem;
+}
+
+.wiki_icon path {
+    color: rgb(56, 56, 56);
+    -webkit-filter: drop-shadow( 3px 5px 1px rgba(245,245,245,0.5));
+    filter: drop-shadow( 3px 5px 1px rgba(245,245,245,0.5));
+    /* Similar syntax to box-shadow */
+}
+
+.twitter {
+    display: inline;
+    block-size: 3rem;
+}
+
+
+
+#container svg {
     min-width: 100%;
 }
+
 .focus {
     grid-row: 3;
     grid-column: 1/end;
@@ -432,16 +459,60 @@ ul[class] {
     height: 100%;
     width: 50%;
     /*This animation will play when the user scrolls down far enough*/
-    animation: progress_bar_move 3s ease-out both;
     border-top-right-radius: 0.7rem;
     border-bottom-right-radius: 0.7rem;
     overflow: hidden;
     background-color: rgb(255, 91, 91);
 }
 
-#current_focus {
-    font-size: 2.5rem;
+.show_progress {
+    animation: progress_bar_move 1.5s ease-out both;
 }
+
+#current_focus {
+    font-size: 2rem;
+    display: block;
+    padding-block-end: 0.7rem;
+    word-wrap: break-word;
+    text-align: center;
+    margin: 0 0 0 0;
+}
+#current_focus + hr {
+    margin-block-end: 2rem;
+}
+
+.focus .focus_tutorial {
+    animation: fade_in_text 0.5s ease-in both;
+    color: rgb(124, 124, 124, 0.7);
+}
+
+.new_focus {
+    animation: reveal_new_focus 1.5s ease both;
+}
+
+.show_step {
+    animation: bounce 0.9s ease-out both;
+}
+
+#focus_form {
+
+}
+
+#focus_form .focus_title {
+    inline-size: 90%;
+    font-size: 2.2rem;
+    margin: 2rem;
+    outline: none;
+    border: none;
+    border-block-end: 0.1rem solid black;
+}
+
+#focus_form .clickable_button {
+    margin: 1rem;
+    float: inline-end;
+}
+
+
 
 .notes {
     grid-row: 3;
@@ -563,6 +634,12 @@ hr {
     border-inline-end: 0.7rem inset;
 }
 
+#events_list li a, #completed_events li a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-inline-size: calc(100% - 3.5rem);
+}
+
 #events_list .Low_priority {
     border-inline-end-color: #AFC1CC;
 }
@@ -607,7 +684,7 @@ hr {
     z-index: 2;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
-    padding: 1rem;
+    padding: 0 0rem 1rem 0rem;
     right: 110%;
     transform: translateY(-25rem);
     height: 40vh;
@@ -621,21 +698,28 @@ hr {
 .event_tooltip h3 {
     margin: 0;
     margin-block-end: 1rem;
-    border-block-end: 0.2rem solid black;
-    background-color: white;
+    background-color: rgb(29, 98, 149);
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .event_tooltip .event_description {
     padding: 1rem;
-    margin: 1rem 0 1rem 0;
+    margin: 1rem 1rem 1rem 1rem;
     border-radius: 1rem;
     border: none;
     block-size: 13rem;
     background-color: rgb(242,242,242);
     font-family: 'Segoe UI';
-    inline-size: calc(100% - 2rem);
+    inline-size: calc(100% - 4rem);
     cursor: pointer;
     outline: none;
+}
+
+.event_tooltip p {
+    margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .show_tooltip {
@@ -740,6 +824,32 @@ button {
 
 .buttons_container button {
     margin-inline-end: 2rem;
+}
+
+
+.icon_button {
+    border: none !important;
+    inline-size: 3rem;
+    block-size: 3rem;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-size: 2rem;
+    overflow: visible;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    background-color: #f9fcff;
+    background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
+
+    transition: transform 250ms;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
+}
+
+.icon_button:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transform: translateY(-0.5rem);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 40%);  
 }
 
 
@@ -924,7 +1034,6 @@ main .grid_wrapper {
     margin-block: 1rem;
     padding: 1rem 1rem 0.5rem 1rem;
     outline: 0;
-    color: rgba(124,124,124,0.5);
 }
 
 
@@ -953,7 +1062,6 @@ input[type="date"]::-webkit-inner-spin-button {
     font-family: 'Segoe UI', sans-serif;
     margin-block: 1.5rem;
     block-size: 20rem;
-    color: rgba(124,124,124,0.5);
 }
 
 #form .clickable_button {

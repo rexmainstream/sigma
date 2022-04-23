@@ -60,7 +60,7 @@ export function event_tooltip(e, index) {
    
 }
 
-export function tooltip_time_out(e) {
+export function tooltip_time_out(e, delay) {
     e.stopPropagation();
     const tooltips = document.querySelectorAll('.event_tooltip');
     clearTimeout(timeoutID);
@@ -76,5 +76,5 @@ export function tooltip_time_out(e) {
                 }) 
             };       
         };
-    }, 600)
+    }, delay)
 }

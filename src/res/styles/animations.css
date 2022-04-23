@@ -15,6 +15,15 @@
     animation-fill-mode: both;
 }
 
+.span {
+    animation: span 0.4s ease-in;
+}
+
+.fade_out {
+    animation: fade_out 0.4s ease-in;
+}
+
+
 .quote .box, .focus h1, .quote h1, .steps, .focus .box{
     opacity: 0;
 }
@@ -81,20 +90,24 @@
 }
 
 /*This is the animation that plays when the user scrolls down. Displays the quote of the day and the Current focus*/
-@keyframes fade_in {
+@keyframes bounce {
     0%{
-        opacity: 0;
+        opacity: 0.5;
         background-color: inherit;
-        transform: translateY(40%);
+        transform: translateY(4rem);
     }
-    10% {
-        opacity: 0;
-        background-color: inherit;
-        transform: translateY(40%);
+    33% {
+        transform: translateY(-2rem);
+        opacity: 1;
+    }
+
+    66% {
+        transform: translateY(1rem);
+        opacity: 1;
     }
 
     100% {
-        transform: translateY(0%);
+        transform: translate(0%);
         opacity: 1;
     }
 }
@@ -211,3 +224,30 @@
     
 }
 
+
+@keyframes span {
+    from {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+      }
+      85% {
+        -webkit-transform: scale(1.25);
+                transform: scale(1.25);
+      }
+      to {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+}
+
+@keyframes reveal_new_focus {
+    from {
+        opacity: 0;
+        transform: perspective(500px) translate(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+    }
+    
+    to {
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
+    }
+}
