@@ -166,7 +166,7 @@ export default function Motivational_quote() {
                     </a>
                 <a 
                     className="icon_button twitter"
-                    title="Tweet Quote"
+                    title="Tweet it"
                     aria-label="tweet quote"
                     href="https://twitter.com/intent/tweet" target="_blank">
                         <i className="fa fa-twitter"></i>
