@@ -1,8 +1,6 @@
 //This JS file contains hover functionality. When a user hovers over a table row this module is run
 //Animations located in styles.css in public
 
-import { Return_currently_playing_animation } from "../../components/checkmark_button";
-
 //Default fade in element when hovered over
 export function Show_element(e) {
     e.currentTarget.style.animation = `revert`;
@@ -18,7 +16,7 @@ export function Fade_out_element(e) {
 export function Hover_table(e) { 
     e.currentTarget.style.animation = `highlight 0.2s ease-out both`
     e.currentTarget.nextElementSibling.style.animation = `highlight 0.2s ease-out both`;
-    console.log('hover function has run')
+    //console.log('hover function has run')
 }
 
 //Hover over secondary table row
@@ -29,7 +27,7 @@ export function Hover_table_secondary(e) {
 
 //When user's mouse leaves the table rows the row refreshes.
 export function Time_out(e) {
-    console.log('time_out function has run')
+    //console.log('time_out function has run')
     e.currentTarget.style.animation = `reset_background 0.3s ease-out both`;
     e.currentTarget.nextElementSibling.style.animation = `reset_background 0.3s ease-out both`;
 }
@@ -58,29 +56,12 @@ export function Time_out_button(e) {
 
 
 export function Hover_list_item(e) {
-    if (Return_currently_playing_animation() === false) {
-        e.currentTarget.style.animation = `highlight 0.2s ease-out both`; 
-    }
-    /* This subroutine is not included
-    //Checks if the element has overflow
-    if (e.currentTarget.clientWidth < e.currentTarget.scrollWidth) {
-        console.log("Overflowing text");
-        //if overflow then scrolls the text right to show rest of text
-
-        e.currentTarget.style.animation = `show_overflow 15s linear infinite`;
-    }
-    //console.log(e.currentTarget.scrollWidth)
- */
+    e.currentTarget.classList.add('hovered_item');
 }
 
 export function Time_out_list_item(e) {
-    if (Return_currently_playing_animation() === false) {
-        e.currentTarget.style.animation = null; 
-        e.currentTarget.style.backgroundColor = `rgba(242,242,242,0.7)`;
-    } else {
-        //console.log('currently playing animation');
-    }
-
+    e.currentTarget.classList.remove('hovered_item'); 
+    e.currentTarget.style.backgroundColor = `rgba(242,242,242,0.7)`;
 }
 
 export function Show_checkmark(e) {

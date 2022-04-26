@@ -88,7 +88,7 @@ function Intuitive_header_reveal_hide() {
 
 export function initialise_timetable() {
     Add_tabs(3);
-    Intuitive_header_reveal_hide();
+    //Intuitive_header_reveal_hide();
 
     //This is for the header
 

@@ -42,8 +42,7 @@ export function custom_alert(message_title, message_type, message_description) {
         case `error`:
             icon.className = `material-icons`;
             buttons.innerHTML = 
-                `<button class='clickable_button exit_modal'>Yes</button>
-                <button class='clickable_button exit_modal delete_button'>No</button>`
+                `<button class='clickable_button exit_modal'>Ok</button>`
             break;
         case `warning`:
             icon.className = `material-icons`;
@@ -56,7 +55,7 @@ export function custom_alert(message_title, message_type, message_description) {
     }
 
     //Adds exit event
-    alert.querySelector('.exit_modal').addEventListener('click', exit_modal);
+    alert.querySelector('.exit_modal').addEventListener('click', (e) => exit_modal(e));
     
     //Changes width of alert based on screen resolution
     if (window.screen.width < 1000) {
@@ -65,7 +64,7 @@ export function custom_alert(message_title, message_type, message_description) {
         alert_width = '50vw'
     }
 
-    create_modal(alert_width, true, alert, false);
+    create_modal(alert_width, true, alert);
 
 
 }
