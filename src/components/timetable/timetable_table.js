@@ -8,6 +8,29 @@ var current_period = 0
 var period_number = 0
 var time_left = 0
 var statement = ""
+
+export default function daily_timetable(props) {
+    console.log(props.raw_table)
+    var raw_bells = props.raw_table.bells
+    var timetable_formatted = []
+    var i = 0
+    while (i <= props.raw_table.bells.length) {
+        const period_template = (
+            <div>
+                <div>{raw_bells[i].period}</div>
+            </div>
+        )
+        timetable_formatted.push(period_template)
+        i += 1
+    }
+    console.log(timetable_formatted)
+    return (
+        <p>This is where the timetable is returned</p>
+    )
+}
+
+
+//OLD VERSION 
 var timetable_database = {
     "day_name": "Wednesday",
     "variation": false,
@@ -121,6 +144,7 @@ function Timetable_today_table() {
     return (
         <div className="flex">
             <table id="daily_timetable" cellPadding={0} cellSpacing={0}>
+                <h1>Today's Timetable V1.0</h1>
                 <tbody>
                     {Mini_timetable(timetable_database)}
                 </tbody>
@@ -129,4 +153,4 @@ function Timetable_today_table() {
     );
 }
 
-export default Timetable_today_table;
+//export default Timetable_today_table;
