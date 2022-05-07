@@ -88,7 +88,7 @@ export function Event_form(current_selected_date, today, max_date) {
     if (window.screen.width < 1000) {     
         modal_width = `90vw`;
     }
-    create_modal(modal_width, true, center, true);
+    create_modal(modal_width, true, center, true, false);
 
     //Focus on element
     title.focus();

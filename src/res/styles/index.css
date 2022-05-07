@@ -23,6 +23,7 @@ body {
 header {
     font-size: 1.5rem;
     background-color: white;
+    z-index: 3;
     padding: 0;
     border-bottom: 0.1rem solid rgba(242,242,242,1);
 }
@@ -62,6 +63,7 @@ h2 {
 p {
     margin-block-start: 0.5rem;
     margin-block-end: 0.5rem;
+    line-height: 1.7;
 }
 
 b {
@@ -441,28 +443,84 @@ ul[class] {
     font-size: 1.5rem;
 }
 
+.focus_buttons_container {
+    block-size: 3rem;
+    margin-block-end: 2rem;
+}
+
+.focus_buttons_container .help_button {
+    border: 0 !important;
+    background-color: inherit;
+    float: right;
+    background-image: none;
+    color: rgb(29, 98, 149);
+    transition: color 0.3s ease-in;
+
+}
+
+.focus_buttons_container .help_button:hover {
+    color: rgba(29, 98, 149, 0.7);
+    transition: color 0.3s ease-in;
+
+}
+
+.focus_buttons_container .help_button i{
+    font-size: 3rem;
+}
+
+
 .focus .box {
-    padding: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
     margin: 2rem 0 4rem 0;
 }
 
+#progress_bar + .buttons_container button {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-inline-size: 5rem;
+}
+
 #progress_bar {
-    border: 1px solid rgba(124,124,124, 0.5);
-    margin: 0 0 1rem 0;
-    block-size: 1.5rem;
+    position: sticky;
+    border: 1px solid #DDDDDD;
+    margin: 0 0 1.5rem 0;
+    block-size: 2rem;
+    padding: 0.1rem;
+    border-radius: 1rem;
     overflow: hidden;
 }
 
 #progress {
-    position: relative;
-    right: 50%;/*This will need javascript, will have to depend on actual progress*/
+    position: relative;/*This will need javascript, will have to depend on actual progress*/
     height: 100%;
-    width: 50%;
+    width: 0%;
     /*This animation will play when the user scrolls down far enough*/
-    border-top-right-radius: 0.7rem;
-    border-bottom-right-radius: 0.7rem;
+    border-radius: 1rem;
     overflow: hidden;
     background-color: rgb(255, 91, 91);
+    transition: width 1.3s ease-in, right 1.3s ease-in;
+}
+
+#progress_container {
+    height: 100%;
+}
+
+#progress_container #progress span {
+    float: left;
+    color: white;
+    opacity: 0;
+    padding-inline-start: 1.5rem;
+    transition: opacity 0.2s ease-in 1s;
+}
+
+#progress_container:hover #progress span {
+    opacity: 1;
+    transition: opacity 0.3s ease-out 0.5s;
+}
+
+#progress_secondary {
+    height: 100%;
+    width: 0%;
 }
 
 .show_progress {
@@ -470,13 +528,13 @@ ul[class] {
 }
 
 #current_focus {
-    font-size: 2rem;
+    font-size: 1.2em;
     display: block;
     padding-block-end: 0.7rem;
     word-wrap: break-word;
-    text-align: center;
     margin: 0 0 0 0;
 }
+
 #current_focus + hr {
     margin-block-end: 2rem;
 }
@@ -490,12 +548,223 @@ ul[class] {
     animation: reveal_new_focus 1.5s ease both;
 }
 
-.show_step {
-    animation: bounce 0.9s ease-out both;
+.steps .goal_name {
+    margin: 0 0 2rem 0;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    max-height: 3.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    inline-size: 90%;
 }
 
-#focus_form {
+.steps .step_top_line {
+    display: flex;
+}
 
+#focus_help {
+    max-block-size: inherit;
+    max-inline-size: 80%;
+    animation: fade_in_text 1.5s ease-in;
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+#focus_help img{
+    object-fit: contain;
+    inline-size: 100%;
+    margin: 2rem 0 2rem 0;
+    border-radius: 1rem;
+}
+
+#focus_help h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#focus_help p {
+    font-size: 2rem;
+}
+
+#completed_steps_container {
+    margin: 8rem 0 2rem 0;
+}
+
+#completed_steps_container.hide_completed {
+    block-size: calc(1.17em + 2em + 0.7rem);
+    overflow: hidden;
+}
+
+#completed_steps_container .check_button {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-out;
+}
+
+#completed_steps_container.hide_completed .check_button {
+    transform: rotate(150deg);
+    transition: transform 0.3s ease-out;
+}
+
+#completed_steps_container h3 {
+    cursor: pointer;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    display: inline-block;
+    opacity: 0.5;
+    display: flex;
+    gap: 1rem;
+    max-inline-size: fit-content;
+    user-select: none;
+    transition: opacity 0.3s ease-out, background-color 0.4s ease-out;
+}
+
+#completed_steps_container h3:hover {
+    opacity: 1;
+    background-color: #E8E8E8;
+    transition: opacity 0.3s ease-out, background-color 0.2s ease-out;
+}
+
+
+#completed_steps_container .steps {
+    opacity: 0.5 !important;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+#completed_steps_container .goal_description, #completed_steps_container .goal_name {
+    text-decoration: line-through;
+}
+
+.step_top_line {
+    margin-block-start: 1rem;
+}
+.step_top_line .button_container {
+    border-bottom: 1px solid rgb(124, 124, 124, 0.3);
+    padding: 0.9rem;
+    inline-size: 10%;
+    block-size: 3rem;
+    display: flex;
+    gap: 1rem 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.steps:hover .button_container {
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.step_top_line .button_container .icon_button {
+    flex-basis: 1;
+    color: black;
+    background-image: none;
+    background-color: rgb(242,242,242);
+}
+
+.steps .checkmark {
+    left: 0%;
+    top: -17%;
+    border-bottom: 0.22rem solid black;
+    border-right: 0.22rem solid black;
+}
+
+.steps .goal_order {
+    padding: 0.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    inline-size: 2.5rem;
+    text-align: center;
+    margin: 0 1.5rem 0 0;
+    display: inline-block;
+    color: white;
+    border-radius: 0.5rem;
+    background-color: rgb(29, 98, 149);
+}
+
+.steps .goal_description {
+    color: rgba(124,124,124);
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    padding-inline-start: 3.5rem;
+    margin-block-end: 1rem;
+}
+
+.steps .show_description {
+    transition: height 2s ease-in-out;
+    height: fit-content;
+}
+
+.steps button[title='Hide Description'] {
+    transform: rotate(180deg);
+    color: black;
+    transition: transform 0.2s ease-out;
+}
+
+.steps button[title='Show Description'] {
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-out;
+}
+
+
+@media screen and (max-width: 999px){
+    .steps .goal_name {
+        inline-size: 100%; 
+    }
+    
+    .step_top_line {
+        display: block !important;
+    }
+
+    .step_top_line .button_container {
+        display: flex;
+        inline-size: auto;
+        opacity: 1;
+        border: none;
+        justify-content: center;
+        border-top: 0.07rem solid #DDDDDD;
+        padding-top: 2rem;
+    }
+
+    .steps .goal_description {
+        padding-inline-start: 0;
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+.steps .hide_description {
+    transition: height 2s ease-in-out;
+    height: 0rem;
+}
+
+.steps .button_container {
+    text-align: center;
+    color: rgb(124,124,124);
+}
+
+.steps .button_container button {
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+}
+
+.steps {
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+}
+
+.remove_step {
+    animation: delete_step 0.7s ease-out;
+}
+
+#steps_container .steps:hover {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transform: translateY(-0.5rem);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 40%); 
+}
+
+#steps_container + .clickable_button {
+    z-index: 0;
 }
 
 #focus_form .focus_title {
@@ -512,6 +781,33 @@ ul[class] {
     float: inline-end;
 }
 
+
+
+#step_form {
+    padding: 1rem;
+    inline-size: 80%;
+}
+
+#step_form .step_title {
+    inline-size: 100%;
+    font-size: 2.2rem;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-block: 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    outline: 0;
+}
+
+#step_form textarea {
+    inline-size: calc(100% - 2rem);
+    background-color: rgba(242,242,242, 1);
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: none;
+    font-family: 'Segoe UI', sans-serif;
+    margin-block: 1.5rem;
+    block-size: 20rem;
+}
 
 
 .notes {
@@ -810,7 +1106,7 @@ p a:visited {
 
 .show {
     visibility: visible;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 button {
@@ -920,7 +1216,7 @@ button {
     background-color: white;
     min-block-size: 5rem;
     border-radius: 1rem;
-    max-height: 90%;
+    max-height: 75vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -1077,6 +1373,10 @@ input[type="date"]::-webkit-inner-spin-button {
 #alert {
     padding: 2rem;
 }
+
+#alert .content {
+    width: 75%;
+}
 #alert i {
     margin-inline-end: 1rem;
     user-select: none;
@@ -1096,22 +1396,22 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 .alert_desc {
-    padding: 1rem;
-    position: relative;
     text-align: center;
+    display: block;
     background-color: rgba(242,242,242, 1);
     border-radius: 0.5rem;
     font-size: 1.3rem;
     margin: 0;
     padding: 2rem;
     overflow: hidden;
+    max-width: 100%;
 }
 
 #alert button{
     margin-inline: 3rem;
     margin-block: 1.5rem;
-    inline-size: 50%;
 }
+
 /* || RESPONSIVE DESIGN */
 @media screen and (max-width: 999px) {
     /* font-size and layout for mobile devices. 

@@ -1,7 +1,7 @@
 import Timetable_mini from './dashboard/timetable_mini';
 import Calendar_mini from './dashboard/calendar_mini';
 import Motivational_quote from './dashboard/motivational_quote';
-import Focus from './dashboard/focus';
+import Focus from './focus/focus';
 import {Helmet} from 'react-helmet';
 {/*Remember to add a full timetable!*/}
 

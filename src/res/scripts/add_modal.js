@@ -2,7 +2,7 @@
 //Adds the modal to the DOM
 let current_position
 
-export function create_modal(modal_content_width, dark_background, content, include_close_button) {
+export function create_modal(modal_content_width, dark_background, content, include_close_button, center_content) {
         const modal = document.createElement('div');
 		const content_wrapper = document.createElement('div');
 		const close_button = document.createElement('button');
@@ -21,6 +21,10 @@ export function create_modal(modal_content_width, dark_background, content, incl
 			})
 		} else {
 			modal.append(content_wrapper);
+		}
+
+		if(center_content === true) {
+			content_wrapper.classList.add('center_vertical');
 		}
 
 		content_wrapper.append(content);
@@ -50,6 +54,8 @@ export function create_modal(modal_content_width, dark_background, content, incl
 
 		//Makes content wrapper as large as specified
 		content_wrapper.style.inlineSize = modal_content_width;
+
+		close_button.focus()
 
 		//If user clicks close, closes the modal
 		close_button.addEventListener('click', (e) => {exit_modal(e)});
