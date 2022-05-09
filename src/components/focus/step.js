@@ -78,6 +78,7 @@ export default function Goal_step(props) {
                 exit_modal(evt);
                 steps_list[order - 1].goal_name = title.value;
                 steps_list[order - 1].goal_desc = description.value;
+                change_step_value(order, null, title.value, description.value, false);
 
                 if (steps_list[order - 1].step_type === 'edit') {
                     steps_list[order - 1].step_type = 'new';
@@ -115,6 +116,9 @@ export default function Goal_step(props) {
                     step_list[i].order -= 1;
                 }
 
+                //delete step from database
+                change_step_value(order, 'delete', false, false, false);
+
                 render_steps();
                 render_progress();
                 if (button.classList.contains('move_up')) {
@@ -131,7 +135,6 @@ export default function Goal_step(props) {
         } );
 
     }
-
     //This function is run when the user completes their step
     function complete_step(e) {
         const step = e.target.parentNode.parentNode.parentNode;
@@ -143,6 +146,8 @@ export default function Goal_step(props) {
         step.addEventListener('animationend', function handler() {
             step.style.animation = ``
             step_list[order - 1].completed = true;
+            change_step_value( order, true, false, false, false);
+            
             render_steps();
             render_progress();
             step.removeEventListener('animationend', handler)
@@ -159,6 +164,7 @@ export default function Goal_step(props) {
         step.addEventListener('animationend', function handler() {
             step.style.animation = ``
             step_list[order - 1].completed = false;
+            change_step_value(order, false, false, false, false);
             render_steps();
             render_progress()
             step.removeEventListener('animationend', handler)
@@ -206,4 +212,71 @@ export default function Goal_step(props) {
     </div>
     
     );
+}
+
+//This function changes the steps value in the indexedDB database. 
+//Input false to not change a value (null for completed)
+export function change_step_value(current_order, completed, new_title, new_description, new_order) {
+    let db
+    let transaction
+    let object_store
+    let current_steps
+    let current_step
+    let next_events
+    let my_index
+    let new_step = {
+        step_title: new_title,
+        step_desc: new_description,
+        completed: completed,
+        order: current_order
+    }
+    let database_length;
+    const open_request = window.indexedDB.open('student_file', 12);
+    open_request.addEventListener('error', () => {
+        custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+    });
+
+    open_request.addEventListener('success', () => {
+        db = open_request.result;
+        transaction = db.transaction(['steps_list'], 'readwrite');
+        object_store = transaction.objectStore('steps_list');
+        object_store.openCursor().addEventListener('success', (e) => {
+            current_steps = e.target.result;
+            my_index = object_store.index('order');
+
+            current_step = my_index.get(current_order);
+            current_step.addEventListener('success', () => {
+                if (completed === 'delete') {
+                    object_store.delete(current_order);
+                    database_length = object_store.count()        
+                    database_length.addEventListener('success', () => {
+                        //console.log(database_length);    
+                        //Shift order of subsequent events up by one
+                        for (let i = (current_order + 1); i <= database_length.result + 1; i++) {
+                            change_step_value(i, null, false, false, (i - 1));
+                        }
+                    })
+                } else {
+                    if (new_title === false) {
+                        new_step.step_title = current_step.result.step_title;
+                    }
+                    if (new_description === false) {
+                        new_step.step_desc = current_step.result.step_desc;
+                    }
+                    if (new_order !== false) {
+                        new_step.order = new_order;
+                    }
+                    if (completed === null) {
+                        new_step.completed = current_step.result.completed;
+                    }
+                    object_store.put(new_step, current_order);                    
+                }
+            })
+        });
+    })
+
+    open_request.addEventListener('error', () => {
+        console.log('failed to open database');
+
+    })
 }

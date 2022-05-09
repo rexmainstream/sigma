@@ -1,4 +1,5 @@
  @import url(animations.css);
+ @import url(fireworks.css);
 /*Import animations stylesheet*/
 
 
@@ -49,6 +50,14 @@ main {
     padding-block-start: 2rem;
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
+}
+
+@media screen and (max-width: 999px) {
+
+    /*Makes padding less on mobile*/
+    main {
+        padding-inline: 0rem;
+    }
 }
 
 h1 {
@@ -474,38 +483,38 @@ ul[class] {
     margin: 2rem 0 4rem 0;
 }
 
-#progress_bar + .buttons_container button {
+.progress_bar + .buttons_container button {
     margin-top: 0;
     margin-bottom: 0;
     min-inline-size: 5rem;
 }
 
-#progress_bar {
-    position: sticky;
+.progress_bar {
     border: 1px solid #DDDDDD;
     margin: 0 0 1.5rem 0;
     block-size: 2rem;
-    padding: 0.1rem;
+    padding: 0.1rem 0.05rem 0.1rem 0.05rem;
     border-radius: 1rem;
     overflow: hidden;
+    width: 100%;
+    max-height: 2rem;
 }
 
-#progress {
+.progress {
     position: relative;/*This will need javascript, will have to depend on actual progress*/
     height: 100%;
     width: 0%;
-    /*This animation will play when the user scrolls down far enough*/
     border-radius: 1rem;
     overflow: hidden;
     background-color: rgb(255, 91, 91);
-    transition: width 1.3s ease-in, right 1.3s ease-in;
+    transition: width 1.3s ease-in-out 0.7s;
 }
 
-#progress_container {
+.progress_container {
     height: 100%;
 }
 
-#progress_container #progress span {
+.progress_container .progress span {
     float: left;
     color: white;
     opacity: 0;
@@ -513,18 +522,26 @@ ul[class] {
     transition: opacity 0.2s ease-in 1s;
 }
 
-#progress_container:hover #progress span {
+.progress_container:hover .progress span {
     opacity: 1;
     transition: opacity 0.3s ease-out 0.5s;
 }
 
-#progress_secondary {
+.progress_secondary {
     height: 100%;
     width: 0%;
 }
 
 .show_progress {
     animation: progress_bar_move 1.5s ease-out both;
+}
+
+.fix_progress {
+
+}
+
+#focus_container {
+    position: sticky !important;
 }
 
 #current_focus {
@@ -634,6 +651,10 @@ ul[class] {
     text-decoration: line-through;
 }
 
+#fireworks {
+    pointer-events: none;
+}
+
 .step_top_line {
     margin-block-start: 1rem;
 }
@@ -641,7 +662,6 @@ ul[class] {
     border-bottom: 1px solid rgb(124, 124, 124, 0.3);
     padding: 0.9rem;
     inline-size: 10%;
-    block-size: 3rem;
     display: flex;
     gap: 1rem 1rem;
     opacity: 0;
@@ -675,14 +695,12 @@ ul[class] {
     margin: 0 1.5rem 0 0;
     display: inline-block;
     color: white;
-    border-radius: 0.5rem;
+    border-radius: 25%;
     background-color: rgb(29, 98, 149);
 }
 
 .steps .goal_description {
     color: rgba(124,124,124);
-    word-wrap: break-word;
-    word-break: break-all;
     overflow: hidden;
     padding-inline-start: 3.5rem;
     margin-block-end: 1rem;
@@ -751,6 +769,8 @@ ul[class] {
 .steps {
     transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    cursor: pointer;
+    user-select: none;
 }
 
 .remove_step {
@@ -1204,6 +1224,17 @@ button {
     height: 100vh;
 }
 
+@media screen and (max-width: 999px) {
+    .modal {
+        align-items: baseline;
+    }
+
+    .modal_content_wrapper {
+        top: 12vh;
+        position: relative;
+    }
+}
+
 .open_modal {
     animation: fade_in_text 0.1s ease-in both;  
 }
@@ -1420,6 +1451,11 @@ input[type="date"]::-webkit-inner-spin-button {
     html {
         font-size: 25px;
     }
+
+    .box {
+        padding-inline: 0.5rem;
+    }
+
     .box, .timetable {
         grid-column: 1/end;
     }

@@ -7,6 +7,7 @@ export function create_modal(modal_content_width, dark_background, content, incl
 		const content_wrapper = document.createElement('div');
 		const close_button = document.createElement('button');
 		const body = document.querySelector('body');
+
 		if(include_close_button === true) {
 			modal.append(content_wrapper, close_button);
 			modal.addEventListener('keydown', function handler(e) {

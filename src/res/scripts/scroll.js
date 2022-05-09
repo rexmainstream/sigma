@@ -49,3 +49,22 @@ export function Scrolling_event(element, up_down_both, output_function){
     })
 
 }
+
+//Function checks if user position is above or below user position
+export function check_scroll_pos(the_element, extra_position) {
+    let current_position = window.innerHeight;
+    let element_position = the_element.getBoundingClientRect().top;
+    let return_values;
+
+    //Extra positon is extra pixels before the function returns a true
+    if (element_position - extra_position >=0) {
+        return_values = {
+            user_above: true,
+            above_by: element_position
+        }
+        return return_values;
+    } else {
+        return false;
+    }
+
+}

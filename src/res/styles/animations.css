@@ -275,6 +275,21 @@
       }
 }
 
+@keyframes span2 {
+    from {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+      }
+      85% {
+        -webkit-transform: scale(1.25);
+                transform: scale(1.25);
+      }
+      to {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+}
+
 @keyframes delete_step {
     0% {
         opacity: 1;

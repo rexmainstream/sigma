@@ -11,9 +11,18 @@ import Progress_bar, { render_progress } from "./progress";
 import img from "../../res/images/tutorial_1.png";
 import img2 from "../../res/images/tutorial_2.png";
 import img3 from "../../res/images/tutorial_3.png";
-
+import { render_fireworks } from "./fireworks";
+import { return_db } from "../../res/scripts/initialisation";
+import add_inline_animation from "../../res/scripts/animation_timing";
 
 let steps_list = [];
+let db;
+let stored_focus
+let focus_from_database
+let current_focus
+let steps_list2
+//Gets current focus
+
 
 function step(title, description, index, completed, step_type) {
     this.goal_name = title;
@@ -23,6 +32,12 @@ function step(title, description, index, completed, step_type) {
     this.step_type = step_type;
 }
 
+export function step2(title, description, index, completed) {
+    this.step_title = title;
+    this.step_desc = description;
+    this.order = index + 1;
+    this.completed = completed;
+}
 export default function Focus() {
     //This function gives user a help message
     function focus_help() {
@@ -79,7 +94,7 @@ export default function Focus() {
                 </div>
                 <div id="current_focus"></div>
                 <hr></hr>
-                <div id="progress_bar">
+                <div className="progress_bar">
                     <Progress_bar />
                 </div>
                 <div className="buttons_container">
@@ -101,7 +116,9 @@ export default function Focus() {
                 onClick={() => {Add_new_step()}}>
                 Add step &#43;
             </button>
-            <div id="completed_steps_container"></div>
+            <div id="completed_steps_container">
+                
+            </div>
         </div>
     );
 }
@@ -144,12 +161,17 @@ export function Add_new_step() {
 
             create_button.addEventListener('click', (e) => {
                 let step_desc = description_input.value;
+                const transaction = db.transaction(['steps_list'], 'readwrite');
+
 
                 if (step_desc.replace(/\r?\n|\r/g, "") === '' || step_desc.replace(/\s+/g, '') === '') {
                     step_desc = "This step has no description.";
                 }
 
                 if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'step description')) {
+                    const stored_steps = transaction.objectStore('steps_list');
+                    const new_step = { step_title: title.value, step_desc: step_desc, completed: false, order: steps_list.length + 1};
+                    stored_steps.add(new_step, steps_list.length + 1);
                     steps_list.push(new step(title.value, step_desc, steps_list.length, false, "new"));
                     render_steps();
                     exit_modal(e);
@@ -185,6 +207,8 @@ export function render_steps() {
             completed_container.classList.toggle('hide_completed')
         }}><div className="check_button">&#9660;</div><div>Completed</div></h3>);
 
+    
+    //Renders the steps_list onto the DOM
     for (const step of steps_list) {
         if (step.completed === true) {
             completed_steps.push(<Goal_step goal_name={step.goal_name} goal_desc = {step.goal_desc} order = {step.order} key = {step.order} step_type= {step.step_type} />)
@@ -193,54 +217,156 @@ export function render_steps() {
         }
     }
 
+    //If no steps then removes the completed steps title
     if (completed_steps.length > 0) {
         completed_steps.unshift(title);
     }
 
+    //Renders the steps both in the completed and current containers
     ReactDom.render(current_steps, container);
     ReactDom.render(completed_steps, completed_container);
 }
 
 //Initialises the focus box
 export function initialise_focus() {
-    const headings = (document.querySelector('.focus')).querySelector('h1');
-    const box = (document.querySelector('.focus')).querySelectorAll('.box');
-    const steps = (document.querySelector('.focus')).querySelectorAll('.steps');
-    const progress_bar = document.querySelector('#progress');
+    const focus = document.querySelector('.focus');
+    const headings = focus.querySelector('h1');
+    const box = focus.querySelectorAll('.box');
+    const steps = focus.querySelectorAll('.steps');
+    const progress_bar = document.querySelector('.progress');
     const delete_button = document.querySelector('.delete_button');
+
+    //Opens Database
+    const open_request = window.indexedDB.open('student_file', 12);
+    open_request.addEventListener('error', () => {
+        custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+    });
+
+    open_request.addEventListener('success', () => {
+        db = open_request.result;
+        stored_focus = db.transaction(['current_focus']).objectStore('current_focus');
+        stored_focus.openCursor().addEventListener('success', (e) => {
+        focus_from_database = e.target.result;
+
+        //Adds the steps from the db to the local database
+        initialise_steps();
+
+        if (focus_from_database !== null) {
+            focus.querySelector('#current_focus').textContent = focus_from_database.value.user_focus;
+            check_focus();        
+        } else {
+            check_focus()
+        }
+        //console.log(focus_from_database.value.user_focus)
+    })
+    })
+
+    //If there is a an upgrade needed for the db
+    open_request.addEventListener('upgradeneeded', e => {
+        db = e.target.result;
+        //current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
+        //current_focus.createIndex('user_focus', "user_focus", { unique: false })
+
+        db.deleteObjectStore('steps_list')
+        steps_list2 = db.createObjectStore('steps_list');
+        steps_list2.createIndex('step_title', 'step_title', { unique: false });
+        steps_list2.createIndex('step_desc', 'step_desc', { unique: false });
+        steps_list2.createIndex('completed', 'completed', { unique: false });
+        steps_list2.createIndex('order', 'order', { unique: true });
+    })
+
      //Adds scroll events to the headings
-     Add_scroll_event(headings, function() {
+    Add_scroll_event(headings, function() {
         headings.style.animation = `fade_in_text 0.5s ease-out both`;
     }, false, 200)
+
+
     Add_scroll_event(box[0], function() {
         box[0].style.animation = `bounce 0.5s ease-out both`;
+        box[0].addEventListener('animationend', function handler() {
+            box[0].style.animation = null;
+            box[0].classList.add('show');
+            //render_steps();
+            box[0].removeEventListener('animationend', handler)
+        })
+
     }, false, 200);
-
-    //Adds an animation for each of the steps
-    for (const element of steps) {
-        Add_scroll_event(element, function() {
-            element.classList.add('move_up');
-        }, false, 100);
-    }
-
-    Add_scroll_event(progress_bar, function() {
-        progress_bar.classList.add('show_progress');
-    }, false, 100)
-
-    check_focus();
 }
 
+//Initialisises steps by adding steps from db to local record
+function initialise_steps() {
+    //creates a transaction with db
+    const transaction = db.transaction(['steps_list'], 'readwrite');
+    const object_store = transaction.objectStore('steps_list')
+
+    //Opens object store and then takes the values and adds it to the local record
+    //Local record is needed to control animations
+    object_store.openCursor().addEventListener('success', (evt) => {
+        const cursor = evt.target.result;
+
+        if (cursor) {
+            steps_list.push(new step(cursor.value.step_title, cursor.value.step_desc, cursor.value.order - 1, cursor.value.completed, 'new'))
+            cursor.continue();
+        } else {
+            Add_scroll_event(document.querySelector('#current_focus'), function() {
+                render_steps();
+                render_progress(); 
+            }, false, 200)
+            
+        }
+    })
+
+
+}
+
+//Checks the current state of the focus and then adds animations and appends elements
 export function check_focus() {
     const focus = document.querySelector('#current_focus');
     const button = focus.parentNode.querySelector('.clickable_button')
     const delete_button = document.createElement('button');
+    const progress = document.querySelector(".progress").style.width;
+
     //CHange this later to checking database
-    if (focus.innerHTML === '') {
+    if (focus_from_database === null) {
         button.innerHTML = 'Create';
         button.ariaLabel = 'create focus';
         button.title = 'Create Focus';
         focus.innerHTML = 'You currently have no focus.';
         focus.classList.add('focus_tutorial');
+    } else if(progress === '100%') {
+        delete_button.innerHTML = "Complete";
+        delete_button.ariaLabel = "complete focus";
+        delete_button.title = "Complete Focus";
+        delete_button.classList.add('clickable_button', "delete_button", "span");
+
+        if (document.querySelectorAll('button[title="Delete Focus"]').length === 1) {
+            button.parentElement.replaceChild(delete_button, focus.parentNode.querySelector('button[title="Delete Focus"]'));
+
+            delete_button.addEventListener('click', (e) => {
+                focus.innerHTML = '';
+                e.target.classList.add('fade_out');
+
+
+                for (let i = 0; i <= steps_list.length - 1; i++) {
+                    steps_list[i].step_type = 'delete';
+                }
+                render_steps();
+                e.target.addEventListener('animationend', (e) => {
+                    for (let i = 0; i <= steps_list.length - 1; i++) {
+                        steps_list.splice(i);
+                    }
+                    remove_all_from_db()
+                    render_steps();
+                    render_progress();
+                    render_fireworks();
+                    focus_from_database = null;
+                    check_focus();
+                    let complete_button = document.querySelector('button[title="Delete Focus"]')
+                    complete_button.parentNode.removeChild(complete_button);
+                })
+                
+            })
+        }
     } else {
         button.innerHTML = 'Edit';
         button.ariaLabel = 'edit focus';
@@ -255,13 +381,18 @@ export function check_focus() {
             delete_button.innerHTML = 'Delete';
 
             button.parentNode.append(delete_button);
+        } else if (document.querySelectorAll("button[title='Complete Focus']").length > 0) {
+            delete_button.classList.add('span', 'clickable_button', "delete_button");
+            delete_button.ariaLabel = 'delete focus';
+            delete_button.title = 'Delete Focus';
+            delete_button.innerHTML = 'Delete';
+            button.parentElement.replaceChild(delete_button, focus.parentNode.querySelector('button[title="Complete Focus"]'))
         }
 
-        delete_button.addEventListener('click', function(e) {
+        delete_button.addEventListener('click', function (e) {
             custom_alert('Delete Focus?', "warning_yes_no", `Deleting the focus will remove all current steps. Continue?`,
             function() {
                 focus.innerHTML = '';
-                check_focus();
                 e.target.classList.add('fade_out');
 
     
@@ -273,8 +404,12 @@ export function check_focus() {
                     for (let i = 0; i <= steps_list.length - 1; i++) {
                         steps_list.splice(i);
                     }
-                    e.target.parentNode.removeChild(e.target);
+                    remove_all_from_db()
                     render_steps();
+                    render_progress();
+                    focus_from_database = null;
+                    check_focus();
+                    e.target.parentNode.removeChild(e.target);
                 })
             }                  
             );
@@ -289,7 +424,7 @@ function create_focus() {
     const title = document.createElement('input');
     const create_button = document.createElement('button');
     const button_container = document.createElement('div');
-    const recommend_button = document.createElement('button')
+    const recommend_button = document.createElement('button');
 
     let modal_width = '50vw';
     if (window.screen.width < 1000) {     
@@ -327,15 +462,19 @@ function create_focus() {
 
     create_button.addEventListener('click', (e) => {
         const current_focus = document.querySelector('#current_focus');
+        const transaction = db.transaction(['current_focus'], 'readwrite');
+        const user_focus = transaction.objectStore('current_focus');
+        const new_focus = { user_focus: title.value }
         if (string_validation(title.value, 2, 50, 'focus') === true) {
             current_focus.innerHTML = title.value;
-
-            current_focus.addEventListener('animationend', function handler() {
-                current_focus.classList.remove('new_focus');
-                current_focus.removeEventListener('animationend', handler);
+            focus_from_database = title.value;
+            current_focus.classList.remove('focus_tutorial');
+            const add_request = user_focus.put(new_focus, 1);
+            check_focus()
+            add_request.addEventListener('success', () => {
+                add_inline_animation(current_focus, 'reveal_new_focus', '2s', 'ease-in-out', '', '', function() {
+                })
             })
-
-            check_focus();
             exit_modal(e);
         }
     });   
@@ -429,6 +568,23 @@ function create_focus() {
     title.addEventListener('dblclick', (e) => {select_all_input(e)});
 }
 
+//Clears focus database
+function remove_all_from_db() {
+    let db;
+    const open_request = indexedDB.open('student_file', 12)
+
+    open_request.addEventListener('success', () => {
+        db = open_request.result;
+        const focus_transaction = db.transaction(['current_focus'], 'readwrite')
+        const step_transaction = db.transaction(['steps_list'], 'readwrite');
+        const steps_object_store = step_transaction.objectStore('steps_list');
+        const focus_object_store = focus_transaction.objectStore('current_focus');
+        steps_object_store.clear()
+        focus_object_store.clear()
+    })
+
+    
+}
 
 export function return_steps_list() {
     return steps_list;
