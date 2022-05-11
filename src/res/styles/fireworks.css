@@ -1,10 +1,4 @@
-#fireworks {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-}
+
 @keyframes firework {
     0% { 
       transform: translate(-50%, 60vh);

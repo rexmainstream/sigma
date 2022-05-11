@@ -10,12 +10,15 @@ import {
   Routes,
   Route,
   Link,
-  Outlet
+  Outlet,
+  NavLink
 } from "react-router-dom";
 
 
 import Timetable_mini from './components/dashboard/timetable_mini';
 import Calendar_mini from './components/dashboard/calendar_mini';
+import Motivational_quote from './components/dashboard/motivational_quote';
+import Focus from './components/focus/focus';
 
 var Page_link = Dashboard
 function App() {
@@ -36,11 +39,20 @@ function App() {
             </a>
             <nav>
               <ul className='link_list'>
-                <li className="drop_down">
-                  <a href=''><Link to="/timetable">Timetable</Link></a>
-                </li>
                 <li>
                   <a href=''><Link to="/calendar">Calendar</Link></a>
+                </li>
+                <li>
+                  <NavLink
+                    to={"/focus"}>
+                    Focus
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={"/quote_of_the_day"}>
+                      Quote of the Day
+                  </NavLink>
                 </li>
                 <li>
                   <a href=''><Link to="/help">Help</Link></a>
@@ -54,7 +66,8 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<Dashboard />} />
-            <Route path="/timetable" element={<Display_today_timetable />} exact />
+            <Route exact path='/focus' element = {<Focus />} />
+            <Route exact path='/quote_of_the_day' element = {<Motivational_quote />} />
             <Route path="/calendar" element={<Calendar_mini />} exact />
             <Route path="/help" element={<Header />} exact />
           </Routes>

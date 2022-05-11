@@ -86,9 +86,7 @@ export function custom_alert(message_title, message_type, message_description, y
         alert_width = '50vw'
     }
 
-    create_modal(alert_width, true, alert, false, false);
+    create_modal(alert_width, true, alert, false, true);
     ok_button.focus()
     yes_button.focus()
-
-
 }

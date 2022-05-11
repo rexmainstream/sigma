@@ -14,6 +14,7 @@ import img3 from "../../res/images/tutorial_3.png";
 import { render_fireworks } from "./fireworks";
 import { return_db } from "../../res/scripts/initialisation";
 import add_inline_animation from "../../res/scripts/animation_timing";
+import { render } from "@testing-library/react";
 
 let steps_list = [];
 let db;
@@ -21,6 +22,7 @@ let stored_focus
 let focus_from_database
 let current_focus
 let steps_list2
+let count = 0
 //Gets current focus
 
 
@@ -38,89 +40,94 @@ export function step2(title, description, index, completed) {
     this.order = index + 1;
     this.completed = completed;
 }
-export default function Focus() {
-    //This function gives user a help message
-    function focus_help() {
-        let modal_width = '85vw';
-        const modal_content = document.createElement('div');
-        const title = document.createElement('h1');
-        const line = document.createElement('hr');
-        const help_text1 = document.createElement('p');
-        const help_text2 = document.createElement('p');
-        const help_text3 = document.createElement('p');
-        const image1 = document.createElement('img');
-        const image2 = document.createElement('img');
-        const image3 = document.createElement('img');
-
-
-        image1.src = img;
-        image1.alt = "Create button";
-        image2.src = img2;
-        image2.alt = "Create step form";
-        image3.src = img3;
-        image3.alt = "A step for your goal."
-
-        title.textContent = "Focus Tutorial";
-        help_text1.textContent = "Your focus is where you set long term goals or objectives such as 'Getting a higher rank' or 'Becoming a Prefect.' Start by clicking the create button below.";
-        help_text2.textContent = "Setting a goal is not enough. To achieve your goals, you need to set some steps. Press the 'ADD STEP +' button and on the form enter the details of step which you need to complete to progress on you goal. On the form, press the 'ADD STEP' button to add your first step.";
-        help_text3.textContent = "You can have up to 20 steps for your focus. Pressing the triangle will reveal the description. Hovering over the step allows you to edit, complete or delete the step. When you have completed a step, press the complete button on the step and it will increase progress towards your goal.";
-        modal_content.id = "focus_help";
-
-
-
-        modal_content.append(title, line, help_text1, image1, help_text2, image2, help_text3, image3);
-
-
-        if (window.screen.width < 1000) {
-            modal_width = "95vw";
-        }
-        create_modal(modal_width, true, modal_content, true, true);
+export default class Focus extends React.Component {
+    componentDidMount() {
+        initialise_focus();
     }
-
-    return (
-        <div className="focus">
-            <h1>Current Focus</h1>
-            <div className="box" id="focus_container">
-                <div className="focus_buttons_container">
-                    <button className="help_button"
-                        aria-label="focus help"
-                        title="Help"
-                        onClick={() => {
-                            focus_help()
-                        }}
-                        >
-                        <i className="fa fa-question-circle"></i>
-                    </button>
+    render() {
+        //Help prompt. User presses blue question button for directions
+        function focus_help() {
+            let modal_width = '85vw';
+            const modal_content = document.createElement('div');
+            const title = document.createElement('h1');
+            const line = document.createElement('hr');
+            const help_text1 = document.createElement('p');
+            const help_text2 = document.createElement('p');
+            const help_text3 = document.createElement('p');
+            const image1 = document.createElement('img');
+            const image2 = document.createElement('img');
+            const image3 = document.createElement('img');
+    
+    
+            image1.src = img;
+            image1.alt = "Create button";
+            image2.src = img2;
+            image2.alt = "Create step form";
+            image3.src = img3;
+            image3.alt = "A step for your goal."
+    
+            title.textContent = "Focus Tutorial";
+            help_text1.textContent = "Your focus is where you set long term goals or objectives such as 'Getting a higher rank' or 'Becoming a Prefect.' Start by clicking the create button below.";
+            help_text2.textContent = "Setting a goal is not enough. To achieve your goals, you need to set some steps. Press the 'ADD STEP +' button and on the form enter the details of step which you need to complete to progress on you goal. On the form, press the 'ADD STEP' button to add your first step.";
+            help_text3.textContent = "You can have up to 20 steps for your focus. Pressing the triangle will reveal the description. Hovering over the step allows you to edit, complete or delete the step. When you have completed a step, press the complete button on the step and it will increase progress towards your goal.";
+            modal_content.id = "focus_help";
+    
+    
+    
+            modal_content.append(title, line, help_text1, image1, help_text2, image2, help_text3, image3);
+    
+    
+            if (window.screen.width < 1000) {
+                modal_width = "95vw";
+            }
+            create_modal(modal_width, true, modal_content, true, true);
+        }
+    
+        return(
+            <div className="focus">
+                <h1>Current Focus</h1>
+                <div className="box" id="focus_container">
+                    <div className="focus_buttons_container">
+                        <button className="help_button"
+                            aria-label="focus help"
+                            title="Help"
+                            onClick={() => {
+                                focus_help()
+                            }}
+                            >
+                            <i className="fa fa-question-circle"></i>
+                        </button>
+                    </div>
+                    <div id="current_focus"></div>
+                    <hr></hr>
+                    <div className="progress_bar">
+                        <Progress_bar />
+                    </div>
+                    <div className="buttons_container">
+                        <button className="clickable_button"
+                                aria-label="edit focus"
+                                title="Edit Focus"
+                                onClick={() => {create_focus()}}>Edit
+                        </button>
+                    </div>
+                    
                 </div>
-                <div id="current_focus"></div>
+                {/*<h2>Steps</h2>*/}
                 <hr></hr>
-                <div className="progress_bar">
-                    <Progress_bar />
+                <div id="steps_container"></div>
+                <button 
+                    className="clickable_button"
+                    aria-label="add step to focus"
+                    title="Add new Step"
+                    onClick={() => {Add_new_step()}}>
+                    Add step &#43;
+                </button>
+                <div id="completed_steps_container">
+                    
                 </div>
-                <div className="buttons_container">
-                    <button className="clickable_button"
-                            aria-label="edit focus"
-                            title="Edit Focus"
-                            onClick={() => {create_focus()}}>Edit
-                    </button>
-                </div>
-                
             </div>
-            {/*<h2>Steps</h2>*/}
-            <hr></hr>
-            <div id="steps_container"></div>
-            <button 
-                className="clickable_button"
-                aria-label="add step to focus"
-                title="Add new Step"
-                onClick={() => {Add_new_step()}}>
-                Add step &#43;
-            </button>
-            <div id="completed_steps_container">
-                
-            </div>
-        </div>
-    );
+        )
+    }
 }
 
 export function Add_new_step() {
@@ -249,7 +256,13 @@ export function initialise_focus() {
         focus_from_database = e.target.result;
 
         //Adds the steps from the db to the local database
-        initialise_steps();
+        if (count === 0) {
+            initialise_steps();
+            count += 1;
+        } else {
+            render_steps();
+        }
+
 
         if (focus_from_database !== null) {
             focus.querySelector('#current_focus').textContent = focus_from_database.value.user_focus;
@@ -276,21 +289,6 @@ export function initialise_focus() {
     })
 
      //Adds scroll events to the headings
-    Add_scroll_event(headings, function() {
-        headings.style.animation = `fade_in_text 0.5s ease-out both`;
-    }, false, 200)
-
-
-    Add_scroll_event(box[0], function() {
-        box[0].style.animation = `bounce 0.5s ease-out both`;
-        box[0].addEventListener('animationend', function handler() {
-            box[0].style.animation = null;
-            box[0].classList.add('show');
-            //render_steps();
-            box[0].removeEventListener('animationend', handler)
-        })
-
-    }, false, 200);
 }
 
 //Initialisises steps by adding steps from db to local record
@@ -308,11 +306,8 @@ function initialise_steps() {
             steps_list.push(new step(cursor.value.step_title, cursor.value.step_desc, cursor.value.order - 1, cursor.value.completed, 'new'))
             cursor.continue();
         } else {
-            Add_scroll_event(document.querySelector('#current_focus'), function() {
                 render_steps();
-                render_progress(); 
-            }, false, 200)
-            
+                render_progress();            
         }
     })
 

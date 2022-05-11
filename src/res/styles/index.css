@@ -1,5 +1,4 @@
  @import url(animations.css);
- @import url(fireworks.css);
 /*Import animations stylesheet*/
 
 
@@ -19,6 +18,7 @@ body {
     background-color: rgb(242,242,242);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100vw;
 }
 
 header {
@@ -36,6 +36,21 @@ header {
     z-index: 1;
 }
 
+body::-webkit-scrollbar {
+    z-index: 3;
+    width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+    background-color: rgba(124,124,124,0.5);
+}
+
 footer {
     font-size: 1.2rem;
     background-color: black;
@@ -48,6 +63,7 @@ footer {
 
 main {
     padding-block-start: 2rem;
+    padding-block-end: 2rem;
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
 }
@@ -95,7 +111,7 @@ textarea {
     padding: 0.5rem;
     margin-block-start: 1rem;
     min-inline-size: 10rem;
-    z-index: 1;
+    z-index: 0;
     transition:         0.08s ease-in;
     -o-transition:      0.08s ease-in;
     -ms-transition:     0.08s ease-in;
@@ -393,6 +409,7 @@ ul[class] {
     padding-inline-end: 2rem;
     padding-block-start: 2rem;
     padding-block-end: 2rem;
+    animation: bounce 0.7s ease-in;
 }
 
 .quote .box{
@@ -445,6 +462,7 @@ ul[class] {
     min-width: 100%;
 }
 
+/* */
 .focus {
     grid-row: 3;
     grid-column: 1/end;
@@ -541,7 +559,7 @@ ul[class] {
 }
 
 #focus_container {
-    position: sticky !important;
+    animation: bounce 1s ease-in;
 }
 
 #current_focus {
@@ -585,6 +603,7 @@ ul[class] {
     max-inline-size: 80%;
     animation: fade_in_text 1.5s ease-in;
     padding: 1rem 1rem 2rem 1rem;
+    user-select: text;
 }
 
 #focus_help img{
@@ -653,6 +672,12 @@ ul[class] {
 
 #fireworks {
     pointer-events: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
 }
 
 .step_top_line {
@@ -1097,13 +1122,11 @@ hr {
 a {
     font-size: inherit;
     color: inherit;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-a[href] {
-  text-decoration: none;
-}
-
-li a[href]:hover
+li a:hover
 {
   text-decoration: underline;
 }
@@ -1296,9 +1319,9 @@ This is because the 'hovering' isn't common on mobile */
 }
 main .grid_wrapper {
     column-gap: 4rem;
-    row-gap: 50rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
+    row-gap: 10rem;
     /*1st row timetable and calendar, 2nd row for quote of the day, 3rd row for functions*/
 }
 /* || FORM STYLING */
@@ -1403,10 +1426,18 @@ input[type="date"]::-webkit-inner-spin-button {
 /* || ALERTS */
 #alert {
     padding: 2rem;
+    max-inline-size: 50%;
+}
+
+/*Alert size smaller for mobile*/
+@media screen and (max-width: 999px) {
+    #alert {
+        max-inline-size: 80%;
+    }
 }
 
 #alert .content {
-    width: 75%;
+    inline-size: 100%;
 }
 #alert i {
     margin-inline-end: 1rem;
