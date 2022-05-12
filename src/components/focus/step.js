@@ -1,6 +1,7 @@
 import React from 'react';
 import { custom_alert } from '../../res/scripts/add_alert';
 import { exit_modal } from '../../res/scripts/add_modal';
+import add_inline_animation from '../../res/scripts/animation_timing';
 import { string_validation } from '../../res/scripts/data_validation';
 import { Add_new_step, render_steps, return_steps_list } from './focus';
 import { render_progress } from './progress';
@@ -140,22 +141,21 @@ export default function Goal_step(props) {
         const step = e.target.parentNode.parentNode.parentNode;
         //console.log('Complete step function has run');
 
+        //Play animation
         step.style.animation = `fade_out 0.3s ease-out`;
-        render_steps();
-
-        step.addEventListener('animationend', function handler() {
-            step.style.animation = ``
+        add_inline_animation(step, "fade_out", "0.3s", "ease-out", "", "", () => {
             step_list[order - 1].completed = true;
             change_step_value( order, true, false, false, false);
             
             render_steps();
             render_progress();
-            step.removeEventListener('animationend', handler)
-        });
+        })
 
-        //console.log(step_list[order - 1])
+        //Render steps first and then plays the second animation
+        render_steps();
     }
     
+    //Function runs when user presses redo button
     function redo_step(e) {
         const step = e.target.parentNode.parentNode.parentNode;
         step.style.animation = `fade_out 0.3s ease-out`;
@@ -230,9 +230,12 @@ export function change_step_value(current_order, completed, new_title, new_descr
         completed: completed,
         order: current_order
     }
+
+    //Gets db length
     let database_length;
     const open_request = window.indexedDB.open('student_file', 12);
     open_request.addEventListener('error', () => {
+        //Error prompt
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
     });
 
@@ -240,12 +243,16 @@ export function change_step_value(current_order, completed, new_title, new_descr
         db = open_request.result;
         transaction = db.transaction(['steps_list'], 'readwrite');
         object_store = transaction.objectStore('steps_list');
+
+        //Gets current steps from db
         object_store.openCursor().addEventListener('success', (e) => {
             current_steps = e.target.result;
             my_index = object_store.index('order');
 
             current_step = my_index.get(current_order);
             current_step.addEventListener('success', () => {
+
+                //conditional changes
                 if (completed === 'delete') {
                     object_store.delete(current_order);
                     database_length = object_store.count()        

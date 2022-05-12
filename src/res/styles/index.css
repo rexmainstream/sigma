@@ -66,6 +66,7 @@ main {
     padding-block-end: 2rem;
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
+    inline-size: 95%;
 }
 
 @media screen and (max-width: 999px) {
@@ -244,7 +245,7 @@ input[type='radio']:after {
   }
 
 blockquote {
-    font-size: 25px;
+    font-size: 2rem;
     line-height: 1.5;
     margin-block-end: 1rem;
 }
@@ -289,22 +290,7 @@ ul[class] {
     display: inline;
 }
 
-.drop_down_logo {
-    padding-inline-end: 1rem;
-    cursor: pointer;
-}
 
-.link_list {
-    list-style-position: inside;
-    padding-inline-start: 0rem !important;
-}
-
-.link_list li{
-    text-align: none;
-    list-style-type: none;
-    display: inline;
-    padding-inline-end: 2rem;
-}
 
 .end_user_agreements li {
     border-inline-end: 1px solid white;
@@ -378,9 +364,90 @@ ul[class] {
 }
 
 
+ul.link_list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    list-style-position: inside;
+    padding-inline-start: 0rem !important;
+}
 
-.drop_down {
-    list-style-type: circle;
+.drop_down_logo {
+    padding-inline-end: 1rem;
+    cursor: pointer;
+}
+
+.link_list li{
+    text-align: none;
+    list-style-type: none;
+    display: inline;
+    padding-inline-end: 2rem;
+}
+
+.drop_down_header {
+    display: block;
+}
+
+.drop_down_header span {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .drop_down_header {
+        position: relative;
+        row-gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        max-height: 2rem;
+        inline-size: 9rem;
+        overflow: hidden;
+        margin-inline-end: 2rem;
+        background-color: white;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    .drop_down_header li {
+        opacity: 0;
+    }
+
+    .drop_down_header li:last-child {
+        margin-block-end: 3rem;
+    }
+
+    .drop_down_header:hover {
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        max-height: 30rem;
+        overflow:visible;
+        z-index: 1;
+        box-shadow: 0px 14px 15px 0px rgb(0 0 0 / 20%);
+        transition: box-shadow 0.3s ease-in 0.1s, max-height 0.2s ease-in;
+        background-color: rgb(250,250,250);
+    }
+
+    .drop_down_header span {
+        display: block;
+        padding-bottom: 0.5rem;
+        font-size: 1.5rem;
+        padding-inline-start: 1rem;
+        background-color: white;
+    }
+
+    .drop_down_header:hover li{
+        opacity: 1;
+        padding-inline-start: 1rem;
+        transition: opacity 0.1s ease-out 0.2s;
+    }
+
+    .drop_down_header span .caret {
+        font-size: smaller;
+        display: inline;
+    }
+
+    .drop_down_header:hover span .caret {
+        transform: translateX(7rem);
+    }
+    
 }
 
 #next_period + p{
@@ -729,11 +796,13 @@ ul[class] {
     overflow: hidden;
     padding-inline-start: 3.5rem;
     margin-block-end: 1rem;
+    word-wrap: break-word;
 }
 
 .steps .show_description {
-    transition: height 2s ease-in-out;
-    height: fit-content;
+    opacity: 1;
+    transition: max-height 0.2s ease-out, opacity 0.3s ease-in 0.2s;
+    max-height: 20rem;
 }
 
 .steps button[title='Hide Description'] {
@@ -774,8 +843,9 @@ ul[class] {
     }
 }
 .steps .hide_description {
-    transition: height 2s ease-in-out;
-    height: 0rem;
+    transition: max-height 0.3s ease-out;
+    max-height: 0rem;
+    opacity: 0;
 }
 
 .steps .button_container {
@@ -1093,7 +1163,7 @@ hr {
 
 .header {
     justify-content: left;
-    align-items: center;
+    height: 8vh;
 }
 
 .grid_wrapper { /*should this even be a grid? A flexbox will still work but it won't be as responsive i think.*/

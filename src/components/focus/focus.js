@@ -22,7 +22,7 @@ let stored_focus
 let focus_from_database
 let current_focus
 let steps_list2
-let count = 0
+let count = true;
 //Gets current focus
 
 
@@ -256,11 +256,13 @@ export function initialise_focus() {
         focus_from_database = e.target.result;
 
         //Adds the steps from the db to the local database
-        if (count === 0) {
+        //Can only execute once when component is mounted that is why there is a count
+        if (count === true) {
             initialise_steps();
-            count += 1;
+            count = false;
         } else {
             render_steps();
+            render_progress();
         }
 
 
@@ -304,10 +306,12 @@ function initialise_steps() {
 
         if (cursor) {
             steps_list.push(new step(cursor.value.step_title, cursor.value.step_desc, cursor.value.order - 1, cursor.value.completed, 'new'))
+            //Iterates for next item
             cursor.continue();
         } else {
-                render_steps();
-                render_progress();            
+            //When all of database's steps are pushed to local array.
+            render_steps();
+            render_progress();            
         }
     })
 
@@ -321,7 +325,7 @@ export function check_focus() {
     const delete_button = document.createElement('button');
     const progress = document.querySelector(".progress").style.width;
 
-    //CHange this later to checking database
+    //Checks if focus from db is null
     if (focus_from_database === null) {
         button.innerHTML = 'Create';
         button.ariaLabel = 'create focus';
