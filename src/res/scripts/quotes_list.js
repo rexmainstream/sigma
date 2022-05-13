@@ -32,7 +32,7 @@ export function Quote_list_initialisation() {
     new quote("Gentlemen, you can't fight in here! This is the war room!", "President Merkin Muffley"),
     new quote("Those who have a 'why' to live, can bear with almost any 'how'.",'Victor Frankl'),
     new quote("A great man is always willing to be little.", "Ralph Waldo Emerson"),        
-    new quote("The young man knows the rules, but the old man knows the exceptions.","Oliver Wendell Holmes"),
+    new quote("The young man knows the rules, but the old man knows the exceptions.","Oliver Wendell Holmes Jr."),
     new quote("The only way out of the labyrinth of suffering is to forgive.", "John Green"),
     new quote("No great mind has ever existed without a touch of madness.","Aristotle"),
     new quote("True peace is not merely the absence of war, it is the presence of justice.","Jane Addams"),

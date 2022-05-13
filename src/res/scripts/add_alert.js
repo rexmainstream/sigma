@@ -7,7 +7,9 @@ export function custom_alert(message_title, message_type, message_description, y
     //HTML
         `<div class='content'>
             <div>
-                <i inline></i>
+                <div class="icon_container">
+                    <i></i>
+                </div>
                 <h1 class="alert_title">
                         
                 </h1>
@@ -35,7 +37,7 @@ export function custom_alert(message_title, message_type, message_description, y
     const no_button = document.createElement('button');
 
     alert.id = 'alert';
-    alert.className = 'center_vertical'
+    alert.className = ''
     icon.className = 'alert_icon';
     ok_button.classList.add('clickable_button', 'exit_modal');
     icon.innerHTML = message_type;
@@ -56,19 +58,20 @@ export function custom_alert(message_title, message_type, message_description, y
             alert.focus();
             break;
         case `warning_yes_no`:
-
+            icon.className = `material-icons`;
+            icon.innerHTML = "warning";
             yes_button.classList.add('clickable_button');
             no_button.classList.add('clickable_button', 'delete_button', 'exit_modal');
 
             yes_button.innerHTML = 'Yes';
             no_button.innerHTML = 'No';
 
-            buttons.append(yes_button, no_button)
+            buttons.append(yes_button, no_button);
+            alert.focus()
             yes_button.addEventListener('click', (e) => {
                 yes_function()
                 exit_modal(e)
             })
-            icon.className = `material-icons`;
             break;
         case `information`:
             icon.className = `fa fa-info-circle`;

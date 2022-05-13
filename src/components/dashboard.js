@@ -1,21 +1,19 @@
-import Timetable_mini, { initialise_timetable } from './dashboard/timetable_mini';
 import React from 'react';
-import Calendar_mini, { calendar_tutorial, initialise_calendar } from './dashboard/calendar_mini';
-import Focus, { initialise_focus } from './focus/focus';
-import {Helmet} from 'react-helmet';
-{/*Remember to add a full timetable!*/}
+//Import Calendar Modules
+import Calendar_mini,{ initialise_calendar } from './dashboard/calendar_mini';
+import TT_display from "./timetable/tt_display"
 
-{/*This is the dashboard. Includes a timetable, calendar motivational quote display and a focus display*/}
+
 export default class Dashboard extends React.Component {
   componentDidMount() {
-    initialise_timetable();
+    //initialises calendar and timetable
     initialise_calendar();
   }
   
   render() {
     return (
       <div className='grid_wrapper'>
-        <Timetable_mini />
+        <TT_display />
         <Calendar_mini />
       </div>
     );

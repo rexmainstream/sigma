@@ -67,7 +67,10 @@ export default function Goal_step(props) {
         edit_btn.ariaLabel = 'edit step';
         edit_btn.title = 'Edit this Step';
         title.value = goal_name;
-        description.value = goal_description;
+
+        if (goal_description !== "This step has no description.") {
+            description.value = goal_description;
+        }
         
         //Remove event listeners on the previous edit button
         create_btn.replaceWith(edit_btn);
@@ -233,7 +236,7 @@ export function change_step_value(current_order, completed, new_title, new_descr
 
     //Gets db length
     let database_length;
-    const open_request = window.indexedDB.open('student_file', 12);
+    const open_request = window.indexedDB.open('student_file', 13);
     open_request.addEventListener('error', () => {
         //Error prompt
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);

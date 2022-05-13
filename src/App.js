@@ -26,7 +26,8 @@ function App() {
         <header className='navigation'>
           <div className='flex header'>
             <a href=''>
-              <Link to="/">
+              <Link to="/"
+                tabIndex={-1}>
                 <img src={logo}
                   className='logo'
                   alt='logo for Sigma'
@@ -46,7 +47,8 @@ function App() {
                   </span>
                   <li>
                     <NavLink
-                      to={"/about"}>
+                      to={"/about"}
+                      tabIndex={1}>
                         About
                     </NavLink>
                   </li>

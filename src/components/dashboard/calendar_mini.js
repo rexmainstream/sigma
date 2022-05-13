@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDom from "react-dom";
-import '../../res/styles/calendar_mini_styles.css'
 import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
 import Events_list_item from "./event_list_item";
+import { custom_alert } from "../../res/scripts/add_alert";
 
 
 export default function Calendar_mini() {
@@ -67,6 +67,21 @@ export function initialise_calendar() {
     //checks if their are any events
     calendar_tutorial();
 
+    let db;
+    const open_request = window.indexedDB.open('student_file', 13);
+
+    open_request.addEventListener('success', () => {
+        db = open_request.result;
+    })
+
+    open_request.addEventListener('error', () => {
+        custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+    })
+
+    open_request.addEventListener('upgradeneeded', (e) => {
+        db = e.target.result;
+        const events_list = db.createObjectStore('events_list');
+    })
 }
 
 

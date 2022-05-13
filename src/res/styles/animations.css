@@ -124,6 +124,68 @@
     }
 }
 
+@keyframes shine {
+    0% {
+      background-position: right;    
+    }
+    /*100% {
+      background-position: left; it's the default value, no need to define it
+    }*/
+  }
+  
+
+@-webkit-keyframes pulse {
+    from {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    85% {
+      -webkit-transform: scale(1.25);
+              transform: scale(1.25);
+    }
+    to {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    from {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    85% {
+      -webkit-transform: scale(1.25);
+              transform: scale(1.25);
+    }
+    to {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }  
+@keyframes table_slide {
+    0%{
+        opacity: 0.5;
+        background-color: inherit;
+        transform: translateX(-4rem);
+    }
+    33% {
+        transform: translateX(2rem);
+        opacity: 1;
+    }
+
+    66% {
+        transform: translateX(-1rem);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+
 @keyframes bounce2 {
     0%{
         opacity: 0.5;
@@ -197,6 +259,7 @@
         transform: translateX(0%)
     }
 }
+
 @keyframes show_header {
     0% {
         transform: translateY(-100%);

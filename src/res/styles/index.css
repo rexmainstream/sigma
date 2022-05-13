@@ -97,6 +97,13 @@ b {
     font-weight: bolder;
 }
 
+hr {
+    background-color: #DDDDDD;
+    block-size: 0.05rem;
+    border: none;
+    margin: 1rem 0 1rem;
+}
+
 textarea {
     resize: none;
 }
@@ -129,8 +136,40 @@ textarea {
     position: absolute;
     top: 4%;
     right:8%;
-
 }
+
+.clickable_button:focus {
+    outline: 0.2rem dotted;
+    outline-color: rgba(0,0,0, 0.4);
+    transition: outline-color 0.3s ease-in;
+}
+
+
+.icon_button {
+    border: none !important;
+    inline-size: 3rem;
+    block-size: 3rem;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-size: 2rem;
+    overflow: visible;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    background-color: #f9fcff;
+    background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
+
+    transition: transform 250ms;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
+}
+
+.icon_button:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transform: translateY(-0.5rem);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 40%);  
+}
+
 
 .exit_button:hover {
     background-color: white;
@@ -220,150 +259,6 @@ input[type='radio']:after {
     color:rgb(255, 91, 91);
 }
 
-.clickable_button:hover {
-    color: white;
-}
-
-.clickable_button:before {
-    content: "";
-    position: absolute;
-    background: rgb(29, 98, 149);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 100%;
-    z-index: -1;
-    -webkit-transition: top 0.09s ease-in;
-}
-
-.delete_button::before {
-    background:rgb(255, 91, 91);
-}
-
-.clickable_button:hover:before {
-    top: 0;
-  }
-
-blockquote {
-    font-size: 2rem;
-    line-height: 1.5;
-    margin-block-end: 1rem;
-}
-
-
-.slide_button {
-    border: none !important;
-    border-radius: 50%;
-    color: black;
-    background-color: white;
-    border: revert;
-    text-decoration: none;
-    display: inline;
-    font-size: 2.5rem;
-    padding: 0.4rem 1.4rem;
-    opacity: 0;
-}
-
-#timetable_container div .slide_button {
-    position: absolute;
-    top: calc(50% - 2.5rem);
-}
-
-.next {
-    right: 0.5%;
-}
-
-.previous {
-    left: 0.5%;
-}
-
-ul[class] {
-    padding-inline-start: 2rem;
-    list-style-type: none;
-}
-
-
-.logo {
-    max-inline-size: 4.5vh;
-    padding: 1rem 1rem 1rem 1rem;
-    margin-inline-end: 1rem;
-    display: inline;
-}
-
-
-
-.end_user_agreements li {
-    border-inline-end: 1px solid white;
-    margin-inline-end: 1rem;
-    padding-inline-end: 1rem;
-}
-
-@media screen and (max-width: 999px) {
-    .end_user_agreements li {
-        font-size: 1rem;
-    }
-}
-
-.end_user_agreements :last-child {
-    border-inline-end: none;
-}
-
-.notes + b { /*Fix this later, doesn't work now*/
-    display: block;
-    text-align: right;
-}
-
-.footer_copyright {
-    font-size: 10px;
-}
-
-.main_line {
-    font-size: 2.3rem;
-    inline-size: 100%;
-}
-
-.secondary_line {
-    font-size: 1.2rem;
-    text-align: left;
-    color: rgb(127, 127, 127);
-    inline-size: 100%;
-}
-
-.period, .teacher {
-    text-align: left;
-    min-inline-size: 80%;
-}
-
-.room {
-    text-align: right;
-    min-inline-size: 20%;
-    min-inline-size: 3rem;
-    /*3rem because all rooms are 3 digits*/
-}
-
-.teacher {
-    font-size: 0.9rem;
-}
-
-#time_until_transition {
-    font-size: 4.5rem;
-}
-
-.transition_time_container {
-    border-radius: 5px;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    margin-block-end: 3rem;
-    background-color: white;
-}
-
-#quote_author {
-    text-align: center;
-    font-size: 2rem;
-    margin-block-start: 0;
-    font-style: italic;
-}
-
-
 ul.link_list {
     display: flex;
     justify-content: center;
@@ -392,6 +287,7 @@ ul.link_list {
     display: none;
 }
 
+/*Drop down for mobile*/
 @media screen and (max-width: 1200px) {
     .drop_down_header {
         position: relative;
@@ -450,12 +346,94 @@ ul.link_list {
     
 }
 
-#next_period + p{
-        font-size: 1.2rem;
-        padding-block-end: 0;
+
+.clickable_button:hover {
+    color: white;
 }
-/* || LAYOUTS*/
+
+.clickable_button:before {
+    content: "";
+    position: absolute;
+    background: rgb(29, 98, 149);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    -webkit-transition: top 0.09s ease-in;
+}
+
+.delete_button::before {
+    background:rgb(255, 91, 91);
+}
+
+.clickable_button:hover:before {
+    top: 0;
+  }
+
+blockquote {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-block-end: 1rem;
+}
+
+
+.slide_button {
+    border: none !important;
+    border-radius: 50%;
+    color: black;
+    background-color: white;
+    border: revert;
+    text-decoration: none;
+    display: inline;
+    font-size: 2.5rem;
+    padding: 0.4rem 1.4rem;
+    opacity: 0;
+}
+
+ul[class] {
+    padding-inline-start: 2rem;
+    list-style-type: none;
+}
+
+
+.logo {
+    max-inline-size: 4.5vh;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-inline-end: 1rem;
+    display: inline;
+}
+
+
+
+.end_user_agreements li {
+    border-inline-end: 1px solid white;
+    margin-inline-end: 1rem;
+    padding-inline-end: 1rem;
+}
+
+@media screen and (max-width: 999px) {
+    .end_user_agreements li {
+        font-size: 1rem;
+    }
+}
+
+.end_user_agreements :last-child {
+    border-inline-end: none;
+}
+
+.notes + b {
+    display: block;
+    text-align: right;
+}
+
+.footer_copyright {
+    font-size: 10px;
+}
+
+/* || TIMETABLE*/
 .timetable {
+    font-size: 1.5rem;
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
     padding-block-start: 1rem;
@@ -464,10 +442,378 @@ ul.link_list {
     text-align: center;
 }
 
+.timetable_countdown {
+    margin-block-end: 2rem;
+}
+
+.timetable_today {
+    width: 70%;
+    margin: auto;
+    table-layout: fixed;
+    border-collapse: separate;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.timetable_today thead {
+    color: rgba(124,124,124, 0.8);
+}
+
+.timetable_today thead td {
+    border-bottom: 0.15rem solid rgba(124,124,124,0.3);
+    padding: 0.7rem;
+    text-transform: uppercase;
+}
+.timetable tbody td {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.1s ease-out;
+}
+
+.timetable tbody td div {
+    font-size: 1rem;
+    color: rgba(124,124,124, 0.8)
+}
+
+
+.timetable tbody tr.period_class {
+    background-color: rgba(250,250,250, 1);
+}
+.timetable .period_break {
+    color: rgba(124,124,124, 0.8);
+    transition: all 0.2s ease-out;
+    background-color: rgba(242,242,242, 0.7);
+}
+
+.timetable_today tbody tr.period_class:hover td  {
+    transition: background-color 0.3s ease-in;
+    background-color: rgba(209, 231, 246 ,0.7);
+    
+}
+
+.timetable_today tbody tr.period_class {
+    animation: table_slide 0.3s ease-in;
+}
+
+.timetable_today td:nth-child(2) {
+    padding-inline-end: 1rem;
+    text-align: inline-end;
+    width: 70%;
+}
+
+.timetable_today td:nth-child(1) {
+    text-align: right;
+    width: 30%;
+}
+
+.timetable_today tr.period_class td:nth-child(3) {
+
+}
+
+.timetable tr.period_class td:nth-child(1) {
+
+}
+
+.timetable_today td:first-child {
+    padding-inline-start: 1rem;
+    text-align: left;
+    width: 20%;
+}
+
+
+
+/* || CALENDAR*/
 .calendar {
     grid-column: 4/end;
     grid-row: 1;
 }
+
+
+#mini_calendar {
+    inline-size: 80%;
+    border: 1px solid black;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin-block-start: 2rem;
+}
+
+#mini_events {
+    inline-size: 90%;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+
+#mini_events h2 {
+    background-color: rgb(29, 98, 149);
+    color: white;
+    padding: calc(0.5rem + 1px);
+    margin: 0 0 0.5rem;
+    border-radius: 5px;
+}
+/*Stylesheet for the external library calendar some edits were made*/
+.rolyart-calendar {
+    background-color: white;
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+  }
+  
+  .calendar-body .day.not-current {
+    color: #999999;
+    background-color: rgb(242,242,242);
+  }
+
+  .calendar-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem 1.6rem;
+    border-bottom: 1px solid #DDDDDD;
+  }
+  
+  .calendar-header .month-year {
+    -webkit-box-flex: 1;
+        -ms-flex: 1  1 auto;
+            flex: 1  1 auto;
+    margin: 0;
+    margin: 0 1rem 0 1rem;
+    top: 0.25rem;
+    font-size: smaller;
+  }
+  
+  .calendar-header .calendar-control {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }  
+  
+  .calendar-header .calendar-control button.control-current-month {
+    margin: 0 8px;
+  }
+  
+  .calendar-header .calendar-control button.control-current-month .current-month {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: rgb(29 98 149);
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+  }
+  
+  .week-days {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #DDDDDD;
+  }
+  
+  .week-days div {
+    width: calc(100% / 7);
+    text-align: center;
+  }
+  
+  .calendar-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 1rem 0 0 0;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+  }
+  
+  .calendar-body .day {
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 1rem 0;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .calendar-body .day span {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+  }
+  
+  .calendar-body .day.active {
+    color: rgb(29 98 149);
+    font-weight: bold;
+  }
+  
+  .calendar-body .day.selected {
+    font-weight: bold;
+  }
+  
+  .calendar-body .day.selected span {
+    background-color: rgb(29 98 149);
+    display: inline-block;
+    color: white;
+    border-radius: 50%;
+    -webkit-animation: pulse .4s ease;
+            animation: pulse .4s ease;
+  }
+  
+  .calendar-body .day.hovered {
+    background-color: rgba(209,231,246, 0.5);
+  }
+
+#events_container {
+    overflow-y: auto;
+    block-size: 18rem;
+    margin-block-end: 1rem;
+}
+
+#events_list, #completed_events {
+    overflow-x: hidden;
+    font-size: 1.5rem;
+    padding-inline: 1rem;
+    margin: 0;
+    /*background-color: rgb(242, 242, 242);*/
+}
+
+#events_list li, #completed_events li {
+    display: flex;
+    overflow: hidden;
+    block-size: calc(0.64rem + 0.64rem + 1rem);
+    list-style-position: inside;
+    padding-block-end: 0.64rem;
+    padding-block-start: 0.64rem;
+    background-color: white;
+    padding-inline-start: 0.5rem;
+    background-color: rgba(242,242,242, 0.7);
+    /*box-shadow: 0 2px 8px rgb(0 0 0 / 5%);*/
+    border-radius: 1rem;
+    margin-block-end: 0.9rem;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    white-space: nowrap;
+    border-inline-end: 0.7rem inset;
+}
+
+#events_list li a, #completed_events li a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-inline-size: calc(100% - 3.5rem);
+}
+
+#events_list .Low_priority {
+    border-inline-end-color: #AFC1CC;
+}
+
+#events_list .Medium_priority {
+    border-inline-end-color: #F4D27A;
+}
+
+#events_list .High_priority {
+    border-inline-end-color: #F37257;
+}
+
+#completed_events li {
+    border-inline-end: 0.7rem inset rgb(124, 124, 124);
+}
+
+#events_list .hovered_item {
+    animation: hover_list 0.2s ease-out both;
+}
+
+.added_event {
+    animation: add_event 0.5s ease-out both;
+}
+
+#events_list #Add_new_event {
+    box-shadow: none;
+    background-color: inherit;
+}
+
+#events_list li a, #completed_events li a {
+    block-size: calc(0.64rem + 0.64rem + 1rem);
+    display: inline-block;
+}
+
+.event_tooltip {
+    content: '';
+    white-space: nowrap;
+    text-transform: none;
+    inline-size: 40vw;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    padding: 0 0rem 1rem 0rem;
+    right: 110%;
+    transform: translateY(-25rem);
+    height: 40vh;
+}
+
+.event_tooltip:hover {
+    box-shadow: 0 12px 20px rgb(0 0 0 / 40%);
+}
+
+
+.event_tooltip h3 {
+    margin: 0;
+    margin-block-end: 1rem;
+    background-color: rgb(29, 98, 149);
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.event_tooltip .event_description {
+    padding: 1rem;
+    margin: 1rem 1rem 1rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    block-size: 13rem;
+    background-color: rgb(242,242,242);
+    font-family: 'Segoe UI';
+    inline-size: calc(100% - 4rem);
+    cursor: pointer;
+    outline: none;
+}
+
+.event_tooltip p {
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.show_tooltip {
+    animation: show_tooltip 0.2s ease-out both;
+}
+
+.hide_tooltip {
+    animation: show_tooltip 0.2s ease-out both reverse;
+}
+
+#calendar_tutorial {
+    position: relative;
+    bottom: 10%;
+    text-align: center;
+    color: rgba(124,124,124, 0.8);
+    inline-size: 70%;
+}
+
+
+#completed_events li {
+    color: rgb(124,124,124);
+    text-decoration: line-through;
+}
+
+
+/* || QUOTE*/
+
 .quote {
     grid-row: 2;
     grid-column: 1/end;
@@ -529,7 +875,15 @@ ul.link_list {
     min-width: 100%;
 }
 
-/* */
+#quote_author {
+    text-align: center;
+    font-size: 2rem;
+    margin-block-start: 0;
+    font-style: italic;
+}
+
+
+/* || FOCUS*/
 .focus {
     grid-row: 3;
     grid-column: 1/end;
@@ -537,6 +891,9 @@ ul.link_list {
     font-size: 1.5rem;
 }
 
+.focus h1 {
+    animation: bounce 0.7s ease-out;
+}
 .focus_buttons_container {
     block-size: 3rem;
     margin-block-end: 2rem;
@@ -549,7 +906,6 @@ ul.link_list {
     background-image: none;
     color: rgb(29, 98, 149);
     transition: color 0.3s ease-in;
-
 }
 
 .focus_buttons_container .help_button:hover {
@@ -586,7 +942,7 @@ ul.link_list {
 }
 
 .progress {
-    position: relative;/*This will need javascript, will have to depend on actual progress*/
+    position: relative;
     height: 100%;
     width: 0%;
     border-radius: 1rem;
@@ -619,10 +975,6 @@ ul.link_list {
 
 .show_progress {
     animation: progress_bar_move 1.5s ease-out both;
-}
-
-.fix_progress {
-
 }
 
 #focus_container {
@@ -896,8 +1248,6 @@ ul.link_list {
     float: inline-end;
 }
 
-
-
 #step_form {
     padding: 1rem;
     inline-size: 80%;
@@ -924,236 +1274,6 @@ ul.link_list {
     block-size: 20rem;
 }
 
-
-.notes {
-    grid-row: 3;
-    grid-column: 3/end;
-}
-#timetable_container {
-    display: flex;
-    flex-wrap: wrap;
-    inline-size: 90%;
-    position: relative;
-    left: 5%
-}
-#timetable_container div {
-    flex-grow: 1;
-}
-#daily_timetable {
-    table-layout: fixed;
-    display: table;
-    border-collapse: collapse;
-    margin-block-start: 2rem;
-    inline-size: 55%;
-}
-
-.period span{
-    position: relative;
-    left: 3%;
-}
-
-.room span {
-    position: relative;
-    right: 3%;
-}
-
-.teacher span {
-    position: relative;
-    left: 3%;
-}
-
-.timetable .box {
-    inline-size: 90%;
-    position: relative;
-    left: 5%;
-}
-
-.lunch_line, .recess_line {
-    font-size: 2rem;
-    color: rgb(127, 127, 127);
-    background-color: rgba(242,242,242, 0.5);
-}
-
-.lunch_line td, .recess_line td {
-    padding-block-end: 0.3rem;
-    padding-block-start: 0.3rem;
-    text-align: left;
-}
-
-#time_for_lunch, #time_for_recess {
-    text-align: right;
-}
-
-
-.lunch_line span[class], .recess_line span[class] {
-    position: relative;
-    left: 5%;
-}
-
-#time_for_lunch span, #time_for_recess span {
-    position: relative;
-    right: 5%;
-}
-
-
-#mini_events h2 {
-    background-color: rgb(29, 98, 149);
-    color: white;
-    padding: calc(0.5rem + 1px);
-    margin: 0 0 0.5rem;
-    border-radius: 5px;
-}
-
-
-hr {
-    background-color: #DDDDDD;
-    block-size: 0.05rem;
-    border: none;
-    margin: 1rem 0 1rem;
-}
-
-#events_container {
-    overflow-y: auto;
-    block-size: 18rem;
-    margin-block-end: 1rem;
-}
-
-#events_list, #completed_events {
-    overflow-x: hidden;
-    font-size: 1.5rem;
-    padding-inline: 1rem;
-    margin: 0;
-    /*background-color: rgb(242, 242, 242);*/
-}
-
-#events_list li, #completed_events li {
-    display: flex;
-    overflow: hidden;
-    block-size: calc(0.64rem + 0.64rem + 1rem);
-    list-style-position: inside;
-    padding-block-end: 0.64rem;
-    padding-block-start: 0.64rem;
-    background-color: white;
-    padding-inline-start: 0.5rem;
-    background-color: rgba(242,242,242, 0.7);
-    /*box-shadow: 0 2px 8px rgb(0 0 0 / 5%);*/
-    border-radius: 1rem;
-    margin-block-end: 0.9rem;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 0%;
-    white-space: nowrap;
-    border-inline-end: 0.7rem inset;
-}
-
-#events_list li a, #completed_events li a {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-inline-size: calc(100% - 3.5rem);
-}
-
-#events_list .Low_priority {
-    border-inline-end-color: #AFC1CC;
-}
-
-#events_list .Medium_priority {
-    border-inline-end-color: #F4D27A;
-}
-
-#events_list .High_priority {
-    border-inline-end-color: #F37257;
-}
-
-#completed_events li {
-    border-inline-end: 0.7rem inset rgb(124, 124, 124);
-}
-
-#events_list .hovered_item {
-    animation: hover_list 0.2s ease-out both;
-}
-
-.added_event {
-    animation: add_event 0.5s ease-out both;
-}
-
-#events_list #Add_new_event {
-    box-shadow: none;
-    background-color: inherit;
-}
-
-#events_list li a, #completed_events li a {
-    block-size: calc(0.64rem + 0.64rem + 1rem);
-    display: inline-block;
-}
-
-.event_tooltip {
-    content: '';
-    white-space: nowrap;
-    text-transform: none;
-    inline-size: 40vw;
-    background-color: white;
-    position: absolute;
-    z-index: 2;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
-    padding: 0 0rem 1rem 0rem;
-    right: 110%;
-    transform: translateY(-25rem);
-    height: 40vh;
-}
-
-.event_tooltip:hover {
-    box-shadow: 0 12px 20px rgb(0 0 0 / 40%);
-}
-
-
-.event_tooltip h3 {
-    margin: 0;
-    margin-block-end: 1rem;
-    background-color: rgb(29, 98, 149);
-    color: white;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-}
-
-.event_tooltip .event_description {
-    padding: 1rem;
-    margin: 1rem 1rem 1rem 1rem;
-    border-radius: 1rem;
-    border: none;
-    block-size: 13rem;
-    background-color: rgb(242,242,242);
-    font-family: 'Segoe UI';
-    inline-size: calc(100% - 4rem);
-    cursor: pointer;
-    outline: none;
-}
-
-.event_tooltip p {
-    margin: 0.5rem 1rem 0.5rem 1rem;
-}
-
-.show_tooltip {
-    animation: show_tooltip 0.2s ease-out both;
-}
-
-.hide_tooltip {
-    animation: show_tooltip 0.2s ease-out both reverse;
-}
-
-#calendar_tutorial {
-    position: relative;
-    bottom: 10%;
-    text-align: center;
-    color: rgba(124,124,124, 0.8);
-    inline-size: 70%;
-}
-
-
-#completed_events li {
-    color: rgb(124,124,124);
-    text-decoration: line-through;
-}
 
 .flex {
     display: flex;
@@ -1236,31 +1356,6 @@ button {
 }
 
 
-.icon_button {
-    border: none !important;
-    inline-size: 3rem;
-    block-size: 3rem;
-    object-fit: contain;
-    border-radius: 50%;
-    padding: 0.5rem;
-    font-size: 2rem;
-    overflow: visible;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
-    background-color: #f9fcff;
-    background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
-
-    transition: transform 250ms;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
-}
-
-.icon_button:hover {
-    transition: box-shadow 0.2s ease-in-out;
-    transition: transform 0.2s ease-in-out;
-    transform: translateY(-0.5rem);
-    box-shadow: 0 8px 16px rgb(0 0 0 / 40%);  
-}
-
 
 .current {
     background-color: black;
@@ -1304,6 +1399,8 @@ button {
     animation: hide_header 0.5s ease-out both;
 }
 
+
+/* || MODAL */
 
 .modal{
     display: flex;
@@ -1370,28 +1467,10 @@ This is because the 'hovering' isn't common on mobile */
     background-color: rgb(209, 231, 246);
 }*/
 
-/*Padding for table*/
-@media screen and (max-width: 999px) {
-    /*Table size adjusts for screen size*/
-    #daily_timetable {
-        inline-size: 70%;
-    }
-}
-#mini_calendar {
-    inline-size: 80%;
-    border: 1px solid black;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    margin-block-start: 2rem;
-}
-#mini_events {
-    inline-size: 90%;
-    padding: 0 0.5rem 0 0.5rem;
-}
 main .grid_wrapper {
     column-gap: 4rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
-    row-gap: 10rem;
     /*1st row timetable and calendar, 2nd row for quote of the day, 3rd row for functions*/
 }
 /* || FORM STYLING */
@@ -1509,15 +1588,17 @@ input[type="date"]::-webkit-inner-spin-button {
 #alert .content {
     inline-size: 100%;
 }
+
+#alert .icon_container {
+    text-align: center;
+}
 #alert i {
     margin-inline-end: 1rem;
     user-select: none;
+    text-align: center;
     font-size: 6rem;
     color: rgba(29, 98, 149);
-    float: inline-start;
-    display: block;
-    position: relative;
-    left: calc(50% - 3rem)
+    display: inline;
 }
 
 .alert_title {
@@ -1544,7 +1625,7 @@ input[type="date"]::-webkit-inner-spin-button {
     margin-block: 1.5rem;
 }
 
-/* || RESPONSIVE DESIGN */
+/* || MOBILE LAYOUT */
 @media screen and (max-width: 999px) {
     /* font-size and layout for mobile devices. 
     Essentially this will increase font size 

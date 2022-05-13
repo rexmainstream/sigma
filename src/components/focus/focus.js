@@ -244,7 +244,7 @@ export function initialise_focus() {
     const delete_button = document.querySelector('.delete_button');
 
     //Opens Database
-    const open_request = window.indexedDB.open('student_file', 12);
+    const open_request = window.indexedDB.open('student_file', 13);
     open_request.addEventListener('error', () => {
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
     });
@@ -279,10 +279,10 @@ export function initialise_focus() {
     //If there is a an upgrade needed for the db
     open_request.addEventListener('upgradeneeded', e => {
         db = e.target.result;
-        //current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
-        //current_focus.createIndex('user_focus', "user_focus", { unique: false })
+        current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
+        current_focus.createIndex('user_focus', "user_focus", { unique: false })
 
-        db.deleteObjectStore('steps_list')
+        //db.deleteObjectStore('steps_list')
         steps_list2 = db.createObjectStore('steps_list');
         steps_list2.createIndex('step_title', 'step_title', { unique: false });
         steps_list2.createIndex('step_desc', 'step_desc', { unique: false });
