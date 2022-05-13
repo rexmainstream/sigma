@@ -1,10 +1,10 @@
 import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
-import { Event_constructor, Event_form, insert_event_to_DOM } from "./add_event";
+import { custom_alert } from "./add_alert";
+import { add_event_to_db, Event_constructor, Event_form, insert_event_to_DOM } from "./add_event";
 import { exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { get_date, return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
 
-let timeoutID
 
 //Edits the event
 export function edit_event(e, index) {
@@ -54,6 +54,9 @@ export function edit_event(e, index) {
             events_list[index].priority = form.querySelector("input[name='priority']:checked").title;
             events_list[index].due_date = due_date.value;
 
+            //Add event to db
+            add_event_to_db(events_list[index], index + 1);
+
             //Adds event to DOM and removes old event
             document.querySelector('#events_list').removeChild(e.target.parentElement)
             if (events_list[index].due_date === user_selected_date()) {
@@ -67,9 +70,27 @@ export function edit_event(e, index) {
 
     //When user presses delete button, deletes the event from from
     delete_button.addEventListener('click', (evt) => {
-        exit_modal(evt);
-        events_list.splice(index, 1);
-        show_events_today();
-    })
+        const open_request = window.indexedDB.open('student_file', 14);
 
+        open_request.addEventListener('error', () => {
+            custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+        });
+
+        open_request.addEventListener('success', () => {
+            const db = open_request.result;
+            const stored_events = db.transaction(['events_list'], "readwrite").objectStore('events_list');
+
+            const database_length = stored_events.count()        
+            database_length.addEventListener('success', () => {
+                for(let i = (index + 1); i < (database_length.result); i++) {
+                    add_event_to_db(events_list[i], i);
+                }
+                stored_events.delete(database_length.result);
+
+                events_list.splice(index, 1);
+                show_events_today();
+            })
+        })
+        exit_modal(evt);
+    })
 }

@@ -1,8 +1,7 @@
 import React from "react";
-import ReactDom from "react-dom";
-import { RolyartCalendar } from "../../res/scripts/rolyart-calendar";
-import Events_list_item from "./event_list_item";
+import { return_events_list, RolyartCalendar, show_events_today } from "../../res/scripts/rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert";
+import { Event_constructor } from "../../res/scripts/add_event";
 
 
 export default function Calendar_mini() {
@@ -68,10 +67,22 @@ export function initialise_calendar() {
     calendar_tutorial();
 
     let db;
-    const open_request = window.indexedDB.open('student_file', 13);
+    const open_request = window.indexedDB.open('student_file', 14);
 
     open_request.addEventListener('success', () => {
         db = open_request.result;
+        const stored_events = db.transaction(['events_list']).objectStore('events_list');
+        const events_list = return_events_list()
+        stored_events.openCursor().addEventListener('success', (e) => {
+            const cursor = e.target.result;
+            if (cursor) {
+                events_list.push(cursor.value)
+            } else {
+                show_events_today();
+            }
+
+            cursor.continue()
+        })
     })
 
     open_request.addEventListener('error', () => {
@@ -80,7 +91,22 @@ export function initialise_calendar() {
 
     open_request.addEventListener('upgradeneeded', (e) => {
         db = e.target.result;
-        const events_list = db.createObjectStore('events_list');
+        const events_list = db.createObjectStore('events_list', {autoIncrement: false});
+        events_list.createIndex("title", "title");
+        events_list.createIndex("description", "description");
+        events_list.createIndex("priority", "priority");
+        events_list.createIndex("due_date", "due_date");
+        events_list.createIndex("completed", "completed");
+
+        const current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
+        current_focus.createIndex('user_focus', "user_focus", { unique: false })
+
+        //db.deleteObjectStore('steps_list')
+        const steps_list2 = db.createObjectStore('steps_list');
+        steps_list2.createIndex('step_title', 'step_title', { unique: false });
+        steps_list2.createIndex('step_desc', 'step_desc', { unique: false });
+        steps_list2.createIndex('completed', 'completed', { unique: false });
+        steps_list2.createIndex('order', 'order', { unique: true });
     })
 }
 

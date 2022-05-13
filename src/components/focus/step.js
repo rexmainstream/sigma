@@ -236,7 +236,7 @@ export function change_step_value(current_order, completed, new_title, new_descr
 
     //Gets db length
     let database_length;
-    const open_request = window.indexedDB.open('student_file', 13);
+    const open_request = window.indexedDB.open('student_file', 14);
     open_request.addEventListener('error', () => {
         //Error prompt
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
@@ -259,8 +259,7 @@ export function change_step_value(current_order, completed, new_title, new_descr
                 if (completed === 'delete') {
                     object_store.delete(current_order);
                     database_length = object_store.count()        
-                    database_length.addEventListener('success', () => {
-                        //console.log(database_length);    
+                    database_length.addEventListener('success', () => {  
                         //Shift order of subsequent events up by one
                         for (let i = (current_order + 1); i <= database_length.result + 1; i++) {
                             change_step_value(i, null, false, false, (i - 1));
@@ -286,7 +285,7 @@ export function change_step_value(current_order, completed, new_title, new_descr
     })
 
     open_request.addEventListener('error', () => {
-        console.log('failed to open database');
+        custom_alert('Failed to open database', "error", "Failed to open database")
 
     })
 }

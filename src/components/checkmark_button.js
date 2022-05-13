@@ -1,5 +1,5 @@
 import React from "react";
-import { Event_constructor } from "../res/scripts/add_event";
+import { add_event_to_db, Event_constructor } from "../res/scripts/add_event";
 import { delete_event, edit_event } from "../res/scripts/edit_event";
 import { event_tooltip, tooltip_time_out } from "../res/scripts/event_tooltip";
 import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "../res/scripts/hover";
@@ -54,12 +54,17 @@ export function Complete_event(e, completed, index) {
         checkmark.addEventListener('click', (e)=>{Complete_event(e, !completed, index);});
 
         //Changes the status of the completed
+        //Changes local events list
         if (completed === true) {
             events_list[index].completed = false;
         } else {
             events_list[index].completed = true;
         }
 
+        //Adds event to db
+        add_event_to_db(events_list[index], index + 1)
+
+        //Remove the tooltip
         tooltip_time_out(e, 0);
 
         event_temporary.addEventListener('animationend', function handler(){

@@ -1,6 +1,7 @@
 //This subroutine adds an event
 import { Complete_event } from "../../components/checkmark_button";
 import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
+import { custom_alert } from "./add_alert";
 import { create_modal, exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { edit_event } from "./edit_event";
@@ -111,8 +112,11 @@ export function Event_form(current_selected_date, today, max_date) {
 //This function executes when the user presses add new event. Adds the event to DOM and stores it in database
 export function Add_new_event(e, title, description, priority, due_date) {
     if (string_validation(title, 2, 50, 'title') === true) {
+        const new_event = new Event_constructor(title, description, priority, due_date, false); 
         //Adds event to events_list and writes to database
-        return_events_list().push(new Event_constructor(title, description, priority, due_date, false));
+        return_events_list().push(new_event);
+
+        add_event_to_db(new_event, return_events_list().length);
 
 
         //Adds event to DOM
@@ -124,6 +128,26 @@ export function Add_new_event(e, title, description, priority, due_date) {
         //Exits the modal
         exit_modal(e);
     }  
+}
+
+export function add_event_to_db(event, index) {
+    //If index does not need to be changed
+
+    const open_request = window.indexedDB.open('student_file', 14);
+
+    open_request.addEventListener('error', () => {
+        custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+    });
+
+    open_request.addEventListener('success', () => {
+        const db = open_request.result;
+        const stored_events = db.transaction(['events_list'], "readwrite").objectStore('events_list');
+
+        //Puts new event into db
+        stored_events.put(event, index);
+    })
+
+
 }
 
 //THis function inserts the event to the DOM

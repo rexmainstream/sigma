@@ -20,8 +20,6 @@ let steps_list = [];
 let db;
 let stored_focus
 let focus_from_database
-let current_focus
-let steps_list2
 let count = true;
 //Gets current focus
 
@@ -43,6 +41,7 @@ export function step2(title, description, index, completed) {
 export default class Focus extends React.Component {
     componentDidMount() {
         initialise_focus();
+        check_focus();
     }
     render() {
         //Help prompt. User presses blue question button for directions
@@ -244,7 +243,7 @@ export function initialise_focus() {
     const delete_button = document.querySelector('.delete_button');
 
     //Opens Database
-    const open_request = window.indexedDB.open('student_file', 13);
+    const open_request = window.indexedDB.open('student_file', 14);
     open_request.addEventListener('error', () => {
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
     });
@@ -266,28 +265,17 @@ export function initialise_focus() {
         }
 
 
+        //Adds focus from db
         if (focus_from_database !== null) {
-            focus.querySelector('#current_focus').textContent = focus_from_database.value.user_focus;
-            check_focus();        
-        } else {
-            check_focus()
+            focus.querySelector('#current_focus').textContent = focus_from_database.value.user_focus;   
         }
-        //console.log(focus_from_database.value.user_focus)
+
+        check_focus();
     })
     })
 
     //If there is a an upgrade needed for the db
     open_request.addEventListener('upgradeneeded', e => {
-        db = e.target.result;
-        current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
-        current_focus.createIndex('user_focus', "user_focus", { unique: false })
-
-        //db.deleteObjectStore('steps_list')
-        steps_list2 = db.createObjectStore('steps_list');
-        steps_list2.createIndex('step_title', 'step_title', { unique: false });
-        steps_list2.createIndex('step_desc', 'step_desc', { unique: false });
-        steps_list2.createIndex('completed', 'completed', { unique: false });
-        steps_list2.createIndex('order', 'order', { unique: true });
     })
 
      //Adds scroll events to the headings
@@ -570,7 +558,7 @@ function create_focus() {
 //Clears focus database
 function remove_all_from_db() {
     let db;
-    const open_request = indexedDB.open('student_file', 12)
+    const open_request = indexedDB.open('student_file', 14)
 
     open_request.addEventListener('success', () => {
         db = open_request.result;
