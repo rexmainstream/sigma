@@ -398,7 +398,7 @@ ul[class] {
 
 
 .logo {
-    max-inline-size: 4.5vh;
+    max-inline-size: 4vh;
     padding: 1rem 1rem 1rem 1rem;
     margin-inline-end: 1rem;
     display: inline;
@@ -747,14 +747,15 @@ ul[class] {
     text-transform: none;
     inline-size: 40vw;
     background-color: white;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
     padding: 0 0rem 1rem 0rem;
-    right: 110%;
+    top: 50vh;
+    right: 25vw;
     transform: translateY(-25rem);
-    height: 40vh;
+    height: 42vh;
 }
 
 .event_tooltip:hover {
@@ -1274,6 +1275,13 @@ ul[class] {
     block-size: 20rem;
 }
 
+/* || FEEDBACK */
+iframe {
+    overflow: visible;
+    animation: fade_in 1s ease-in;
+    width: 100%;
+}
+
 
 .flex {
     display: flex;
@@ -1283,7 +1291,7 @@ ul[class] {
 
 .header {
     justify-content: left;
-    height: 8vh;
+    block-size: 5rem;
 }
 
 .grid_wrapper { /*should this even be a grid? A flexbox will still work but it won't be as responsive i think.*/

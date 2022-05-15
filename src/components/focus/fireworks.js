@@ -1,16 +1,15 @@
 import add_inline_animation from '../../res/scripts/animation_timing.js';
-import { Fireworks } from '../../res/scripts/fireworks.js'
 
 //Creates some fireworks when user finishes their focus. Yay!
 export function render_fireworks() {
     const body = document.querySelector('main')
     const container = document.createElement('div');
     let time_out
-    container.id = "fireworks";
-    body.append(container)
+    //container.id = "fireworks";
+    //body.append(container)
 
     //Uses library routine
-    const fireworks = new Fireworks(container, {
+    /*const fireworks = new Fireworks(container, {
         rocketsPoint: 50,
         hue: { min: 0, max: 360 },
         delay: { min: 15, max: 30 },
@@ -50,6 +49,6 @@ export function render_fireworks() {
         fireworks.stop();
         body.removeChild(container);
       })
-    }, 10000);
+    }, 10000);*/
 
 }

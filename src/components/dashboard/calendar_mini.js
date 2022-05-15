@@ -1,9 +1,8 @@
 import React from "react";
 import { return_events_list, RolyartCalendar, show_events_today } from "../../res/scripts/rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert";
-import { Event_constructor } from "../../res/scripts/add_event";
 
-
+let got_database = false;
 export default function Calendar_mini() {
     return (
         <div className="box calendar">
@@ -69,21 +68,29 @@ export function initialise_calendar() {
     let db;
     const open_request = window.indexedDB.open('student_file', 14);
 
-    open_request.addEventListener('success', () => {
-        db = open_request.result;
-        const stored_events = db.transaction(['events_list']).objectStore('events_list');
-        const events_list = return_events_list()
-        stored_events.openCursor().addEventListener('success', (e) => {
-            const cursor = e.target.result;
-            if (cursor) {
-                events_list.push(cursor.value)
-            } else {
-                show_events_today();
-            }
-
-            cursor.continue()
+    //Don't need to add database again when the component is mounted
+    if (got_database === false) {
+        open_request.addEventListener('success', () => {
+            //Gets the database
+            db = open_request.result;
+            const stored_events = db.transaction(['events_list']).objectStore('events_list');
+            const events_list = return_events_list()
+            stored_events.openCursor().addEventListener('success', (e) => {
+                const cursor = e.target.result;
+                //Iterates through the store database
+                if (cursor) {
+                    //Adds the stored to the local array
+                    events_list.push(cursor.value);
+                    cursor.continue();
+                } else {
+                    show_events_today();
+                    got_database = true;
+                }
+            })
         })
-    })
+    } else {
+        show_events_today()
+    }
 
     open_request.addEventListener('error', () => {
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);

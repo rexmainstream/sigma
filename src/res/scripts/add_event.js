@@ -111,22 +111,28 @@ export function Event_form(current_selected_date, today, max_date) {
 
 //This function executes when the user presses add new event. Adds the event to DOM and stores it in database
 export function Add_new_event(e, title, description, priority, due_date) {
+    const events_list = return_events_list();
     if (string_validation(title, 2, 50, 'title') === true) {
-        const new_event = new Event_constructor(title, description, priority, due_date, false); 
-        //Adds event to events_list and writes to database
-        return_events_list().push(new_event);
+        if (events_list.length >= 1000) {
+            exit_modal(e);
+            custom_alert('Too many events', "warning", "You have too many events. Please delete some", false);
+        } else {
+            const new_event = new Event_constructor(title, description, priority, due_date, false); 
+            //Adds event to events_list and writes to database
+            events_list.push(new_event);
 
-        add_event_to_db(new_event, return_events_list().length);
+            add_event_to_db(new_event, return_events_list().length);
 
 
-        //Adds event to DOM
-        if (due_date === user_selected_date()) {
-            calendar_tutorial()
-            insert_event_to_DOM(title, description, priority, due_date, false)
+            //Adds event to DOM
+            if (due_date === user_selected_date()) {
+                calendar_tutorial()
+                insert_event_to_DOM(title, description, priority, due_date, false)
+            }
+            
+            //Exits the modal
+            exit_modal(e);
         }
-        
-        //Exits the modal
-        exit_modal(e);
     }  
 }
 
@@ -159,6 +165,8 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
     const event_desc = document.createElement('a');
     const index = return_event_index(new Event_constructor(title, description, priority, due_date, completed));
 
+
+    //Changes the redo/complete button
     if (completed === false) {
         event_desc.setAttribute('title', 'Edit event');
         event_container = document.getElementById('events_list');

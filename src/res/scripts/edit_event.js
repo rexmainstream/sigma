@@ -5,6 +5,7 @@ import { exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { get_date, return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
 
+let db
 
 //Edits the event
 export function edit_event(e, index) {
@@ -77,7 +78,7 @@ export function edit_event(e, index) {
         });
 
         open_request.addEventListener('success', () => {
-            const db = open_request.result;
+            db = open_request.result;
             const stored_events = db.transaction(['events_list'], "readwrite").objectStore('events_list');
 
             const database_length = stored_events.count()        
