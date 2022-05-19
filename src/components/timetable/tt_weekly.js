@@ -3,16 +3,16 @@ export default function tt_weekly(props) {
     var day = 1
     var timetable = []
     var day_timetable = []
+    var period_header_table = []
     var period_timetable = []
-    //console.log(props.raw.days)
     // Sorting the raw into days
     while (day <= (Object.keys(props.raw.days).length)) {
 
-        // Displaying the day and allocating to the week
-        day_timetable.push(
-            <div className="period_day" key={`name-${props.raw.days[day].dayname.slice(0, -1)}`}>
+        // Display the headers of each day e.g "Mon"
+        period_header_table.push(
+            <td className="period_cycle_day" key={`name-${props.raw.days[day].dayname.slice(0, -1)}`}>
                 {props.raw.days[day].dayname.slice(0, -1)}
-            </div>
+            </td>
         )
         // Checking which periods are on
         var periods_list = props.raw.days[day].routine.split(",")
@@ -21,24 +21,28 @@ export default function tt_weekly(props) {
                 var key_value = periods_list[period_index] + "-" + day
                 if (props.raw.days[day].periods[periods_list[period_index]] === undefined) { // If the period is a free or a break
                     period_timetable.push(
-                        <div className="period_empty" key={`${props.raw.days[day].dayname}${key_value}`}>
-                            <div className="period_number">
+                        <tr className="period_cycle_empty" key={`${props.raw.days[day].dayname}${key_value}`}>
+                            <td className="period_number">
                                 {periods_list[period_index]}
-                            </div>
-                            <div className="period_description">
-                            </div>
-                        </div>
+                            </td>
+                            <td className="period_description">
+                            </td>
+                        </tr>
                     )
                 } else { // If the period has a class, then displays class details
+                    var period_name = props.raw.days[day].periods[periods_list[period_index]].title.split(" ")[0]
+                    if (props.raw.days[day].periods[periods_list[period_index]].room === null) {
+                        period_name = ""
+                    }
                     period_timetable.push(
-                        <div className="period_class" key={`${props.raw.days[day].dayname}${key_value}`}>
-                            <div className="period_number">
+                        <tr className="period_cycle_class" key={`${props.raw.days[day].dayname}${key_value}`}>
+                            <td className="period_cycle_number">
                                 {periods_list[period_index]}
-                            </div>
-                            <div className="period_description">
-                                {props.raw.days[day].periods[periods_list[period_index]].title}
-                            </div>
-                        </div>
+                            </td>
+                            <td className="period_cycle_description">
+                                {period_name}
+                            </td>
+                        </tr>
                     )
                 }
             }
@@ -47,18 +51,28 @@ export default function tt_weekly(props) {
         // The list containing today's periods are pushed to the week of days
         // This requires a seperate module because we need to nest it inside a div for CSS formatting
         day_timetable.push(
-            <div className="day" key={props.raw.days[day].dayname}>
+            <td className="day" key={props.raw.days[day].dayname}>
                 {period_timetable}
-            </div>
+            </td>
         )
         period_timetable = []
         // The list containing the week's day is pushed to the list of weeks
         if (props.raw.days[day].dayname.slice(0, -1) === "Fri") {
             timetable.push(
-                <div className="week" key={props.raw.days[day].dayname.slice(-1)}>
-                    {day_timetable}
-                </div>
+                <table className="week" key={props.raw.days[day].dayname.slice(-1)}>
+                    <tbody>
+                        <tr>
+                            {period_header_table}
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                        {day_timetable}
+                        </tr>
+                    </tbody>
+                </table>
             )
+            period_header_table = []
             day_timetable = []
         }
         day += 1

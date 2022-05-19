@@ -263,7 +263,11 @@
 @keyframes add_event {
     0% {
         opacity: 0;
-        transform: translateX(-100%)
+        transform: translateX(-2rem)
+    }
+
+    30% {
+        transform: translateX(2rem);
     }
 
     100%{

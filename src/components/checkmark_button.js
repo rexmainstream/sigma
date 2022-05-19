@@ -4,7 +4,7 @@ import { delete_event, edit_event } from "../res/scripts/edit_event";
 import { event_tooltip, tooltip_time_out } from "../res/scripts/event_tooltip";
 import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "../res/scripts/hover";
 import { return_events_list } from "../res/scripts/rolyart-calendar";
-import { return_event_index, return_index } from "../res/scripts/search_and_sort_events";
+import { sort_events_by_date } from "../res/scripts/search_and_sort_events";
 import { calendar_tutorial } from "./dashboard/calendar_mini";
 
 export default function Checkmark_button() {
@@ -60,7 +60,7 @@ export function Complete_event(e, completed, index) {
         } else {
             events_list[index].completed = true;
         }
-
+        sort_events_by_date()
         //Adds event to db
         add_event_to_db(events_list[index], index + 1)
 

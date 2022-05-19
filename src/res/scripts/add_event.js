@@ -7,8 +7,8 @@ import { string_validation } from "./data_validation";
 import { edit_event } from "./edit_event";
 import { event_tooltip, tooltip_time_out } from "./event_tooltip";
 import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "./hover";
-import { return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
-import { return_event_index } from "./search_and_sort_events";
+import { events_selected_day, return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
+import { return_event_index, return_event_range, sort_events_by_date } from "./search_and_sort_events";
 
 
 //Form for user input
@@ -126,9 +126,11 @@ export function Add_new_event(e, title, description, priority, due_date) {
 
             //Adds event to DOM
             if (due_date === user_selected_date()) {
-                calendar_tutorial()
-                insert_event_to_DOM(title, description, priority, due_date, false)
+                calendar_tutorial();
+                sort_events_by_date();
+                show_events_today();
             }
+            sort_events_by_date();
             
             //Exits the modal
             exit_modal(e);
@@ -148,12 +150,9 @@ export function add_event_to_db(event, index) {
     open_request.addEventListener('success', () => {
         const db = open_request.result;
         const stored_events = db.transaction(['events_list'], "readwrite").objectStore('events_list');
-
         //Puts new event into db
         stored_events.put(event, index);
     })
-
-
 }
 
 //THis function inserts the event to the DOM
@@ -202,13 +201,16 @@ export function insert_event_to_DOM(title, description, priority, due_date, comp
     event_item.addEventListener('animationend', function handler() {
         event_item.classList.remove('added_event');
         event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
-        event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
-        event_desc.addEventListener('click', (e) => {edit_event(e, index)});
-        event_item.addEventListener('mouseenter', (evt) => {
-            event_tooltip(evt, index);
-            evt.stopPropagation();
-        });
-        event_item.addEventListener('mouseleave', (e) => {tooltip_time_out(e, 600)})
+
+        if (completed === false) {
+            event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
+            event_desc.addEventListener('click', (e) => {edit_event(e, index)});
+            event_item.addEventListener('mouseenter', (evt) => {
+                event_tooltip(evt, index);
+                evt.stopPropagation();
+            });
+            event_item.addEventListener('mouseleave', (e) => {tooltip_time_out(e, 600)})
+        }
         event_item.removeEventListener('animationend', handler);
     });
 

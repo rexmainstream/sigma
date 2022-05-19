@@ -5,6 +5,7 @@ export function render_fireworks() {
     const body = document.querySelector('main')
     const container = document.createElement('div');
     let time_out
+    //Doesn't Work
     //container.id = "fireworks";
     //body.append(container)
 

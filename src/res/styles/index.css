@@ -19,6 +19,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100vw;
+    height: 100vh;
 }
 
 header {
@@ -440,87 +441,77 @@ ul[class] {
     grid-column: 1/4;
     grid-row: 1;
     text-align: center;
-}
-
-.timetable_countdown {
+  }
+  
+  .timetable_countdown {
     margin-block-end: 2rem;
-}
-
-.timetable_today {
-    width: 70%;
+    display: none;
+    font-weight: bold;
+  }
+  
+  .timetable_today {
+    max-width: 1000px;
+    width: 90%;
     margin: auto;
     table-layout: fixed;
     border-collapse: separate;
     padding: 1.5rem;
     text-align: left;
-}
-
-.timetable_today thead {
-    color: rgba(124,124,124, 0.8);
-}
-
-.timetable_today thead td {
-    border-bottom: 0.15rem solid rgba(124,124,124,0.3);
-    padding: 0.7rem;
-    text-transform: uppercase;
-}
-.timetable tbody td {
+    border-spacing: 0 0.5rem;
+  }
+  
+  .timetable tbody td {
     padding: 0.5rem;
     font-size: 1.5rem;
-    transition: color 0.1s ease-out;
-}
-
-.timetable tbody td div {
+  }
+  
+  .timetable tbody td div {
     font-size: 1rem;
-    color: rgba(124,124,124, 0.8)
-}
-
-
-.timetable tbody tr.period_class {
-    background-color: rgba(250,250,250, 1);
-}
-.timetable .period_break {
-    color: rgba(124,124,124, 0.8);
+    color: rgba(124, 124, 124, 0.8);
+  }
+  
+  
+  .timetable tbody tr.period_class td {
+    transition: background-color 0.4s ease-out;
+    background-color: white;
+  }
+  
+  .timetable .period_break {
+    color: rgba(124, 124, 124, 0.8);
     transition: all 0.2s ease-out;
-    background-color: rgba(242,242,242, 0.7);
-}
-
-.timetable_today tbody tr.period_class:hover td  {
+    background-color: rgba(242, 242, 242, 0.7);
+  }
+  
+  .timetable_today tbody tr.period_class:hover td {
     transition: background-color 0.3s ease-in;
-    background-color: rgba(209, 231, 246 ,0.7);
-    
-}
-
-.timetable_today tbody tr.period_class {
+    background-color: rgba(209, 231, 246, 0.7);
+  
+  }
+  
+  .timetable_today tbody tr.period_class {
     animation: table_slide 0.3s ease-in;
-}
-
-.timetable_today td:nth-child(2) {
+  }
+  
+  .timetable_today td:nth-child(2) {
     padding-inline-end: 1rem;
     text-align: inline-end;
-    width: 70%;
-}
-
-.timetable_today td:nth-child(1) {
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    width: 20%;
+  }
+  
+  .timetable_today td:nth-child(1) {
     text-align: right;
-    width: 30%;
-}
-
-.timetable_today tr.period_class td:nth-child(3) {
-
-}
-
-.timetable tr.period_class td:nth-child(1) {
-
-}
-
-.timetable_today td:first-child {
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+    width: 80%;
+  }
+  
+  .timetable_today td:first-child {
     padding-inline-start: 1rem;
     text-align: left;
-    width: 20%;
-}
-
-
+    width: 50%;
+  }
 
 /* || CALENDAR*/
 .calendar {
@@ -728,7 +719,7 @@ ul[class] {
 }
 
 .added_event {
-    animation: add_event 0.5s ease-out both;
+    animation: fade_in 0.8s ease-out both;
 }
 
 #events_list #Add_new_event {

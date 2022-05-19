@@ -1,6 +1,7 @@
 import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
 import { custom_alert } from "./add_alert";
 import { Event_form, insert_event_to_DOM } from "./add_event";
+import { return_event_range, sort_events_by_date } from "./search_and_sort_events";
 
 //Right now events are stored not on database for testing
 let events_list = [];
@@ -115,7 +116,7 @@ export function RolyartCalendar(config){
         prevMonth.ariaLabel = `previous month`;
         prevMonth.title = `Previous Month`;
         prevMonth.addEventListener('click', ()=>{
-            this.prevMonth(); 
+            this.prevMonth();
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
             if (monthAndYear.textContent === `${this.months[this.currentMonth]} ${this.currentYear}`) {
                 show_events_today()
@@ -186,7 +187,6 @@ export function RolyartCalendar(config){
                         selected[0].className = selected[0].className.replace(" selected", "");
                     }         
                     cell.className += " selected";
-
                     show_events_today(); 
                 }
             });
@@ -207,7 +207,7 @@ export function RolyartCalendar(config){
 
             //Click and holding on a calendar cell will open up event creation form
             cell.addEventListener('mousedown', (e)=>{
-                let selected_day = parseInt(document.querySelector('.selected').textContent);
+                let selected_day = parseInt(document.querySelector('.selected').querySelector("span").textContent);
                 let selected_month = this.currentMonth + 1;
                 const selected_year = this.currentYear;
                 const current_date = new Date();
@@ -216,6 +216,7 @@ export function RolyartCalendar(config){
                 const max_date = get_date().max_date;
                 //Prevents user from selected greyed out tiles
                 if (e.currentTarget.classList.contains('not-current') === false) {
+                    //Click and hold event
                     timeoutID = setTimeout(function(){
 
                         //Adds zero in front if one digit
@@ -275,11 +276,11 @@ export function RolyartCalendar(config){
 
             });
 
+            //If the user stops holding clears the timeout
             cell.addEventListener('mouseup', () => {
                 clearTimeout(timeoutID);
             })
 
-            
             cell.addEventListener('touchend', () => {
                 clearTimeout(timeoutID);
             })
@@ -311,24 +312,43 @@ export function RolyartCalendar(config){
 
 //returns all events on the selected day
 export function events_selected_day(date) {
-    //console.log(events_list[0].due_date);
+    //Previously found range with bubble sort
+    const range = return_event_range(date);
     let events_list_temp = [];
-    for (const event_item of events_list) {
-        if (event_item.due_date == date) {
-            events_list_temp.push(event_item);
+    let return_values = {
+        new_event_index: null,
+        events_today: null
+    }
+
+    //Checks every item in range
+    for (let i = range.low; i <= range.high; i++) {
+        if (events_list[i].due_date == date) {
+            events_list_temp.push(events_list[i]);
         }
     }
-    return events_list_temp;
+    //Returns events list today
+    return_values.events_today = events_list_temp;
+    return return_values;
 }
 
 //Shows events on this day
 export function show_events_today() {
-    let selected_date = user_selected_date()
+    //console.log('show events today run')
+    let selected_date = user_selected_date();
+    //console.log(selected_date)
+    //console.log(selected_date)
     let events_today
     let current_events = document.querySelector('#events_list');
-    let current_completed_events = document.querySelector('#completed_events')
-    
-    events_today = events_selected_day(selected_date);
+    let current_completed_events = document.querySelector('#completed_events');
+
+    if (return_events_list().length === 0) {
+        events_today = null;
+    } else {
+        //console.log(return_events_list())
+        events_today = events_selected_day(selected_date).events_today;
+        //console.log(events_today);
+    }
+        
 
     calendar_tutorial()
     if (current_completed_events.querySelectorAll('li').length !== 0) {
@@ -341,11 +361,12 @@ export function show_events_today() {
             current_events.removeChild(current_events.firstChild);
         }
     }
-    if (events_today.length !== 0) {
+    if (return_events_list().length !== 0) {
         for (const event_item of events_today) {
             insert_event_to_DOM(event_item.title, event_item.description, event_item.priority, event_item.due_date, event_item.completed)
         }
     }
+
     calendar_tutorial()
 }
 
@@ -353,16 +374,23 @@ export function return_events_list() {
     return events_list;
 }
 
+function getMonthFromString(mon){
+    let month = new Date(Date.parse(mon +" 1")).getMonth()+1;
+    if (month < 10) {
+        month = `0${month}`;
+    }
+    return month;
+ }
+ 
 export function user_selected_date() {
     let date = new Date;
     let selected_day = parseInt(document.querySelector('.selected').textContent);
-    let selected_month = date.getMonth() + 1;
+    let selected_month = document.querySelector('.month-year').textContent;
+    selected_month = selected_month.split(" ")
+    selected_month = getMonthFromString(selected_month)
     const selected_year = date.getFullYear();
     let selected_date
 
-    if (selected_month.toString().length === 1) {
-        selected_month = `0${selected_month}`;
-    }
     if (selected_day.toString().length === 1) {
         selected_day = `0${selected_day}`;
     }

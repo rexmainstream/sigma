@@ -4,6 +4,7 @@ import { add_event_to_db, Event_constructor, Event_form, insert_event_to_DOM } f
 import { exit_modal } from "./add_modal";
 import { string_validation } from "./data_validation";
 import { get_date, return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
+import { sort_events_by_date } from "./search_and_sort_events";
 
 let db
 
@@ -55,6 +56,8 @@ export function edit_event(e, index) {
             events_list[index].priority = form.querySelector("input[name='priority']:checked").title;
             events_list[index].due_date = due_date.value;
 
+            //Sort events
+            sort_events_by_date();
             //Add event to db
             add_event_to_db(events_list[index], index + 1);
 

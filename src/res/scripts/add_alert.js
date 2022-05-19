@@ -2,7 +2,7 @@ import { create_modal, exit_modal } from "./add_modal";
 
 //Alert the user
 //Created by ALEX
-export function custom_alert(message_title, message_type, message_description, yes_function) {
+export function custom_alert(message_title, message_type, message_description, yes_function, no_function) {
     const code = 
     //HTML
         `<div class='content'>
@@ -72,6 +72,15 @@ export function custom_alert(message_title, message_type, message_description, y
                 yes_function()
                 exit_modal(e)
             })
+
+            //Adds no function
+            if (no_function !== null || no_function !== false) {
+                alert.querySelector('.exit_modal').addEventListener('click', 
+                (e) => {
+                    no_function();
+                    exit_modal(e);
+                });
+            }
             break;
         case `information`:
             icon.className = `fa fa-info-circle`;
@@ -80,7 +89,9 @@ export function custom_alert(message_title, message_type, message_description, y
     }
 
     //Adds exit event
-    alert.querySelector('.exit_modal').addEventListener('click', (e) => exit_modal(e));
+    if (no_function !== null || no_function !== false) {
+        alert.querySelector('.exit_modal').addEventListener('click', (e) => exit_modal(e));
+    }
     
     //Changes width of alert based on screen resolution
     if (window.screen.width < 1000) {
