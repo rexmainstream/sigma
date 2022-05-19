@@ -56,6 +56,7 @@ export function return_event_index(the_event){
 }
 
 //Binary search for date. Returns range
+//Drastically reduces the amount of items searched
 export function return_event_range(date) {
     const events_list = return_events_list();
     let low = 0;
@@ -125,7 +126,7 @@ export function sort_events_by_date() {
             const difference = first_date - second_date;
             const temp = events_list[comparison];
             if(difference >= 0) {
-                //Sort title by alphabetical order
+                //Sort events by alphabetical order for title
                 if (difference === 0 && temp.title.localeCompare(events_list[comparison + 1].title) > 0) {
                     events_list[comparison] = events_list[comparison + 1];
                     events_list[comparison + 1] = temp;
@@ -142,23 +143,5 @@ export function sort_events_by_date() {
             comparison += 1;
         }
         pass += 1;
-    }
-}
-
-export function event_insertion_sort(the_event) {
-    const events_list = return_events_list();
-    let comparison = 1;
-    let num_items = events_list.length - 1;
-    let finish = false;
-
-    while (comparison < num_items && finish === false) {
-        const the_event_due_date = new Date(the_event.due_date);
-        const compared_item_due_date = new Date(events_list[comparison].due_date)
-        const date_diff = the_event_due_date - compared_item_due_date;
-
-        if (date_diff > 0) {
-            
-        }
-        comparison += 1;
     }
 }

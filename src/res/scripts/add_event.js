@@ -100,7 +100,6 @@ export function Event_form(current_selected_date, today, max_date) {
         Add_new_event(e, title.value, description_input.value, 
             priority.querySelector("input[name='priority']:checked").title,
             due_date.value, false);
-        //Add_new_event();
     })
 
 
@@ -139,8 +138,6 @@ export function Add_new_event(e, title, description, priority, due_date) {
 }
 
 export function add_event_to_db(event, index) {
-    //If index does not need to be changed
-
     const open_request = window.indexedDB.open('student_file', 14);
 
     open_request.addEventListener('error', () => {
@@ -157,7 +154,7 @@ export function add_event_to_db(event, index) {
 
 //THis function inserts the event to the DOM
 export function insert_event_to_DOM(title, description, priority, due_date, completed) {
-    let event_container
+    let event_container;
     const event_item = document.createElement('li');
     const check_button = document.createElement('div');
     const checkmark = document.createElement('div');

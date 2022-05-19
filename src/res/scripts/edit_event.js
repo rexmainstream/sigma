@@ -56,8 +56,6 @@ export function edit_event(e, index) {
             events_list[index].priority = form.querySelector("input[name='priority']:checked").title;
             events_list[index].due_date = due_date.value;
 
-            //Sort events
-            sort_events_by_date();
             //Add event to db
             add_event_to_db(events_list[index], index + 1);
 
@@ -66,6 +64,7 @@ export function edit_event(e, index) {
             if (events_list[index].due_date === user_selected_date()) {
                 insert_event_to_DOM(events_list[index].title, events_list[index].description, events_list[index].priority, events_list[index].due_date, false);
             } else {
+                sort_events_by_date();
                 show_events_today();
                 calendar_tutorial();
             }            
@@ -86,11 +85,14 @@ export function edit_event(e, index) {
 
             const database_length = stored_events.count()        
             database_length.addEventListener('success', () => {
+                //Shifts database array down by 1
                 for(let i = (index + 1); i < (database_length.result); i++) {
                     add_event_to_db(events_list[i], i);
                 }
-                stored_events.delete(database_length.result);
 
+                //Removes last repeated array index
+                stored_events.delete(database_length.result);
+                //Removes event from events_list
                 events_list.splice(index, 1);
                 show_events_today();
             })

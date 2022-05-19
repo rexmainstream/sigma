@@ -18,7 +18,6 @@ export default function Calendar_mini() {
                     <hr></hr>
                     <div id="events_container">
                         <ul id="events_list">
-                            {/**/}
                         </ul>
                         <ul id="completed_events">
 
@@ -31,6 +30,7 @@ export default function Calendar_mini() {
 }
 
 //Checks if their are any events, if not then it gives instructions on how to add events
+//Removes tutorial if there are events
 export function calendar_tutorial() {
     const events_list = document.querySelector('#events_list');
     const events_completed = document.querySelector('#completed_events');
@@ -45,7 +45,6 @@ export function calendar_tutorial() {
         tutorial.style.paddingTop = `4rem`;
         
         events_list.append(tutorial);
-        //console.log('no child nodes')
     } else if (document.querySelectorAll('#calendar_tutorial').length !== 0   ) {
         //Removes the tutorial if there are no events
         events_list.classList.remove('center_vertical');
@@ -53,28 +52,68 @@ export function calendar_tutorial() {
     }
 }
 
-
+//Initialisation of calendar runs every time calendar component is mounted
 export function initialise_calendar() {
     let calendarConfig = {
         container: 'calendar',
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     }
+
+    //Creates calendar from library
     const calendar = new RolyartCalendar(calendarConfig);
 
     //checks if their are any events
     calendar_tutorial();
 
-    //Database
     let db;
     const open_request = window.indexedDB.open('student_file', 14);
+    //removes overdue events
+    remove_overdue_events(open_request);
+    
+
+    open_request.addEventListener('error', () => {
+        custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+    })
+
+    //If the users do not have the db
+    open_request.addEventListener('upgradeneeded', (e) => {
+        db = e.target.result;
+
+        //Creates event list record
+        const events_list = db.createObjectStore('events_list', {autoIncrement: false});
+        events_list.createIndex("title", "title");
+        events_list.createIndex("description", "description");
+        events_list.createIndex("priority", "priority");
+        events_list.createIndex("due_date", "due_date");
+        events_list.createIndex("completed", "completed");
+
+        //Creates current focus
+        const current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
+        current_focus.createIndex('user_focus', "user_focus", { unique: false });
+
+
+        //Creates steps record
+        const steps_list2 = db.createObjectStore('steps_list');
+        steps_list2.createIndex('step_title', 'step_title', { unique: false });
+        steps_list2.createIndex('step_desc', 'step_desc', { unique: false });
+        steps_list2.createIndex('completed', 'completed', { unique: false });
+        steps_list2.createIndex('order', 'order', { unique: true });
+    })
+}
+
+function remove_overdue_events(request) {
     //Don't need to add database again when the component is mounted
+    //2 O(n) + O(n^2) max processing
     if (got_database === false) {
         let amount_overdue = 0
-        open_request.addEventListener('success', () => {
+        request.addEventListener('success', () => {
         let overdue_events = [];
+
+        //Indexes of overdue events
+        let overdue_events_indexes = [];
         //Gets the database variable
-        db = open_request.result;
+        const db = request.result;
         const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
         const events_list = return_events_list();
         let database_length;          
@@ -82,12 +121,6 @@ export function initialise_calendar() {
         get_database_length.addEventListener('success', (e) => {
             //Gets database length
             database_length = e.target.result;
-
-            //Less than 1second to process so no loading screen required
-            /*for (let i = 1; i<=1000; i++) {
-                stored_events.put(new Event_constructor("hey", "new event", "Low", get_date().today, false), i)
-            }*/
-
             //Then reads and writes values to the db
             stored_events.openCursor().addEventListener('success', (e) => {
                 const cursor = e.target.result;
@@ -105,6 +138,7 @@ export function initialise_calendar() {
                                 //events array, and it is shifted down by the amount_overdue
                                 stored_events.put(cursor.value, cursor.key - amount_overdue);
                                 overdue_events.push(cursor.value);
+                                overdue_events_indexes.push(cursor.key);
                             }
                         } else {
                             //If the event is not overdue it is shifted down by the amount overdue
@@ -122,8 +156,15 @@ export function initialise_calendar() {
                             custom_alert('Overdue Events', "warning_yes_no", `You have ${overdue_events.length} overdue events that are not completed. Add them to today?`,
                             () => {
                                 for (let i = overdue_events.length - 1; i >= 0; i--) {
+                                    let stored_events_3 = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
                                     //Sets overdue events to today date
-                                    overdue_events.due_date = get_date().today;
+                                    overdue_events[i].due_date = get_date().today;
+                                    //console.log(overdue_events);
+                                    //console.log(overdue_events_indexes[i]);
+
+                                    //Chenges the events in the db
+                                    stored_events_3.put(overdue_events[i], overdue_events_indexes[i])
+                                    
 
                                     //Adds overdue events to today
                                     events_list.unshift(overdue_events[i]);
@@ -161,6 +202,7 @@ export function initialise_calendar() {
                                 })
                             })
                         } else {
+                            //If there are no overdue events then it justs sorts and shows events today
                             sort_events_by_date();
                             got_database = true;
                             show_events_today();
@@ -171,46 +213,30 @@ export function initialise_calendar() {
 
             })        
     } else {
+        //If the database is alread initialised it just shows the events
         show_events_today();
     }
-
-    open_request.addEventListener('error', () => {
-        custom_alert("Failed to load database", 'error', "Failed to load database.", false);
-    })
-
-    open_request.addEventListener('upgradeneeded', (e) => {
-        db = e.target.result;
-        const events_list = db.createObjectStore('events_list', {autoIncrement: false});
-        events_list.createIndex("title", "title");
-        events_list.createIndex("description", "description");
-        events_list.createIndex("priority", "priority");
-        events_list.createIndex("due_date", "due_date");
-        events_list.createIndex("completed", "completed");
-
-        const current_focus = db.createObjectStore('current_focus', { autoIncrement: false} );
-        current_focus.createIndex('user_focus', "user_focus", { unique: false })
-
-        //db.deleteObjectStore('steps_list')
-        const steps_list2 = db.createObjectStore('steps_list');
-        steps_list2.createIndex('step_title', 'step_title', { unique: false });
-        steps_list2.createIndex('step_desc', 'step_desc', { unique: false });
-        steps_list2.createIndex('completed', 'completed', { unique: false });
-        steps_list2.createIndex('order', 'order', { unique: true });
-    })
 }
 
 //Checks if the due_date of an event is overdue or not
 //Returns TRUE if overdue
 function check_overdue(date) {
-    let today = new Date (`${get_date().year}-${get_date().month}-${parseInt(get_date().day) + 1}`)
+    //Gets today date
+    let today = new Date(get_date().today);
 
+    //For debugging, set due date to a day before
+    //let today = new Date (`${get_date().year}-${get_date().month}-${parseInt(get_date().day)+1}`);
+
+    //Gets difference between today and chosen date
     const time_diff = today - new Date(date);
 
+    //Returns TRUE if overdue
     if (time_diff > 0) {
         return true;
     } else {
         return false;
     }
 }
+
 
 
