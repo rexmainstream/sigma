@@ -236,12 +236,10 @@ export function render_steps() {
 //Initialises the focus box
 export function initialise_focus() {
     const focus = document.querySelector('.focus');
-    const headings = focus.querySelector('h1');
-    const box = focus.querySelectorAll('.box');
-    const steps = focus.querySelectorAll('.steps');
-    const progress_bar = document.querySelector('.progress');
-    const delete_button = document.querySelector('.delete_button');
 
+    //Scroll to top of screen
+    window.scrollTo(0, 0);
+    
     //Opens Database
     const open_request = window.indexedDB.open('student_file', 14);
     open_request.addEventListener('error', () => {

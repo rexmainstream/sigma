@@ -36,6 +36,9 @@ export function calendar_tutorial() {
     const events_completed = document.querySelector('#completed_events');
     const tutorial = document.createElement('div');
 
+    //Scroll to top of screen
+    window.scrollTo(0, 0);
+
     //If the calendar doesn't have events it shows instructions
     if (events_list.hasChildNodes() === false && events_completed.hasChildNodes() === false) {
         events_list.classList.add('center_vertical');

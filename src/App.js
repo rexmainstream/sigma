@@ -18,6 +18,7 @@ import Calendar_mini from './components/dashboard/calendar_mini';
 import Motivational_quote from './components/quote/motivational_quote';
 import Focus from './components/focus/focus';
 import Feedback from './components/feedback/feedback';
+import About from './components/about/about';
 
 var Page_link = Dashboard
 function App() {
@@ -91,7 +92,7 @@ function App() {
             <Route exact path='/quote_of_the_day' element = {<Motivational_quote />} />
             <Route path="/calendar" element={<Calendar_mini />} exact />
             <Route path="/help" element={<Header />} exact />
-            <Route path='/about' element={<Dashboard />} exact />
+            <Route path='/about' element={<About />} exact />
             <Route path='/feedback' element={<Feedback />} exact />
           </Routes>
         </main>

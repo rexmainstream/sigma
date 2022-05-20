@@ -100,6 +100,7 @@ function play_slide_in_animation() {
 
 export default class Motivational_quote extends React.Component {
     componentDidMount() {
+        window.scrollTo(0, 0);
         initialise_quotes();
     }
     render() {

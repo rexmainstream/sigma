@@ -116,7 +116,7 @@
 /*This is the animation that plays when the user scrolls down. Displays the quote of the day and the Current focus*/
 @keyframes bounce {
     0%{
-        opacity: 0.5;
+        opacity: 0;
         background-color: inherit;
         transform: translateY(4rem);
     }
@@ -200,7 +200,7 @@
 
 @keyframes bounce2 {
     0%{
-        opacity: 0.5;
+        opacity: 0;
         background-color: inherit;
         transform: translateY(4rem);
     }
