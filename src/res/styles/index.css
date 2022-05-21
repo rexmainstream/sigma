@@ -66,7 +66,6 @@ main {
     padding-block-end: 2rem;
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
-    inline-size: 95%;
 }
 
 @media screen and (max-width: 999px) {
@@ -1268,6 +1267,7 @@ ul[class] {
 /* || FEEDBACK */
 .feedback {
     font-size: 1.5rem;
+    padding: 2rem;
 }
 
 .feedback form {
@@ -1276,16 +1276,86 @@ ul[class] {
     left: 25%;
 }
 
+.rc-tabs-nav-list {
+    display: flex;
+    margin-inline-start: 2rem;
+    gap: 2rem;
+    margin-block-end: 1rem;
+}
+
+.rc-tabs-nav-operations {
+    display: none;
+}
+.rc-tabs-nav-list .rc-tabs-tab {
+    animation: bounce 0.7s ease-out;
+    color: rgba(124,124,124,0.5);
+    cursor: pointer;
+    padding-inline-end: 2rem;
+    transition: color 0.2s ease-out;
+    border-inline-end: 0.1rem solid rgb(124,124,124);
+    overflow: hidden;
+}
+
+.rc-tabs-nav-list [role="tab"] {
+    box-sizing: border-box;
+    block-size: 2.7rem;
+}
+
+.rc-tabs-nav-list .rc-tabs-tab:hover [role="tab"] {
+    border-bottom: 0.2rem solid rgb(29, 98, 149);
+}
+
+.rc-tabs-nav-list [aria-selected="true"] {
+    color: black;
+    transition: color 0.3s ease-in;
+}
+
+.rc-tabs-nav-list:last-child {
+    border-inline-end: none;
+}
+
+
+
+/* Adds the add animation with delay */
+.feedback .box {
+    animation: bounce 0.7s ease-out both;
+}
+
+.feedback .box:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.feedback img:nth-child(2) {
+    animation: bounce 0.7s ease-out both 0.5s;
+}
+
+.feedback .box:nth-child(3) {
+    animation-delay: 1s;
+}
+
+
+.feedback .box:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.feedback .box:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.feedback .box:nth-child(6) {
+    animation-delay: 2.5s;
+}
+
 /* Changes the width of form for smaller screens */
 @media screen and (max-width: 999px) {
     .feedback form {
-        position: static;
         inline-size: 100%;
+        left: 0%;
     }
 }
 
 .feedback .box {
-    margin: 2rem;
+    margin-block-end: 2rem;
     padding: 2rem;
 }
 
@@ -1297,11 +1367,35 @@ ul[class] {
     gap: 1rem;
 }
 
+
+.feedback .box .additional_description {
+    display: block;
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+}
+
+.feedback img {
+    block-size: 30rem;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-block-end: 2rem;
+}
+
+.feedback .box .show_description_input {
+    opacity: 1;
+    max-height: 5rem;
+    margin: 3rem 0 2rem 0;
+    transition: max-height 1.5s ease-out, margin 0.5s ease-out, opacity 0.3s ease-in 0.3s;
+}
+
 .feedback .box .radio_button_container input[type="radio"]::before {
     box-shadow: inset 1rem 1rem rgba(29, 98, 149, 1);
 }
 
 .feedback .required_asterisk {
+    user-select: none;
     color: red;
     margin-inline-start: 0.7rem;
 }
