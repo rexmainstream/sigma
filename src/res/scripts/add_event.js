@@ -1,15 +1,8 @@
-//This subroutine adds an event
-import { Complete_event } from "../../components/checkmark_button";
-import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
+// Imports
 import { custom_alert } from "./add_alert";
 import { create_modal, exit_modal } from "./add_modal";
-import { string_validation } from "./data_validation";
-import { edit_event } from "./edit_event";
-import { event_tooltip, tooltip_time_out } from "./event_tooltip";
-import { Hide_checkmark, Hover_list_item, Show_checkmark, Time_out_list_item } from "./hover";
-import { events_selected_day, return_events_list, show_events_today, user_selected_date } from "./rolyart-calendar";
-import { return_event_index, return_event_range, sort_events_by_date } from "./search_and_sort_events";
-
+import { show_events_today } from "../../components/calendar/rolyart-calendar";
+import { sort_events_alphabetically } from "./search_and_sort_events";
 
 //Form for user input
 export function Event_form(current_selected_date, today, max_date) {
@@ -110,107 +103,60 @@ export function Event_form(current_selected_date, today, max_date) {
 
 //This function executes when the user presses add new event. Adds the event to DOM and stores it in database
 export function Add_new_event(e, title, description, priority, due_date) {
-    const events_list = return_events_list();
-    if (string_validation(title, 2, 50, 'title') === true) {
-        if (events_list.length >= 1000) {
-            exit_modal(e);
-            custom_alert('Too many events', "warning", "You have too many events. Please delete some", false);
-        } else {
-            const new_event = new Event_constructor(title, description, priority, due_date, false); 
-            //Adds event to events_list and writes to database
-            events_list.push(new_event);
+    const the_event = new Event_constructor(title, description, priority, due_date, false);
+    const arr_events = [the_event, the_event];
+    const open_request = window.indexedDB.open("student_file", 14);
 
-            add_event_to_db(new_event, return_events_list().length);
+    // The key of the index is the day which is unique
+    const key = parseInt(due_date.replaceAll("-", ""));
 
+    // Each day has an array of events
 
-            //Adds event to DOM
-            if (due_date === user_selected_date()) {
-                calendar_tutorial();
-                sort_events_by_date();
-                show_events_today();
-            }
-            sort_events_by_date();
-            
-            //Exits the modal
-            exit_modal(e);
-        }
-    }  
-}
-
-export function add_event_to_db(event, index) {
-    const open_request = window.indexedDB.open('student_file', 14);
+    open_request.addEventListener('blocked', () => {
+        custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
+    })
+    
 
     open_request.addEventListener('error', () => {
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
-    });
+    })
 
     open_request.addEventListener('success', () => {
         const db = open_request.result;
         const stored_events = db.transaction(['events_list'], "readwrite").objectStore('events_list');
-        //Puts new event into db
-        stored_events.put(event, index);
-    })
-}
 
-//THis function inserts the event to the DOM
-export function insert_event_to_DOM(title, description, priority, due_date, completed) {
-    let event_container;
-    const event_item = document.createElement('li');
-    const check_button = document.createElement('div');
-    const checkmark = document.createElement('div');
-    const event_desc = document.createElement('a');
-    const index = return_event_index(new Event_constructor(title, description, priority, due_date, completed));
+        // Gets the current events of the day
+        const get_current_events = stored_events.get(key)
+        
+        get_current_events.addEventListener('success', () => {
+            let curr_events = get_current_events.result;
+            let new_position;
+           
+            // If no current events just adds the event to the index
+            // If current events exist then adds sorted array
+            if (curr_events !== undefined && curr_events !== null) {
 
-
-    //Changes the redo/complete button
-    if (completed === false) {
-        event_desc.setAttribute('title', 'Edit event');
-        event_container = document.getElementById('events_list');
-        check_button.setAttribute('title', 'Complete event');
-    } else {
-        event_desc.removeAttribute('title');
-        event_container = document.getElementById('completed_events');
-        check_button.setAttribute('title', 'Redo event');
-    }
-
-    checkmark.className = 'checkmark';
-    check_button.className = 'root_checkmark';
-    event_item.ariaLabel = `list item for events`;
-    event_item.classList.add('added_event');
-    event_item.classList.add(`${priority}_priority`);
-    event_desc.className = 'event_item';
-    event_desc.textContent = title;
-    event_desc.setAttribute('href', '#');
-
-    //appends event into the event list
-    check_button.append(checkmark);
-    event_item.append(check_button);
-    event_item.append(event_desc);
-    event_container.append(event_item);
+                new_position = sort_events_alphabetically(curr_events, the_event);
     
+                
+                // Then adds sorted array to the day
+                stored_events.put(curr_events, key);
+            } else {
+                stored_events.put([the_event], key);
+            }
 
-    //event listeners for animations
-    check_button.addEventListener('mouseover', (e)=>{Show_checkmark(e);});
-    check_button.addEventListener('mouseleave', (e)=>{Hide_checkmark(e);});
-    check_button.addEventListener('click', (e)=>{
-        Complete_event(e, completed, index);});
+            show_events_today(document.querySelector('.selected').id, new_position);
 
-    event_item.addEventListener('animationend', function handler() {
-        event_item.classList.remove('added_event');
-        event_item.addEventListener('mouseenter', (e)=>{Hover_list_item(e);});
+        })
 
-        if (completed === false) {
-            event_item.addEventListener('mouseleave', (e)=>{Time_out_list_item(e);});
-            event_desc.addEventListener('click', (e) => {edit_event(e, index)});
-            event_item.addEventListener('mouseenter', (evt) => {
-                event_tooltip(evt, index);
-                evt.stopPropagation();
-            });
-            event_item.addEventListener('mouseleave', (e) => {tooltip_time_out(e, 600)})
-        }
-        event_item.removeEventListener('animationend', handler);
-    });
+        // stored_events.addEventListener('complete', () => {
+        //     db.close();
+        // })
+    })
 
+
+
+    exit_modal(e);
 }
 
 //Selects all the input text in the field

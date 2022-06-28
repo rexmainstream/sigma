@@ -250,9 +250,6 @@
         transform: translateX(0%);
     }
 
-    10% {
-        transform: translateX(0%);
-    }
 
     100% {
         opacity: 0;
@@ -263,10 +260,11 @@
 @keyframes add_event {
     0% {
         opacity: 0;
-        transform: translateX(-2rem)
+        transform: translateX(-5rem)
     }
 
     30% {
+        opacity: 0.6;
         transform: translateX(2rem);
     }
 
@@ -372,12 +370,10 @@
 @keyframes delete_step {
     0% {
         opacity: 1;
-        transform: translateY(0);
     }
 
     100% {
         opacity: 0;
-        transform: translateY(-8rem);
     }
 }
 

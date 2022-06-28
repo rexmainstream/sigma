@@ -167,7 +167,6 @@ export default class Feedback extends React.Component {
                             onClick={
                                 () => {
                                     // Clears the form when clicked
-                                    clear_form();
                                     move_to_top();
                                 }
                             }

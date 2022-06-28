@@ -3,7 +3,7 @@ import Vara from "../../res/scripts/vara.js"
 import {Add_scroll_event} from "../../res/scripts/scroll"
 import {Return_quote_list, Return_quote_list_length} from "../../res/scripts/quotes_list"
 import {Quote_list_initialisation} from "../../res/scripts/quotes_list"
-import { get_date } from "../../res/scripts/rolyart-calendar.js";
+import { get_date } from "../calendar/rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert.js";
 import { useState } from "react/cjs/react.production.min";
 

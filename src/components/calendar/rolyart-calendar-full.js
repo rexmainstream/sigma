@@ -1,7 +1,8 @@
-import { calendar_tutorial } from "../../components/dashboard/calendar_mini";
-import { custom_alert } from "./add_alert";
-import { Event_form, insert_event_to_DOM } from "./add_event";
-import { return_event_range, sort_events_by_date } from "./search_and_sort_events";
+// Imports
+import { custom_alert } from "../../res/scripts/add_alert";
+import { Event_form } from "../../res/scripts/add_event";
+import { get_date, getMonthFromString } from "./rolyart-calendar";
+
 
 //Right now events are stored not on database for testing
 let events_list = [];
@@ -123,9 +124,11 @@ export function RolyartCalendar(config){
             //If selected month is current month shows events
             let selected_month = document.querySelector('.month-year').textContent;
             selected_month = selected_month.split(" ");
+            let selected_year = selected_month[1];
+
             selected_month = getMonthFromString(selected_month);
-            if (selected_month === get_date().month) {
-                show_events_today();
+            
+            if (selected_month === get_date().month && selected_year == get_date().year) {
             }
         })
 
@@ -141,9 +144,11 @@ export function RolyartCalendar(config){
             //If selected month is current month shows events
             let selected_month = document.querySelector('.month-year').textContent;
             selected_month = selected_month.split(" ");
+            let selected_year = selected_month[1];
+
             selected_month = getMonthFromString(selected_month);
-            if (selected_month === get_date().month) {
-                show_events_today();
+            
+            if (selected_month === get_date().month && selected_year == get_date().year) {
             }
         })
 
@@ -153,7 +158,6 @@ export function RolyartCalendar(config){
             this.currentMonth = new Date().getMonth();
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
             this.showCalendar();
-            show_events_today();
         })
 
         let weekDays = document.createElement('div');
@@ -195,11 +199,14 @@ export function RolyartCalendar(config){
                 let selected = [].slice.call(document.getElementsByClassName("selected"));
 
                 if (selected.includes(e.currentTarget) === false) {
-                    if (selected.length > 0) { 
-                        selected[0].className = selected[0].className.replace(" selected", "");
-                    }         
-                    cell.className += " selected";
-                    show_events_today(); 
+
+                    // Prevents user from selected greyed out tiles
+                    if (cell.classList.contains('not-current') === false) {
+                        if (selected.length > 0) { 
+                            selected[0].className = selected[0].className.replace(" selected", "");
+                        }         
+                        cell.className += " selected";
+                    }
                 }
             });
 
@@ -213,7 +220,6 @@ export function RolyartCalendar(config){
                     }         
                     cell.className += " selected";
 
-                    show_events_today(); 
                 }
             });
 
@@ -226,6 +232,7 @@ export function RolyartCalendar(config){
                 const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
                 const today = get_date().today;
                 const max_date = get_date().max_date;
+
                 //Prevents user from selected greyed out tiles
                 if (e.currentTarget.classList.contains('not-current') === false) {
                     //Click and hold event
@@ -246,6 +253,8 @@ export function RolyartCalendar(config){
                         } else if (`${selected_year}-${selected_month}-${selected_day}`> max_date){
                             custom_alert('Please select a valid date', 'warning', 'Please select a due date within 10 years from today.')
                         } else {
+                            // console.log('hello')
+                            // console.log(selected_date - current_date)
                             //Opens an event form with the current date already entered
                             Event_form(`${selected_year}-${selected_month}-${selected_day}`, today, max_date);
                         }
@@ -325,120 +334,4 @@ export function RolyartCalendar(config){
     }
 
     this.showCalendar(this.currentYear, this.currentMonth);
-}
-
-//returns all events on the selected day
-export function events_selected_day(date) {
-    //Previously found range with bubble sort
-    const range = return_event_range(date);
-    let events_list_temp = [];
-    let return_values = {
-        new_event_index: null,
-        events_today: null
-    }
-
-    //Checks every item in range
-    for (let i = range.low; i <= range.high; i++) {
-        if (events_list[i].due_date == date) {
-            events_list_temp.push(events_list[i]);
-        }
-    }
-    //Returns events list today
-    return_values.events_today = events_list_temp;
-    return return_values;
-}
-
-//Shows events on this day
-export function show_events_today() {
-    //Gets the selected date from user
-    let selected_date = user_selected_date();
-    let events_today;
-
-    //Gets event containers
-    const current_events = document.querySelector('#events_list');
-    const current_completed_events = document.querySelector('#completed_events');
-
-    if (return_events_list().length === 0) {
-        events_today = null;
-    } else {
-        //Gets events the user selected on this day
-        events_today = events_selected_day(selected_date).events_today;
-    }
-    
-    //Removes calendar tutorial
-    calendar_tutorial()
-
-    //Removes all current children of events (incomplete)
-    if (current_completed_events.querySelectorAll('li').length !== 0) {
-        while(current_completed_events.firstChild){
-            current_completed_events.removeChild(current_completed_events.firstChild);
-        }
-    }
-
-    //Removes all completed events
-    if (current_events.querySelectorAll('li').length !== 0) {
-        while (current_events.firstChild){
-            current_events.removeChild(current_events.firstChild);
-        }
-    }
-
-    //If there is more than zero events inserts all events today to document object model
-    if (return_events_list().length !== 0) {
-        for (const event_item of events_today) {
-            insert_event_to_DOM(event_item.title, event_item.description, event_item.priority, event_item.due_date, event_item.completed)
-        }
-    }
-
-    //Adds calendar tutorial if no events today
-    calendar_tutorial();
-}
-
-//Returns event list (global variable)
-export function return_events_list() {
-    return events_list;
-}
-
-//Gets the month from string, i.e. January will be converted to 1
-function getMonthFromString(mon){
-    let month = new Date(Date.parse(mon +" 1")).getMonth()+1;
-    if (month < 10) {
-        month = `0${month}`;
-    }
-    return month;
-}
- 
-//Gets the user selected date on the calendar
-export function user_selected_date() {
-    let date = new Date;
-    let selected_day = parseInt(document.querySelector('.selected').textContent);
-    let selected_month = document.querySelector('.month-year').textContent;
-    selected_month = selected_month.split(" ")
-    selected_month = getMonthFromString(selected_month)
-    const selected_year = date.getFullYear();
-    let selected_date
-
-    if (selected_day.toString().length === 1) {
-        selected_day = `0${selected_day}`;
-    }
-
-    selected_date = `${selected_year}-${selected_month}-${String(selected_day)}`;
-    return selected_date;
-}
-
-//Gets the current date and returns it
-export function get_date() {
-    let today = new Date;
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
-    
-    const date = {
-        day: dd,
-        month: mm,
-        year: yyyy,
-        today: `${yyyy}-${mm}-${dd}`,
-        max_date: `${yyyy+10}-${mm}-${dd}`
-    }
-    return date;
 }

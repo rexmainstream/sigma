@@ -1,4 +1,5 @@
  @import url(animations.css);
+ @import url(ctxmenu.css);
 /*Import animations stylesheet*/
 
 
@@ -19,6 +20,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100vw;
+    min-height: 90vh;
 }
 
 header {
@@ -36,20 +38,6 @@ header {
     z-index: 1;
 }
 
-body::-webkit-scrollbar {
-    z-index: 3;
-    width: 15px;
-}
-
-body::-webkit-scrollbar-track {
-	border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-    background-color: rgba(124,124,124,0.5);
-}
 
 footer {
     font-size: 1.2rem;
@@ -57,13 +45,13 @@ footer {
     color: white;
     display: block;
     line-height: 1.5;
+    display: none;
     margin-block-start: 20rem;
     padding: 0.5rem 0.5rem 2rem 0.5rem;
 }
 
 main {
     padding-block-start: 2rem;
-    padding-block-end: 2rem;
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
 }
@@ -278,17 +266,78 @@ ul.link_list {
     padding-inline-end: 2rem;
 }
 
-.drop_down_header {
+/* Drop down */
+
+.drop_down {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.5rem;
+    padding-inline: 1rem;
+    row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 2rem;
+    inline-size: 9rem;
+    margin-inline-end: 2rem;
+    background-color: white;
+    transition: max-height 0.3s ease-out;
+}
+
+
+.drop_down li {
+    opacity: 0;
+}
+
+.drop_down li:last-child {
+    margin-block-end: 3rem;
+}
+
+.drop_down:hover {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    max-height: 30rem;
+    overflow: visible;
+    z-index: 999;
+    box-shadow: 0px 14px 15px 0px rgb(0 0 0 / 20%);
+    transition: box-shadow 0.3s ease-in 0.1s, max-height 0.2s ease-in;
+    background-color: rgb(250,250,250);
+}
+
+.drop_down span {
+    display: block;
+    padding-bottom: 0.5rem;
+    font-size: 1.5rem;
+    padding-inline-start: 1rem;
+    background-color: white;
+}
+
+.drop_down:hover li{
+    opacity: 1;
+    padding-inline-start: 1rem;
+    transition: opacity 0.1s ease-out 0.2s;
+}
+
+.drop_down span .caret {
+    font-size: smaller;
+    display: inline;
+}
+
+.drop_down:hover span .caret {
+    transform: translateX(7rem);
+}
+
+.drop_down-header {
     display: block;
 }
 
-.drop_down_header span {
+.drop_down-header span {
     display: none;
 }
 
 /*Drop down for mobile*/
 @media screen and (max-width: 1200px) {
-    .drop_down_header {
+    .drop_down-header {
         position: relative;
         row-gap: 1rem;
         display: flex;
@@ -301,15 +350,15 @@ ul.link_list {
         transition: max-height 0.3s ease-out;
     }
     
-    .drop_down_header li {
+    .drop_down-header li {
         opacity: 0;
     }
 
-    .drop_down_header li:last-child {
+    .drop_down-header li:last-child {
         margin-block-end: 3rem;
     }
 
-    .drop_down_header:hover {
+    .drop_down-header:hover {
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
         max-height: 30rem;
@@ -320,7 +369,7 @@ ul.link_list {
         background-color: rgb(250,250,250);
     }
 
-    .drop_down_header span {
+    .drop_down-header span {
         display: block;
         padding-bottom: 0.5rem;
         font-size: 1.5rem;
@@ -328,18 +377,18 @@ ul.link_list {
         background-color: white;
     }
 
-    .drop_down_header:hover li{
+    .drop_down-header:hover li{
         opacity: 1;
         padding-inline-start: 1rem;
         transition: opacity 0.1s ease-out 0.2s;
     }
 
-    .drop_down_header span .caret {
+    .drop_down-header span .caret {
         font-size: smaller;
         display: inline;
     }
 
-    .drop_down_header:hover span .caret {
+    .drop_down-header:hover span .caret {
         transform: translateX(7rem);
     }
     
@@ -511,7 +560,7 @@ ul[class] {
     width: 50%;
   }
 
-/* || CALENDAR*/
+/* || CALENDAR MINI*/
 .calendar {
     grid-column: 4/end;
     grid-row: 1;
@@ -559,7 +608,7 @@ ul[class] {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 1rem 1.6rem;
+    padding: 0.3rem;
     border-bottom: 1px solid #DDDDDD;
   }
   
@@ -598,6 +647,7 @@ ul[class] {
     display: flex;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+    display: none;
     padding: 0.5rem 0;
     border-bottom: 1px solid #DDDDDD;
   }
@@ -624,15 +674,15 @@ ul[class] {
   .calendar-body .day {
     width: calc(100% / 7);
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.7rem 0.2rem;
     background-color: white;
     cursor: pointer;
   }
   
   .calendar-body .day span {
-    width: 2rem;
-    height: 2rem;
-    line-height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
   }
   
   .calendar-body .day.active {
@@ -659,7 +709,8 @@ ul[class] {
 
 #events_container {
     overflow-y: auto;
-    block-size: 18rem;
+    overflow-x: hidden;
+    block-size: 22rem;
     margin-block-end: 1rem;
 }
 
@@ -670,6 +721,12 @@ ul[class] {
     margin: 0;
     /*background-color: rgb(242, 242, 242);*/
 }
+
+#mini_events li:hover {
+    background-color: rgba(209, 231, 246, 0.7);
+    transition: background-color 0.3s ease-out;
+}
+
 
 #events_list li, #completed_events li {
     display: flex;
@@ -688,7 +745,9 @@ ul[class] {
     border-bottom-right-radius: 0%;
     white-space: nowrap;
     border-inline-end: 0.7rem inset;
+    transition: background-color 0.2s ease-in;
 }
+
 
 #events_list li a, #completed_events li a {
     text-overflow: ellipsis;
@@ -717,7 +776,11 @@ ul[class] {
 }
 
 .added_event {
-    animation: fade_in 0.8s ease-out both;
+    animation: add_event 0.8s ease-out both;
+}
+
+.complete_event {
+    animation: complete_event 0.4s ease-out both;
 }
 
 #events_list #Add_new_event {
@@ -732,9 +795,10 @@ ul[class] {
 
 .event_tooltip {
     content: '';
+    font-size: 1.5rem;
     white-space: nowrap;
     text-transform: none;
-    inline-size: 40vw;
+    inline-size: 50vw;
     background-color: white;
     position: fixed;
     z-index: 2;
@@ -744,7 +808,6 @@ ul[class] {
     top: 50vh;
     right: 25vw;
     transform: translateY(-25rem);
-    height: 42vh;
 }
 
 .event_tooltip:hover {
@@ -767,16 +830,36 @@ ul[class] {
     margin: 1rem 1rem 1rem 1rem;
     border-radius: 1rem;
     border: none;
-    block-size: 13rem;
+    block-size: 14rem;
     background-color: rgb(242,242,242);
     font-family: 'Segoe UI';
-    inline-size: calc(100% - 4rem);
+    inline-size: 100%;
     cursor: pointer;
     outline: none;
 }
 
+.grid_label {
+    display: grid;
+    grid-row: 2;
+    grid-template-columns: 42% 58%;
+    grid-template-rows: auto auto auto;
+    width: 50%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(209, 231, 246, 0.7);
+}
+
 .event_tooltip p {
-    margin: 0.5rem 1rem 0.5rem 1rem;
+    color: black;
+    background-color: white;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    border-radius: 0.7rem;
+}
+
+.event_tooltip label {
+    font-weight: bold;
+    margin-block-start: 1.2rem;
 }
 
 .show_tooltip {
@@ -788,11 +871,11 @@ ul[class] {
 }
 
 #calendar_tutorial {
+    animation: fade_in_text 0.3s ease-in;
+    margin: 2rem;
+    color: rgba(124, 124, 124, 0.7);
     position: relative;
-    bottom: 10%;
-    text-align: center;
-    color: rgba(124,124,124, 0.8);
-    inline-size: 70%;
+
 }
 
 
@@ -800,6 +883,57 @@ ul[class] {
     color: rgb(124,124,124);
     text-decoration: line-through;
 }
+
+/* || CALENDAR FULL */
+
+#full_calendar {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 4rem;
+}
+
+#calendar_container {
+    padding: 0 2rem 3rem 2rem;
+    border-radius: 3rem;
+    animation: bounce 0.7s ease-out both;
+}
+
+.search_and_sort {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    block-size: 10rem;
+}
+
+.search_and_sort .drop_down {
+    padding: 1rem;
+}
+
+.search_bar_container {
+    padding-inline-start: 1rem;
+    background-color: white;
+    inline-size: 50%;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.search_bar {
+    font-size: 1.5rem;
+    outline: none;
+    padding: 1rem;
+    border: none;
+    inline-size: 85%;
+
+}
+
+#full_events {
+    inline-size: 100%;
+    grid-column: 2/end;
+}
+
+
 
 
 /* || QUOTE*/
@@ -1121,6 +1255,7 @@ ul[class] {
     border-right: 0.22rem solid black;
 }
 
+
 .steps .goal_order {
     padding: 0.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -1143,8 +1278,8 @@ ul[class] {
 
 .steps .show_description {
     opacity: 1;
-    transition: max-height 0.2s ease-out, opacity 0.3s ease-in 0.2s;
-    max-height: 20rem;
+    max-height: 30rem;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-in 0.5s;
 }
 
 .steps button[title='Hide Description'] {
@@ -1626,6 +1761,7 @@ button {
     background-color: white;
   }
 
+
 .checkmark {
     display: inline-block;
     position: relative;
@@ -1634,17 +1770,16 @@ button {
     height: 0.9rem;
     width: 0.5rem;
     transform: rotate(45deg);
-    border-bottom: 0.22rem solid transparent;
-    border-right: 0.22rem solid transparent;
+    border-bottom: 0.22rem solid rgb(124, 124, 124);
+    border-right: 0.22rem solid rgb(124, 124, 124);
+    opacity: 0;
     border-radius: 0.1rem;
+    transition: opacity 0.15s ease-in;
 }
 
-.visible_header {
-    animation: show_header 0.5s ease-out both;
-}
-
-.invisible_header {
-    animation: hide_header 0.5s ease-out both;
+.checkmark.show_checkmark {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
 }
 
 

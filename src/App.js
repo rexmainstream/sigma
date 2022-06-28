@@ -19,6 +19,8 @@ import Motivational_quote from './components/quote/motivational_quote';
 import Focus from './components/focus/focus';
 import Feedback from './components/feedback/feedback';
 import About from './components/about/about';
+import Help from './components/help/help';
+import Full_calendar from './components/calendar/calendar_full';
 
 var Page_link = Dashboard
 function App() {
@@ -40,7 +42,7 @@ function App() {
             </a>
             <nav>
               <ul className='link_list'>
-                <div className='drop_down_header'>
+                <div className='drop_down-header'>
                   <span>
                     Services
                     <span className='caret'>
@@ -90,8 +92,8 @@ function App() {
             <Route exact path="/" element={<Dashboard />} />
             <Route exact path='/focus' element = {<Focus />} />
             <Route exact path='/quote_of_the_day' element = {<Motivational_quote />} />
-            <Route path="/calendar" element={<Calendar_mini />} exact />
-            <Route path="/help" element={<Header />} exact />
+            <Route path="/calendar" element={<Full_calendar />} exact />
+            <Route path="/help" element={<Help />} exact />
             <Route path='/about' element={<About />} exact />
             <Route path='/feedback' element={<Feedback />} exact />
           </Routes>
