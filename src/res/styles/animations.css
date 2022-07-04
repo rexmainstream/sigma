@@ -76,6 +76,17 @@
     }
 }
 
+@keyframes drop_down_reveal {
+    0% {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    100% {
+        max-height: 20rem;
+    }
+}
+
 @keyframes fade_in {
 
     0% {
@@ -135,6 +146,7 @@
         opacity: 1;
     }
 }
+
 
 @keyframes shine {
     0% {
@@ -254,6 +266,18 @@
     100% {
         opacity: 0;
         transform: translateX(100%);
+    }
+}
+
+@keyframes show_search {
+    0% {
+        color: black;
+        background-color: inherit;
+    }
+
+    100% {
+        color: white;
+        background-color: rgb(124,124,124);
     }
 }
 

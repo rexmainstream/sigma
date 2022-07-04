@@ -46,6 +46,93 @@ export function sort_events_alphabetically(events_array, the_event) {
     return position;
 }
 
+// This sort is for the full calendar
+export function bubble_sort_events_alphabetically(events_list) {
+    let swapped = true;
+    const length = events_list.length - 1;
+    let pass = 0;
+
+    while (swapped === true) {
+        swapped = false;
+        for (let i = 0; i < length - pass; i++) {
+            // compares events alphabetically
+            if (compare_alphabetically(events_list[i].title, events_list[i + 1].title) === false) {
+
+                // Swaps events if out of place
+                const temp = events_list[i];
+                events_list[i] = events_list[i + 1];
+                events_list[i + 1] = temp;
+                swapped = true;
+
+                
+            }
+        }
+
+        // Increments pass
+        pass++;
+    }
+    
+    return events_list;
+}
+
+
+// Sorts events by priority
+export function bubble_sort_events_priority(events_list) {
+    let swapped = true;
+    const length = events_list.length - 1;
+    let pass = 0;
+
+    while (swapped === true) {
+        swapped = false;
+        
+        for (let i = 0; i < length - pass; i++) {
+
+            // Convert priority strings to integer
+            const event_priority_1 = priority_to_integer(events_list[i].priority);
+            const event_priority_2 = priority_to_integer(events_list[i + 1].priority);
+
+
+            // Debug
+            // console.log(events_list[i].priority)
+            // console.log(event_priority_1, event_priority_2)
+
+            // Compares the priorities
+            if (event_priority_1 < event_priority_2) {
+
+                // If out of place swaps
+                const temp = events_list[i];
+                events_list[i] = events_list[i + 1];
+                events_list[i + 1] = temp;
+                swapped = true;                
+            }
+        }
+
+        // Increments pass
+        pass++;
+    }
+
+    return events_list;
+}
+
+// Converts priority to string
+function priority_to_integer(priority_str) {
+    let return_value;
+
+    switch (priority_str) {
+        case 'High':
+            return_value = 3;
+            break;
+        case 'Medium':
+            return_value = 2;
+            break;
+        case 'Low':
+            return_value = 1; 
+            break;           
+    }
+
+    return return_value;
+}
+
 // Compares if two strings are alphabetically superior or not
 export function compare_alphabetically(string1, string2) {
     if (string1.localeCompare(string2) < 0) {
@@ -54,3 +141,4 @@ export function compare_alphabetically(string1, string2) {
         return false;
     }
 }
+

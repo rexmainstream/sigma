@@ -7,6 +7,10 @@ import add_inline_animation from "../../res/scripts/animation_timing";
 import { get_date, show_events_today, user_selected_date } from "./rolyart-calendar";
 import { sort_events_alphabetically } from "../../res/scripts/search_and_sort_events";
 import Event_tooltip, { return_currently_hovering_over } from "./event_tooltip";
+import { CtxMenu } from "../../res/scripts/ctxmenu";
+
+
+
 
 // An event item
 export default function Event_item( props ) {
@@ -24,9 +28,10 @@ export default function Event_item( props ) {
 
 
 
+
     // Variables depending on the completion of the event
     let complete_btn_title = "Redo Event"
-    let event_class = `${ priority }_priority added_event`
+    let event_class = `event_item ${ priority }_priority added_event`
 
     if ( completed === false ) {
         complete_btn_title = "Complete Event"
@@ -208,8 +213,12 @@ export default function Event_item( props ) {
                     sort_events_alphabetically(old_events, new_event);
                 }
 
-                // Writes the old events to the key in db
-                stored_events.put(old_events, key);
+                if (old_events.length !== 0) {
+                    // Writes the old events to the key in db
+                    stored_events.put(old_events, key);
+                } else {
+                    stored_events.delete(key);
+                }
 
                 if ( different_keys === false ) {
                     show_events_today( user_selected_date(), false )

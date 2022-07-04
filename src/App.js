@@ -42,13 +42,6 @@ function App() {
             </a>
             <nav>
               <ul className='link_list'>
-                <div className='drop_down-header'>
-                  <span>
-                    Services
-                    <span className='caret'>
-                      &#9660;              
-                    </span>
-                  </span>
                   <li>
                     <NavLink
                       to={"/about"}
@@ -74,7 +67,6 @@ function App() {
                         Feedback
                     </NavLink>
                   </li>
-                </div>
                 <li>
                     <NavLink
                       to={"/quote_of_the_day"}>

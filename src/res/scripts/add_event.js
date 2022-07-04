@@ -1,8 +1,9 @@
 // Imports
 import { custom_alert } from "./add_alert";
 import { create_modal, exit_modal } from "./add_modal";
-import { show_events_today } from "../../components/calendar/rolyart-calendar";
+import { show_events_today, user_selected_date } from "../../components/calendar/rolyart-calendar";
 import { sort_events_alphabetically } from "./search_and_sort_events";
+import { string_validation } from "./data_validation";
 
 //Form for user input
 export function Event_form(current_selected_date, today, max_date) {
@@ -90,9 +91,15 @@ export function Event_form(current_selected_date, today, max_date) {
 
     //Adds event listeners to form items
     create_event_btn.addEventListener('click', (e) => {
-        Add_new_event(e, title.value, description_input.value, 
-            priority.querySelector("input[name='priority']:checked").title,
-            due_date.value, false);
+        if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'description')) {
+            Add_new_event(
+                e, 
+                title.value, 
+                description_input.value, 
+                priority.querySelector("input[name='priority']:checked").title,
+                due_date.value, false
+            );
+        }
     })
 
 
@@ -145,7 +152,7 @@ export function Add_new_event(e, title, description, priority, due_date) {
                 stored_events.put([the_event], key);
             }
 
-            show_events_today(document.querySelector('.selected').id, new_position);
+            show_events_today(user_selected_date(), new_position);
 
         })
 

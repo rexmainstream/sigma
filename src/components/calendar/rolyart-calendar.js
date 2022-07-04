@@ -16,6 +16,7 @@ let timeoutID = 0;
 
 const ctx_menu_event = CtxMenu(".current");
 
+
 // Adds new event
 ctx_menu_event.addItem('Add Event', () => {
     const today = get_date().today;
@@ -69,7 +70,7 @@ ctx_menu_event.addItem('Complete All', () => {
             stored_events.put(events_today, key);
 
             // Then shows events on the selected day
-            show_events_today(user_selected_date(), undefined)
+            show_events_today(user_selected_date(), false)
         })
 
 
@@ -496,6 +497,9 @@ export function show_events_today(date, add_event) {
             const completed = [];
             const incomplete = [];
 
+            let new_position;
+
+
             if (today_events !== undefined && today_events !== null && today_events !== false) {
                 for ( let i = 0; i < today_events.length; i++ ) {
 
@@ -507,6 +511,16 @@ export function show_events_today(date, add_event) {
                     const due_date = today_events[i].due_date;
     
                     if ( today_events[i].completed === false ) {
+
+                        // Gets new event position
+                        if (i === add_event) {
+                            if (today_events[i].completed === true) {
+                                // New position stores if it is completed or not
+                                new_position = [true, completed.length];
+                            } else {
+                                new_position = [false, incomplete.length];
+                            }
+                        }
     
                         // Adds event to incomplete list if the event is incomplete
                         incomplete.push(
@@ -545,23 +559,20 @@ export function show_events_today(date, add_event) {
                     // Removes the current events
                     if (event_items.length > 0) {
                         for (let i = 0; i < event_items.length; i++) {
-                            add_inline_animation(event_items[i], "complete_event", "0.4s", 'ease-in', 'both', '', () => {   
-                                // Empty current events
-                                ReactDOM.unmountComponentAtNode(document.getElementById('events_list'));
-                                ReactDOM.unmountComponentAtNode(document.getElementById('completed_events'));
-    
-                                if (i === event_items.length - 1) {
-                                    // Render new events in events container
-                                    ReactDOM.render(completed, document.getElementById('completed_events'));
-                                    ReactDOM.render(incomplete, document.getElementById('events_list'));  
-                                }
-                            })
+                            ReactDOM.unmountComponentAtNode(document.getElementById('events_list'));
+                            ReactDOM.unmountComponentAtNode(document.getElementById('completed_events'));    
+
+                            // Render new events in events container
+                            ReactDOM.render(completed, document.getElementById('completed_events'));
+                            ReactDOM.render(incomplete, document.getElementById('events_list'));  
+
                         }
                     } else {
                         // Render new events in events container
-
+                        
                         ReactDOM.render(completed, document.getElementById('completed_events'));
                         ReactDOM.render(incomplete, document.getElementById('events_list'));  
+
                         
                     }
 
@@ -569,11 +580,42 @@ export function show_events_today(date, add_event) {
                 } else {
                     ReactDOM.render(completed, document.getElementById('completed_events'));
                     ReactDOM.render(incomplete, document.getElementById('events_list'));
+
+                    
+                    // If adding a new event requires the new index of the added event
+                    if (Number.isInteger(add_event)) {
+                        const events = document.getElementById('events_list').querySelectorAll('li');
+                        const completed_events = document.getElementById('completed_events').querySelectorAll('li');
+                        
+                        // Debug
+
+                        // console.log(new_position)
+                        // console.log(events)
+                        // console.log(completed_events)
+                        // console.log(events[new_position[1]])
+
+
+                        
+
+                        for (let i = 0; i < events.length; i++) {
+                            if (i === new_position[1] && new_position[0] === false) {
+                                events[i].classList.add('added_event');
+                            } else {
+                                events[i].classList.remove('added_event');
+                            }
+                        }
+
+                        for (let i = 0; i < completed_events.length; i++) {
+                            completed_events[i].classList.remove('added_event');
+                            console.log(i)
+                        }
+                    }
                 }
             } else {
                 // If no events on day
                 
                 for (let i = 0; i < event_items.length; i++) {
+                    console.log('hello')
                     add_inline_animation(event_items[i], "complete_event", "0.4s", 'ease-in', 'both', '', () => {   
 
                         if (i === event_items.length - 1) {
@@ -637,6 +679,26 @@ export function user_selected_date() {
     return selected_date;
 }
 
+// Converts a date object to a string
+export function convert_date_to_str(date) {
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = date.getFullYear();
+    date = yyyy + '-' + mm + '-' + dd;
+
+    const return_date = {
+        day: dd,
+        month: mm,
+        year: yyyy,
+        // Today is today's date
+        date: `${yyyy}-${mm}-${dd}`,
+    }
+    
+    return return_date;
+
+
+}
+
 //Gets the current date and returns it in the form of string data type
 export function get_date() {
 
@@ -652,6 +714,7 @@ export function get_date() {
         year: yyyy,
         // Today is today's date
         today: `${yyyy}-${mm}-${dd}`,
+        
 
         // Max date is 10 years 
         max_date: `${yyyy+10}-${mm}-${dd}`

@@ -6,6 +6,9 @@ import { string_validation } from '../../res/scripts/data_validation';
 import { Add_new_step, render_steps, return_steps_list } from './focus';
 import { render_progress } from './progress';
 import Redo_complete_button from './step_redo_complete_button';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Goal_step(props) {
     const goal_name = props.goal_name;
@@ -33,13 +36,13 @@ export default function Goal_step(props) {
     }
 
     function show_description(e) {
-        const description = e.target.parentNode.parentNode.querySelector('.goal_description')
+        const description = e.currentTarget.parentNode.parentNode.querySelector('.goal_description')
         if (description.classList.contains('hide_description')) {
             description.classList.replace("hide_description", "show_description");
-            e.target.setAttribute('title', 'Hide Description');
+            e.currentTarget.setAttribute('title', 'Hide Description');
         } else {
             description.classList.replace("show_description", "hide_description");
-            e.target.setAttribute('title', 'Show Description');
+            e.currentTarget.setAttribute('title', 'Show Description');
         }
         
     }
@@ -211,7 +214,7 @@ export default function Goal_step(props) {
         </div>
         <hr></hr>
         <p className="goal_description hide_description">{goal_description}</p>
-        <div className='button_container'><button title = 'Show Description' className='description_button' onClick={(e) => show_description(e)}>&#x25BC;</button></div>
+        <div className='button_container'><button title = 'Show Description' className='description_button' onClick={(e) => show_description(e)}> <FontAwesomeIcon icon = {faChevronDown} /></button></div>
     </div>
     
     );
