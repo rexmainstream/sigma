@@ -16,6 +16,7 @@ import { check_desktop } from "../../res/scripts/check_mobile";
 import { Event_form } from "../../res/scripts/add_event";
 // import { return_current, show_events } from "./calendar_full";
 import {  getMonthFromString } from "./rolyart-calendar";
+import { date_to_key } from "./date_to_key";
 
 
 
@@ -28,7 +29,7 @@ let current_order;
 let timeoutID = 0
 
 
-// let time_out;
+let time_out;
 
 export default class Full_calendar extends React.Component {
 
@@ -106,51 +107,52 @@ export default class Full_calendar extends React.Component {
                         <div className="search_bar_container">
                             <FontAwesomeIcon icon = {faSearch} size = 'lg' />
                             <input 
-                                className="search_bar"
-                                title="Press Enter to search"
-                                placeholder="Search Events..."
+                                className = "search_bar"
+                                aria-label = "search for events"
+                                title = "Press Enter to search"
+                                placeholder = "Search Events..."
                                 onKeyDown = {(e) => {
                                     // Shows events on pressing enter
                                     // Primarily for mobile devices
                                     // clearTimeout(time_out);
                                     search_query_enter(e);
                                 }}
-                                onBlur = {
-                                    // Shows events if element lost focus
-                                    (e) => {
-                                        current_search = e.target.value;
+                                // onBlur = {
+                                //     // Shows events if element lost focus
+                                //     (e) => {
+                                //         current_search = e.target.value;
 
-                                        show_events(
-                                            current_time_range,
-                                            current_sort_option,
-                                            current_timeline_option,
-                                            current_search,
-                                            current_order
-                                        )
-                                    }
-                                }
-                                // onKeyUp = {
+                                //         show_events(
+                                //             current_time_range,
+                                //             current_sort_option,
+                                //             current_timeline_option,
+                                //             current_search,
+                                //             current_order
+                                //         )
+                                //     }
+                                // }
+                                onKeyUp = {
                 
-                                // (e) => {
-                                //     // If desktop shows the events after 1.5seconds after no typing
-                                //     check_desktop(function() {
-                                //         clearTimeout(time_out);
-                                //         time_out = setTimeout(function() {
-                                //             // Debug
-                                //             // console.log(e.target.value);
+                                (e) => {
+                                    // If desktop shows the events after 0.25 seconds after no typing
+                                    check_desktop(function() {
+                                        clearTimeout(time_out);
+                                        time_out = setTimeout(function() {
+                                            // Debug
+                                            // console.log(e.target.value);
     
-                                //             current_search = e.target.value;
+                                            current_search = e.target.value;
     
-                                //             show_events(
-                                //                 current_time_range, 
-                                //                 current_sort_option,
-                                //                 current_timeline_option,
-                                //                 current_search,
-                                //                 current_order
-                                //             )
-                                //         }, 1500)
-                                //     })
-                                // }}
+                                            show_events(
+                                                current_time_range, 
+                                                current_sort_option,
+                                                current_timeline_option,
+                                                current_search,
+                                                current_order
+                                            )
+                                        }, 250)
+                                    })
+                                }}
 
                             >
                                 
@@ -176,6 +178,7 @@ export default class Full_calendar extends React.Component {
                             className = "drop_down_button time_range"
                             options = { time_range_options }
                             placeholder = 'Time Range'
+                            ariaLabel = 'drop down for time range'
                             value = { time_range_options[1] }
                             onChange = {
                                 (e) => {
@@ -228,7 +231,7 @@ export default class Full_calendar extends React.Component {
                             options = { sort_options }
                             placeholder = { 'Sort By' }
                             value = { sort_options[0] }
-
+                            ariaLabel = 'drop down for sort'
                             onChange = {
                                 (e) => {
 
@@ -287,9 +290,9 @@ export default class Full_calendar extends React.Component {
                                                     }
 
                                                     // Returns a list for timeline
-                                                    if (starting_character !== prev_value) {
-                                                        return_list.push(starting_character);
-                                                        prev_value = starting_character;
+                                                    if (starting_character.toUpperCase() !== prev_value) {
+                                                        return_list.push(starting_character.toUpperCase());
+                                                        prev_value = starting_character.toUpperCase();
                                                     } else {
                                                         return_list.push('');
                                                     }
@@ -340,7 +343,7 @@ export default class Full_calendar extends React.Component {
                         />
                         <ReactDropdown 
                             className = "drop_down_button"
-
+                            ariaLabel = 'drop down for order'
                             options = { order_options }
                             placeholder = {'Order'}
                             value = {order_options[0]}
@@ -433,7 +436,12 @@ export function show_events( day_range, sort_function = false, timeline_generato
             if ( cursor ) {
                 const day_events = cursor.value;
 
+                // for (let i = 0; i < day_events.length; i++) {
+                //     day_events[i]
+                // }
+
                 for (let i = 0; i < day_events.length; i++) {
+                    day_events[i].key = parseInt(`${date_to_key(day_events[i].due_date)}${i}`);
                     all_events.push(day_events[i]);
                 }
 
@@ -443,6 +451,8 @@ export function show_events( day_range, sort_function = false, timeline_generato
                 const container = document.getElementById('events_box');
                 let render_elements = [];
                 let timeline_values = [];
+
+                // console.log(all_events)
 
                 if (sort_function !== false) {
                     // Applies sort function
@@ -521,10 +531,11 @@ export function show_events( day_range, sort_function = false, timeline_generato
                             title = { all_events[i].title }
                             description = { description }
                             days_left = { timeline_values[i] }
-                            key = { i }
+                            key = { all_events[i].key }
                             search = { current_search }
                         />
                     )
+                    
 
 
 
@@ -533,8 +544,8 @@ export function show_events( day_range, sort_function = false, timeline_generato
 
                 }
 
-                ReactDOM.unmountComponentAtNode(document.getElementById('events_box'));
-
+                // ReactDOM.unmountComponentAtNode(document.getElementById('events_box'));
+                console.log(all_events)
 
                 ReactDOM.render(render_elements, container);
 

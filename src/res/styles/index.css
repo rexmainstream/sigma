@@ -987,7 +987,7 @@ ul[class] {
 }
 
 .event_description.show_description {
-    max-height: 13rem;
+    max-height: 14rem;
     overflow-y: auto;
     opacity: 1;
     transition: max-height 0.5s ease-out, opacity 0.3s ease-in 0.5s;
