@@ -95,6 +95,10 @@ textarea {
     resize: none;
 }
 
+*[title] {
+    cursor: pointer;
+}
+
 .clickable_button {
     position: relative;
     color: rgb(29, 98, 149);
@@ -140,6 +144,10 @@ textarea {
     border-radius: 50%;
     padding: 0.5rem;
     font-size: 2rem;
+    display: flex;
+    line-height: 3rem;
+    justify-content: center;
+    align-items: center;
     overflow: visible;
     cursor: pointer;
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
@@ -930,8 +938,15 @@ ul[class] {
     animation: fade_in 0.8s ease-in;
 }
 
+.days_left[title="Hide Group"]:hover {
+    color: rgb(29, 98, 149);
+    transition: color 0.7s ease-out;
+}
+
+
 .days_left {
     inline-size: 12rem;
+    block-size: 3rem;
 }
 
 .event_separator {
@@ -939,12 +954,42 @@ ul[class] {
     block-size: 2rem;
 }
 
+.event_group {
+    margin-block-end: 2rem;
+    overflow: hidden;
+}
+
+.event_group .event_item_full {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+.event_group.show_event_group {
+    transition: max-height 0.5s ease-out;
+}
+
+.event_group.hide_event_group {
+    max-height: 3rem;
+}
+
+.event_group.hide_event_group .event_item_full {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
 .vl {
     border-left: 0.6rem solid rgb(124,124,124);
     left: 50%;
     margin-left: -0.3rem;
     top: 0;
+    cursor: pointer;
     padding-block: 2rem;
+    transition: border-left-color 0.7s ease-out;
+}
+
+.vl.hover_line {
+    border-left-color: rgb(29, 98, 149);
+    transition: border-left-color 0.7s ease-out;
 }
 
 .event_item_full {
@@ -965,6 +1010,15 @@ ul[class] {
     animation: show_search 0.3s ease-out 0.7s both;
 }
 
+.event_item_full.event_completed {
+    opacity: 0.5;
+    color: rgb(124,124,124);
+    animation: bounce 0.7s ease-in normal;
+}
+
+.event_item_full.event_completed .event_title {
+    text-decoration: line-through;
+}
 
 .event_item_full .event_description {
     overflow-wrap: break-word;
@@ -1104,18 +1158,10 @@ ul[class] {
     margin-inline-end: 1rem;
 }
 
-.wiki_icon path {
-    color: rgb(56, 56, 56);
-    -webkit-filter: drop-shadow( 3px 5px 1px rgba(245,245,245,0.5));
-    filter: drop-shadow( 3px 5px 1px rgba(245,245,245,0.5));
-    /* Similar syntax to box-shadow */
-}
-
 .twitter {
     display: inline;
     block-size: 3rem;
 }
-
 
 
 #container svg {
@@ -1127,6 +1173,12 @@ ul[class] {
     font-size: 2rem;
     margin-block-start: 0;
     font-style: italic;
+}
+
+blockquote {
+    font-size: 2rem;
+    padding: 0;
+    margin: 1rem 0.5rem 1rem 0.5rem;
 }
 
 
@@ -1366,7 +1418,7 @@ ul[class] {
 
 .step_top_line .button_container .icon_button {
     flex-basis: 1;
-    color: black;
+    color: rgb(124,124,124);
     background-image: none;
     background-color: rgb(242,242,242);
 }
@@ -1394,6 +1446,7 @@ ul[class] {
 .steps .goal_description {
     color: rgba(124,124,124);
     overflow: hidden;
+    max-height: 0;
     padding-inline-start: 3.5rem;
     margin-block-end: 1rem;
     word-wrap: break-word;
@@ -1401,8 +1454,9 @@ ul[class] {
 
 .steps .show_description {
     opacity: 1;
-    max-height: 30rem;
-    transition: max-height 0.5s ease-out, opacity 0.3s ease-in 0.5s;
+    max-height: 15rem;
+    overflow-y: auto;
+    transition: max-height 0.7s ease-out, opacity 0.3s ease-in 0.5s;
 }
 
 .steps button[title='Hide Description'] {
@@ -1443,7 +1497,7 @@ ul[class] {
     }
 }
 .steps .hide_description {
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.5s ease-in;
     max-height: 0rem;
     opacity: 0;
 }
@@ -1473,8 +1527,7 @@ ul[class] {
 }
 
 #steps_container .steps:hover {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    transform: translateY(-0.5rem);
+    transition: box-shadow 0.2s ease-in-out;
     box-shadow: 0 8px 16px rgb(0 0 0 / 40%); 
 }
 

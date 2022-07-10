@@ -3,18 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { convert_date_to_str, get_date } from './rolyart-calendar';
 import reactStringReplace from 'react-string-replace';
+import add_inline_animation from '../../res/scripts/animation_timing';
 
 export default function Event_item_full(props) {
     let days_left = props.days_left;
     let description = props.description;
     let title = props.title;
+    const priority = props.priority;
+    const due_date = props.due_date;
     const search = props.search;
+    const completed = props.completed;
+    let class_name = 'event_item_full';
+    let animation_complete = true;
 
     let show_description_class = ["event_description hide_description", "Show Description"];
 
     // debug
     // console.log(search);
 
+    if (completed === true) {
+        class_name += ' event_completed';
+    }
 
     if (search !== false) {
         // Search is case insensitive, regular expression required
@@ -40,7 +49,7 @@ export default function Event_item_full(props) {
             </span>
         ))
 
-        if (description.length > 1) {
+        if (description.length > 1 && search !== "") {
             show_description_class[0] = "event_description show_description"
             show_description_class[1] = "Hide Description"
         }       
@@ -80,20 +89,110 @@ export default function Event_item_full(props) {
         }
     }
 
+    // Hides the group
+    function show_hide_group(e) {
+        const event_group = e.currentTarget.parentNode.parentNode.parentNode;
+        event_group.style.maxHeight = `${event_group.scrollHeight}px`;
+
+        if (event_group.classList.contains('hide_event_group') === false) {
+
+            animation_complete = false;
+            event_group.classList.add('hide_event_group');
+            add_inline_animation(event_group, "collapse 0.8s ease-out 0.4s", "", "", "", "", () => {
+                console.log('hello')
+                animation_complete = true;
+                event_group.style.maxHeight = null;
+                // event_group.classList.add('hide_event_group');
+            });
+        } else {
+            // event_group.style.maxHeight = null;
+            animation_complete = false;
+            event_group.classList.add('show_event_group')
+            event_group.classList.remove('hide_event_group');
+            event_group.addEventListener('transitionend', function handler() {
+                event_group.style.maxHeight = null;
+                event_group.classList.remove('show_event_group');
+                animation_complete = true;
+                event_group.removeEventListener('transitionend', handler)
+            })
+        }
+
+    }
+
     return (
         <div className='event_item_container'>
             <div className='timeline'>
-                <div className='days_left'>{`${days_left}`}</div>
-                <div className='vl'></div>
+                <div 
+                    className='days_left'
+                    title = 'Hide Group'
+                    onMouseOver = {
+                        (e) => {
+                            // if (animation_complete === true) {
+                            //     highlight_group(e);
+                            // }
+                        }
+                    }
+
+                    onMouseLeave = {
+                        (e) => {
+                            // if (animation_complete === true) {
+                            //     highlight_group_time_out(e)
+                            // }
+                        }
+                    }
+
+                    onClick = {
+                        (e) => {
+                            if (animation_complete === true) {
+                                show_hide_group(e);
+                            }
+                        }
+                    }
+                >
+                    <span>
+                        {`${days_left}`}
+                    </span>                
+                </div>
+
+                <div 
+                    className='vl'
+                    onMouseEnter = {
+                        (e) => {
+                            // highlight_group(e);
+                        }
+                    }
+
+                    onMouseLeave = {
+                        (e) => {
+                            // highlight_group_time_out(e);
+                        }
+                    }
+
+                    onClick = {
+                        (e) => {
+                            if (animation_complete === true) {
+                                show_hide_group(e);
+                            }
+                        }
+                    }
+                >
+
+                </div>
             </div>
             <div 
-                className='event_item_full'
+                className= { class_name }
                 aria-label='full event item'
             >
                 <h2 className='event_title'>
                     { title }
                 </h2>
                 <hr></hr>
+                <div>
+                    { `Priority: ${ priority }` }
+                </div>
+                <div>
+                    { `Due Date: ${ due_date }` }
+                </div>
                 <div className = {show_description_class[0]}>
                     { description }
                 </div>

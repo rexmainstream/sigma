@@ -44,6 +44,21 @@
     min-height: 2rem;
 }
 
+@keyframes collapse {
+    to {
+        max-height: 3rem;
+    }
+}
+
+@keyframes expand {
+    from {
+        max-height: 3rem;
+    }
+    to {
+        max-height: initial;
+    }
+}
+
 /*This animation plays when user hovers over a row. Highlights the row basically */
 @keyframes highlight {
     0% {

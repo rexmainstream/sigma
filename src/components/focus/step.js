@@ -7,6 +7,8 @@ import { Add_new_step, render_steps, return_steps_list } from './focus';
 import { render_progress } from './progress';
 import Redo_complete_button from './step_redo_complete_button';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -195,14 +197,15 @@ export default function Goal_step(props) {
                         edit_step(e)
                     }                     
                         }>
-                        <i className='fa fa-edit'></i>
+                        <FontAwesomeIcon icon = { faEdit } />
                 </button>
                 <button 
                     className='icon_button'
                     aria-label='remove step'
                     title='Remove Step'
                     onClick={(e) => {remove_step(e)}}
-                    >&times;
+                    >
+                        <FontAwesomeIcon icon = {faTimes} />
                 </button>
 
             <Redo_complete_button 

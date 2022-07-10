@@ -9,12 +9,10 @@ import Calendar_instruction from "./calendar_instructions";
 import { CtxMenu, CtxMenuDefault, CtxCloseCurrentlyOpenedMenus, CtxMenuBlock } from "../../res/scripts/ctxmenu"
 
 
-//Right now events are stored not on database for testing
-let events_list = [];
 let timeoutID = 0;
 
-
-const ctx_menu_event = CtxMenu(".current");
+// Context menu
+const ctx_menu_event = CtxMenu(".date_calendar_mini");
 
 
 // Adds new event
@@ -437,7 +435,7 @@ export function RolyartCalendar(config){
 
 
 
-            num.type === 'not-current'?cell.classList.add('not-current'):cell.classList.add('current');
+            num.type === 'not-current'?cell.classList.add('not-current'):cell.classList.add('current', 'date_calendar_mini');
             if(num.id === this.YYYYmmdd(this.today)){
                 cell.classList.add('active');
                 cell.classList.add('selected');

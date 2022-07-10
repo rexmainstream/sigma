@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export default function Redo_complete_button(props) {
     if (props.redo === true) {
@@ -9,7 +12,7 @@ export default function Redo_complete_button(props) {
             title='Redo Step'
             onClick={props.redo_function}
             >
-                <i className='material-icons'>redo</i>
+                <FontAwesomeIcon icon = { faRedo } />
             </button>
         )
     } else {
@@ -20,7 +23,7 @@ export default function Redo_complete_button(props) {
             title='Complete Step'
             onClick={props.complete_function}
             >
-                <div className="checkmark"></div>
+                <FontAwesomeIcon icon = { faCheck } />
             </button>
 
         )
