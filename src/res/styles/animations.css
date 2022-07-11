@@ -163,6 +163,28 @@
 }
 
 
+@keyframes completed_bounce {
+    0%{
+        opacity: 0;
+        background-color: inherit;
+        transform: translateY(4rem);
+    }
+    33% {
+        transform: translateY(-2rem);
+        opacity: 0.5;
+    }
+
+    66% {
+        transform: translateY(1rem);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate(0%);
+        opacity: 0.5;
+    }
+}
+
 @keyframes shine {
     0% {
       background-position: right;    

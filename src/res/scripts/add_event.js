@@ -6,7 +6,7 @@ import { sort_events_alphabetically } from "./search_and_sort_events";
 import { string_validation } from "./data_validation";
 
 //Form for user input
-export function Event_form(current_selected_date, today, max_date) {
+export function Event_form(current_selected_date, today, max_date, create_function = false, input = []) {
     //form initialisation
     const form = document.createElement('div');
     const center = document.createElement('div');
@@ -88,19 +88,40 @@ export function Event_form(current_selected_date, today, max_date) {
     //Focus on element
     title.focus();
 
-
-    //Adds event listeners to form items
-    create_event_btn.addEventListener('click', (e) => {
-        if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'description')) {
-            Add_new_event(
-                e, 
-                title.value, 
-                description_input.value, 
-                priority.querySelector("input[name='priority']:checked").title,
-                due_date.value, false
-            );
+    if (create_function === false) {
+        //Adds event listeners to form items
+        create_event_btn.addEventListener('click', (e) => {
+            if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'description')) {
+                Add_new_event(
+                    e, 
+                    title.value, 
+                    description_input.value, 
+                    priority.querySelector("input[name='priority']:checked").title,
+                    due_date.value, false
+                );
+            }
+        })
+    } else {
+        create_event_btn.innerHTML = "Edit Event";
+        title.value = input[0];
+        if (input[1] !== 'This event has no description.') {
+            description_input.value = input[1];
         }
-    })
+        due_date.value = input[2];
+        document.querySelector(`[title =  '${input[3]}']`).checked = true;
+        create_event_btn.addEventListener('click', (e) => {
+            if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'description')) {
+                create_function(
+                    title.value, 
+                    description_input.value,
+                    priority.querySelector("input[name='priority']:checked").title,
+                    due_date.value
+                );
+                exit_modal(e);
+            }
+        })
+
+    }
 
 
     title.addEventListener('dblclick', select_all_input);

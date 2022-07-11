@@ -961,11 +961,59 @@ ul[class] {
 
 .event_group .event_item_full {
     opacity: 1;
-    transition: opacity 0.3s ease-in;
+    transition: opacity 0.5s ease-in;
 }
 
 .event_group.show_event_group {
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.5s;
+}
+
+.event_properties .event_property {
+    font-weight: bold;
+}
+
+.event_group .flex {
+    margin-block-end: 2rem;
+}
+
+
+.event_group .event_properties {
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 2rem;
+    width: 70%;
+}
+
+.event_group .flex .button_container {
+    width: 30%;
+    color: black;
+    display: flex;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 999px) {
+    .event_group .event_item_full .flex {
+        display: block;
+        width: 100%;
+    }
+
+    .event_group .event_properties {
+        width: calc(90% + 1rem);
+    }
+    .event_group .flex .button_container {
+        width: 100%;
+    }
+}
+
+.event_group .flex .button_container button {
+    color: black;
+}
+
+.event_group .event_properties div {
+    margin-block-end: 0.5rem;
+}
+
+.event_group .event_properties div span {
+    margin-inline-end: 0.75rem;
 }
 
 .event_group.hide_event_group {
@@ -974,7 +1022,7 @@ ul[class] {
 
 .event_group.hide_event_group .event_item_full {
     opacity: 0;
-    transition: opacity 0.3s ease-out;
+    transition: opacity 0.5s ease-out;
 }
 
 .vl {
@@ -1013,7 +1061,8 @@ ul[class] {
 .event_item_full.event_completed {
     opacity: 0.5;
     color: rgb(124,124,124);
-    animation: bounce 0.7s ease-in normal;
+    /* transition: opacity 0.5s ease-in; */
+    animation: completed_bounce 0.7s ease-in;
 }
 
 .event_item_full.event_completed .event_title {
@@ -1031,12 +1080,18 @@ ul[class] {
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 1rem;
     opacity: 0;
+    margin-block-start: 2rem;
     background-color: rgb(242,242,242);
     transition: max-height 0.5s ease-out 0.2s, opacity 0.3s ease-in;
 }
 
+
 .event_title {
     overflow: hidden;
+    white-space: nowrap;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    block-size: 3rem;
     text-overflow: ellipsis;
 }
 

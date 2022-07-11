@@ -520,7 +520,7 @@ export default class Full_calendar extends React.Component {
 // Requires a search query
 // Requires an order
 // Requires the recently changed value
-export function show_events( day_range, sort_function = false, timeline_generator = false, search_query = false, descending = false, changed_value = false) {
+export function show_events( day_range = current_time_range, sort_function = current_sort_option, timeline_generator = current_timeline_option, search_query = current_sort_option, descending = current_order, changed_value = false) {
     // Debug
     // console.log(day_range, sort_function);
 
@@ -567,6 +567,7 @@ export function show_events( day_range, sort_function = false, timeline_generato
 
                 for (let i = 0; i < day_events.length; i++) {
                     day_events[i].key = parseInt(`${date_to_key(day_events[i].due_date)}${i}`);
+                    day_events[i].order = i;
                     all_events.push(day_events[i]);
                 }
 
@@ -667,6 +668,7 @@ export function show_events( day_range, sort_function = false, timeline_generato
                             completed = { all_events[i].completed }
                             key = { all_events[i].key }
                             search = { current_search }
+                            order = { all_events[i].order }
                         />
                     )
                 }

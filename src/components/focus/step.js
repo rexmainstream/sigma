@@ -212,7 +212,7 @@ export default function Goal_step(props) {
                 redo={step_list[order - 1].completed}
                 complete_function = {(e) => {complete_step(e)}}
                 redo_function = {(e) => {redo_step(e)}}
-                />
+            />
             </span>
         </div>
         <hr></hr>

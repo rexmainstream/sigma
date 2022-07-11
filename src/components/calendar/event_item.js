@@ -191,7 +191,7 @@ export default function Event_item( props ) {
 
             // Opens the events stored in old key to remove event
 
-            // Opens a transaction
+            // Checks if keys are same
             if ( new_key !== key ) {
                 different_keys = true
             }
