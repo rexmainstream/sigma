@@ -242,7 +242,7 @@ export function change_step_value(current_order, completed, new_title, new_descr
 
     //Gets db length
     let database_length;
-    const open_request = window.indexedDB.open('student_file', 14);
+    const open_request = window.indexedDB.open('student_file', 15);
     open_request.addEventListener('error', () => {
         //Error prompt
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);

@@ -42,7 +42,7 @@ export default function Event_item( props ) {
     // requires the html location of event to be completed/redid as parameter
     function complete_redo_event(html_event) {
         // Opens database to find events on the day
-        const open_request = window.indexedDB.open('student_file', 14);
+        const open_request = window.indexedDB.open('student_file', 15);
 
         // If error or blocked
         open_request.addEventListener( 'error', () => {
@@ -154,7 +154,7 @@ export default function Event_item( props ) {
     // This function runs when user attempts to edit an event.
     // Somehow doesn't play animation properly
     function edit_event( new_title, new_desc, new_due_date, new_priority) {
-        const open_request = window.indexedDB.open('student_file', 14);
+        const open_request = window.indexedDB.open('student_file', 15);
 
 
         // If error or blocked
@@ -262,7 +262,7 @@ export default function Event_item( props ) {
 
     // This function runs when user deletes an event.
     function delete_event() {
-        const open_request = window.indexedDB.open('student_file', 14);
+        const open_request = window.indexedDB.open('student_file', 15);
 
         // For Debug
         // console.log(new_event);

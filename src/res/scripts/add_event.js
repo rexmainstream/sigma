@@ -6,7 +6,7 @@ import { sort_events_alphabetically } from "./search_and_sort_events";
 import { string_validation } from "./data_validation";
 
 //Form for user input
-export function Event_form(current_selected_date, today, max_date, create_function = false, input = []) {
+export function Event_form(current_selected_date, today, max_date, create_function = false, input = false) {
     //form initialisation
     const form = document.createElement('div');
     const center = document.createElement('div');
@@ -102,13 +102,15 @@ export function Event_form(current_selected_date, today, max_date, create_functi
             }
         })
     } else {
-        create_event_btn.innerHTML = "Edit Event";
-        title.value = input[0];
-        if (input[1] !== 'This event has no description.') {
-            description_input.value = input[1];
+        if (input !== false) {
+            create_event_btn.innerHTML = "Edit Event";
+            title.value = input[0];
+            if (input[1] !== 'This event has no description.') {
+                description_input.value = input[1];
+            }
+            due_date.value = input[2];
+            document.querySelector(`[title =  '${input[3]}']`).checked = true;
         }
-        due_date.value = input[2];
-        document.querySelector(`[title =  '${input[3]}']`).checked = true;
         create_event_btn.addEventListener('click', (e) => {
             if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'description')) {
                 create_function(
@@ -133,13 +135,14 @@ export function Event_form(current_selected_date, today, max_date, create_functi
 export function Add_new_event(e, title, description, priority, due_date) {
     const the_event = new Event_constructor(title, description, priority, due_date, false);
     const arr_events = [the_event, the_event];
-    const open_request = window.indexedDB.open("student_file", 14);
+    const open_request = window.indexedDB.open("student_file", 15);
 
     // The key of the index is the day which is unique
     const key = parseInt(due_date.replaceAll("-", ""));
 
     // Each day has an array of events
 
+    // Error messages
     open_request.addEventListener('blocked', () => {
         custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
     })
@@ -149,6 +152,7 @@ export function Add_new_event(e, title, description, priority, due_date) {
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
     })
 
+    // If request succeeds
     open_request.addEventListener('success', () => {
         const db = open_request.result;
         const stored_events = db.transaction(['events_list'], "readwrite").objectStore('events_list');

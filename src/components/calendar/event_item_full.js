@@ -125,7 +125,7 @@ export default function Event_item_full(props) {
 
     // Edit event 
     function edit_event(new_title, new_desc, new_priority, new_due_date) {
-        const open_request = window.indexedDB.open('student_file', 14);
+        const open_request = window.indexedDB.open('student_file', 15);
 
         // Error messages
         open_request.addEventListener('blocked', () => {
@@ -229,7 +229,7 @@ export default function Event_item_full(props) {
 
     // Delete event
     function delete_event() {
-        const open_request = window.indexedDB.open('student_file', 14);
+        const open_request = window.indexedDB.open('student_file', 15);
 
         // Error messages
         open_request.addEventListener('blocked', () => {
@@ -275,7 +275,7 @@ export default function Event_item_full(props) {
     // Complete event
     function complete_redo_event() {
         // Opens database to find events on the day
-        const open_request = window.indexedDB.open('student_file', 14);
+        const open_request = window.indexedDB.open('student_file', 15);
 
         // If error or blocked
         open_request.addEventListener( 'error', () => {
@@ -434,7 +434,7 @@ export default function Event_item_full(props) {
                             <span>{ due_date }</span>
                         </div>
                     </div>
-                    <div className='button_container'>
+                    <div className='button_container' id='no_print'>
                         <button 
                             className='icon_button'
                             aria-label = 'edit event button'
@@ -474,7 +474,7 @@ export default function Event_item_full(props) {
                 <div className = {show_description_class[0]}>
                     { description }
                 </div>
-                <div className ="button_container">
+                <div className ="button_container" id='no_print'>
                     <button 
                         title = {show_description_class[1]} 
                         className = "description_button"

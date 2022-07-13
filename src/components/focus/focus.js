@@ -241,7 +241,7 @@ export function initialise_focus() {
     window.scrollTo(0, 0);
     
     //Opens Database
-    const open_request = window.indexedDB.open('student_file', 14);
+    const open_request = window.indexedDB.open('student_file', 15);
     open_request.addEventListener('error', () => {
         custom_alert("Failed to load database", 'error', "Failed to load database.", false);
     });

@@ -2,21 +2,21 @@
 import React from "react";
 import ReactDOM  from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { RolyartCalendar, user_selected_date_full } from "./rolyart-calendar-full";
-import { faL, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardCheck, faPlus, faFilePdf, faSearch, faTrash, faRotate } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import ReactDropdown from "react-dropdown";
 import { convert_date_to_str, get_date } from "./rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert";
-import { bubble_sort_events_alphabetically, bubble_sort_events_priority } from "../../res/scripts/search_and_sort_events";
+import { bubble_sort_events_alphabetically, bubble_sort_events_priority, sort_events_alphabetically } from "../../res/scripts/search_and_sort_events";
 import Event_item_full from "./event_item_full";
 import { check_desktop } from "../../res/scripts/check_mobile";
-// import { return_current, show_events } from "./calendar_full";
-import {  getMonthFromString } from "./rolyart-calendar";
+import { Event_constructor, Event_form } from "../../res/scripts/add_event";
 import { date_to_key } from "./date_to_key";
-import { CtxMenu } from "../../res/scripts/ctxmenu";
+import Print_event_item from "./print_event";
+import { ordinal_suffix_of } from "../../res/scripts/suffix";
+
 
 
 
@@ -26,44 +26,11 @@ let current_sort_option;
 let current_timeline_option;
 let current_search;
 let current_order;
+let current_completed = 'Both';
 // let timeoutID = 0
 let time_out;
 let calendar;
 
-
-// Context menu for calendar
-const ctx_menu_calendar = CtxMenu(".date_calendar_full");
-
-ctx_menu_calendar.addItem('Add Event', () => {
-
-})
-
-ctx_menu_calendar.addItem('Show Events', () => {
-
-})
-
-ctx_menu_calendar.addItem('Complete All', () => {
-
-})
-
-ctx_menu_calendar.addItem('Remove All', () => {
-
-})
-
-// Context menu for event
-const ctx_menu_event = CtxMenu(".date_calendar_full");
-
-ctx_menu_event.addItem('Edit Event', () => {
-
-})
-
-ctx_menu_event.addItem('Delete Event', () => {
-
-})
-
-ctx_menu_event.addItem('Complete Event', () => {
-
-})
 
 
 export default class Full_calendar extends React.Component {
@@ -146,7 +113,396 @@ export default class Full_calendar extends React.Component {
 
         }
 
+        // This function adds the new event and then shows the events
+        function add_new_event_full(title, desc, priority, due_date) {
+            // Debugging output statement
+            // console.log(title, desc, priority, due_date);
 
+            // Request to open database
+            const open_request = window.indexedDB.open('student_file', 15);
+
+            // Error messages
+            open_request.addEventListener('blocked', () => {
+                custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
+            })
+            
+
+            open_request.addEventListener('error', () => {
+                custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+            })
+
+            open_request.addEventListener('success', () => {
+                // Database equals to result
+                const db = open_request.result;
+                const event_key = date_to_key(due_date);
+                const the_event = new Event_constructor(title, desc, priority, due_date, false)
+
+                // Gets stored events
+                const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
+
+                const get_events_today = stored_events.get(event_key);
+
+                get_events_today.addEventListener('success', () => {
+                    // Events today is the result
+                    const events_today = get_events_today.result;
+       
+                    // If no current events just adds the event to the index
+                    // If current events exist then adds sorted array
+                    if (events_today !== undefined && events_today !== null) {
+        
+                        sort_events_alphabetically(events_today, the_event);
+            
+                        
+                        // Then adds sorted array to the day
+                        stored_events.put(events_today, event_key);
+                    } else {
+                        stored_events.put([the_event], event_key);
+                    }
+
+                    show_events(
+                        current_time_range,
+                        current_sort_option,
+                        current_timeline_option,
+                        current_search,
+                        current_order,
+                        'search value'
+                    );
+                })
+            })
+        }
+
+        function toMonthName(monthNumber) {
+            const date = new Date();
+            date.setMonth(monthNumber - 1);
+          
+            // 👇️ using visitor's default locale
+            return date.toLocaleString([], {
+              month: 'long',
+            });
+          }
+          
+
+        // Print events routine
+        function print_all_events() {
+            const start_key = date_to_key(get_date().today);
+            const end_key = date_to_key(get_date().max_date);
+
+            const key_range = IDBKeyRange.bound(start_key, end_key);
+
+            // Request to open database
+            const open_request = window.indexedDB.open('student_file', 15);
+
+            // Error messages
+            open_request.addEventListener('blocked', () => {
+                custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
+            })
+            
+
+            open_request.addEventListener('error', () => {
+                custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+            })
+            
+            open_request.addEventListener('success', () => {
+                // Lets database equal result
+                const db = open_request.result;
+                const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
+
+                let current_month = get_date().month;
+                const sorted_events_by_date = [];
+                let current_month_events = []
+                const get_all_events = stored_events.openCursor(key_range).addEventListener('success', (e) => {
+                    const cursor = e.target.result;
+                    
+                    if (cursor) {
+                        // Gets the days events and the events on the month
+                        const days_events = cursor.value;
+                        const event_month = get_date(new Date(days_events[0].due_date)).month
+
+                        // If events month is the same as current month it pushes it to the array
+                        if (event_month === current_month) {
+                            bubble_sort_events_priority(days_events)
+                            const current_day_events = [];
+                            for (const an_event of days_events) {
+                                if (an_event.completed === false) {
+                                    current_day_events.push(an_event);
+                                }
+                            }
+                            current_month_events.push(current_day_events)
+                        } else {
+                            // If current month events exceed zero, pushes it to the sorted events list
+                            if (current_month_events.length > 0) {
+                                sorted_events_by_date.push(
+                                    {
+                                        all_events_on_month: current_month_events,
+                                        month: current_month
+                                    }
+                                )
+                            }
+                            current_month = event_month;
+                            current_month_events = [];
+
+                            bubble_sort_events_priority(days_events)
+                            // Pushes events to next events arry in next month
+                            const current_day_events = [];
+                            for (const an_event of days_events) {
+                                if (an_event.completed === false) {
+                                    current_day_events.push(an_event);
+                                }
+                            }
+                            current_month_events.push(current_day_events)
+                        }
+                        cursor.continue();
+                    } else {
+                        const print_output = [];
+
+
+                        if (current_month_events.length > 0) {
+                            // Array of records
+                            sorted_events_by_date.push(
+                                {
+                                    all_events_on_month: current_month_events,
+                                    month: current_month
+                                }
+                            )
+                        }
+
+                        // Frontend, pushes the events into components
+                        let counter = 0;
+                        for (const event_month of sorted_events_by_date) {
+                            // Events are grouped
+                            const event_group = [];
+
+
+                            for (const events_on_day of event_month.all_events_on_month) {
+                                // Debug
+                                // console.log(an_event)
+                                // console.log(events_on_day)
+
+                                let current_day
+                                const event_day = [];
+                                for (const an_event of events_on_day) {
+                                    current_day = an_event.due_date;                    
+                                    event_day.push(
+                                        <Print_event_item 
+                                            event_title = { an_event.title }
+                                            due_date = { an_event.due_date }
+                                            priority = { an_event.priority }
+                                            key = { counter }
+                                        />
+                                    )
+                                    counter++
+                                }
+                                event_group.push(
+                                    <div className="day_divider">{ordinal_suffix_of(parseInt(current_day.split('-')[2]))}</div>, event_day
+                                )
+                            }
+
+
+                            // Debug
+                            // console.log(event_group)
+                            print_output.push(
+                                <div className="print_event_group">
+                                    <div className="print_month">
+                                        {/* Month Name */}
+                                        {`${toMonthName(event_month.month)} ${new Date(event_month.all_events_on_month[0][0].due_date).getFullYear()}`}
+                                    </div>
+                                    {/* Group of events */}
+                                    { event_group }
+                                </div>
+                            )
+
+                        }
+
+                        // Renders elements
+                        ReactDOM.render(
+                            print_output,
+                            document.getElementById('print_iframe')
+                        )
+
+                        // Debug
+                        // console.log(sorted_events_by_date)
+
+                        // Print dialog
+                        window.print();
+                    }
+                })
+            })
+        }
+
+        // completes all events shown
+        function complete_redo_all_events(start_date = get_date().today, end_date = get_date().max_date, complete_all = true, search = false) {
+            // Debug
+            // console.log(start_date, end_date, search);
+
+            const start_key = date_to_key(start_date);
+            const end_key = date_to_key(end_date);
+
+
+            const key_range = IDBKeyRange.bound(start_key, end_key);
+
+            // Request to open database
+            const open_request = window.indexedDB.open('student_file', 15);
+
+            // Error messages
+            open_request.addEventListener('blocked', () => {
+                custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
+            })
+            
+
+            open_request.addEventListener('error', () => {
+                custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+            })
+            
+            open_request.addEventListener('success', () => {
+                // Lets database equal result
+                const db = open_request.result;
+                const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
+
+                // Opens a cursor to cycle all events in the key range
+                stored_events.openCursor(key_range).addEventListener('success', (e) => {
+                    const cursor = e.target.result;
+
+                    if (cursor) {
+                        const days_events = cursor.value;
+
+                        // Debug
+                        // console.log(days_events)
+
+                        for (const an_event of days_events) {
+                            if (search !== false) {
+                                if (an_event.description.toLowerCase().includes(search.toLowerCase())
+
+                                || 
+                                
+                                an_event.title.toLowerCase().includes(search.toLowerCase())) 
+                            
+                                {
+                                    an_event.completed = complete_all;
+                                }
+                            } else {
+                                an_event.completed = complete_all;
+                            }
+                        }
+
+                        // Pushes completed events to array
+                        stored_events.put(
+                            days_events,
+                            cursor.key
+                        )
+
+                        // Moves to next day
+                        cursor.continue()
+                    } else {
+                        // If no more keys left in the key range
+
+
+                        // Debug
+                        // console.log('finished')
+
+
+                        show_events(
+                            current_time_range,
+                            current_sort_option,
+                            current_timeline_option,
+                            current_search,
+                            current_order,
+                            'time range'
+                        );
+                    }
+                })
+            })
+        }
+
+        function delete_all_events() {
+            const start_key = date_to_key(current_time_range[0]);
+            const end_key = date_to_key(current_time_range[1]);
+
+            const key_range = IDBKeyRange.bound(start_key, end_key);
+
+            // Request to open database
+            const open_request = window.indexedDB.open('student_file', 15);
+
+            // Error messages
+            open_request.addEventListener('blocked', () => {
+                custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
+            })
+            
+
+            open_request.addEventListener('error', () => {
+                custom_alert("Failed to load database", 'error', "Failed to load database.", false);
+            })
+            
+            open_request.addEventListener('success', () => {
+                // Lets database equal result
+                const db = open_request.result;
+                const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
+
+                // Opens a cursor to cycle all events in the key range
+                stored_events.openCursor(key_range).addEventListener('success', (e) => {
+                    const cursor = e.target.result;
+
+                    if (cursor) {
+                        // Debug
+                        // console.log(days_events)
+
+                        // If there is a search then it looks for the searchword 
+                        // in the description or in the title
+                        if (current_search !== false) {
+                            const days_events = cursor.value;
+                            const left_events = [];
+
+                            for (const an_event of days_events) {
+                                if (an_event.description.toLowerCase().includes(current_search.toLowerCase())
+
+                                || 
+                                
+                                an_event.title.toLowerCase().includes(current_search.toLowerCase())) 
+                            
+                                {
+                                } else {
+                                    left_events.push(an_event);
+                                }
+                            }
+
+                            // If there is no events then deletes the events in the key
+                            if (left_events.length !== 0) {
+                                // Pushes completed events to array
+                                stored_events.put(
+                                    left_events,
+                                    cursor.key
+                                )
+                            } else {
+                                stored_events.delete(cursor.key);
+                            }
+                            
+
+                        } else {
+                            stored_events.delete(cursor.key);
+                        }
+
+                        // Moves to next day
+                        cursor.continue()
+                    } else {
+                        // If no more keys left in the key range
+
+
+                        // Debug
+                        // console.log('finished')
+
+
+                        show_events(
+                            current_time_range,
+                            current_sort_option,
+                            current_timeline_option,
+                            current_search,
+                            current_order,
+                            'time range'
+                        );
+                    }
+                })
+            })
+
+        }
 
         return (
             <div>
@@ -433,8 +789,23 @@ export default class Full_calendar extends React.Component {
                             ariaLabel = 'drop down for completed'
                             value = { completed_options[0] }
                             onChange = {
-                                () => {
-                                    
+                                (e) => {
+                                    if (e.label === 'Completed') {
+                                        current_completed = true;
+                                    } else if (e.label === 'Incomplete') {
+                                        current_completed = false;
+                                    } else {
+                                        current_completed = e.label;
+
+                                    }
+                                    show_events(
+                                        current_time_range,
+                                        current_sort_option,
+                                        current_timeline_option,
+                                        current_search,
+                                        current_order,
+                                        'time range'
+                                    )
                                 }
                             }
 
@@ -496,9 +867,94 @@ export default class Full_calendar extends React.Component {
                             }                       
                         />
                     </div>
-                    <div id = "calendar_container">
+                    <div id = 'calendar_function_container'>
+                        <div id = "calendar_container">
+                        </div>
+                        <div className="icon_button_container">
+                            <button 
+                                className="icon_button"
+                                title="Add New Event"
+                                aria-label = "add new event button"
+                                onClick={() => {
+                                    // Opens an event form
+                                    Event_form(
+                                        get_date().today, 
+                                        get_date().today, 
+                                        get_date().max_date, 
+
+                                        // When clicks create adds new event
+                                        function(title, desc, priority, due_date) {
+                                            add_new_event_full(title, desc, priority, due_date)
+                                        }, false
+                                    )
+                                }}
+                            >
+                                <FontAwesomeIcon icon = { faPlus } />
+                            </button>
+                            <button
+                                className="icon_button"
+                                title = {`Complete All Events Shown`}
+                                aria-label = 'complete all shown events button'
+
+                                onClick={() => {
+                                    complete_redo_all_events(current_time_range[0], current_time_range[1], true, current_search)
+                                }}
+                            >
+                                <FontAwesomeIcon icon = {faClipboardCheck}/>
+                            </button>
+                            <button
+                                className = "icon_button"
+                                title = 'Redo All Events Shown'
+                                aria-label = "redo all events shown button"
+                                onClick = {
+                                    () => {
+                                        complete_redo_all_events(current_time_range[0], current_time_range[1], false, current_search)
+ 
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = {faRotate} />
+                            </button>
+                            <button
+                                className = "icon_button"
+                                title="Download PDF file"
+                                aria-label="download pdf file button"
+                                onClick={
+                                    () => {
+                                        print_all_events();
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = { faFilePdf } />
+                            </button>
+                            <button
+                                className="icon_button"
+                                title = {`Delete All Events Show`}
+                                aria-label = 'delete all events shown button'
+                                onClick={
+                                    () => {
+                                        custom_alert(
+                                            'Delete all events',
+                                            'warning_yes_no',
+                                            'Are you sure you want to delete these events? This action cannot be undone.',
+                                            function() {
+                                                delete_all_events();
+                                            }, 
+                                            
+                                            function() {
+
+                                            }
+                                        )
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = {faTrash}/>
+                            </button>
+                        </div>
+
 
                     </div>
+
                     <div id = "full_events">
                         <div id = "events_box">              
 
@@ -506,6 +962,11 @@ export default class Full_calendar extends React.Component {
 
                         </div>  
                     </div>
+                </div>
+                <div
+                    id="print_iframe"
+                >
+
                 </div>
 
             </div>
@@ -520,7 +981,7 @@ export default class Full_calendar extends React.Component {
 // Requires a search query
 // Requires an order
 // Requires the recently changed value
-export function show_events( day_range = current_time_range, sort_function = current_sort_option, timeline_generator = current_timeline_option, search_query = current_sort_option, descending = current_order, changed_value = false) {
+export function show_events( day_range = current_time_range, sort_function = current_sort_option, timeline_generator = current_timeline_option, search_query = current_sort_option, descending = current_order, changed_value = false, completed = current_completed) {
     // Debug
     // console.log(day_range, sort_function);
 
@@ -535,7 +996,7 @@ export function show_events( day_range = current_time_range, sort_function = cur
     // Debug
     // console.log(start_key, end_key);
 
-    const open_request = window.indexedDB.open('student_file', 14);
+    const open_request = window.indexedDB.open('student_file', 15);
 
     // Error messages
     open_request.addEventListener('blocked', () => {
@@ -609,9 +1070,21 @@ export function show_events( day_range = current_time_range, sort_function = cur
 
                             temp_events.push(all_events[i]);
                         }
+                        
                     }
                     all_events = temp_events;
                 }
+                // If completed 
+                if (completed !== 'Both') {
+                    let temp_events = []
+                    for (const an_event of all_events) {
+                        if (an_event.completed === completed) {
+                            temp_events.push(an_event)
+                        }
+                    }
+                    all_events = temp_events;
+                }
+
 
 
 
@@ -728,7 +1201,13 @@ function initialise_full_calendar() {
     current_order = false;
     current_timeline_option = false;
 
-    show_events( current_time_range, current_sort_option, current_timeline_option, current_search, current_order, false);
+    const open_request = window.indexedDB.open('student_file', 15)
+    
+    open_request.addEventListener('success', () => {
+        remove_overdue_events(open_request.result)
+    })
+
+    // show_events( current_time_range, current_sort_option, current_timeline_option, current_search, current_order, false);
 }
 
 // Gets the months day range for show_events function
@@ -751,7 +1230,127 @@ export function get_month_day_range(date = new Date()) {
 
 }
 
+// Removes overdue events
+function remove_overdue_events(db) {
 
+    // Debug
+    // console.log('remove_overdue_events is run!')
+    // Gets todays key
+    const today_key = date_to_key(get_date().today)
+    
+    // Overdue keys is and indexedDB keyrange
+    const overdue_keys = IDBKeyRange.upperBound(today_key, true);
+
+    // Gets the stored events
+    const stored_events = db.transaction(['events_list'], "readwrite").objectStore( 'events_list' );
+
+    // Incomplete events is an array
+    const incomplete_events = [];
+
+    stored_events.openCursor(overdue_keys).addEventListener('success', (e) => {
+        const cursor = e.target.result;
+
+
+        if ( cursor ) {
+
+            // Gets todays events
+            const today_events = cursor.value;
+
+
+            // Finds incomplete events
+            for (let i = 0; i < today_events.length; i++) {
+
+                if ( today_events[i].completed === false ) {
+                    // Sets it to today's date
+                    today_events[i].due_date = get_date().today;
+
+
+                    incomplete_events.push( today_events[i] );
+                }
+
+            }
+            
+
+
+            // Moves to next days events
+            cursor.continue();
+        } else {
+
+            // Debug
+            // console.log(incomplete_events);
+
+            if (incomplete_events.length > 0) {
+                custom_alert(
+                    'Incomplete events',
+                    "warning_yes_no",
+                    `You have ${ incomplete_events.length } events that are incomplete. Add them to today?`,
+
+                    // Adds incomplete events to today
+                    () => {
+                        const stored_events = db.transaction(['events_list'], "readwrite").objectStore( 'events_list' );
+                        const get_today_events = stored_events.get( today_key );
+
+                        get_today_events.addEventListener('success', () => {
+                            let todays_events = get_today_events.result;
+
+
+                            // Adds the incomplete events to the today events array
+                            for ( let i = 0; i < incomplete_events.length; i++ ) {
+                                
+                                if ( todays_events === null || todays_events === undefined ) {
+
+                                    // If no events today just sets todays events to the first index
+                                    todays_events = [ incomplete_events[i] ];
+                                } else {
+
+                                    // Insertion sorts the array
+                                    sort_events_alphabetically( todays_events, incomplete_events[i] );
+                                }
+                            }
+
+                            // Deletes overdue events
+                            stored_events.delete( overdue_keys )
+
+                            console.log(todays_events)
+                            // Puts new today's events plus new events to today
+                            stored_events.put( todays_events, today_key );
+
+
+
+                            // Closes database
+                            db.close()
+
+
+                            // Then shows the events today
+                            show_events();
+                        })
+
+
+
+
+                    },
+
+                    // Doesn't do anything
+                    () => {
+                        show_events();
+                    }
+
+                )
+                    
+            } else {
+                
+                // If no incomplete events just shows events today
+                show_events()
+            }
+
+
+            // Finished reading events
+            // console.log('finished reading events');
+        }
+    })
+
+
+}
 
 //External library that draws the calendar. https://www.cssscript.com/es6-calendar-rolyart/
 export function RolyartCalendar(config){
@@ -858,19 +1457,13 @@ export function RolyartCalendar(config){
         monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         
         prevMonth.innerHTML = '&#8249;';
-        prevMonth.className = 'slide_button show';
+        prevMonth.className = 'slide_button';
         prevMonth.ariaLabel = `previous month`;
         prevMonth.title = `Previous Month`;
         prevMonth.addEventListener('click', ()=>{
             this.prevMonth();
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
-            // if (selected_month === get_date().month && selected_year == get_date().year) {
 
-            // } else {
-                // console.log('hello')
-
-                // document.getElementById('calendar_container').querySelector('.current').classList.add('selected')
-            // }
             let animation = 'time range'
             if (current_time_range[2])
             // Shows the events on the day
@@ -909,7 +1502,7 @@ export function RolyartCalendar(config){
         })
 
         nextMonth.innerHTML = '&#8250;'
-        nextMonth.className = `slide_button show`
+        nextMonth.className = `slide_button`
         nextMonth.ariaLabel = `next month`;
         nextMonth.title = `Next Month`;
         nextMonth.addEventListener('click', () => {
@@ -1002,6 +1595,11 @@ export function RolyartCalendar(config){
         }
 
        currentMonth.classList.add('control-current-month');
+
+        if (this.currentMonth === parseInt(get_date().month) - 1) {
+            prevMonth.style.opacity = '0.2';
+            prevMonth.style.pointerEvents = 'none';
+        }
         
        header.appendChild(prevMonth)
        header.appendChild(monthAndYear)
@@ -1010,228 +1608,12 @@ export function RolyartCalendar(config){
         this.container.appendChild(header);
         this.container.appendChild(weekDays);
     }
-    
-    // this.calendarBody = (year, month)=>{
-    //     year = this.currentYear;
-    //     month = this.currentMonth;
-    //     let date = new Date(year, month+1, 0);
-    //     let daysPrevMonth = this.getPrevDays(date);
-    //     let daysThisMonth = this.getCurrentDays(date);
-    //     let daysNextMonth = this.getNextDays(daysPrevMonth, daysThisMonth);
-    //     let calendarBody = document.createElement('div');
-    //     calendarBody.classList.add('calendar-body');
-    //     [...daysPrevMonth, ...daysThisMonth, ...daysNextMonth]
-    //     .forEach(num=>{
-    //         let cell = document.createElement('div');
-    //         cell.setAttribute('id', num.id);
-    //         cell.classList.add('day');
-    //         let day = document.createElement('span');
-            
-    //         day.innerHTML = num.date;
-    //         cell.appendChild(day);
-    //         cell.addEventListener('mousedown', (e)=>{
-    //             this.selected = num.id;         
-    //             let selected = [].slice.call(document.getElementsByClassName("selected"));
-
-    //             if (selected.includes(e.currentTarget) === false) {
-
-    //                 // Prevents user from selected greyed out tiles
-    //                 if (cell.classList.contains('not-current') === false) {
-    //                     if (selected.length > 0) { 
-    //                         selected[0].className = selected[0].className.replace(" selected", "");
-    //                     }         
-    //                     cell.className += " selected";
-
-    //                     // Gets the current time range value stored in the select
-
-    //                     // debug
-    //                     // console.log(current_time_range[2]);
-
-    //                     // Gets the current time range
-    //                     switch (current_time_range[2]) {
-    //                         // If a month sets the current month to the start of the month
-    //                         case 'month':
-    //                             // gets the current month
-    //                             const current_month = new Date(`${user_selected_date_full().selected_year}-${user_selected_date_full().selected_month}-01`)
-                                
-    //                             // Lets the current time range into the month range
-    //                             current_time_range = get_month_day_range(current_month);
-
-
-    //                             break;
-    //                         case 'day':
-    //                             // If day sets the current time range to the single day
-    //                             current_time_range = [
-    //                                 user_selected_date_full().selected_date,
-    //                                 user_selected_date_full().selected_date,
-    //                                 'day'
-    //                             ];
-
-    //                             break;
-    //                         case 'all':
-    //                             // sets the current time range to the selected date and max date
-    //                             current_time_range = [
-    //                                 user_selected_date_full().selected_date,
-    //                                 get_date().max_date,
-    //                                 'all'
-    //                             ]
-                                
-    //                             break;
-    //                     }
-
-
-
-    //                     // current_time_range = [user_selected_date_full().selected_date, user_selected_date_full().selected_date]
-    //                     // console.log(user_selected_date_full())
-
-    //                     // Shows the event
-    //                     show_events(
-    //                         current_time_range, 
-    //                         current_sort_option, 
-    //                         current_timeline_option, 
-    //                         current_search, 
-    //                         current_order,
-    //                         'time range'
-    //                     )
-    //                 }
-    //             }
-    //         });
-
-    //         cell.addEventListener('touchstart', (e)=>{
-    //             this.selected = num.id;         
-    //             let selected = [].slice.call(document.getElementsByClassName("selected"));
-
-    //             if (selected.includes(e.currentTarget) === false) {
-    //                 if (selected.length > 0) { 
-    //                     selected[0].className = selected[0].className.replace(" selected", "");
-    //                 }         
-    //                 cell.className += " selected";
-
-    //             }
-    //         });
-
-    //         //Click and holding on a calendar cell will open up event creation form
-    //         cell.addEventListener('mousedown', (e)=>{
-    //             let selected_day = parseInt(document.querySelector('.selected').querySelector("span").textContent);
-    //             let selected_month = this.currentMonth + 1;
-    //             const selected_year = this.currentYear;
-    //             const current_date = new Date();
-    //             const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
-    //             const today = get_date().today;
-    //             const max_date = get_date().max_date;
-
-    //             //Prevents user from selected greyed out tiles
-    //             if (e.currentTarget.classList.contains('not-current') === false) {
-    //                 //Click and hold event
-    //                 timeoutID = setTimeout(function() {
-
-    //                     //Adds zero in front if one digit
-    //                     if (selected_month.toString().length === 1) {
-    //                         selected_month = `0${selected_month}`;
-    //                     }
-        
-    //                     if (selected_day.toString().length === 1) {
-    //                         selected_day = `0${selected_day}`;
-    //                     }
-        
-    //                     //Data Validation, can't select previous days
-    //                     if (selected_date < current_date) {
-    //                         custom_alert('Please select a valid date','warning',`You cannot add events to previous days.`);
-    //                     } else if (`${selected_year}-${selected_month}-${selected_day}`> max_date){
-    //                         custom_alert('Please select a valid date', 'warning', 'Please select a due date within 10 years from today.')
-    //                     } else {
-    //                         // console.log(selected_date - current_date)
-    //                         //Opens an event form with the current date already entered
-    //                         Event_form(`${selected_year}-${selected_month}-${selected_day}`, today, max_date);
-    //                     }
-    //                     //Event_form(`${selected_year}-${selected_month}-${selected_day}`, today, max_date);
-    //                 }, 350);
-    //         }
-
-    //         });
-
-    //         //for mobile, same function
-    //         cell.addEventListener('touchstart', (e)=>{
-    //             let selected_day = parseInt(document.querySelector('.selected').textContent);
-    //             let selected_month = this.currentMonth + 1;
-    //             const selected_year = this.currentYear;
-    //             const current_date = new Date();
-    //             const selected_date = new Date(`${selected_year}-${selected_month}-${String(selected_day+1)}`);
-    //             const today = get_date().today;
-    //             const max_date = get_date().max_date;
-    //             //Prevents user from selected greyed out tiles
-    //             if (e.currentTarget.classList.contains('not-current') === false) {
-    //                 timeoutID = setTimeout(function(){
-
-    //                     //Adds zero in front if one digit
-    //                     if (selected_month.toString().length === 1) {
-    //                         selected_month = `0${selected_month}`;
-    //                     }
-        
-    //                     if (selected_day.toString().length === 1) {
-    //                         selected_day = `0${selected_day}`;
-    //                     }
-        
-    //                     //Data validation, cant select previous days
-    //                     if (selected_date < current_date) {
-    //                         custom_alert('Please select a valid date','warning',`You cannot add events to previous days.`);
-    //                     } else if (`${selected_year}-${selected_month}-${selected_day}`> max_date){
-    //                         custom_alert('Please select a valid date', 'warning', 'Please select a due date within 10 years from today.')
-    //                     } else {
-
-    //                         //Opens an event form with the current date already entered
-    //                         Event_form(`${selected_year}-${selected_month}-${selected_day}`, today, max_date);
-    //                     }
-    //                 }, 350);
-    //         }
-
-    //         });
-
-    //         cell.addEventListener('contextmenu', (e) => {
-    //             e.preventDefault();
-
-    //             const selected_date = new Date(user_selected_date_full().selected_date);
-    //             const current_date = new Date(`${get_date().year}-${get_date().month}-${parseInt(get_date().day)}`);
-
-    //             // Blocks context menu if invalid date
-    //             if (selected_date < current_date) {
-    //                 // Blocks context menu if the date is not valid
-    //                 CtxMenuBlock(e.target);
-    //             }         
-
-    //             return false;
-    //         }, false)
-
-    //         //If the user stops holding clears the timeout
-    //         cell.addEventListener('mouseup', () => {
-    //             clearTimeout(timeoutID);
-    //         })
-
-    //         //For mobile
-    //         cell.addEventListener('touchend', () => {
-    //             clearTimeout(timeoutID);
-    //         })
-
-    //         cell.addEventListener('mouseleave', () => {
-    //             clearTimeout(timeoutID);
-    //         })
-
-
-
-    //         num.type === 'not-current'?cell.classList.add('not-current'):cell.classList.add('current', 'date_calendar_full');
-    //         if(num.id === this.YYYYmmdd(this.today)){
-    //             cell.classList.add('active');
-    //             cell.classList.add('selected');
-    //         }
-    //         calendarBody.appendChild(cell);
-    //     })
-    //     this.container.appendChild(calendarBody);
-    // }
 
     this.showCalendar = (year, month)=>{
         this.container.innerHTML = '';
         this.calendarHeader();
         // this.calendarBody(year, month);
+        
     }
 
     this.showCalendar(this.currentYear, this.currentMonth);

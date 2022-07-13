@@ -29,7 +29,7 @@ ctx_menu_event.addItem('Add Event', () => {
 
 // Completes all event on this day
 ctx_menu_event.addItem('Complete All', () => {
-    const open_request = window.indexedDB.open('student_file', 14);
+    const open_request = window.indexedDB.open('student_file', 15);
 
     // Failed to open database messages
 
@@ -80,7 +80,7 @@ ctx_menu_event.addItem('Complete All', () => {
 
 // Removes all events on this day
 ctx_menu_event.addItem('Remove All', () => {
-    const open_request = window.indexedDB.open('student_file', 14);
+    const open_request = window.indexedDB.open('student_file', 15);
 
     // Failed to open database messages
 
@@ -458,7 +458,7 @@ export function RolyartCalendar(config){
 // Shows events on the selected date.
 // Errors with the frontend in this algorithm
 export function show_events_today(date, add_event) {
-    const open_request = window.indexedDB.open("student_file", 14);
+    const open_request = window.indexedDB.open("student_file", 15);
     const events_container = document.querySelector('#events_container')
     const event_items = events_container.querySelectorAll('li');
 
@@ -698,15 +698,12 @@ export function convert_date_to_str(date) {
 }
 
 //Gets the current date and returns it in the form of string data type
-export function get_date() {
+export function get_date(date = new Date) {
 
-    let today = new Date;
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
-    
-    const date = {
+    let dd = String(date.getDate()).padStart(2, '0');
+    let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = date.getFullYear();    
+    const return_date = {
         day: dd,
         month: mm,
         year: yyyy,
@@ -717,6 +714,5 @@ export function get_date() {
         // Max date is 10 years 
         max_date: `${yyyy+10}-${mm}-${dd}`
     }
-
-    return date;
+    return return_date;
 }

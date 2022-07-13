@@ -3,6 +3,7 @@ import { get_date, RolyartCalendar, show_events_today } from "../../components/c
 import { custom_alert } from "../../res/scripts/add_alert";
 import { sort_events_alphabetically } from "../../res/scripts/search_and_sort_events";
 import { Event_constructor } from "../../res/scripts/add_event";
+import { date_to_key } from "../calendar/date_to_key";
 
 //got_database flag to stop getting database after already executed
 let got_database = false;
@@ -47,7 +48,7 @@ export function initialise_calendar() {
     //checks if their are any events
 
     let db;
-    const open_request = window.indexedDB.open('student_file', 14);
+    const open_request = window.indexedDB.open('student_file', 15);
     //removes overdue events
 
     open_request.addEventListener('blocked', () => {
@@ -92,8 +93,6 @@ export function initialise_calendar() {
     open_request.addEventListener('success', () => {
         // For testing purposes
         // test_driver_event_db(open_request.result);
-
-
         remove_overdue_events(open_request.result);
     })
 }
@@ -105,12 +104,11 @@ function remove_overdue_events( db ) {
 
     // Debug
     // console.log('remove_overdue_events is run!')
-
     // Gets todays key
-    const today_key = parseInt(get_date().today.replaceAll('-', ""));
+    const today_key = date_to_key(get_date().today)
     
     // Overdue keys is and indexedDB keyrange
-    const overdue_keys = IDBKeyRange.upperBound(today_key, true)
+    const overdue_keys = IDBKeyRange.upperBound(today_key, true);
 
     // Gets the stored events
     const stored_events = db.transaction(['events_list'], "readwrite").objectStore( 'events_list' );
