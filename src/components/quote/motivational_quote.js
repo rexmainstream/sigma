@@ -1,11 +1,13 @@
 import React from "react";
-import Vara from "../../res/scripts/vara.js"
+import {Vara} from "../../res/scripts/vara.js"
 import { get_date } from "../calendar/rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert.js";
 import { faTwitter } from "@fortawesome/fontawesome-free-brands";
 import { faWikipediaW } from "@fortawesome/fontawesome-free-brands"
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const SatisfySL = require('./SatisfySL.json')
 
 
 // This function gets the quote
@@ -45,11 +47,11 @@ function Write_quote_author(today_quote) {
     const tweet_string = `"${today_quote['the_quote'].replace(/ /g, '%20')}"%0a%0a%23${today_quote['quote_author'].replace(/ /g, '').replaceAll('.',"")}%20%23quotes`;
     //console.log(written_quote.length);
     let text_size = 25;
-    
+
     if (window.screen.width < 1000) {
         text_size = 50;
     }
-    new Vara("#container", "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json", [{
+    new Vara("#container", SatisfySL, [{
         text: written_quote,
         y: text_size,
         delay: 200,

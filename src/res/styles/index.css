@@ -20,7 +20,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100vw;
-    min-height: 90vh;
+    min-height: 100vh;
 }
 
 header {
@@ -981,23 +981,23 @@ ul[class] {
     line-height: 2.5rem;
     height: 4rem;
     width: 4rem;
-    animation: span 0.3s ease-in 0.1s backwards;
+    animation: span 0.4s ease-in 0.1s backwards;
 }
 
 #calendar_function_container .icon_button_container .icon_button:nth-child(2) {
-    animation: span 0.3s ease-in 0.3s backwards;
+    animation: span 0.4s ease-in 0.3s backwards;
 }
 
 #calendar_function_container .icon_button_container .icon_button:nth-child(3) {
-    animation: span 0.3s ease-in 0.5s backwards;
+    animation: span 0.4s ease-in 0.5s backwards;
 }
 
 #calendar_function_container .icon_button_container .icon_button:nth-child(4) {
-    animation: span 0.3s ease-in 0.7s backwards;
+    animation: span 0.4s ease-in 0.7s backwards;
 }
 
 #calendar_function_container .icon_button_container .icon_button:nth-child(5) {
-    animation: span 0.3s ease-in 0.9s backwards;
+    animation: span 0.4s ease-in 0.9s backwards;
 }
 
 
@@ -1399,6 +1399,14 @@ ul[class] {
     margin-inline-end: 1rem;
 }
 
+.quote .button_container .icon_button:nth-child(2){
+    animation-delay: 0.2s;
+    animation-fill-mode: backwards;
+}
+.quote .button_container .icon_button:nth-child(3){
+    animation-delay: 0.4s;
+    animation-fill-mode: backwards;
+}
 .twitter {
     display: inline;
     block-size: 3rem;
@@ -2231,7 +2239,7 @@ button {
     background-color: white;
     min-block-size: 5rem;
     border-radius: 1rem;
-    max-height: 75vh;
+    max-height: 80vh;
     overflow-y: auto;
     overflow-x: hidden;
 }

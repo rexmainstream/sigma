@@ -72,9 +72,6 @@ export default class Full_calendar extends React.Component {
             },
             {
                 label: 'Alphabet'
-            },
-            {
-                label: 'Date Set'
             }
         ]
 

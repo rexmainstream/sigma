@@ -1,5 +1,5 @@
 //External library that Writes the quote
-const Vara = function (elem, fontSource, text, properties) {
+export function Vara(elem, fontSource, text, properties) {
   var _this = this;
   this.elementName = elem;
   this.textsInit = [];
@@ -60,19 +60,10 @@ Vara.prototype.createNode = function (n, v) {
  */
 Vara.prototype.getSVGData = function () {
   var _this = this;
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", this.fontSource, true);
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4) {
-      if (xmlhttp.status == 200) {
-        _this.contents = JSON.parse(xmlhttp.responseText);
-        _this.characters = JSON.parse(xmlhttp.responseText).c;
-        _this.preCreate();
-        _this.createText();
-      }
-    }
-  };
-  xmlhttp.send(null);
+  _this.contents = this.fontSource;
+  _this.characters = this.fontSource.c;
+  _this.preCreate();
+  _this.createText();
 };
 
 /**
@@ -680,8 +671,8 @@ Vara.prototype.setPosition = function (e, obj, relative) {
 	*/
 };
 
-if (typeof module !== "undefined") {
-  module.exports = Vara;
-} else {
-  window.Vara = Vara;
-}
+// if (typeof module !== "undefined") {
+//   module.exports = Vara;
+// } else {
+//   window.Vara = Vara;
+// }

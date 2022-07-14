@@ -219,7 +219,7 @@ export function RolyartCalendar(config){
         monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         
         prevMonth.innerHTML = '&#8249;';
-        prevMonth.className = 'slide_button show';
+        prevMonth.className = 'slide_button';
         prevMonth.ariaLabel = `previous month`;
         prevMonth.title = `Previous Month`;
         prevMonth.addEventListener('click', ()=>{
@@ -276,6 +276,11 @@ export function RolyartCalendar(config){
         }
 
        currentMonth.classList.add('control-current-month');
+
+    if (this.currentMonth === parseInt(get_date().month) - 1) {
+        prevMonth.style.opacity = '0.2';
+        prevMonth.style.pointerEvents = 'none';
+    }
         
        header.appendChild(prevMonth)
        header.appendChild(monthAndYear)
