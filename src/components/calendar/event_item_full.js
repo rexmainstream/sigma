@@ -13,6 +13,7 @@ import { date_to_key } from './date_to_key';
 import { custom_alert } from '../../res/scripts/add_alert';
 import { sort_events_alphabetically } from '../../res/scripts/search_and_sort_events';
 import { show_events } from './calendar_full';
+import { check_desktop } from '../../res/scripts/check_mobile';
 
 export default function Event_item_full(props) {
     
@@ -20,6 +21,8 @@ export default function Event_item_full(props) {
     let days_left = props.days_left;
     let description = props.description;
     let title = props.title;
+    let title_string = title;
+    let description_string = description;
     const priority = props.priority;
     const due_date = props.due_date;
     const search = props.search;
@@ -153,7 +156,7 @@ export default function Event_item_full(props) {
                 different_keys = true
 
                 // Debug
-                console.log('keys have changed');
+                // console.log('keys have changed');
             }
 
             // Debug
@@ -189,7 +192,7 @@ export default function Event_item_full(props) {
                 if ( different_keys === false ) {
                     // Shows events today
                     // show_events_today( user_selected_date(), false )
-                    show_events()
+                    show_events(undefined, undefined, undefined, search, undefined, undefined, undefined);
                 }
 
                 if ( different_keys === true ) {
@@ -218,7 +221,7 @@ export default function Event_item_full(props) {
 
                         // Shows events today
                         // show_events_today( user_selected_date(), false );
-                        show_events();
+                        show_events(undefined, undefined, undefined, search, undefined, undefined, undefined);
                     })
                 }
             })
@@ -265,7 +268,7 @@ export default function Event_item_full(props) {
                 stored_events.put(current_events, key);
 
                 // Shows events on the selected date
-                show_events();
+                show_events(undefined, undefined, undefined, search, undefined, undefined, undefined);
             })
 
         })
@@ -310,7 +313,7 @@ export default function Event_item_full(props) {
                 //     html_event.removeEventListener( 'animationend', handler );
                 // })
 
-                show_events();
+                show_events(undefined, undefined, undefined, search, undefined, undefined, undefined);
             })
         })
     }
@@ -338,8 +341,8 @@ export default function Event_item_full(props) {
 
             animation_complete = false;
             event_group.classList.add('hide_event_group');
-            add_inline_animation(event_group, "collapse 0.8s ease-out 0.4s", "", "", "", "", () => {
-                console.log('hello')
+            add_inline_animation(event_group, "collapse 1.3s ease-out 0.4s", "", "", "", "", () => {
+                // console.log('hello')
                 animation_complete = true;
                 event_group.style.maxHeight = null;
                 // event_group.classList.add('hide_event_group');
@@ -360,138 +363,285 @@ export default function Event_item_full(props) {
     }
 
 
-
-    return (
-        <div className='event_item_container'>
-            <div className='timeline'>
-                <div 
-                    className = 'days_left'
-                    title = 'Hide Group'
-                    // onMouseOver = {
-                    //     (e) => {
-                    //     }
-                    // }
-
-                    // onMouseLeave = {
-                    //     (e) => {
-                    //     }
-                    // }
-
-                    onClick = {
-                        (e) => {
-                            if (animation_complete === true) {
-                                show_hide_group(e);
-                            }
-                        }
-                    }
-                >
-                    <span>
-                        {`${days_left}`}
-                    </span>                
-                </div>
-
-                <div 
-                    className='vl'
-                    // onMouseEnter = {
-                    //     (e) => {
-                    //         // highlight_group(e);
-                    //     }
-                    // }
-
-                    // onMouseLeave = {
-                    //     (e) => {
-                    //         // highlight_group_time_out(e);
-                    //     }
-                    // }
-
-                    onClick = {
-                        (e) => {
-                            if (animation_complete === true) {
-                                show_hide_group(e);
-                            }
-                        }
-                    }
-                >
-
-                </div>
-            </div>
-            <div 
-                className= { class_name }
-                aria-label='full event item'
-            >
-                <h2 className='event_title'>
-                    { title }
-                </h2>
-                <hr></hr>
-                <div className = 'flex'>
-                    <div className = 'event_properties'>
-                        <div>
-                            <span className='event_property'>Priority:</span>
-                            <span>{  priority  }</span>
-                        </div>
-                        <div>
-                            <span className='event_property'>Due Date:</span>
-                            <span>{ due_date }</span>
-                        </div>
-                    </div>
-                    <div className='button_container' id='no_print'>
-                        <button 
-                            className='icon_button'
-                            aria-label = 'edit event button'
-                            title = 'Edit Event'
-                            onClick={
-                                () => {
-                                    // Opens event form, when button is clicked, edits the event
-                                    Event_form(due_date, get_date().today, get_date().max_date, 
-
-                                    function(new_title, new_desc, new_priority, new_due_date) {
-                                        edit_event(new_title, new_desc, new_priority, new_due_date);
-                                    },
-
-                                    [title, description, due_date, priority]
-                                    )
+    if (check_desktop()) {
+        return (
+            <div className='event_item_container'>
+                <div className='timeline'>
+                    <div 
+                        className = 'days_left'
+                        title = 'Hide Group'
+                        // onMouseOver = {
+                        //     (e) => {
+                        //     }
+                        // }
+    
+                        // onMouseLeave = {
+                        //     (e) => {
+                        //     }
+                        // }
+    
+                        onClick = {
+                            (e) => {
+                                if (animation_complete === true) {
+                                    show_hide_group(e);
                                 }
                             }
-                        >
-                            <FontAwesomeIcon icon = { faEdit } />
-                        </button>
-                        <button 
-                            className='icon_button'
-                            aria-label = 'remove event button'
-                            title = 'Remove Event'
-                            onClick = {
-                                () => {
-                                    delete_event()
-                                }
-                            }
-                        >
-                            <FontAwesomeIcon icon = { faTimes } />
-                        </button>
-                        { redo_complete_button }
-                    </div>
-                </div>
-                <hr></hr>
-                <div className = {show_description_class[0]}>
-                    { description }
-                </div>
-                <div className ="button_container" id='no_print'>
-                    <button 
-                        title = {show_description_class[1]} 
-                        className = "description_button"
+                        }
                     >
-                        <FontAwesomeIcon 
-                            icon = { faChevronDown }
-                            onClick = { (e) => {
-                                // Debug
-                                // console.log('Clicked!')
+                        <span>
+                            {`${days_left}`}
+                        </span>                
+                    </div>
+    
+                    <div 
+                        className='vl'
+                        // onMouseEnter = {
+                        //     (e) => {
+                        //         // highlight_group(e);
+                        //     }
+                        // }
+    
+                        // onMouseLeave = {
+                        //     (e) => {
+                        //         // highlight_group_time_out(e);
+                        //     }
+                        // }
+    
+                        onClick = {
+                            (e) => {
+                                if (animation_complete === true) {
+                                    show_hide_group(e);
+                                }
+                            }
+                        }
+                    >
+    
+                    </div>
+                </div>
+                <div 
+                    className= { class_name }
+                    aria-label='full event item'
+                >
+                    <h2 className='event_title'>
+                        { title }
+                    </h2>
+                    <hr></hr>
+                    <div className = 'flex'>
+                        <div className = 'event_properties'>
+                            <div>
+                                <span className='event_property'>Priority:</span>
+                                <span>{  priority  }</span>
+                            </div>
+                            <div>
+                                <span className='event_property'>Due Date:</span>
+                                <span>{ due_date }</span>
+                            </div>
+                        </div>
+                        <div className='button_container' id='no_print'>
+                            <button 
+                                className='icon_button'
+                                aria-label = 'edit event button'
+                                title = 'Edit Event'
+                                onClick={
+                                    () => {
+                                        // Opens event form, when button is clicked, edits the event
+                                        Event_form(due_date, get_date().today, get_date().max_date, 
+    
+                                        function(new_title, new_desc, new_priority, new_due_date) {
+                                            edit_event(new_title, new_desc, new_priority, new_due_date);
+                                        },
+                                        
+                                        [title_string, description_string, due_date, priority]
+                                        )
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = { faEdit } />
+                            </button>
+                            <button 
+                                className='icon_button'
+                                aria-label = 'remove event button'
+                                title = 'Remove Event'
+                                onClick = {
+                                    () => {
+                                        custom_alert('Delete Event?', 'warning_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
+                                            delete_event()
+                                        }, () => {
 
-                                show_description(e)
-                            }} 
-                        />
-                    </button>
+                                        })
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = { faTimes } />
+                            </button>
+                            { redo_complete_button }
+                        </div>
+                    </div>
+                    <hr></hr>
+                    <div className = {show_description_class[0]}>
+                        { description }
+                    </div>
+                    <div className ="button_container" id='no_print'>
+                        <button 
+                            title = {show_description_class[1]} 
+                            className = "description_button"
+                        >
+                            <FontAwesomeIcon 
+                                icon = { faChevronDown }
+                                onClick = { (e) => {
+                                    // Debug
+                                    // console.log('Clicked!')
+    
+                                    show_description(e)
+                                }} 
+                            />
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+    
+        )
+    } else {
+        return (
+            <div className='event_item_container'>
+                <div className='timeline'>
+                    <div 
+                        className = 'days_left'
+                        title = 'Hide Group'
+                        // onMouseOver = {
+                        //     (e) => {
+                        //     }
+                        // }
+    
+                        // onMouseLeave = {
+                        //     (e) => {
+                        //     }
+                        // }
+    
+                        // onClick = {
+                        //     (e) => {
+                        //         if (animation_complete === true) {
+                        //             show_hide_group(e);
+                        //         }
+                        //     }
+                        // }
+                    >
+                        <span>
+                            {`${days_left}`}
+                        </span>                
+                    </div>
+    
+                    <div 
+                        className='vl'
+                        // onMouseEnter = {
+                        //     (e) => {
+                        //         // highlight_group(e);
+                        //     }
+                        // }
+    
+                        // onMouseLeave = {
+                        //     (e) => {
+                        //         // highlight_group_time_out(e);
+                        //     }
+                        // }
+    
+                        onClick = {
+                            (e) => {
+                                if (animation_complete === true) {
+                                    show_hide_group(e);
+                                }
+                            }
+                        }
+                    >
+    
+                    </div>
+                </div>
+                <div 
+                    className= { class_name }
+                    aria-label='full event item'
+                >
+                    <div className='flex'>
+                        <h2 className='event_title'>
+                            { title }
+                        </h2>
+                        <div className='button_container' id='no_print'>
+                            <button 
+                                className='icon_button'
+                                aria-label = 'edit event button'
+                                title = 'Edit Event'
+                                onClick={
+                                    () => {
+                                        // Opens event form, when button is clicked, edits the event
+                                        Event_form(due_date, get_date().today, get_date().max_date, 
+    
+                                        function(new_title, new_desc, new_priority, new_due_date) {
+                                            edit_event(new_title, new_desc, new_priority, new_due_date);
+                                        },
+    
+                                        [title, description, due_date, priority]
+                                        )
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = { faEdit } />
+                            </button>
+                            <button 
+                                className='icon_button'
+                                aria-label = 'remove event button'
+                                title = 'Remove Event'
+                                onClick = {
+                                    () => {
+                                        custom_alert('Delete Event?', 'warning_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
+                                            delete_event()
+                                        }, () => {
 
-    )
+                                        })
+                                    }
+                                }
+                            >
+                                <FontAwesomeIcon icon = { faTimes } />
+                            </button>
+                            { redo_complete_button }
+                        </div>
+                    </div>
+                    <hr></hr>
+                    <div className = {show_description_class[0]}>
+                    <div className = 'flex'>
+
+                        <div className = 'event_properties'>
+                            <div>
+                                <span className='event_property'>Due:</span>
+                                <span>{ due_date }</span>
+                            </div>
+                            <div>
+                                <span className='event_property'>Priority:</span>
+                                <span>{ priority }</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr></hr>
+
+                        { description }
+                    </div>
+                    <div className ="button_container" id='no_print'>
+                        <button 
+                            title = {show_description_class[1]} 
+                            className = "description_button"
+                        >
+                            <FontAwesomeIcon 
+                                icon = { faChevronDown }
+                                onClick = { (e) => {
+                                    // Debug
+                                    // console.log('Clicked!')
+    
+                                    show_description(e)
+                                }} 
+                            />
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+        )
+    }
 }

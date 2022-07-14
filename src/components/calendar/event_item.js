@@ -8,6 +8,7 @@ import { get_date, show_events_today, user_selected_date } from "./rolyart-calen
 import { sort_events_alphabetically } from "../../res/scripts/search_and_sort_events";
 import Event_tooltip, { return_currently_hovering_over } from "./event_tooltip";
 import { CtxMenu } from "../../res/scripts/ctxmenu";
+import { check_mobile } from "../../res/scripts/check_mobile";
 
 
 
@@ -21,7 +22,7 @@ export default function Event_item( props ) {
     const order = props.order;
     const due_date = props.due_date;
     let edit_title = "";
-    let time_out
+    let time_out;
 
     // Key is date without -
     const key = parseInt(due_date.replaceAll('-', ''));

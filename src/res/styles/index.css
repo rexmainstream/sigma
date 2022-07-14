@@ -205,6 +205,44 @@ textarea {
 
 /* || DROPDOWN */
 
+.drop_down_nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.link_list.drop_down_header span {
+    margin-inline-end: 1rem;
+    margin-block-end: 1rem;
+}
+.link_list.drop_down_header span span{
+    padding-inline-start: 1rem;
+}
+
+.link_list.drop_down_header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    background-color: white;
+    /* overflow: hidden; */
+    justify-content: flex-start;
+    overflow: hidden;
+    max-height: 1rem;
+    padding-block-end: 2rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: max-height 0.3s ease-in, box-shadow 0.2s ease-in;
+}
+
+.drop_down_header.show_dropdown_header {
+    max-height: 20rem;
+    box-shadow: 0px 12px 2px rgb(0 0 0 / 20%);
+    transition: max-height 0.4s ease-in, box-shadow 0.2s ease-in 0.3s;
+}
+
+.link_list.drop_down_header li{
+    padding-inline: 1rem;
+}
+
 .Dropdown-root {
     block-size: 3rem;
     user-select: none;
@@ -912,10 +950,9 @@ ul[class] {
     /* grid-row: 2;
     grid-column: 4/end; */
     left: 75%;
-    top: 15rem;
+    top: 70vh;
     inline-size: 26rem;
     animation: bounce 0.7s ease-out both;
-    background-color: white;
 }
 
 #calendar_function_container .rolyart-calendar {
@@ -936,9 +973,7 @@ ul[class] {
 
 #calendar_function_container .icon_button_container {
     padding: 1rem;
-    background-color: rgb(242,242,242);
     border-radius: 2rem;
-
 }
 
 #calendar_function_container .icon_button_container .icon_button {
@@ -979,6 +1014,13 @@ ul[class] {
     overflow-y: auto;
 }
 
+#no_events_on_day {
+    font-size: 1.5rem;
+    color: rgb(124,124,124);
+    text-align: center;
+    animation: fade_in 0.5s ease-in;
+}
+
 .event_item_container {
     display: flex;
     align-items: center;
@@ -1017,11 +1059,11 @@ ul[class] {
 
 .event_group .event_item_full {
     opacity: 1;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 1s ease-in;
 }
 
 .event_group.show_event_group {
-    transition: max-height 0.5s;
+    transition: max-height 1s;
     overflow: hidden;
 }
 
@@ -1177,19 +1219,34 @@ ul[class] {
 
 /* For mobile */
 @media screen and (max-width: 999px) {
+    .event_group .flex {
+        margin: 0;
+    }
 
-    .event_group .event_item_full .flex {
+    .event_group hr {
+        margin-block: 0.5rem;
+    }
+    .event_group .event_item_full .event_description .flex {
         display: block;
         width: 100%;
+        margin: 0;
+    }
+
+    .event_group {
+        margin-top: 4.5rem;
     }
 
     .event_group .event_properties {
         width: calc(90% + 1rem);
     }
     .event_group .flex .button_container {
-        width: 100%;
+        width: 40%;
     }
 
+
+    .event_item_full .button_container#no_print {
+        margin-block: 0;
+    }
     .search_and_sort {
         display: block;
     }
@@ -1201,22 +1258,72 @@ ul[class] {
         display: block;
     }
 
+    #events_box {
+        margin-block-end: 20rem;
+    }
+
     #calendar_function_container {
         display: block;
-        position: static;
+        position: fixed;
+        top: calc(100vh - 11.5rem);
+        left: 0;
+        background-color: white;
+        z-index: 1;
         width: 90%;
         margin-top: 2rem;
+        border-radius: 0;
+        padding-block: 0;
     }
 
-    .event_item_container .flex .button_container {
-        background-color: rgb(242,242,242);
+    #calendar_function_container .icon_button_container {
+        padding: 0 0 0.5rem 0;
     }
+
+    #calendar_function_container #calendar_container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .event_group .event_item_full {
+        padding-block: 0;
+        margin-block-end: 1.7rem;
+        margin-inline: 0;
+        padding-inline: 0.5rem;
+        width: 90%;
+    }
+
+    .event_group .event_item_full .event_title {
+        text-align: left;
+        width: 60%;
+        padding-inline-start: 1rem;
+    }
+
+    .event_group .event_item_full .event_properties {
+        padding-inline: 0;
+    }
+
 
     /* Icon buttons larger for fingers */
-    .event_item_container .button_container .icon_button {
-        width: 4rem;
-        height: 4rem;
-        font-size: 2.5rem;
+    .event_item_container .flex .button_container {
+        padding-top: 0.5rem;
+        column-gap: 1rem;
+        margin: 0;
+        /* display: none; */
+    }
+
+    /* .event_properties {
+        display: none;
+    } */
+
+    .days_left {
+        white-space: nowrap;
+    }
+
+    .event_item_full .event_description {
+        margin: 0;
+        background-color: white;
+        text-align: center;
+        padding:0;
     }
 
     #full_events {
@@ -1232,6 +1339,12 @@ ul[class] {
     }
 
     .timeline {
+        width: 0;
+        position: relative;
+        bottom: 4rem;
+    }
+
+    .timeline .vl {
         display: none;
     }
 }
@@ -2350,12 +2463,12 @@ input[type="date"]::-webkit-inner-spin-button {
 @media print {
     header {
         visibility: collapse;
-        block-size: 0rem;
+        block-size: 0rem !important;
     }
 
     #full_calendar {
         visibility: collapse;
-        block-size: 0rem;
+        block-size: 0rem !important;
     }
 
 

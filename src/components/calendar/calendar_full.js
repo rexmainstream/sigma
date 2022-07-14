@@ -171,6 +171,7 @@ export default class Full_calendar extends React.Component {
             })
         }
 
+        // Converts month number to month name
         function toMonthName(monthNumber) {
             const date = new Date();
             date.setMonth(monthNumber - 1);
@@ -196,20 +197,26 @@ export default class Full_calendar extends React.Component {
             open_request.addEventListener('blocked', () => {
                 custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
             })
-            
-
+        
             open_request.addEventListener('error', () => {
                 custom_alert("Failed to load database", 'error', "Failed to load database.", false);
             })
-            
+
+
+            // If request is successful            
             open_request.addEventListener('success', () => {
                 // Lets database equal result
                 const db = open_request.result;
+                // Gets the stored events
                 const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
 
+                // Current month is stored, so is sorted events
                 let current_month = get_date().month;
                 const sorted_events_by_date = [];
-                let current_month_events = []
+                let current_month_events = [];
+
+
+                // Gets all events
                 const get_all_events = stored_events.openCursor(key_range).addEventListener('success', (e) => {
                     const cursor = e.target.result;
                     
@@ -227,7 +234,11 @@ export default class Full_calendar extends React.Component {
                                     current_day_events.push(an_event);
                                 }
                             }
-                            current_month_events.push(current_day_events)
+                            
+                            // If there are events present it pushes the current days events to the current month
+                            if (current_day_events.length > 0) {
+                                current_month_events.push(current_day_events);
+                            }
                         } else {
                             // If current month events exceed zero, pushes it to the sorted events list
                             if (current_month_events.length > 0) {
@@ -249,7 +260,10 @@ export default class Full_calendar extends React.Component {
                                     current_day_events.push(an_event);
                                 }
                             }
-                            current_month_events.push(current_day_events)
+                            // If there are events present it pushes the current days events to the current month
+                            if (current_day_events.length > 0) {
+                                current_month_events.push(current_day_events);
+                            }
                         }
                         cursor.continue();
                     } else {
@@ -292,6 +306,7 @@ export default class Full_calendar extends React.Component {
                                     )
                                     counter++
                                 }
+                                // console.log(current_day)
                                 event_group.push(
                                     <div className="day_divider">{ordinal_suffix_of(parseInt(current_day.split('-')[2]))}</div>, event_day
                                 )
@@ -413,9 +428,10 @@ export default class Full_calendar extends React.Component {
             })
         }
 
+        // Deletes all events shown
         function delete_all_events() {
-            const start_key = date_to_key(current_time_range[0]);
-            const end_key = date_to_key(current_time_range[1]);
+            const start_key = date_to_key(get_date().today);
+            const end_key = date_to_key(get_date().max_date);
 
             const key_range = IDBKeyRange.bound(start_key, end_key);
 
@@ -504,6 +520,7 @@ export default class Full_calendar extends React.Component {
 
         }
 
+        // This is the HTML
         return (
             <div>
                 <div id="full_calendar">
@@ -893,8 +910,8 @@ export default class Full_calendar extends React.Component {
                             </button>
                             <button
                                 className="icon_button"
-                                title = {`Complete All Events Shown`}
-                                aria-label = 'complete all shown events button'
+                                title = {`Complete All Events`}
+                                aria-label = 'complete all events button'
 
                                 onClick={() => {
                                     complete_redo_all_events(current_time_range[0], current_time_range[1], true, current_search)
@@ -904,7 +921,7 @@ export default class Full_calendar extends React.Component {
                             </button>
                             <button
                                 className = "icon_button"
-                                title = 'Redo All Events Shown'
+                                title = 'Redo All Events'
                                 aria-label = "redo all events shown button"
                                 onClick = {
                                     () => {
@@ -929,7 +946,7 @@ export default class Full_calendar extends React.Component {
                             </button>
                             <button
                                 className="icon_button"
-                                title = {`Delete All Events Show`}
+                                title = {`Delete All Events`}
                                 aria-label = 'delete all events shown button'
                                 onClick={
                                     () => {
@@ -1087,7 +1104,7 @@ export function show_events( day_range = current_time_range, sort_function = cur
 
 
 
-
+                // Generates a timeline
                 if (timeline_generator === false) {
                     let prev_value;
                     for (let i = 0; i < all_events.length; i++) {
@@ -1106,7 +1123,7 @@ export function show_events( day_range = current_time_range, sort_function = cur
                 for (let i = 0; i < all_events.length; i++) {
                     let description = all_events[i].description;
 
-
+                    // If no description adds a prompt
                     if (
                         description.replace(/\r?\n|\r/g, "") === '' 
             
@@ -1166,7 +1183,24 @@ export function show_events( day_range = current_time_range, sort_function = cur
                 // ReactDOM.unmountComponentAtNode(document.getElementById('events_box'));
                 // console.log(all_events)
 
-                ReactDOM.render(render_elements, container);
+                // Checks if there are elements on day
+                if (render_elements.length === 1) {
+                    // Debug
+                    // console.log('no events on day')
+
+                    ReactDOM.render(
+                        <No_events_on_day_message 
+                            search_val = { current_search }
+                            time_val = { current_time_range[2] }
+                        />, container
+                    )
+
+                } else {
+                    // Renders elements in the DOM
+                    ReactDOM.render(render_elements, container);
+
+                }
+
 
                 
 
@@ -1350,6 +1384,30 @@ function remove_overdue_events(db) {
     })
 
 
+}
+
+export function No_events_on_day_message(props) {
+    const search_val = props.search_val;
+    let time_val = props.time_val;
+
+    if (time_val === 'all') {
+        time_val = "";
+    } else {
+        time_val = ` on this ${time_val}`
+    }
+
+    let message = `There are no events${time_val}.`
+
+    if (search_val !== false) {
+        message = `No events${time_val} with search value, "${search_val}".`
+    }
+    return(
+        <div 
+            id="no_events_on_day"
+        >
+            { message }
+        </div>
+    )
 }
 
 //External library that draws the calendar. https://www.cssscript.com/es6-calendar-rolyart/
