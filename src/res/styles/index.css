@@ -161,8 +161,7 @@ textarea {
 }
 
 .icon_button:hover {
-    transition: box-shadow 0.2s ease-in-out;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in 0.07s;
     transform: translateY(-0.5rem);
     box-shadow: 0 8px 16px rgb(0 0 0 / 40%);  
 }
@@ -1385,6 +1384,29 @@ ul[class] {
     margin-block-start: 3rem;
 }
 
+#quote_image svg{
+    object-fit: contain;
+    max-width: 400px;
+}
+
+
+#quote_image svg path {
+    /* stroke-dasharray affects how long the stroke draw lines are, higher number looks more like drawing, lower number looks like a particle effect  */
+
+    /* stroke-dasharray length helps to be longer than the paths which effectively hides the paths    */
+    stroke-dasharray: 1000;  
+
+    /* moves the position of the dashes, which makes them animate-able */
+    stroke-dashoffset: 1000;
+    
+    /* remove "infinite" to have it draw only once */
+    animation: dash 6s ease-in forwards 2s;
+    stroke:#000000;
+    stroke-width:1px;
+    /* depending on the drawing, may need to use stroke-miterlimit to smooth out line segments that join at a sharp angle:  https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit */
+    /*   stroke-miterlimit:10px; */
+    
+}
 .quote .clickable_button {
     left: 40%;
 }

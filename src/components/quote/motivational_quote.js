@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import {Vara} from "../../res/scripts/vara.js"
 import { get_date } from "../calendar/rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert.js";
@@ -6,10 +7,6 @@ import { faTwitter } from "@fortawesome/fontawesome-free-brands";
 import { faWikipediaW } from "@fortawesome/fontawesome-free-brands"
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const SatisfySL = require('./SatisfySL.json')
-
-
 // This function gets the quote
 function Get_quote () {
     const date1 = new Date('07/07/2022');
@@ -25,18 +22,20 @@ function Get_quote () {
         }
     }
 
+    const font_choice = (diff_days + 6) % 5;
+
     today_quote = Return_quote_list(diff_days).quote;
 
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
     //sets text content to the quote of the day
     document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
-    Write_quote_author(today_quote);
+    Write_quote_author(today_quote, font_choice);
 }
 
 //this function writes the quote
 //Too slow maybe just animate the quote author
-function Write_quote_author(today_quote) {
+function Write_quote_author(today_quote, font_choice = 0) {
     let written_quote = `- ${today_quote['quote_author']} -`
     let container = document.querySelector('#container');
     const wiki_button = document.querySelector('.wiki_icon');
@@ -48,10 +47,33 @@ function Write_quote_author(today_quote) {
     //console.log(written_quote.length);
     let text_size = 25;
 
+    let font;
+    let stroke_width = 1.3;
+
+    switch (font_choice) {
+        case 0:
+           font = require('./fonts/SatisfySL.json');
+           break;
+        case 1:
+            font = require('./fonts/Pacifico.json');
+            break;
+        case 2:
+            font = require('./fonts/Parisienne.json');
+            break;
+        case 3:
+            font = require('./fonts/Shadows_into_light.json');
+            break;
+        case 4:
+            font = require('./fonts/my_font1.json');
+            stroke_width = 1;
+            break;
+    }
+
+
     if (window.screen.width < 1000) {
         text_size = 50;
     }
-    new Vara("#container", SatisfySL, [{
+    new Vara("#container", font, [{
         text: written_quote,
         y: text_size,
         delay: 200,
@@ -60,7 +82,7 @@ function Write_quote_author(today_quote) {
     ], {
         fontSize: text_size,
         textAlign: 'center',
-        strokeWidth: 1.3
+        strokeWidth: stroke_width
     }  
     )
     //console.log("Write quote has been executed")
@@ -111,7 +133,7 @@ export default class Motivational_quote extends React.Component {
                 <h1>Quote of the Day</h1>   
                 <div className="box">
                         <blockquote id="quote_of_the_day"></blockquote>
-
+            
 
                     <div id="container"></div>
                     <div className="button_container">

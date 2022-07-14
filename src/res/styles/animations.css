@@ -44,6 +44,15 @@
     min-height: 2rem;
 }
 
+
+    /* the animation */
+    @keyframes dash {
+      to {
+        /* closing the offset makes the line appear to be drawn-in */
+        stroke-dashoffset: 0;
+      }
+    }
+
 @keyframes collapse {
     to {
         max-height: 3rem;
