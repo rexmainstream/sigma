@@ -1429,6 +1429,13 @@ ul[class] {
     animation-delay: 0.4s;
     animation-fill-mode: backwards;
 }
+
+.quote .button_container .icon_button:nth-child(4){
+    animation-delay: 0.6s;
+    block-size: 4rem;
+    animation-fill-mode: backwards;
+}
+
 .twitter {
     display: inline;
     block-size: 3rem;
@@ -2501,6 +2508,11 @@ input[type="date"]::-webkit-inner-spin-button {
         block-size: 0rem !important;
     }
 
+    .quote .button_container, h1 {
+        visibility: collapse;
+        block-size: 0rem !important;
+        inline-size: 0rem !important;
+    }
 
     main {
         background-color: white;

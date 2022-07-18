@@ -25,7 +25,7 @@
    },
    {
       "the_quote" : "I shall seize fate by the throat; it shall certainly never wholly overcome me.",
-      "quote_author" : "Beethoven"
+      "quote_author" : "Ludwig Van Beethoven"
    },
    {
       "the_quote" : "Common sense is instinct. Enough of it is genius.",
@@ -225,7 +225,7 @@
    },
    {
       "the_quote" : "Be silent, if you choose; but when it is necessary, speak and speak in such a way that people will remember it.",
-      "quote_author" : "Wolfgang Amadeus Mozart"
+      "quote_author" : "Mozart"
    },
    {
       "the_quote" : "When bad fortune occurs, the unresourceful, unimaginative man looks about him to attach the blame to someone else; the resolute accepts misfortune and endeavors to survive, mature, and improve because of it.",
@@ -397,7 +397,7 @@
    },
    {
       "the_quote" : "I shall hear in heaven.",
-      "quote_author" : "Beethoven"
+      "quote_author" : "Ludwig Van Beethoven"
    },
    {
       "the_quote" : "Hold fast to dreams, For if dreams die life is a broken-winged bird, that cannot fly.",
@@ -893,7 +893,7 @@
    },
    {
       "the_quote" : "There are only two forces in the world, the sword and the spirit. In the long run the sword will always be conquered by the spirit.",
-      "quote_author" : "Napoleon"
+      "quote_author" : "Napoleon Bonaparte"
    },
    {
       "the_quote" : "True humility is not thinking less of yourself; it is thinking of yourself less.",
@@ -984,7 +984,7 @@
       "quote_author" : "Brene Brown"
    },
    {
-      "the_quote" : "Veni Vidi Vici",
+      "the_quote" : "Veni Vidi Vici (I came, I saw, I conquered).",
       "quote_author" : "Julius Caesar"
    },
    {
@@ -1629,7 +1629,7 @@
    },
    {
       "the_quote" : "Don't only practice your art, but force your way into its secrets.",
-      "quote_author" : "Ludwig van Beethoven"
+      "quote_author" : "Ludwig Van Beethoven"
    },
    {
       "the_quote" : "Subdue your appetites, my dears, and you've conquered human nature.",
@@ -1685,7 +1685,7 @@
    },
    {
       "the_quote" : "The music is not in the notes, but in the silence between.",
-      "quote_author" : "Wolfgang Amadeus Mozart"
+      "quote_author" : "Mozart"
    },
    {
       "the_quote" : "The world will ask you who you are, and if you don't know, the world will tell you.",
@@ -1937,7 +1937,7 @@
    },
    {
       "the_quote" : "To talk well and eloquently is a very great art, but that an equally great one is to know the right moment to stop.",
-      "quote_author" : "Wolfgang Amadeus Mozart"
+      "quote_author" : "Mozart"
    },
    {
       "the_quote" : "Limit your 'always' and your 'nevers.'",
@@ -1969,7 +1969,7 @@
    },
    {
       "the_quote" : "I pay no attention whatever to anybody's praise or blame. I simply follow my own feelings.",
-      "quote_author" : "Wolfgang Amadeus Mozart"
+      "quote_author" : "Mozart"
    },
    {
       "the_quote" : "I haven't understood a bar of music in my life, but I have felt it.",
@@ -2397,7 +2397,7 @@
    },
    {
       "the_quote" : "Forgive me, Majesty. I am a vulgar man! But I assure you, my music is not.",
-      "quote_author" : "Wolfgang Amadeus Mozart"
+      "quote_author" : "Mozart"
    },
    {
       "the_quote" : "Works of art make rules; rules do not make works of art.",
@@ -2489,7 +2489,7 @@
    },
    {
       "the_quote" : "It is never too late to be what you might have been.",
-      "quote_author" : "George Eliot"
+      "quote_author" : "T.S. Eliot"
    },
    {
       "the_quote" : "It's not the fight in the horizon that defines you, it's the fight inside you",
@@ -2793,7 +2793,7 @@
    },
    {
       "the_quote" : "To play a wrong note is insignificant; to play without passion is inexcusable.",
-      "quote_author" : "Ludwig van Beethoven"
+      "quote_author" : "Ludwig Van Beethoven"
    },
    {
       "the_quote" : "I have loved the stars too fondly to be fearful of the night.",
@@ -2845,7 +2845,7 @@
    },
    {
       "the_quote" : "Neither a lofty degree of intelligence nor imagination nor both together go to the making of genius. Love, love, love, that is the soul of genius.",
-      "quote_author" : "Wolfgang Amadeus Mozart"
+      "quote_author" : "Mozart"
    },
    {
       "the_quote" : "The sweetest songs are those that tell of the saddest thoughts.",
@@ -3409,7 +3409,7 @@
    },
    {
    "the_quote": "No one understands and appreciates the American Dream of hard work leading to material rewards better than a non-American.",
-   "quote_author": "Anthony Bourdain, Kitchen Confidential"
+   "quote_author": "Anthony Bourdain"
    },
    {
    "the_quote": "Happiness is the real sense of fulfillment that comes from hard work.",
@@ -3708,6 +3708,10 @@
    "quote_author": "Mary E. Pearson"
    },
    {
+      "the_quote": "The world is indeed comic, but the joke is on mankind.",
+      "quote_author": "H. P. Lovecraft"
+   },
+   {
    "the_quote": "Inspiration usually comes during work rather than before it.",
    "quote_author": "Madeleine L'Engle"
    },
@@ -3905,7 +3909,7 @@
    },
    {
    "the_quote": "Don't wait. The time will never be just right.",
-   "quote_author": "Napoleon Hill"
+   "quote_author": "Napoleon  Hill"
    },
    {
    "the_quote": "Success seems to be connected with action. Successful people keep moving. They make mistakes, but they don’t quit.",
@@ -4252,5242 +4256,2570 @@
       "quote_author": "Roger Ebert"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It's kind of fun to do the impossible.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "When you’re curious, you find lots of interesting things to do.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Laughter is timeless, imagination has no age, dreams are forever.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "A man should never neglect his family for business.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "A man should never neglect his family for business.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "When you believe in a thing, believe in it all the way, implicitly and unquestionable.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Laughter is America’s most important export.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "First, think. Second, believe. Third, dream. And finally, dare.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You reach a point where you don’t work for money.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I dream, I test my dreams against my beliefs, I dare to take risks, and I execute my vision to make those dreams come true.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Whatever you do, do it well.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I only hope that we never lose sight of one thing—that it was all started by a mouse.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Disneyland will never be completed. It will continue to grow as long as there is imagination left in the world.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Never get bored or cynical. Yesterday is a thing of the past.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "In bad times and in good, I’ve never lost my sense of zest for life.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Everyone falls down. Getting back up is how you learn how to walk.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "That’s the real trouble with the world, too many people grow up. They forget.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "People often ask me if I know the secret of success and if I could tell others how to make their dreams come true. My answer is, you do it by working.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I do not like to repeat successes, I like to go on to other things.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "That’s what we storytellers do. We restore order with imagination. We instill hope again and again and again.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Get a good idea, and stay with it. Dog it, and work at it until it’s done, and done right.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Happiness is a state of mind. It’s just according to the way you look at things.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "To the youngsters of today, I say believe in the future, the world is getting better; there still is plenty of opportunity.",
+      "quote_author": "Walt Disney"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Everything you can imagine is real.",
+      "quote_author": "Pablo Picasso"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Art is the lie that enables us to realize the truth.",
+      "quote_author": "Pablo Picasso"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Art washes away from the soul the dust of everyday life.",
+      "quote_author": "Pablo Picasso"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Learn the rules like a pro, so you can break them like an artist.",
+      "quote_author": "Pablo Picasso"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The chief enemy of creativity is good sense.",
+      "quote_author": "Pablo Picasso"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Inspiration exists, but it has to find you working.",
+      "quote_author": "Pablo Picasso"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Wise men speak because they have something to say; Fools because they have to say something.",
+      "quote_author": "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "A drop of wisdom is better than a sea of gold.",
+      "quote_author": "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "All receive advice. Only the wise profit from it.",
+      "quote_author": "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "It is not what they profess but what they practice that makes them good.",
+      "quote_author": "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "The excess of a virtue is a vice.",
+      "quote_author": "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-      {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote": "Too many opinions sink the boat.",
+      "quote_author": "Greek Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
-   {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "The human being is a most curious animal. Often ready to indulge himself in his base inclinations, but frequently reluctant to trust his better instincts.",
+      "quote_author" : "Roger Ebert"
+   },  
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The tongue has no bones, but bones it crashes.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wine and children speak the truth.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "A society grows great when old men plant trees whose shade they know they shall never sit in.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Win by persuasion, not by force.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "One swallow does not make a summer.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It’s sweet to view the sea when standing on the shore.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Unripe grape gets sweet as honey, at a slow pace.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is not possible to step twice into the same river.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Too many opinions sink the boat.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is difficult to argue with the belly, as it has no ears.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The excess of a virtue is a vice.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is not what they profess but what they practice that makes them good.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You can’t hide behind your finger.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You can tell who the good seamen are during a storm.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "A drop of wisdom is better than a sea of gold.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "All receive advice. Only the wise profit from it.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "One thing I know, that I know nothing. This is the source of my wisdom.",
+      "quote_author" : "Socrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wise men speak because they have something to say; Fools because they have to say something.",
+      "quote_author" : "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is more important to know what sort of person has a disease than to know what sort of disease a person has.",
+      "quote_author" : "Hippocrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Pay attention to your enemies, for they are the first to discover your mistakes.",
+      "quote_author" : "Antisthenes"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You will never do anything in this world without courage. It is the greatest quality of the mind next to honor.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Let food be thy medicine and medicine be thy food.",
+      "quote_author" : "Hippocrates."
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wait for the wisest of all counselors, time.",
+      "quote_author" : "Pericles"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Life is short, the art long.",
+      "quote_author" : "Hippocrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "One of the penalties for refusing to participate in politics is that you end up being governed by your inferiors.",
+      "quote_author" : "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "One thing I know, that I know nothing. This is the source of my wisdom.",
+      "quote_author" : "Socrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Nature does nothing uselessly.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Well begun is half done.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wit is educated insolence.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The tongue has no bones, but bones it crushes.",
+      "quote_author" : "Greek Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The roots of education are bitter, but the fruit is sweet.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "All battles are first won or lost, in the mind.",
+      "quote_author" : "Joan of Arc"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wise men speak because they have something to say; Fools because they have to say something.",
+      "quote_author" : "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The art of living well and the art of dying well are one.",
+      "quote_author" : "Epicurus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is more important to know what sort of person has a disease than to know what sort of disease a person has.",
+      "quote_author" : "Hippocrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "At a touch of love, everyone becomes a poet.",
+      "quote_author" : "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Pay attention to your enemies, for they are the first to discover your mistakes.",
+      "quote_author" : "Antisthenes"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Only the dead have seen the end of the war.",
+      "quote_author" : "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You will never do anything in this world without courage. It is the greatest quality of the mind next to honor.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "In all things of nature, there is something of the marvelous.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Let food be thy medicine and medicine be thy food.",
+      "quote_author" : "Hippocrates."
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wisdom outweighs any wealth.",
+      "quote_author" : "Sophocles"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Ten soldiers wisely led will beat a hundred without a head.",
+      "quote_author" : "Euripides"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Wait for the wisest of all counselors, time.",
+      "quote_author" : "Pericles"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Life is short, the art long.",
+      "quote_author" : "Hippocrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world.",
+      "quote_author" : "Archimedes"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Education is an ornament in prosperity and a refuge in adversity.",
+      "quote_author" : "Aristotle"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The greater the difficulty, the more the glory in surmounting it.",
+      "quote_author" : "Epicurus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Those who are too smart to engage in politics are punished by being governed by those who are dumber.",
+      "quote_author" : "Plato"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Love is all we have, the only way that each can help the other.",
+      "quote_author" : "Euripides"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Success is dependent on effort.",
+      "quote_author" : "Sophocles"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is possible to provide security against other ills, but as far as death is concerned, we men live in a city without walls.",
+      "quote_author" : "Epicurus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "People pretend not to like grapes when the vines are too high for them to reach.",
+      "quote_author" : "Marguerite de Navarre"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You are not only responsible for what you say but also for what you do not say.",
+      "quote_author" : "Martin Luther"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Peace if possible; truth at all costs.",
+      "quote_author" : "Martin Luther"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "We do not become righteous by doing righteous deeds but, having been made righteous, we do righteous deeds.",
+      "quote_author" : "Martin Luther"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Do not be afraid; our fate cannot be taken from us; it is a gift.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "My course is set for an uncharted sea.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The hottest places in hell are reserved for those who, in times of great moral crisis, maintain their neutrality.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "There is no greater sorrow than to recall a happy time when miserable.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "All hope abandon, ye who enter here.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "In the middle of the journey of our life I found myself within a dark woods where the straight way was lost.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Into the eternal darkness, into fire and into ice.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "A mighty flame follows a tiny spark.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Lost are we, and are only so far punished, that without hope we live on in desire.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Fate's arrow, when expected, travels slow.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "As phantoms frighten beasts when shadows fall.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "For pride and avarice and envy are the three fierce sparks that set all hearts ablaze.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Justice does not descend from its own pinnacle.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "You did thirst for blood, and with blood I fill you.",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "So bitter is it, death is little more;",
+      "quote_author" : "Dante Alighieri"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Cinema is the most beautiful fraud in the world.",
+      "quote_author" : "Jean Luc Godard"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "If you have overcome your inclination and not been overcome by it, you have reason to rejoice.",
+      "quote_author" : "Titus Maccius Plautus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I found Rome a city of bricks and left it the city of marbles.",
+      "quote_author" : "Augustus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Which death is preferable to every other? The unexpected.",
+      "quote_author" : "Julius Caesar"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Gratitude is not only the greatest of virtues, but the parent of all the others.",
+      "quote_author" : "Marcus Tullius Cicero"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "An unexamined life is not worth living.",
+      "quote_author" : "Socrates"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Each of us needs what nature gives us, when nature gives it.",
+      "quote_author" : "Marcus Aurelius"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "An angry man is again angry with himself when he returns to reason.",
+      "quote_author" : "Publilius Syrus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I had rather be first in a village than second at Rome.",
+      "quote_author" : "Julius Caesar"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Be tolerant with others and strict with yourself.",
+      "quote_author" : "Marcus Aurelius"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Experience is the teacher of all things.",
+      "quote_author" : "Julius Caesar"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Fear is proof of a degenerate mind.",
+      "quote_author" : "Publius Vergilius Maro"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "If you have a garden and a library, you have everything you need.",
+      "quote_author" : "Marcus Tullius Cicero"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Men willingly believe what they wish.",
+      "quote_author" : "Julius Caesar"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "It is easier to find men who will volunteer to die than to find those who are willing to endure pain with patience.",
+      "quote_author" : "Julius Caesar"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "A shoe that is too large is apt to trip one, and when too small, to pinch the feet. So it is with those whose fortune does not suit them.",
+      "quote_author" : "Quintus Horatius Flaccus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I’m never less at leisure than when at leisure, or less alone than when alone.",
+      "quote_author" : "Scipio Africanus"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Deep calls to deep.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Sparing is the first gaining.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Deeds, not words.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "As long as there is life there is hope.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Jack of all trades, master of none; Jack of all trades begs bread on Sundays.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Don't make a mountain out of a molehill.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "I'll either find a way or make one.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Misfortune comes on horseback and goes away on foot.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Early ripe, early rotten.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "He that will not be counseled cannot be helped.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Pride comes before fall.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Fake it till you make it.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Divide and conquer.",
+      "quote_author" : "Julius Caesar"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "By teaching, we learn.",
+      "quote_author" : "Seneca"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Fortune disdains the lazy.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "To rule yourself is the ultimate power.",
+      "quote_author" : "Seneca"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "The strong anvil does not despise the hammar.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "The die has been cast.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "To milk a male goat.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "He conquers who conquers himself.",
+      "quote_author" : "Latin Proverb"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "I am not led, I lead.",
+      "quote_author" : "Latin Proverb"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Life is an unfoldment, and the further we travel the more truth we can comprehend.",
+      "quote_author" : "Hypatia"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Time spent with cats is never wasted.",
+      "quote_author" : "Sigmund Freud"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "Toto, I've got a feeling we're not in Kansas anymore.",
+      "quote_author" : "The Wizard of Oz (1939)"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "To deny our own impulses is to deny the very thing that makes us human.",
+      "quote_author" : "The Matrix (1999)"
+   },  
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "I'd rather be hated for who I am, than loved for what I am not.",
+      "quote_author" : "Kurt Cobain"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   },
+      "the_quote" : "Here's looking at you kid.",
+      "quote_author" : "Casablanca (1942)"
+   },   
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote" : "There can be no understanding between the hand and the brain unless the heart acts as mediator.",
+      "quote_author" : "Metropolis (1927)"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Opportunity is missed by most people because it is dressed in overalls and looks like work.",
+      "quote_author": "Thomas Eddison."
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "If you’re going to be thinking, you may as well think big.",
+      "quote_author": "Donald Trump"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Opportunity does not knock; it presents itself when you beat down the door.",
+      "quote_author": "Kyle Chandler"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Even if you are on the right track, you’ll get run over if you just sit there.",
+      "quote_author": "Will Rogers"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "If you think you are too small to make a difference, try sleeping with a mosquito.",
+      "quote_author": "Dalai Lama"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "I want my children to have all the things I couldn’t afford. Then I want to move in with them.",
+      "quote_author": "Phyllis Diller"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Never follow anyone else’s path. Unless you’re in the woods and you’re lost, and you see a path. Then, by all means, follow that path.",
+      "quote_author": "Ellen DeGeneres."
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Insomnia sharpens your math skills because you spend all night calculating how much sleep you’ll get if you’re able to ‘fall asleep right now.",
+      "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "I used to sell furniture for a living. The trouble was, it was my own.",
+      "quote_author": "Les Dawson"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "If you’re going to be able to look back on something and laugh about it, you might as well laugh about it now.",
+      "quote_author": "Marie Osmond"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Whoever said, ‘It’s not whether you win or lose that counts,’ probably lost.",
+      "quote_author": "Martina Navratilova"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "If you fall, I’ll always be there.",
+      "quote_author": "The Floor"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "I intend to live forever. So far, so good.",
+      "quote_author": "Steven Wright"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Friday is my second favorite F word. Food is my first.",
+      "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "It’s Friday night. Time to be a hero and rescue some wine trapped in a bottle.",
+      "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Friday is like a superhero that always arrives just in time to stop me from savagely beating one of my co-workers with a keyboard.",
+      "quote_author": "West Lee"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "It’s always difficult to keep Fridays confined within themselves. They tend to spill over.",
+      "quote_author": "Parag Tipnis."
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "If you think your boss is stupid, remember: you wouldn’t have a job if he was any smarter.",
+      "quote_author": "John Gotti."
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Hard work never killed anybody, but why take a chance?",
+      "quote_author": "Edgar Bergen"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "The only thing that ever sat its way to success was a hen.",
+      "quote_author": "Sarah Brown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "Nobody ever wrote down a plan to be broke, fat lazy, or stupid. Those things are what happen when you didn’t have a plan.",
+      "quote_author": "Larry Winget"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "The only place success comes before work is in the dictionary.",
+      "quote_author": "Vince Lombardi"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "I’m not good at the advice. Can I interest you in a sarcasticcomment?",
+      "quote_author": "Chandler"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "You know you’re getting old when the candles cost more than the cake.",
+      "quote_author": "Bob Hope"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Eventually, you reach a point when you stop lying about your age and start bragging about it.",
+   "quote_author": "Will Rogers"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Birthdays are good for you. Statistics show that the people who have the most live the longest.",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+      "the_quote": "I haven’t spoken to my wife in years. I didn’t want to interrupt her.",
+      "quote_author": "Rodney Dangerfield"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Love is like a fart. If you have to force it, it’s probably shit.",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Most women desire someone who makes them laugh and also feel safe. So basically a clown ninja.",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Here’s all you have to know about men and women: Women are crazy, men are stupid. And the main reason women are crazy is that men are stupid.",
+   "quote_author": "George Carlin"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Here’s something to think about: How come you never see a headline like ‘Psychic Wins Lottery’?",
+   "quote_author": "Jay Leno"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Never do anything out of hunger. Not even eating.",
+   "quote_author": "Frank Semyon"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Why do they call it rush hour when nothing moves?",
+   "quote_author": "Robin Williams"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "You know that point at your graduation ceremony where everyone tosses up their caps? Isn’t it great that we all celebrate how smart we are by throwing sharp pointy objects in the air?",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "If you can find a path with no obstacles, it probably doesn’t lead anywhere.",
+   "quote_author": "Frank A. Clark"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Commencement speeches were invented largely in the belief that outgoing college students should never be released into the world until they have been properly sedated.",
+   "quote_author": "Gary Trudeau"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "The main difference for you, between life yesterday and life tomorrow, is you can go to the bathroom whenever you want. It’s a pretty big responsibility, but you’ve earned it.",
+   "quote_author": "Eugene Mirman"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "A graduation ceremony is an event where the commencement speaker tells thousands of students dressed in identical caps and gowns that ‘individuality’ is the key to success.",
+   "quote_author": "Robert Orben"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "When your mother asks, ‘Do you want a piece of advice?’ it is a mere formality. It doesn’t matter if you answer yes or no. You’re going to get it anyway.",
+   "quote_author": "Erma Bombeck"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Being a mom means never buying the right amount of produce. Either everyone suddenly loves grapes and a week’s worth are eaten in one afternoon, or fruit flies are congregating around my rotting bananas.",
+   "quote_author": "Lessons from the Minivan"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "I’m not insane. My mother had me tested.",
+   "quote_author": "Sheldon Cooper"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Mirror, mirror, on the wall, I am my mother after all!",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Working mothers are guinea pigs in a scientific experiment to show that sleep is not necessary for human life.",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Common sense is like deodorant. The people who need it most never use it.",
+   "quote_author": "Unknown"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Sometimes I’ll start a sentence, and I don’t even know where it’s going. I just hope I find it along the way.",
+   "quote_author": "Michael Scott"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "Doing nothing is very hard to do… you never know when you’re finished.",
+   "quote_author": "Leslie Nielsen"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "The closest to perfection a person ever comes is when he fills out a job application form.",
+   "quote_author": "Stanley J. Randall"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
+   "the_quote": "The problem with doing nothing is that you never know when you’re finished.",
+   "quote_author": "Groucho Marx"
    },
    {
-      "the_quote" : "",
-      "quote_author": ""
-   }
+      "the_quote": "I really don't think I need buns of steel. I'd be happy with buns of cinnamon.",
+      "quote_author": "Ellen DeGeneres"
+    },
+    {
+      "the_quote": "Go to Heaven for the climate, Hell for the company.",
+      "quote_author": "Mark Twain"
+    },
+    {
+      "the_quote": "I'm not superstitious, but I am a little stitious.",
+      "quote_author": "The Office"
+    },
+    {
+      "the_quote": "Behind every great man is a woman rolling her eyes.\" — Jim Carrey",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "The world is a stage, but the play is badly cast.",
+      "quote_author": "Oscar Wilde"
+    },
+    {
+      "the_quote": "Housework can't kill you, but why take a chance?",
+      "quote_author": "Phyllis Diller"
+    },
+    {
+      "the_quote": "If at first, you don't succeed, then skydiving definitely isn't for you.",
+      "quote_author": "Steven Wright"
+    },
+    {
+      "the_quote": "Age is something that doesn’t matter unless you are a cheese.",
+      "quote_author": "Luis Bunnuel"
+    },
+    {
+      "the_quote": "Always remember that you are absolutely unique. Just like everyone else.",
+      "quote_author": "Margaret Mead"
+    },
+    {
+      "the_quote": "I used to jog but the ice cubes kept falling out of my glass.",
+      "quote_author": "David Lee Roth"
+    },
+    {
+      "the_quote": "Before you marry a person, you should first make them use a computer with slow internet to see who they really are.",
+      "quote_author": "Will Ferrell"
+    },
+    {
+      "the_quote": "Laziness is nothing more than the habit of resting before you get tired.",
+      "quote_author": "Jules Renard"
+    },
+    {
+      "the_quote": "I love being married. It’s so great to find that one special person you want to annoy for the rest of your life.",
+      "quote_author": "Rita Rudner"
+    },
+    {
+      "the_quote": "I want my children to have all the things I couldn’t afford. Then I want to move in with them.",
+      "quote_author": "Phyllis Diller"
+    },
+    {
+      "the_quote": "I haven’t spoken to my wife in years. I didn’t want to interrupt her.",
+      "quote_author": "Rodney Dangerfield"
+    },
+    {
+      "the_quote": "I used to sell furniture for a living. The trouble was, it was my own.",
+      "quote_author": "Les Dawson"
+    },
+    {
+      "the_quote": "You know you’ve reached middle age when you’re cautioned to slow down by your doctor, instead of by the police.",
+      "quote_author": "Joan Rivers"
+    },
+    {
+      "the_quote": "I saw a study that said speaking in front of a crowd is considered the number one fear of the average person. Number two was death. This means to the average person, if you have to be at a funeral, you would rather be in the casket than doing the eulogy.",
+      "quote_author": "Jerry Seinfield"
+    },
+    {
+      "the_quote": "My therapist told me the way to achieve true inner peace is to finish what I start. So far I’ve finished two bags of M&Ms and a chocolate cake. I feel better already.",
+      "quote_author": "Dave Barry"
+    },
+    {
+      "the_quote": "Why do they call it rush hour when nothing moves?",
+      "quote_author": "Robin Williams"
+    },
+    {
+      "the_quote": "I grew up with six brothers. That’s how I learned to dance: waiting for the bathroom.",
+      "quote_author": "Bob Hope"
+    },
+    {
+      "the_quote": "My husband and I fell in love at first sight. Maybe I should have taken a second look.",
+      "quote_author": "Mia Farrow as Halley Reed in \"Crimes and Misdemeanors\""
+    },
+    {
+      "the_quote": "I like long walks, especially when they are taken by people who annoy me.",
+      "quote_author": "Fred Allen"
+    },
+    {
+      "the_quote": "People say, ‘But Betty, Facebook is a great way to connect with old friends.’ Well, at my age, If I want to connect with old friends I need an Ouija board.",
+      "quote_author": "Betty White"
+    },
+    {
+      "the_quote": "From the ages of eight to 18, me and my family moved around a lot. Mostly we would just stretch, but occasionally one of us would actually get up to go to the fridge.",
+      "quote_author": "Jarod Kintz"
+    },
+    {
+      "the_quote": "I’d like to have a kid, but I’m not sure I’m ready to spend 10 years of my life constantly asking someone where his shoes are.",
+      "quote_author": "Damien Fahey"
+    },
+    {
+      "the_quote": "I have a lot of growing up to do. I realized that the other day inside my fort.",
+      "quote_author": "Zach Galifianakis"
+    },
+    {
+      "the_quote": "I’m sure wherever my Dad is, he’s looking down on us. He’s not dead, just very condescending.",
+      "quote_author": "Jack Whitehall"
+    },
+    {
+      "the_quote": "Don’t talk about yourself; it will be done when you leave.",
+      "quote_author": "Wilson Mizner"
+    },
+    {
+      "the_quote": "I knew I was an unwanted baby when I saw that my bath toys were a toaster and a radio.",
+      "quote_author": "Joan Rivers"
+    },
+    {
+      "the_quote": "I don’t need you to remind me of my age. I have a bladder to do that for me.",
+      "quote_author": "Stephen Fry"
+    },
+    {
+      "the_quote": "Society is like a stew. If you don’t stir it up every once in a while then a layer of scum floats to the top.",
+      "quote_author": "Edward Abbey"
+    },
+    {
+      "the_quote": "If you haven’t got anything nice to say about anybody, come sit next to me.",
+      "quote_author": "Alice Roosevelt Longworth"
+    },
+    {
+      "the_quote": "A pessimist is a person who has had to listen to too many optimists.",
+      "quote_author": "Don Marquis"
+    },
+    {
+      "the_quote": "All my life, I always wanted to be somebody. Now I see that I should have been more specific.",
+      "quote_author": "Jane Wagner"
+    },
+    {
+      "the_quote": "A two-year-old is kind of like having a blender, but you don’t have a top for it.",
+      "quote_author": "Jerry Seinfield"
+    },
+    {
+      "the_quote": "We owe a lot to Thomas Edison — if it wasn’t for him, we’d be watching television by candlelight.",
+      "quote_author": "Milton Berle"
+    },
+    {
+      "the_quote": "Christopher Columbus, as everyone knows, is honored by posterity because he was the last to discover America.",
+      "quote_author": "James Joyce"
+    },
+    {
+      "the_quote": "All the things I really like to do are either immoral, illegal or fattening.",
+      "quote_author": "Alexander Woolcott"
+    },
+    {
+      "the_quote": "To be sure of hitting the target, shoot first, and call whatever you hit the target.",
+      "quote_author": "Ashleigh Brilliant"
+    },
+    {
+      "the_quote": "Wine is constant proof that God loves us and loves to see us happy.",
+      "quote_author": "Benjamin Franklin"
+    },
+    {
+      "the_quote": "A bank is a place that will lend you money if you can prove that you don’t need it.",
+      "quote_author": "Bob Hope"
+    },
+    {
+      "the_quote": "My favorite machine at the gym is the vending machine.",
+      "quote_author": "Caroline Rhea"
+    },
+    {
+      "the_quote": "I always arrive late at the office, but I make up for it by leaving early.",
+      "quote_author": "Charles Lamb"
+    },
+    {
+      "the_quote": "The surest sign that intelligent life exists elsewhere in the universe is that it has never tried to contact us.",
+      "quote_author": "Bill Watterson"
+    },
+    {
+      "the_quote": "Education is learning what you didn’t even know you didn’t know.",
+      "quote_author": "Daniel J. Boorstin"
+    },
+    {
+      "the_quote": "It is a scientific fact that your body will not absorb cholesterol if you take it from another person’s plate.",
+      "quote_author": "Dave Barry"
+    },
+    {
+      "the_quote": "Never under any circumstances take a sleeping pill and a laxative on the same night.",
+      "quote_author": "Dave Barry"
+    },
+    {
+      "the_quote": "Never doubt the courage of the French. They were the ones who discovered that snails are edible.",
+      "quote_author": "Doug Larson"
+    },
+    {
+      "the_quote": "Do not take life too seriously. You will never get out of it alive.",
+      "quote_author": "Elbert Hubbard"
+    },
+    {
+      "the_quote": "A computer once beat me at chess, but it was no match for me at kickboxing.",
+      "quote_author": "Emo Philips"
+    },
+    {
+      "the_quote": "I asked God for a bike, but I know God doesn’t work that way. So I stole a bike and asked for forgiveness.",
+      "quote_author": "Emo Philips"
+    },
+    {
+      "the_quote": "I drink to make other people more interesting.",
+      "quote_author": "Ernest Hemingway"
+    },
+    {
+      "the_quote": "You’re only good as your last haircut.",
+      "quote_author": "Fran Lebowitz"
+    },
+    {
+      "the_quote": "If you think nobody cares if you’re alive, try missing a couple of car payments.",
+      "quote_author": "Earl Wilson"
+    },
+    {
+      "the_quote": "I'm trying to see things from your point of view, but I can't stick my head that far up my butt.\"",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Some people just need a high-five. In the face. With a chair.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Dear haters, I couldn't help but notice that 'awesome' ends with 'me' and 'ugly' starts with 'u'.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "I choked on a carrot this afternoon, and all I could think was 'I bet a donut wouldn't have done this to me.'",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "I am not lazy I am on energy saving mode.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Farts are like children, I'm proud of mine and disgusted by yours.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Your life can't fall apart if you never had it together.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Home is where you trust the toilet seat.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "You know a girl is mad when she starts off her sentence saying 'I just find it funny how' because there's a 99.9% chance she did not find it funny.\"",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "I wish Santa would publish the naughty list. What a great way to meet people.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "That awkward moment when you're wearing Nike's and you can't do it.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Sometimes when I close my eyes, I can't see.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "My friend thinks he's smart. He said onions are the only food that makes you cry. So I threw a coconut at his face.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "An apple a day keeps anyone away if you throw it hard enough.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "A best friend is like a four-leaf clover, hard to find, lucky to have.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "I never make the same mistake twice. I make it like five or six times, you know, just to be sure.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "When life shuts a door ... open it again. It's a door. That's how they work.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "The more you weigh, the harder you are to kidnap. Stay safe. Eat cake.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "I love my six-pack so much, I protect it with a layer of fat.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Life is short. Smile while you still have teeth.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Lazy is such an ugly word. I prefer to call it selective participation.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Maybe if we tell people that brains is an app, they’ll start using it.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Me and my bed are perfect for each other, but my alarm clock keeps trying to break us up.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "I thought about losing weight once, but I don’t like losing.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "Common sense is like deodorant. The people who need it most never use it.",
+      "quote_author": "Unknown"
+    },
+    {
+      "the_quote": "If you are working on something exciting that you really care about, you don’t have to be pushed. The vision pulls you.",
+      "quote_author": "Steve Jobs"
+    },
+    {
+      "the_quote": "Just don’t give up trying to do what you really want to do. Where there is love and inspiration, I don’t think you can go wrong.",
+      "quote_author": "Ella Fitzgerald"
+    },
+    {
+      "the_quote": "The question isn’t who is going to let me; it’s who is going to stop me.",
+      "quote_author": "Ayn Rand"
+    },
+    {
+      "the_quote": "Never allow a person to tell you no, who doesn’t have the power to say yes.",
+      "quote_author": "Eleanor Roosevelt"
+    },
+    {
+      "the_quote": "Whether you think you can or think you can’t, you’re right.",
+      "quote_author": "Henry Ford"
+    },
+    {
+      "the_quote": "My attitude is that if you push me towards something that you think is a weakness, then I will turn that perceived weakness into a strength.",
+      "quote_author": "Michael Jordan"
+    },
+    {
+      "the_quote": "First they ignore you, then they ridicule you, then they fight you, and then you win.",
+      "quote_author": "Mahatma Gandhi"
+    },
+    {
+      "the_quote": "Without ambition one starts nothing. Without work, one finishes nothing. The prize will not be sent to you. You have to win it.“",
+      "quote_author": "Ralph Waldo Emerson"
+    },
+    {
+      "the_quote": "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.",
+      "quote_author": "Pelé"
+    },
+    {
+      "the_quote": "It’s not that I’m so smart, it’s just that I stay with problems longer.",
+      "quote_author": "Albert Einstein"
+    },
+    {
+      "the_quote": "Never confuse a single defeat with a final defeat.",
+      "quote_author": "F. Scott Fitzgerald"
+    },
+    {
+      "the_quote": "Perseverance is the hard work you do after you get tired of doing the hard work you already did.",
+      "quote_author": "Newt Gingrich"
+    },
+    {
+      "the_quote": "Perseverance is failing 19 times and succeeding the 20th.",
+      "quote_author": "Julie Andrews"
+    },
+    {
+      "the_quote": "Through perseverance, many people win success out of what seemed destined to be certain failure.",
+      "quote_author": "Benjamin Disraeli"
+    },
+    {
+      "the_quote": "Success seems to be largely a matter of hanging on after others have let go.",
+      "quote_author": "William Feather"
+    },
+    {
+      "the_quote": "We will either find a way or make one.",
+      "quote_author": "Hannibal"
+    },
+    {
+      "the_quote": "It always seems impossible until it’s done.",
+      "quote_author": "Nelson Mandela"
+    },
+    {
+      "the_quote": "Success is the sum of small efforts, repeated day in and day out.",
+      "quote_author": "Robert Collier"
+    },
+    {
+      "the_quote": "With ordinary talent and extraordinary perseverance, all things are attainable.",
+      "quote_author": "Thomas Fowell Buxton"
+    },
+    {
+      "the_quote": "Victory is always possible for the person who refuses to stop fighting.",
+      "quote_author": "Napoleon Hill"
+    },
+    {
+      "the_quote": "A river cuts through a rock not because of its power, but its persistence.",
+      "quote_author": "Jim Watkins"
+    },
+    {
+      "the_quote": "We can do anything we want to do if we stick to it long enough.",
+      "quote_author": "Helen Keller"
+    },
+    {
+      "the_quote": "I don’t focus on what I’m up against. I focus on my goals and I try to ignore the rest.",
+      "quote_author": "Venus Williams"
+    },
+    {
+      "the_quote": "The man who moves a mountain begins by carrying away small stones.“",
+      "quote_author": "Confucius"
+    },
+    {
+      "the_quote": "If you think you are too small to make a difference, try sleeping with a mosquito.",
+      "quote_author": "Dalai Lama"
+    },
+    {
+      "the_quote": "The quality of a person’s life is in direct proportion to their commitment to excellence, regardless of their chosen field of endeavor.",
+      "quote_author": "Vince Lombardi"
+    },
+    {
+      "the_quote": "If your actions inspire others to dream more, learn more, do more and become more, you are a leader.",
+      "quote_author": "John Quincy Adams"
+    },
+    {
+      "the_quote": "Opportunity is missed by most people because it is dressed in overalls and looks like work.",
+      "quote_author": "Thomas Edison"
+    },
+    {
+      "the_quote": "One of the lessons that I grew up with was to always stay true to yourself and never let what somebody else says distract you from your goals.",
+      "quote_author": "Michelle Obama"
+    },
+    {
+      "the_quote": "You are never too old to set another goal or to dream a new dream.",
+      "quote_author": "C.S. Lewis"
+    },
+    {
+      "the_quote": "All who have accomplished great things have had a great aim, have fixed their gaze on a goal which was high, one which sometimes seemed impossible.",
+      "quote_author": "Orison Swett Marden"
+    },
+    {
+      "the_quote": "Success is the progressive realization of a worthy goal or ideal.",
+      "quote_author": "Earl Nightingale"
+    },
+    {
+      "the_quote": "You have to set goals that are almost out of reach. If you set a goal that is attainable without much work or thought, you are stuck with something below your true talent and potential.",
+      "quote_author": "Steve Garvey"
+    },
+    {
+      "the_quote": "By recording your dreams and goals on paper, you set in motion the process of becoming the person you most want to be. Put your future in good hands—your own.",
+      "quote_author": "Mark Victor Hansen"
+    },
+    {
+      "the_quote": "All successful people have a goal. No one can get anywhere unless he knows where he wants to go and what he wants to be or do. ",
+      "quote_author": "Norman Vincent Peale"
+    },
+    {
+      "the_quote": "Goals. There’s no telling what you can do when you get inspired by them. There’s no telling what you can do when you believe in them. And there’s no telling what will happen when you act upon them.",
+      "quote_author": "Jim Rohn"
+    },
+    {
+      "the_quote": "A goal properly set is halfway reached.",
+      "quote_author": "Zig Ziglar"
+    },
+    {
+      "the_quote": "Goals should never be easy. They should force you to work, even if they are uncomfortable at the time.",
+      "quote_author": "Michael Phelps"
+    },
+    {
+      "the_quote": "It must be borne in mind that the tragedy of life doesn’t lie in not reaching your goal. The tragedy lies in having no goals to reach.",
+      "quote_author": "Benjamin E. Mays"
+    },
+    {
+      "the_quote": "The thing about goals is that living without them is a lot more fun, in the short run. It seems to me, though, that the people who get things done, who lead, who grow and who make an impact… those people have goals.",
+      "quote_author": "Seth Godin"
+    },
+    {
+      "the_quote": "The student has goals. The master has systems to reach her goals.",
+      "quote_author": "Maxime Legace"
+    },
+    {
+      "the_quote": "One day or day one. You decide.",
+      "quote_author": "Paulo Coelho"
+    },
+    {
+      "the_quote": "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+      "quote_author": "Henry David Thoreau"
+    },
+    {
+      "the_quote": "Yesterday is not ours to recover, but tomorrow is ours to win or lose.",
+      "quote_author": "Lyndon Johnson"
+    },
+    {
+      "the_quote": "It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.",
+      "quote_author": "Charles Darwin"
+    },
+    {
+      "the_quote": "If something is wrong, fix it now. But train yourself not to worry, worry fixes nothing.",
+      "quote_author": "Ernest Hemingway"
+    },
+    {
+      "the_quote": "How wonderful it is that nobody need wait a single moment before starting to improve the world.",
+      "quote_author": "Anne Frank"
+    },
+    {
+      "the_quote": "When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us.",
+      "quote_author": "Helen Keller"
+    },
+    {
+      "the_quote": "Yesterday’s home runs don’t win today’s games.",
+      "quote_author": "Babe Ruth"
+    },
+    {
+      "the_quote": "Whatever your life’s work is, do it well. A man should do his job so well that the living, the dead, and the unborn could do it no better.",
+      "quote_author": "Martin Luther King, Jr."
+    },
+    {
+      "the_quote": "You must be the change you wish to see in the world.",
+      "quote_author": "Mahatma Gandhi"
+    },
+    {
+      "the_quote": "Change is the law of life. And those who look only to the past or present are certain to miss the future.",
+      "quote_author": "John F. Kennedy"
+    },
+    {
+      "the_quote": "If you don’t like something, change it. If you can’t change it, change your attitude.",
+      "quote_author": "Maya Angelou"
+    },
+    {
+      "the_quote": "Change will not come if we wait for some other person or some other time. We are the ones we’ve been waiting for. We are the change that we seek.",
+      "quote_author": "Barack Obama"
+    },
+    {
+      "the_quote": "The world is changing very fast. Big will not beat small anymore. It will be the fast beating the slow.",
+      "quote_author": "Rupert Murdoch"
+    },
+    {
+      "the_quote": "Without change, something sleeps inside us, and seldom awakens. The sleeper must awaken.",
+      "quote_author": "Frank Herbert"
+    },
+    {
+      "the_quote": "All change is not growth, as all movement is not forward.",
+      "quote_author": "Ellen Glasgow"
+    },
+    {
+      "the_quote": "You’re only as young as the last time you changed your mind.",
+      "quote_author": "Timothy Leary"
+    },
+    {
+      "the_quote": "What’s dangerous is not to evolve.",
+      "quote_author": "Jeff Bezos"
+    },
+    {
+      "the_quote": "The foolish and the dead alone never change their opinions.",
+      "quote_author": "James Russell Lowell"
+    },
+    {
+      "the_quote": "Only the wisest and stupidest of men never change.",
+      "quote_author": "Confucius"
+    },
+    {
+      "the_quote": "Ignorance is always afraid of change.",
+      "quote_author": "Jawaharlal Nehru"
+    },
+    {
+      "the_quote": "Don’t be afraid to give up the good to go for the great.",
+      "quote_author": "John D. Rockefeller"
+    },
+    {
+      "the_quote": "The greatest discovery of all time is that a person can change his future by merely changing his attitude.",
+      "quote_author": "Oprah Winfrey"
+    },
+    {
+      "the_quote": "We may encounter many defeats but we must not be defeated.",
+      "quote_author": "Maya Angelou"
+    },
+    {
+      "the_quote": "Real courage is when you know you’re licked before you begin, but you begin anyway and see it through no matter what.",
+      "quote_author": "Harper Lee"
+    },
+    {
+      "the_quote": "Life is a shipwreck but we must not forget to sing in the lifeboats.",
+      "quote_author": "Voltaire"
+    },
+    {
+      "the_quote": "Out of clutter, find simplicity. From discord, find harmony. In the middle of difficulty lies opportunity.",
+      "quote_author": "Albert Einstein"
+    },
+    {
+      "the_quote": "Do the one thing you think you cannot do. Fail at it. Try again. Do better the second time. The only people who never tumble are those who never mount the high wire.",
+      "quote_author": "Oprah Winfrey"
+    },
+    {
+      "the_quote": "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
+      "quote_author": "Thomas Edison"
+    },
+    {
+      "the_quote": "Failure is the only opportunity to begin again, this time more intelligently.",
+      "quote_author": "Henry Ford"
+    },
+    {
+      "the_quote": "A failure is not always a mistake. It may simply be the best one can do under the circumstances. The real mistake is to stop trying.",
+      "quote_author": "B.F. Skinner"
+    },
+    {
+      "the_quote": "Failure is often that early morning hour of darkness which precedes the dawning of the day of success.",
+      "quote_author": "Leigh Mitchell Hodges"
+    },
+    {
+      "the_quote": "A winner is just a loser who tried one more time.",
+      "quote_author": "George M. Moore Jr."
+    },
+    {
+      "the_quote": "Defeat is not the worst of failures. Not to have tried is the true failure.",
+      "quote_author": "George Edward Woodberry"
+    },
+    {
+      "the_quote": "Every strike brings me closer to the next home run.",
+      "quote_author": "Babe Ruth"
+    },
+    {
+      "the_quote": "If you’re not prepared to be wrong, you’ll never come up with anything original.",
+      "quote_author": "Ken Robinson"
+    },
+    {
+      "the_quote": "Failure is the key to success; each mistake teaches us something.",
+      "quote_author": "Morihei Ueshiba"
+    },
+    {
+      "the_quote": "Failure is a bruise, not a tattoo.",
+      "quote_author": "Jon Sinclair"
+    },
+    {
+      "the_quote": "Don’t think of it as failure. Think of it as time-released success.",
+      "quote_author": "Robert Orben"
+    },
+    {
+      "the_quote": "A minute’s success pays the failure of years.",
+      "quote_author": "Robert Browning"
+    },
+    {
+      "the_quote": "Failure is success in progress.",
+      "quote_author": "Albert Einstein"
+    },
+    {
+      "the_quote": "Failure defeats losers, but it inspires winners.",
+      "quote_author": "Robert T. Kiyosaki"
+    },
+   {
+      "the_quote" : "What we got here is a failure to communicate.",
+      "quote_author" : "Cool Hand Luke (1967)"
+   },  
+   {
+      "the_quote" : "Athens, the eye of Greece, mother of arts and eloquence… ",
+      "quote_author" : "John Milton"
+   },
+   {
+      "the_quote": "There is always light. If only we're brave enough to see it. If only we're brave enough to be it.",
+      "quote_author": "Amanda Gorman"
+    },
+    {
+      "the_quote": "I have learned not to allow rejection to move me.",
+      "quote_author": "Cicely Tyson"
+    },
+    {
+      "the_quote": "Don't save your best for when you think the material calls for it. Always bring your full potential to every take, and be on top of your job, or they will replace you.",
+      "quote_author": "Gabrielle Union"
+    },
+    {
+      "the_quote": "You can't rely on how you look to sustain you, what sustains us, what is fundamentally beautiful is compassion; for yourself and your those around you.",
+      "quote_author": "Lupita Nyong'o"
+    },
+    {
+      "the_quote": "Don't sit down and wait for the opportunities to come. Get up and make them.",
+      "quote_author": "Madam C.J Walker"
+    },
+    {
+      "the_quote": "One of the lessons that I grew up with was to always stay true to yourself and never let what somebody else says distract you from your goals.",
+      "quote_author": "Michelle Obama"
+    },
+    {
+      "the_quote": "Always work hard and have fun in what you do because I think that's when you're more successful. You have to choose to do it.",
+      "quote_author": "Simone Biles"
+    },
+    {
+      "the_quote": "When your dreams are bigger than the places you find yourself in, sometimes you need to seek out your own reminders that there is more. And there is always more waiting for you on the other side of fear.",
+      "quote_author": "Elaine Welteroth"
+    },
+    {
+      "the_quote": "I don't harp on the negative because if you do, then there's no progression. There's no forward movement. You got to always look on the bright side of things, and we are in control. Like, you have control over the choices you make.",
+      "quote_author": "Taraji P. Henson"
+    },
+    {
+      "the_quote": "All dreams are within reach. All you have to do is keep moving towards them.",
+      "quote_author": "Viola Davis"
+    },
+    {
+      "the_quote": "Act as if what you do makes a difference. It does.",
+      "quote_author": "William James"
+    },
+    {
+      "the_quote": "Never bend your head. Always hold it high. Look the world straight in the eye.",
+      "quote_author": "Helen Keller"
+    },
+    {
+      "the_quote": "When you have a dream, you've got to grab it and never let go.",
+      "quote_author": "Carol Burnett"
+    },
+    {
+      "the_quote": "It is our attitude at the beginning of a difficult task which, more than anything else, will affect its successful outcome.",
+      "quote_author": "William James"
+    },
+    {
+      "the_quote": "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+      "quote_author": "Albert Einstein"
+    },
+    {
+      "the_quote": "Just don't give up trying to do what you really want to do. Where there is love and inspiration, I don't think you can go wrong.",
+      "quote_author": "Ella Fitzgerald"
+    },
+    {
+      "the_quote": "Limit your 'always' and your 'nevers'.",
+      "quote_author": "Amy Poehler"
+    },
+    {
+      "the_quote": "You are never too old to set another goal or to dream a new dream.",
+      "quote_author": "C.S. Lewis"
+    },
+    {
+      "the_quote": "Try to be a rainbow in someone else's cloud.",
+      "quote_author": "Maya Angelou"
+    },
+    {
+      "the_quote": "I always wanted to be somebody, but now I realize I should have been more specific.",
+      "quote_author": "Lily Tomlin"
+    },
+    {
+      "the_quote": "You do not find the happy life. You make it.",
+      "quote_author": "Camilla Eyring Kimball"
+    },
+    {
+      "the_quote": "Inspiration comes from within yourself. One has to be positive. When you're positive, good things happen.",
+      "quote_author": "Deep Roy"
+    },
+    {
+      "the_quote": "Sometimes you will never know the value of a moment, until it becomes a memory.",
+      "quote_author": "Dr. Seuss"
+    },
+    {
+      "the_quote": "You are never too old to set another goal or to dream a new dream.",
+      "quote_author": "Malala Yousafzai"
+    },
+    {
+      "the_quote": "The most wasted of days is one without laughter.",
+      "quote_author": "E. E. Cummings"
+    },
+    {
+      "the_quote": "You must do the things you think you cannot do.",
+      "quote_author": "Eleanor Roosevelt"
+    },
+    {
+      "the_quote": "It isn't where you came from. It's where you're going that counts.",
+      "quote_author": "Ella Fitzgerald"
+    },
+    {
+      "the_quote": "You make a choice: continue living your life feeling muddled in this abyss of self-misunderstanding, or you find your identity independent of it. You draw your own box.",
+      "quote_author": "Meghan, Duchess of Sussex"
+    },
+    {
+      "the_quote": "It is never too late to be what you might have been.",
+      "quote_author": "George Eliot"
+    },
+    {
+      "the_quote": "Stay close to anything that makes you glad you are alive.",
+      "quote_author": "Hafez"
+    },
+    {
+      "the_quote": "Keep your face always toward the sunshine - and shadows will fall behind you.",
+      "quote_author": "Walt Whitman"
+    },
+    {
+      "the_quote": "You get what you give.",
+      "quote_author": "Jennifer Lopez"
+    },
+    {
+      "the_quote": "Some people look for a beautiful place. Others make a place beautiful.",
+      "quote_author": "Hazrat Inayat Khan"
+    },
+    {
+      "the_quote": "Happiness often sneaks in through a door you didn't know you left open.",
+      "quote_author": "John Barrymore"
+    },
+    {
+      "the_quote": "We must be willing to let go of the life we planned so as to have the life that is waiting for us.",
+      "quote_author": "Joseph Campbell"
+    },
+    {
+      "the_quote": "Happiness is not by chance, but by choice.",
+      "quote_author": "Jim Rohn"
+    },
+    {
+      "the_quote": "The miracle is not that we do this work, but that we are happy to do it.",
+      "quote_author": "Mother Teresa"
+    },
+    {
+      "the_quote": "Life changes very quickly, in a very positive way, if you let it.",
+      "quote_author": "Lindsey Vonn"
+    },
+    {
+      "the_quote": "Keep your face to the sunshine and you cannot see a shadow.",
+      "quote_author": "Helen Keller"
+    },
+    {
+      "the_quote": "If my mind can conceive it, if my heart can believe it, then I can achieve it.",
+      "quote_author": "Muhammad Ali"
+    },
+    {
+      "the_quote": "Never limit yourself because of others’ limited imagination; never limit others because of your own limited imagination.",
+      "quote_author": "Mae Jemison"
+    },
+    {
+      "the_quote": "Dreams don’t have to just be dreams. You can make it a reality; if you just keep pushing and keep trying, then eventually you’ll reach your goal.",
+      "quote_author": "Naomi Osaka"
+    },
+    {
+      "the_quote": "Be the change that you wish to see in the world.",
+      "quote_author": "Mahatma Gandhi"
+    },
+    {
+      "the_quote": "Life has got all those twists and turns. You’ve got to hold on tight and off you go.",
+      "quote_author": "Nicole Kidman"
+    },
+    {
+      "the_quote": "Let us make our future now, and let us make our dreams tomorrow's reality.",
+      "quote_author": "Malala Yousafzai"
+    },
+    {
+      "the_quote": "You don't always need a plan. Sometimes you just need to breathe, trust, let go and see what happens.",
+      "quote_author": "Mandy Hale"
+    },
+    {
+      "the_quote": "You define your own life. Don’t let other people write your script.",
+      "quote_author": "Oprah Winfrey"
+    },
+    {
+      "the_quote": "If I cannot do great things, I can do small things in a great way.",
+      "quote_author": "Martin Luther King Jr."
+    },
+    {
+      "the_quote": "My mission in life is not merely to survive, but to thrive.",
+      "quote_author": "Maya Angelou"
+    },
+    {
+      "the_quote": "You are enough just as you are.",
+      "quote_author": "Meghan Markle"
+    },
+    {
+      "the_quote": "Challenges are gifts that force us to search for a new center of gravity. Don't fight them. Just find a new way to stand.",
+      "quote_author": "Oprah Winfrey"
+    },
+    {
+      "the_quote": "The bad news is time flies. The good news is you're the pilot.",
+      "quote_author": "Michael Altshuler"
+    },
+    {
+      "the_quote": "It ain’t about how hard you hit. It’s about how hard you can get hit and keep moving forward.",
+      "quote_author": "Sylvester Stallone, Rocky Balboa"
+    },
+    {
+      "the_quote": "Spread love everywhere you go.",
+      "quote_author": "Mother Teresa"
+    },
+    {
+      "the_quote": "Keep your face always toward the sunshine, and shadows will fall behind you.",
+      "quote_author": "Walt Whitman"
+    },
+    {
+      "the_quote": "The best way to get started is to quit talking and begin doing.",
+      "quote_author": "Walt Disney"
+    },
+    {
+      "the_quote": "People who are crazy enough to think they can change the world, are the ones who do.",
+      "quote_author": "Rob Siltanen"
+    },
+    {
+      "the_quote": "Everything you can imagine is real.",
+      "quote_author": "Pablo Picasso"
+    },
+    {
+      "the_quote": "Light tomorrow with today!",
+      "quote_author": "Elizabeth Barrett Browning"
+    },
+    {
+      "the_quote": "For every reason it’s not possible, there are hundreds of people who have faced the same circumstances and succeeded.",
+      "quote_author": "Jack Canfield"
+    },
+    {
+      "the_quote": "Our greatest glory is not in never failing, but in rising up every time we fail.",
+      "quote_author": "Ralph Waldo Emerson"
+    },
+    {
+      "the_quote": "We generate fears while we sit. We overcome them by action.",
+      "quote_author": "Dr. Henry Link"
+    },
+    {
+      "the_quote": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "quote_author": "Franklin D. Roosevelt"
+    },
+    {
+      "the_quote": "There are two ways of spreading light: to be the candle or the mirror that reflects it.",
+      "quote_author": "Edith Wharton"
+    },
+    {
+      "the_quote": "Memories of our lives, of our works and our deeds will continue in others.",
+      "quote_author": "Rosa Parks"
+    },
+    {
+      "the_quote": "Real change, enduring change, happens one step at a time.",
+      "quote_author": "Ruth Bader Ginsburg"
+    },
+    {
+      "the_quote": "Someone is sitting in the shade today because someone planted a tree a long time ago.",
+      "quote_author": "Warren Buffett"
+    },
+    {
+      "the_quote": "Today’s accomplishments were yesterday’s impossibilities.",
+      "quote_author": "Robert H. Schuller"
+    },
+    {
+      "the_quote": "If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.",
+      "quote_author": "Steve Jobs"
+    },
+    {
+      "the_quote" : "Whoever is trying to bring you down is already below you.",
+      "quote_author" : "Unknown"
+    },  {
+      "the_quote": "The human capacity for burden is like bamboo - far more flexible than you'd ever believe at first glance.",
+      "quote_author": "Jodi Picoult"
+    },
+    {
+      "the_quote": "I can be changed by what happens to me. But I refuse to be reduced by it.",
+      "quote_author": "Maya Angelou"
+    },
+    {
+      "the_quote": "On the other side of a storm is the strength that comes from having navigated through it. Raise your sail and begin.",
+      "quote_author": "Gregory S. Williams"
+    },
+    {
+      "the_quote": "Although the world is full of suffering, it is also full of the overcoming of it.",
+      "quote_author": "Helen Keller"
+    },
+    {
+      "the_quote": "Turn your wounds into wisdom.",
+      "quote_author": "Oprah Winfrey"
+    },
+    {
+      "the_quote": "My scars remind me that I did indeed survive my deepest wounds. That in itself is an accomplishment. And they bring to mind something else, too. They remind me that the damage life has inflicted on me has, in many places, left me stronger and more resilient. What hurt me in the past has actually made me better equipped to face the present.",
+      "quote_author": "Steve Goodier"
+    },
+    {
+      "the_quote": "Resilience is accepting your new reality, even if it's less good than the one you had before. You can fight it, you can do nothing but scream about what you've lost, or you can accept that and try to put together something that's good.",
+      "quote_author": "Elizabeth Edwards"
+    },
+    {
+      "the_quote": "A good half of the art of living is resilience.",
+      "quote_author": "Alain de Botton"
+    },
+    {
+      "the_quote": "Never say that you can't do something, or that something seems impossible, or that something can't be done, no matter how discouraging or harrowing it may be; human beings are limited only by what we allow ourselves to be limited by: our own minds. We are each the masters of our own reality; when we become self-aware to this: absolutely anything in the world is possible.",
+      "quote_author": "Mike Norton"
+    },
+    {
+      "the_quote": "It’s your reaction to adversity, not adversity itself that determines how your life’s story will develop.",
+      "quote_author": "Dieter F. Uchtdorf"
+    },
+    {
+      "the_quote": "Life doesn't get easier or more forgiving, we get stronger and more resilient.",
+      "quote_author": "Steve Maraboli"
+    },
+    {
+      "the_quote": "We all have battles to fight. And it's often in those battles that we are most alive: it's on the frontlines of our lives that we earn wisdom, create joy, forge friendships, discover happiness, find love, and do purposeful work.",
+      "quote_author": "Eric Greitens"
+    },
+    {
+      "the_quote": "No matter how much falls on us, we keep plowing ahead. That's the only way to keep the roads clear.",
+      "quote_author": "Greg Kincaid"
+    },
+    {
+      "the_quote": "Resilience is very different than being numb. Resilience means you experience, you feel, you fail, you hurt. You fall. But, you keep going.",
+      "quote_author": "Yasmin Mogahed"
+    },
+    {
+      "the_quote": "The oak fought the wind and was broken, the willow bent when it must and survived.",
+      "quote_author": "Robert Jordan"
+    },
+    {
+      "the_quote": "You must bear losses like a soldier, the voice told me, bravely and without complaint, and just when the day seems lost, grab your shield for another stand, another thrust forward. That is the juncture that separates heroes from the merely strong.",
+      "quote_author": "Margaret George"
+    },
+    {
+      "the_quote": "Strong people alone know how to organize their suffering so as to bear only the most necessary pain.",
+      "quote_author": "Emil Dorian"
+    },
+    {
+      "the_quote": "Some knowledge is too heavy...you cannot bear it...your Father will carry it until you are able.",
+      "quote_author": "Corrie ten Boom"
+    },
+    {
+      "the_quote": "Strength does not come from winning. Your struggles develop your strengths. When you go through hardships and decide not to surrender, that is strength.",
+      "quote_author": "Arnold Schwarzenegger"
+    },
+    {
+      "the_quote": "It may sound strange, but many champions are made champions by setbacks.",
+      "quote_author": "Bob Richards"
+    },
+    {
+      "the_quote": "No one escapes pain, fear, and suffering. Yet from pain can come wisdom, from fear can come courage, from suffering can come strength - if we have the virtue of resilience.",
+      "quote_author": "Eric Greitens"
+    },
+    {
+      "the_quote": "I believe in being strong when everything seems to be going wrong... I believe that tomorrow is another day and I believe in miracles.",
+      "quote_author": "Audrey Hepburn"
+    },
+    {
+      "the_quote": "The difference between a strong man and a weak one is that the former does not give up after a defeat.",
+      "quote_author": "Woodrow Wilson"
+    },
+    {
+      "the_quote": "Hold yourself responsible for a higher standard than anybody else expects of you. Never excuse yourself. Never pity yourself. Be a hard master to yourself-and be lenient to everybody else.",
+      "quote_author": "Henry Ward Beecher"
+    },
+    {
+      "the_quote": "Life is very interesting. In the end, some of your greatest pains become your greatest strengths.",
+      "quote_author": "Drew Barrymore"
+    },
+    {
+      "the_quote": "My barn having burned down, I can now see the moon.",
+      "quote_author": "Mizuta Masahide"
+    },
+    {
+      "the_quote": "If you're going through hell, keep going.",
+      "quote_author": "Winston Churchill"
+    },
+    {
+      "the_quote": "Enthusiasm is common. Endurance is rare.",
+      "quote_author": "Angela Duckworth"
+    },
+    {
+      "the_quote": "Listen to the people who love you. Believe that they are worth living for even when you don’t believe it. Seek out the memories depression takes away and project them into the future. Be brave; be strong; take your pills. Exercise because it’s good for you even if every step weighs a thousand pounds. Eat when food itself disgusts you. Reason with yourself when you have lost your reason.",
+      "quote_author": "Andrew Solomon"
+    },
+    {
+      "the_quote": "We are all faced with a series of great opportunities brilliantly disguised as impossible situations.",
+      "quote_author": "Chuck Swindoll"
+    },
+    {
+      "the_quote": "Resilience is the ability to attack while running away.",
+      "quote_author": "Wes Fessler"
+    },
+    {
+      "the_quote": "You may have to fight a battle more than once to win it.",
+      "quote_author": "Margaret Thatcher"
+    },
+    {
+      "the_quote": "Rock bottom became the solid foundation in which I rebuilt my life.",
+      "quote_author": "J.K. Rowling"
+    },
+    {
+      "the_quote": "That which does not kill us makes us stronger.",
+      "quote_author": "Friedrich Nietzsche"
+    },
+    {
+      "the_quote": "One’s dignity may be assaulted, vandalized and cruelly mocked, but it can never be taken away unless it is surrendered.",
+      "quote_author": "Michael J. Fox"
+    },
+    {
+      "the_quote": "The harder you fall, the heavier your heart; the heavier your heart, the stronger you climb; the stronger you climb, the higher your pedestal.",
+      "quote_author": "Criss Jami"
+    },
+    {
+      "the_quote": "Successful people demonstrate their resilience through their dedication to making progress every day, even if that progress is marginal.",
+      "quote_author": "Jonathan Mills"
+    },
+    {
+      "the_quote": "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying 'I will try again tomorrow.'",
+      "quote_author": "Mary Anne Radmacher"
+    },
+    {
+      "the_quote": "Failure will never overtake me if my determination to succeed is strong enough.",
+      "quote_author": "Og Mandino"
+    },
+    {
+      "the_quote": "With the new day comes new strength and new thoughts.",
+      "quote_author": "Eleanor Roosevelt"
+    },
+    {
+      "the_quote": "Resilience isn't a single skill. It's a variety of skills and coping mechanisms. To bounce back from bumps in the road as well as failures, you should focus on emphasizing the positive.",
+      "quote_author": "Jean Chatzky"
+    },
+    {
+      "the_quote": "I love the man that can smile in trouble, that can gather strength from distress, and grow brave by reflection. ’Tis the business of little minds to shrink, but he whose heart is firm, and whose conscience approves his conduct, will pursue his principles unto death.",
+      "quote_author": "Thomas Paine"
+    },
+    {
+      "the_quote": "Hard times don't create heroes. It is during the hard times when the 'hero' within us is revealed.",
+      "quote_author": "Bob Riley"
+    },
+    {
+      "the_quote": "What helps you persevere is your resilience and commitment.",
+      "quote_author": "Roy T. Bennett"
+    },
+    {
+      "the_quote": "It's a funny thing about life, once you begin to take note of the things you are grateful for, you begin to lose sight of the things that you lack.",
+      "quote_author": "Germany Kent"
+    },
+    {
+      "the_quote": "If your heart is broken, make art with the pieces.",
+      "quote_author": "Shane Koyczan"
+    },
+    {
+      "the_quote": "Happiness isn’t something that depends on our surroundings…it’s something we make inside ourselves.",
+      "quote_author": "Corrie ten Boom"
+    },
+    {
+      "the_quote": "Nothing is more beautiful than the smile that has struggled through the tears.",
+      "quote_author": "Demi Lovato"
+    },
+    {
+      "the_quote": "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars.",
+      "quote_author": "Khalil Gibran"
+    },
+    {
+      "the_quote": "Hard times may have held you down, but they will not last forever. When all is said and done, you will be increased.",
+      "quote_author": "Joel Osteen"
+    },
+    {
+      "the_quote": "The world breaks everyone, and afterward, some are strong at the broken places.",
+      "quote_author": "Ernest Hemingway"
+    },
+    {
+      "the_quote": "It is really wonderful how much resilience there is in human nature. Let any obstructing cause, no matter what, be removed in any way, even by death, and we fly back to first principles of hope and enjoyment.",
+      "quote_author": "Bram Stoker"
+    },
+    {
+      "the_quote": "Hard times are sometimes blessings in disguise. We do have to suffer but in the end it makes us strong, better and wise.",
+      "quote_author": "Anurag Prakash Ray"
+    },
+    {
+      "the_quote": "Persistence and resilience only come from having been given the chance to work through difficult problems.",
+      "quote_author": "Gever Tulley"
+    },
+    {
+      "the_quote": "Difficulties are meant to rouse, not discourage. The human spirit is to grow strong by conflict.",
+      "quote_author": "William Ellery Channing"
+    },
+    {
+      "the_quote": "I have no regrets in my life. I think that everything happens to you for a reason. The hard times that you go through build character, making you a much stronger person.",
+      "quote_author": "Rita Mero"
+    },
+    {
+      "the_quote": "There is meaning in every journey that is unknown to the traveler.",
+      "quote_author": "Dietrich Bonhoeffer"
+    },
+    {
+      "the_quote": "Do not judge me by my success, judge me by how many times I fell down and got back up again.",
+      "quote_author": "Nelson Mandela"
+    },
+    {
+      "the_quote": "Hard times arouse an instinctive desire for authenticity.",
+      "quote_author": "Coco Chanel"
+    },
+    {
+      "the_quote": "There is a saying in Tibetan, ‘Tragedy should be utilized as a source of strength.' No matter what sort of difficulties, how painful experience is, if we lose our hope, that’s our real disaster.",
+      "quote_author": "14th Dalai Lama"
+    },
+    {
+      "the_quote": "We are only as strong as we are united, as weak as we are divided.",
+      "quote_author": "J.K. Rowling"
+    },
+    {
+      "the_quote": "No matter how bleak or menacing a situation may appear, it does not entirely own us. It can't take away our freedom to respond, our power to take action.",
+      "quote_author": "Ryder Carroll"
+    },
+    {
+      "the_quote": "You never know how strong you are, until being strong is your only choice.",
+      "quote_author": "Bob Marley"
+    },
+    {
+      "the_quote": "Anyone can give up; it is the easiest thing in the world to do. But to hold it together when everyone would expect you to fall apart, now that is true strength.",
+      "quote_author": "Chris Bradford"
+    },
+    {
+      "the_quote": "Like tiny seeds with potent power to push through tough ground and become mighty trees, we hold innate reserves of unimaginable strength. We are resilient.",
+      "quote_author": "Catherine DeVrye"
+    },
+    {
+      "the_quote": "And one has to understand that braveness is not the absence of fear but rather the strength to keep on going forward despite the fear.",
+      "quote_author": "Paulo Coelho"
+    },
+    {
+      "the_quote": "She stood in the storm and when the wind did not blow her way, she adjusted her sails.",
+      "quote_author": "Elizabeth Edwards"
+    },
+    {
+      "the_quote": "Courage is the most important of all the virtues because without courage, you can’t practice any other virtue consistently.",
+      "quote_author": "Maya Angelou"
+    },
+    {
+      "the_quote": "All the adversity I’ve had in my life, all my troubles and obstacles, have strengthened me…. You may not realize it when it happens, but a kick in the teeth may be the best thing in the world for you.",
+      "quote_author": "Walt Disney"
+    },
+    {
+      "the_quote": "He who believes is strong; he who doubts is weak. Strong convictions precede great actions.",
+      "quote_author": "Louisa May Alcott"
+    },
+    {
+      "the_quote": "Our greatest glory is not in never falling, but in rising every time we fall.",
+      "quote_author": "Confucius"
+    },
+    {
+      "the_quote": "Hard times build determination and inner strength. Through them we can also come to appreciate the uselessness of anger.",
+      "quote_author": "Dalai Lama"
+    },
+    {
+      "the_quote": "Be patient and tough; someday this pain will be useful to you.",
+      "quote_author": "Ovid"
+    },
+    {
+      "the_quote": "Only those who dare to fail greatly, can ever achieve greatly.",
+      "quote_author": "Robert F. Kennedy"
+    },
+    {
+      "the_quote": "Make up your mind that no matter what comes your way, no matter how difficult, no matter how unfair, you will do more than simply survive. You will thrive in spite of it.",
+      "quote_author": "Joel Osteen"
+    },
+    {
+      "the_quote": "A hero is an ordinary individual who finds the strength to persevere and endure in spite of overwhelming obstacles.",
+      "quote_author": "Christopher Reeve"
+    },
+    {
+      "the_quote": "Grief and resilience live together.",
+      "quote_author": "Michelle Obama"
+    },
+    {
+      "the_quote": "We are not a product of what has happened to us in our past. We have the power of choice.",
+      "quote_author": "Stephen Covey"
+    },
+    {
+      "the_quote": "When we learn how to become resilient, we learn how to embrace the beautifully broad spectrum of the human experience.",
+      "quote_author": "Jaeda Dewalt"
+    },
+    {
+      "the_quote": "When you go through something, like, you learn to appreciate little things - the birds, trees, flowers.",
+      "quote_author": "Grizz Chapman"
+    },
+    {
+      "the_quote": "We do not have to become heroes overnight. Just a step at a time, meeting each thing that comes up, seeing it is not as dreadful as it appeared, discovering we have the strength to stare it down.",
+      "quote_author": "Eleanor Roosevelt"
+    },
+    {
+      "the_quote": "Resilience is based on compassion for ourselves as well as compassion for others.",
+      "quote_author": "Sharon Salzberg"
+    },
+    {
+      "the_quote": "Worry does not empty tomorrow of its sorrow. It empties today of its strength.",
+      "quote_author": "Corrie ten Boom"
+    },
+    {
+      "the_quote": "Every adversity, every failure, and every heartache, carries with it the seed of an equivalent or greater benefit.",
+      "quote_author": "Napoleon Hill"
+    },
+    {
+      "the_quote": "Confidence, courage and determined spirit are vital for surviving hard times.",
+      "quote_author": "Lailah Gifty Akita"
+    },
+    {
+      "the_quote": "Difficult times have helped me to understand better than before, how infinitely rich and beautiful life is in every way, and that so many things that one goes worrying about are of no importance whatsoever.",
+      "quote_author": "Zahid Abas"
+    },
+    {
+      "the_quote": "Hope is the thing with feathers that perches in the soul - and sings the tunes without the words - and never stops at all.",
+      "quote_author": "Emily Dickinson"
+    },
+    {
+      "the_quote": "When things are bad, we take comfort in the thought that they could always get worse. And when they are, we find hope in the thought that things are so bad they have to get better.",
+      "quote_author": "Malcolm S. Forbes"
+    },
+    {
+      "the_quote": "We must accept finite disappointment, but never lose infinite hope.",
+      "quote_author": "Martin Luther King, Jr."
+    },
+    {
+      "the_quote": "The gem cannot be polished without friction, nor man perfected without trials.",
+      "quote_author": "Chinese Proverb"
+    },
+    {
+      "the_quote": "Worry never robs tomorrow of its sorrow, it only saps today of its joy.",
+      "quote_author": "Leo Buscaglia"
+    },
+    {
+      "the_quote": "And hard times are good in their own way, too. Because the only way you can achieve true happiness is if you experience true sadness as well. It's all about light and shade. Balance.",
+      "quote_author": "Gabrielle Williams"
+    },
+    {
+      "the_quote": "In the middle of difficulty lies opportunity.",
+      "quote_author": "Albert Einstein"
+    },
+    {
+      "the_quote": "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
+      "quote_author": "Henry Ford"
+    },
+    {
+      "the_quote": "Going through challenging things can teach you a lot, and they also make you appreciate the times that aren't so challenging.",
+      "quote_author": "Carrie Fisher"
+    },
+    {
+      "the_quote": "You may not always have a comfortable life and you will not always be able to solve all of the world's problems at once but don't ever underestimate the importance you can have because history has shown us that courage can be contagious and hope can take on a life of its own.",
+      "quote_author": "Michelle Obama"
+    },
+    {
+      "the_quote": "A bad workman always blames his tools.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A bird in hand is worth two in the bush.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A drowning man will clutch a straw.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A fool and his money are soon parted.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "After victory, tighten your helmet chord.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A good listener is a silent flatterer.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A goose quill is more dangerous than a lion’s claw.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A lean agreement is better than a fat lawsuit.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A leopard doesn’t change its spots.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "All is fair in love and war.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "All lay loads on a willing horse.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Among the blind, one-eyed man is king.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "An idle brain is devil’s workshop.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "An ounce of protection is worth a pound of cure.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Ask no questions and hear no lies.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "A stitch in time saves nine.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Cross the stream where it is shallowest.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Don’t kill the goose that lays golden eggs.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Don’t open a shop unless you know how to smile.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Don’t think there are no crocodiles because the water is calm.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Eagles don’t catch flies.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Early bird catches the worm.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Empty bags can’t stand upright.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Every horse thinks its own pack is heaviest.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Faults are thick where love is thin.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Fine feathers make fine birds.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Flattery, like perfume, should be smelled but not swallowed.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "God helps those who help themselves.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Good bargains empty the purse.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Good swimmers are often drowned.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Good things come to those who wait.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Good wine needs no bush.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Grief divided is made lighter.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Half a loaf is better than none.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Home is where the heart is.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Honesty is the best policy.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Hope for the best, but prepare for the worst.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "If wishes were horses, beggars would ride.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "If you are patient in a moment of anger, you will escape hundred days of sorrow.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "If you buy cheaply, you pay dearly.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "If you play with fire, you’ll get burned.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "If you want peace, prepare for war.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "If you want to go quickly, go alone. If you want to go far, go together.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Ignorance is bliss.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Imitation is the sincerest form of flattery.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It’s better to be safe than sorry.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It’s better to lose the battle and win the war.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It is easy to find a thousand soldiers, but hard to find a good general.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It’s never too late to mend.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It is part of a good shepherd to shear his flock, not to skin it.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It takes a village to raise a child.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It takes two to make a quarrel.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "It takes two to tango.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Justice delayed is justice denied.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Kind words will unlock an iron door.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Kings have long arms.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Laughter is the best medicine.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Learn to walk before you run.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Least said, soonest mended.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Lend your money and lose your friend.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Let sleeping dogs lie.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Lightning never strikes twice in the same place.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Like people, like priest.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Long absent, soon forgotten.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Make hay while the sun shines.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Make yourself all honey and the flies will devour you.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Necessity is the mother of invention.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Politeness costs little but yields much.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Rich man’s joke is always funny.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Shrouds have no pockets.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Silence is half consent.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Slow and steady wins the race.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Smooth seas do not make skillful sailors.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Still water runs deep.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Strike while the iron is hot.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The course of true love never did run smooth.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The family that (eats) prays together stays together.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The grass is greener on the other side of fence.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The harder you work, the luckier you get.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The higher the monkey climbs the more he shows his tail.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The highest branch is not the safest roost.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The longest way around is the shortest way home.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The nail that sticks out gets hammered down.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The only free cheese is in the mousetrap.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The proof of pudding is in eating.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "There are many paths to the top of the mountain, but the view is always the same.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The squeaky wheel gets the grease.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "The tongue is but three inches long, yet it can kill a man six feet tall.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Time and tide wait for no man.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "To know the road ahead, ask those coming back.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "What can you expect from a pig but a grunt?",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "When the going gets tough, the tough get going.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Where there’s will, there’s way.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Where there’s smoke, there’s fire.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "While the cat is away, the mice will play.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Why buy a cow when milk is so cheap?",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "Words must be weighed, not counted.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "You can catch more flies with honey than with vinegar.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "You can lead a horse to water, but you can’t make it drink.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "You can’t make an omelet without breaking eggs.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "You do not fatten a pig by weighing it.",
+      "quote_author": "English Proverb"
+    },
+    {
+      "the_quote": "There are decades where nothing happens; and there are weeks where decades happen.",
+      "quote_author": "Vladimir Ilyich Lenin"
+    },
+    {
+      "the_quote": "A lie told often enough becomes the truth.",
+      "quote_author": "Vladimir Ilyich Lenin"
+    },
+    {
+      "the_quote": "Give me just one generation of youth, and I'll transform the whole world.",
+      "quote_author": "Vladimir Ilyich Lenin"
+    },
+    {
+      "the_quote": "The best way to control the opposition is to lead it ourselves.",
+      "quote_author": "Vladimir Ilyich Lenin"
+    },
+    {
+      "the_quote": "Every society is three meals away from chaos.",
+      "quote_author": "Vladimir Ilyich Lenin"
+    },
+    {
+      "the_quote": "Three keys to success: read, read, read.",
+      "quote_author": "Vladimir Ilyich Lenin"
+    },
+    {
+      "the_quote": "A single death is a tragedy; a million deaths is a statistic.",
+      "quote_author": "Joseph Stalin"
+    },
+    {
+      "the_quote": "Those who vote decide nothing. Those who count the vote decide everything.",
+      "quote_author": "Joseph Stalin"
+    },
+    {
+      "the_quote": "Ecstasy is a glass full of tea and a piece of sugar in the mouth.",
+      "quote_author": "Alexander Pushkin"
+    }
 ]

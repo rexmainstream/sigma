@@ -22,20 +22,21 @@ function Get_quote () {
         }
     }
 
-    const font_choice = (diff_days + 6) % 5;
-
     today_quote = Return_quote_list(diff_days).quote;
+
+    // Debug
+    // today_quote = Return_quote_list(796).quote;
 
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
     //sets text content to the quote of the day
     document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
-    Write_quote_author(today_quote, font_choice);
+    Write_quote_author(today_quote);
 }
 
 //this function writes the quote
 //Too slow maybe just animate the quote author
-function Write_quote_author(today_quote, font_choice = 0) {
+function Write_quote_author(today_quote) {
     let written_quote = `- ${today_quote['quote_author']} -`
     let container = document.querySelector('#container');
     const wiki_button = document.querySelector('.wiki_icon');
@@ -47,42 +48,152 @@ function Write_quote_author(today_quote, font_choice = 0) {
     //console.log(written_quote.length);
     let text_size = 25;
 
-    let font;
-    let stroke_width = 1.3;
+    let font = require('./fonts/my_font2.json');
+    let stroke_width = 0.7;
+    let duration = written_quote.length * 170;
+    let letter_spacing = 1;
+    let color = 'black';
 
-    switch (font_choice) {
-        case 0:
-           font = require('./fonts/SatisfySL.json');
-           break;
-        case 1:
+
+    // Popular quote authors get there own writing styles
+    switch (today_quote['quote_author']) {
+        case 'Walt Disney':
+            // Disney gets his iconic handwriting
+            font = require('./fonts/walt_disney.json')
+            stroke_width = 0.4;
+            duration = written_quote.length * 300;
+            break;
+        case 'Pablo Picasso':
+            // Picasso gets his own font
+            font = require('./fonts/picasso.json');
+            stroke_width = 0.9;
+            break;   
+        // Greek dudes
+        case 'Aristotle':
+        case 'Alexander the Great':
+        case 'Socrates':
+        case 'Aristotle':
+        case 'Plato':
+        case 'Archimedes':
+        case 'Euripides':
+        case 'Agesilaus':
+        case 'Sophocles':
+        case 'Greek Proverb':
+        case 'Antisthenes':
+        case 'Hippocrates':
+        case 'Pericles':
+        case 'Epicurus':
+            font = require('./fonts/greek.json');
+            stroke_width = 0.6;
+            break;
+        //Renaissance
+        case 'William Shakespeare':
+        case 'Francis Bacon':
+        case 'Rene Descartes':
+            font = require('./fonts/SatisfySL.json');
+            stroke_width = 1.3
+            break;
+        // Medieval
+        case 'Joan of Arc':
+        case 'Francis Drake':
+        case 'Martin Luther':
+        case 'Niccolo Machiavelli':
+        case 'Dante Alighieri':
+            font = require('./fonts/medieval.json');
+            stroke_width = 0.8;
+            text_size = 18;
+            break;
+        // Victorian England 19th century
+        case 'John Keats':
+        case 'William Wordsworth':
+        case 'Alfred Tennyson':
+        case 'Charles Dickens':
+        case 'Lord Byron':
+        case 'Jane Austen':
+        case 'Oscar Wilde':
             font = require('./fonts/Pacifico.json');
+            text_size = 15;
+            stroke_width = 2;
             break;
-        case 2:
-            font = require('./fonts/Parisienne.json');
-            break;
-        case 3:
-            font = require('./fonts/Shadows_into_light.json');
-            break;
-        case 4:
+        // Horror Writers
+        case 'Edgar Allan Poe':
+        case 'Stephen King':
+        case 'H. P. Lovecraft':
             font = require('./fonts/my_font1.json');
+            stroke_width = 1.2;
+            // color = '#ac0404';
+            break;
+        case 'Unknown':
+            font = require('./fonts/Shadows_into_light.json');
             stroke_width = 1;
             break;
+        // The french
+        case 'Victor Hugo':
+        case 'Antoine de Saint-Exupery':
+        case 'Marcel Proust':
+        case 'Voltaire':
+        case 'Napoleon Bonaparte':
+        case 'Claude Debussy':
+        case 'Maximilien Robespierre':
+        case 'Simone Weil':
+        case 'Alexandre Dumas':
+        case 'Coco Chanel':
+        case 'Jean Luc Godard':
+            font = require('./fonts/Parisienne.json');
+            stroke_width = 1.5;
+            break;
+        // Famous Romans
+        case 'Marcus Aurelius':
+        case 'Virgil':
+        case 'Cato the Elder':
+        case 'Seneca':
+        case 'Julius Caesar':
+        case 'Augustus':
+        case 'Hypatia':
+        case 'Ovid':
+        case 'Latin Proverb':
+        case 'Titus Maccius Plautus':
+        case 'Publilius Syrus':
+        case 'Publius Vergilius Maro':
+        case 'Quintus Horatius Flaccus':
+        case 'Marcus Tullius Cicero':
+        case 'Pompey':
+            font = require('./fonts/roman.json')
+            stroke_width = 0.7;
+            text_size = 25;
+            letter_spacing = 5;
+            break;
+        // Russians
+        case 'Leo Tolstoy':
+        case 'Mikhail Zadornov':
+        case 'Aleksandr Solzhenitsyn':
+        case 'Fyodor Dostoevsky':
+        case 'Anton Chekhov':
+        case 'Alexander Pushkin':
+        case 'Maxim Gorky':
+        case 'Vladimir Nabokov':
+        case 'Leon Trotsky':
+        case 'Vladimir Ilyich Lenin':
+        case 'Joseph Stalin':
+        case 'Dmitri Shostakovich':
+        case 'Igor Stravinsky':
+            font = require('./fonts/russian.json')
+            break;
     }
 
 
-    if (window.screen.width < 1000) {
-        text_size = 50;
-    }
     new Vara("#container", font, [{
         text: written_quote,
         y: text_size,
         delay: 200,
-        quote_duration: written_quote.length * 250
+        duration: duration
     }        
     ], {
         fontSize: text_size,
         textAlign: 'center',
-        strokeWidth: stroke_width
+        color: color,
+        strokeWidth: stroke_width,
+        letterSpacing: letter_spacing,
     }  
     )
     //console.log("Write quote has been executed")
@@ -197,6 +308,40 @@ function copy_text_to_clipboard(text) {
 
 function Return_quote_list(index = 0) {
     const quotes = require('./quotes_lists.json');
+    // let occurences = [0, 0, 0, 0, 0, 0];
+    // let total = 0;
+
+    // DEBUG
+    // for (const quote of quotes) {
+    //     const first_letter = quote.quote_author[0];
+    //     if (/[A-C]/.test(first_letter)) {
+    //         occurences[0]++;
+    //         total++;
+    //     }
+    
+    //     if (/[D-H]/.test(first_letter)) {
+    //         occurences[1]++;
+    //         total++;
+    //     }
+    
+    //     if (/[I-L]/.test(first_letter)) {
+    //         occurences[2]++;
+    //         total++;
+    //     }
+    
+    //     if (/[M-Q]/.test(first_letter)) {
+    //         occurences[3]++;
+    //         total++;
+    //     }
+    
+    //     if (/[R-T]/.test(first_letter)) {
+    //         occurences[4]++;
+    //         total++;
+    //     }
+
+    // }
+    // occurences[5] = quotes.length - total;
+    // console.log(occurences)
 
     const return_val = {
         quote: quotes[index],
