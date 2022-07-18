@@ -9,7 +9,7 @@ import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // This function gets the quote
 function Get_quote () {
-    const date1 = new Date('07/07/2022');
+    const date1 = new Date('07/19/2022');
     const today = new Date(get_date().today.replace('-', ' '));
     const diff_time = Math.abs(today - date1)
     let diff_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24));
@@ -25,7 +25,7 @@ function Get_quote () {
     today_quote = Return_quote_list(diff_days).quote;
 
     // Debug
-    // today_quote = Return_quote_list(796).quote;
+    // today_quote = Return_quote_list(2035).quote;
 
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
@@ -75,6 +75,7 @@ function Write_quote_author(today_quote) {
         case 'Aristotle':
         case 'Plato':
         case 'Archimedes':
+        case 'Aesop':
         case 'Euripides':
         case 'Agesilaus':
         case 'Sophocles':
