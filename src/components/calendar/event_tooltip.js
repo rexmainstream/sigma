@@ -72,7 +72,7 @@ export default class Event_tooltip extends React.Component {
             const tooltip = root.querySelector('.event_tooltip');
 
 
-            add_inline_animation(tooltip, 'show_tooltip 0.2s ease-out both reverse', '', '', '', '', () => {
+            add_inline_animation(tooltip, 'show_tooltip 0.2s ease-out both reverse', () => {
                 ReactDOM.unmountComponentAtNode(root);
 
 

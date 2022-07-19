@@ -39,12 +39,15 @@ export default function Event_item_full(props) {
 
     // Complete button if incomplete
     let redo_complete_button = 
-    <button className='icon_button'>
+    <button className='icon_button'
+        title = 'Complete Event'
+        aria-label = 'complete event button'
+        onClick = { () => {complete_redo_event()} }  
+    >
         <FontAwesomeIcon 
-            title = 'Complete Event'
-            aria-label = 'complete event button'
+
             icon = { faCheck }
-            onClick = { () => {complete_redo_event()} }    
+  
         />
     </button>
 
@@ -58,12 +61,16 @@ export default function Event_item_full(props) {
 
         // Redo button if completed
         redo_complete_button = 
-        <button className = 'icon_button'>
+        <button 
+            className = 'icon_button'
+            title = 'Redo Event'
+            aria-label = 'redo event button'
+            onClick = { () => {complete_redo_event()} }   
+            >
             <FontAwesomeIcon 
-                title = 'Redo Event'
-                aria-label = 'redo event button'
+
                 icon = { faRedo }
-                onClick = { () => {complete_redo_event()} }    
+ 
             />
         </button>
     }
@@ -232,45 +239,51 @@ export default function Event_item_full(props) {
 
     // Delete event
     function delete_event() {
-        const open_request = window.indexedDB.open('student_file', 15);
+        const deleted_event =  document.querySelectorAll('.event_item_full');
 
-        // Error messages
-        open_request.addEventListener('blocked', () => {
-            custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
-        })
-        
+        // Trigers an animation
+        add_inline_animation(deleted_event[order], 'fade_out 0.5s ease-in', function() {
+            // After animation ends
+            const open_request = window.indexedDB.open('student_file', 15);
 
-        open_request.addEventListener('error', () => {
-            custom_alert("Failed to load database", 'error', "Failed to load database.", false);
-        })
+            // Error messages
+            open_request.addEventListener('blocked', () => {
+                custom_alert('Please close other tabs of this site open', 'warning', "Failed to load database", false);
+            })
+            
 
-
-        open_request.addEventListener('success', () => {
-            const db = open_request.result;
-            const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
-            const key = date_to_key(due_date)
-            const get_events = stored_events.get(key);
-            get_events.addEventListener('success', () => {
-                const current_events = get_events.result;
-
-                // Debug
-                // console.log(current_events);
-                // console.log(current_events[order]);
-
-                // Removes the deleted event
-                current_events.splice(order, 1);
-
-                // Debug
-                // console.log(current_events);
-
-
-                // Then writes the current events to database
-                stored_events.put(current_events, key);
-
-                // Shows events on the selected date
-                show_events(undefined, undefined, undefined, search, undefined, undefined, undefined);
+            open_request.addEventListener('error', () => {
+                custom_alert("Failed to load database", 'error', "Failed to load database.", false);
             })
 
+
+            open_request.addEventListener('success', () => {
+                const db = open_request.result;
+                const stored_events = db.transaction(['events_list'], 'readwrite').objectStore('events_list');
+                const key = date_to_key(due_date)
+                const get_events = stored_events.get(key);
+                get_events.addEventListener('success', () => {
+                    const current_events = get_events.result;
+
+                    // Debug
+                    // console.log(current_events);
+                    // console.log(current_events[order]);
+
+                    // Removes the deleted event
+                    current_events.splice(order, 1);
+
+                    // Debug
+                    // console.log(current_events);
+
+
+                    // Then writes the current events to database
+                    stored_events.put(current_events, key);
+
+                    // Shows events on the selected date
+                    show_events(undefined, undefined, undefined, search, undefined, 'ff', undefined);
+                })
+
+            })
         })
 
     }
@@ -341,7 +354,7 @@ export default function Event_item_full(props) {
 
             animation_complete = false;
             event_group.classList.add('hide_event_group');
-            add_inline_animation(event_group, "collapse 1.3s ease-out 0.4s", "", "", "", "", () => {
+            add_inline_animation(event_group, "collapse 1.3s ease-out 0.4s", () => {
                 // console.log('hello')
                 animation_complete = true;
                 event_group.style.maxHeight = null;

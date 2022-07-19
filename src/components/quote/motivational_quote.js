@@ -7,6 +7,7 @@ import { faTwitter } from "@fortawesome/fontawesome-free-brands";
 import { faWikipediaW } from "@fortawesome/fontawesome-free-brands"
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { check_mobile } from "../../res/scripts/check_mobile.js";
 // This function gets the quote
 function Get_quote () {
     const date1 = new Date('07/19/2022');
@@ -25,7 +26,7 @@ function Get_quote () {
     today_quote = Return_quote_list(diff_days).quote;
 
     // Debug
-    // today_quote = Return_quote_list(2035).quote;
+    // today_quote = Return_quote_list(204).quote;
 
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
@@ -50,7 +51,7 @@ function Write_quote_author(today_quote) {
 
     let font = require('./fonts/my_font2.json');
     let stroke_width = 0.7;
-    let duration = written_quote.length * 170;
+    let duration = written_quote.length * 200;
     let letter_spacing = 1;
     let color = 'black';
 
@@ -180,6 +181,10 @@ function Write_quote_author(today_quote) {
         case 'Igor Stravinsky':
             font = require('./fonts/russian.json')
             break;
+    }
+
+    if (check_mobile()) {
+        text_size = text_size * 2;
     }
 
 

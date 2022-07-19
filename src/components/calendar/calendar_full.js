@@ -1040,8 +1040,17 @@ export function show_events( day_range = current_time_range, sort_function = cur
                 //     day_events[i]
                 // }
 
+                // Generates a key so to replay animation
                 for (let i = 0; i < day_events.length; i++) {
-                    day_events[i].key = parseInt(`${date_to_key(day_events[i].due_date)}${i}`);
+
+                    let title_charcode = "";
+
+                    for (let c = 0; c < day_events[i].title.length; c++) {
+                        title_charcode += day_events[i].title.charCodeAt(c)
+                    }
+                    let event_key = `${title_charcode}${date_to_key(day_events[i].due_date)}`;
+                    // console.log(event_key)
+                    day_events[i].key = event_key
                     day_events[i].order = i;
                     all_events.push(day_events[i]);
                 }
@@ -1651,7 +1660,7 @@ export function RolyartCalendar(config){
 
        currentMonth.classList.add('control-current-month');
 
-        if (this.currentMonth === parseInt(get_date().month) - 1) {
+        if (this.currentMonth === parseInt(get_date().month) - 1 && this.currentYear === get_date().year) {
             prevMonth.style.opacity = '0.2';
             prevMonth.style.pointerEvents = 'none';
         }

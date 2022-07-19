@@ -1,3 +1,4 @@
+// Imports
 import React from "react";
 import ReactDom from "react-dom";
 import { custom_alert } from "../../res/scripts/add_alert";
@@ -5,16 +6,14 @@ import { select_all_input } from "../../res/scripts/add_event";
 import { create_modal, exit_modal } from "../../res/scripts/add_modal";
 import { string_validation } from "../../res/scripts/data_validation";
 import random_number from "../../res/scripts/random_num_gen";
-import { Add_scroll_event } from "../../res/scripts/scroll";
 import Goal_step from "./step";
 import Progress_bar, { render_progress } from "./progress";
 import img from "../../res/images/tutorial_1.png";
 import img2 from "../../res/images/tutorial_2.png";
 import img3 from "../../res/images/tutorial_3.png";
-import { render_fireworks } from "./fireworks";
-import { return_db } from "../../res/scripts/initialisation";
 import add_inline_animation from "../../res/scripts/animation_timing";
-import { render } from "@testing-library/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 let steps_list = [];
 let db;
@@ -114,16 +113,35 @@ export default class Focus extends React.Component {
                 {/*<h2>Steps</h2>*/}
                 <hr></hr>
                 <div id="steps_container"></div>
-                <button 
-                    className="clickable_button"
-                    aria-label="add step to focus"
-                    title="Add new Step"
-                    onClick={() => {Add_new_step()}}>
-                    Add step &#43;
-                </button>
-                <div id="completed_steps_container">
-                    
+                <div id="completed_steps_container"></div>
+                <div 
+                    id="focus_function_container"
+                >
+                    <div className="icon_button_container_large">
+                        <button 
+                            className="icon_button"
+                            aria-label="add step to focus"
+                            title="Add new Step"
+                            onClick={() => {Add_new_step()}}>
+                            <FontAwesomeIcon icon = {faPlus}/>
+                        </button>
+                        <button
+                            className="icon_button"
+                            aria-label="move to top button"
+                            title="Move to Top"
+                            onClick={
+                                () => {
+                                    window.scrollTo(0, 0);
+                                }
+                            }
+                        >
+                            <FontAwesomeIcon icon = {faArrowUp}/>
+                        </button>
+                    </div>
+
                 </div>
+
+
             </div>
         )
     }
@@ -169,11 +187,6 @@ export function Add_new_step() {
                 let step_desc = description_input.value;
                 const transaction = db.transaction(['steps_list'], 'readwrite');
 
-
-                if (step_desc.replace(/\r?\n|\r/g, "") === '' || step_desc.replace(/\s+/g, '') === '') {
-                    step_desc = "This step has no description.";
-                }
-
                 if (string_validation(title.value, 2, 50, 'title') && string_validation(description_input.value, 0, 2000, 'step description')) {
                     const stored_steps = transaction.objectStore('steps_list');
                     const new_step = { step_title: title.value, step_desc: step_desc, completed: false, order: steps_list.length + 1};
@@ -207,11 +220,7 @@ export function render_steps() {
     const current_steps = [];
     const completed_steps = [];
     const title = 
-        (<h3 
-            title="Hide events"
-            onClick={() => {
-            completed_container.classList.toggle('hide_completed')
-        }}><div className="check_button">&#9660;</div><div>Completed</div></h3>);
+        (<h3>Completed</h3>);
 
     
     //Renders the steps_list onto the DOM
@@ -343,7 +352,6 @@ export function check_focus() {
                     remove_all_from_db()
                     render_steps();
                     render_progress();
-                    render_fireworks();
                     focus_from_database = null;
                     check_focus();
                     let complete_button = document.querySelector('button[title="Delete Focus"]')
@@ -457,7 +465,7 @@ function create_focus() {
             const add_request = user_focus.put(new_focus, 1);
             check_focus()
             add_request.addEventListener('success', () => {
-                add_inline_animation(current_focus, 'reveal_new_focus', '2s', 'ease-in-out', '', '', function() {
+                add_inline_animation(current_focus, 'reveal_new_focus 2s ease-in-out', function() {
                 })
             })
             exit_modal(e);
@@ -556,7 +564,8 @@ function create_focus() {
 //Clears focus database
 function remove_all_from_db() {
     let db;
-    const open_request = indexedDB.open('student_file', 14)
+    console.log('run')
+    const open_request = indexedDB.open('student_file', 15)
 
     open_request.addEventListener('success', () => {
         db = open_request.result;
@@ -564,8 +573,12 @@ function remove_all_from_db() {
         const step_transaction = db.transaction(['steps_list'], 'readwrite');
         const steps_object_store = step_transaction.objectStore('steps_list');
         const focus_object_store = focus_transaction.objectStore('current_focus');
-        steps_object_store.clear()
-        focus_object_store.clear()
+        steps_object_store.clear();
+        focus_object_store.clear();
+    })
+
+    open_request.addEventListener('error', () => {
+        custom_alert('Failed to Open database', 'error', 'Failed to open database', false, false)
     })
 
     

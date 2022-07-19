@@ -173,6 +173,19 @@ textarea {
 
 }
 
+.icon_button_container_large {
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.icon_button_container_large .icon_button {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    height: 4rem;
+    width: 4rem;
+}
+
 .exit_button:hover {
     background-color: white;
     color: rgb(242,242,242);
@@ -1149,6 +1162,11 @@ ul[class] {
     text-decoration: line-through;
 }
 
+.event_item_full.event_completed .button_container .icon_button[title='Edit Event'] {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
 .event_item_full .event_description {
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -1466,6 +1484,9 @@ blockquote {
     grid-column: 1/end;
     padding: 2rem;
     font-size: 1.5rem;
+    width: 70%;
+    position: relative;
+    left: 15%;
 }
 
 .focus h1 {
@@ -1498,7 +1519,11 @@ blockquote {
 
 .focus .box {
     padding: 1rem 2rem 2rem 2rem;
-    margin: 2rem 0 4rem 0;
+    margin-block-end: 2rem;
+}
+.focus .steps.box {
+    padding: 1rem 2rem 2rem 2rem;
+    margin: 2rem 0 6rem 0;
 }
 
 .progress_bar + .buttons_container button {
@@ -1591,7 +1616,7 @@ blockquote {
 }
 
 .steps .step_top_line {
-    display: flex;
+    display: block;
 }
 
 #focus_help {
@@ -1650,11 +1675,12 @@ blockquote {
     transition: opacity 0.3s ease-out, background-color 0.4s ease-out;
 }
 
-#completed_steps_container h3:hover {
-    opacity: 1;
-    background-color: #E8E8E8;
-    transition: opacity 0.3s ease-out, background-color 0.2s ease-out;
+#focus_function_container{
+    position: fixed;
+    left: 90%;
+    top: 90vh;
 }
+
 
 
 #completed_steps_container .steps {
@@ -1719,10 +1745,11 @@ blockquote {
 }
 
 .steps .goal_description {
-    color: rgba(124,124,124);
+    background-color: rgb(242,242,242);
     overflow: hidden;
     max-height: 0;
-    padding-inline-start: 3.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem;
     margin-block-end: 1rem;
     word-wrap: break-word;
 }
@@ -1746,7 +1773,21 @@ blockquote {
 }
 
 
+.step_top_line .button_container {
+    display: flex;
+    inline-size: auto;
+    opacity: 1;
+    border: none;
+    justify-content: center;
+    border-top: 0.07rem solid #DDDDDD;
+    padding-top: 2rem;
+}
+
 @media screen and (max-width: 999px){
+    .focus {
+        width: auto;
+        position: static;
+    }
     .steps .goal_name {
         inline-size: 100%; 
     }
@@ -1767,7 +1808,7 @@ blockquote {
 
     .steps .goal_description {
         padding-inline-start: 0;
-        font-size: 1rem;
+        font-size: 1.5rem;
         text-align: center;
     }
 }
@@ -1781,10 +1822,11 @@ blockquote {
     text-align: center;
 }
 
-.steps .button_container button {
+.steps .button_container button.description_button {
     border: none;
     outline: none;
     font-size: 2rem;
+    background-color: white;
 }
 
 .steps {
@@ -1798,10 +1840,6 @@ blockquote {
     animation: delete_step 0.7s ease-out;
 }
 
-#steps_container .steps:hover {
-    transition: box-shadow 0.2s ease-in-out;
-    box-shadow: 0 8px 16px rgb(0 0 0 / 40%); 
-}
 
 #steps_container + .clickable_button {
     z-index: 0;
@@ -2474,6 +2512,7 @@ input[type="date"]::-webkit-inner-spin-button {
     }
     .calendar {
         grid-row: 2;
+        display: none;
     }
     .quote {
         grid-row: 3;

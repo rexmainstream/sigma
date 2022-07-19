@@ -79,7 +79,7 @@ export default function Event_item( props ) {
                 // })
 
 
-                add_inline_animation(html_event, 'complete_event 0.5s ease-in both', '', '', '', '', () => {
+                add_inline_animation(html_event, 'complete_event 0.5s ease-in both', () => {
 
                     
                     // Shows the events today
@@ -136,7 +136,7 @@ export default function Event_item( props ) {
                 
                 // If a tooltip exists plays hide animation
                 if (tooltip !== null) {
-                    add_inline_animation(tooltip, 'show_tooltip 0.2s ease-out both reverse', '', '', '', '', () => {
+                    add_inline_animation(tooltip, 'show_tooltip 0.2s ease-out both reverse', () => {
                         ReactDOM.unmountComponentAtNode(root);
     
     

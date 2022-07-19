@@ -14,13 +14,18 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Goal_step(props) {
     const goal_name = props.goal_name;
-    const goal_description = props.goal_desc;
+    let desc = props.goal_desc;
+    let goal_description = desc;
     const order = props.order;
     const step_type = props.step_type;
     const step_list = return_steps_list();
 
     let step_class = `steps box`;
 
+
+    if (goal_description.replace(/\r?\n|\r/g, "") === '' || goal_description.replace(/\s+/g, '') === '') {
+        goal_description = "This step has no description.";
+    }
 
     switch (step_type) {
         case "new":
@@ -72,10 +77,7 @@ export default function Goal_step(props) {
         edit_btn.ariaLabel = 'edit step';
         edit_btn.title = 'Edit this Step';
         title.value = goal_name;
-
-        if (goal_description !== "This step has no description.") {
-            description.value = goal_description;
-        }
+        description.value = desc;
         
         //Remove event listeners on the previous edit button
         create_btn.replaceWith(edit_btn);
@@ -106,14 +108,9 @@ export default function Goal_step(props) {
         //console.log('Remove step function has run');
         const completed = step_list[order - 1].completed;
         const step = e.target.parentNode.parentNode.parentNode;
-        const button = step.parentNode.parentNode.querySelector('.clickable_button[title="Add new Step"]');
-
         custom_alert('Are you sure you want to remove this step?', "warning_yes_no","Are you sure you want to remove this step, you cannot undo this action.", function() {
-            step_list[order - 1].step_type = "delete";
-            //step.parentNode.querySelector('.clickable_button').classList.add("")
-            render_steps();
 
-            step.addEventListener("animationend", function handler() {
+            add_inline_animation(step, 'delete_step 0.5s ease-in', function() {
                 step_list.splice(order - 1, 1);
 
                 for (let i = order - 1; i <= step_list.length - 1; i++) {
@@ -126,20 +123,10 @@ export default function Goal_step(props) {
                 }
 
                 //delete step from database
-                change_step_value(order, 'delete', false, false, false);
+                change_step_value(order, 'delete', false, false);
 
                 render_steps();
                 render_progress();
-                if (button.classList.contains('move_up')) {
-                    button.classList.replace('move_up', "move_up2")
-                } else if(button.classList.contains('move_up2')) {
-                    button.classList.replace("move_up2", "move_up")
-                } else {
-                    button.classList.add('move_up');
-                }
-
-
-                step.removeEventListener('animationend', handler);
             })
         } );
 
@@ -151,9 +138,9 @@ export default function Goal_step(props) {
 
         //Play animation
         step.style.animation = `fade_out 0.3s ease-out`;
-        add_inline_animation(step, "fade_out", "0.3s", "ease-out", "", "", () => {
+        add_inline_animation(step, "fade_out 0.3s ease-out", () => {
             step_list[order - 1].completed = true;
-            change_step_value( order, true, false, false, false);
+            change_step_value( order, true, false, false);
             
             render_steps();
             render_progress();
@@ -172,7 +159,7 @@ export default function Goal_step(props) {
         step.addEventListener('animationend', function handler() {
             step.style.animation = ``
             step_list[order - 1].completed = false;
-            change_step_value(order, false, false, false, false);
+            change_step_value(order, false, false, false);
             render_steps();
             render_progress()
             step.removeEventListener('animationend', handler)
@@ -225,14 +212,7 @@ export default function Goal_step(props) {
 
 //This function changes the steps value in the indexedDB database. 
 //Input false to not change a value (null for completed)
-export function change_step_value(current_order, completed, new_title, new_description, new_order) {
-    let db
-    let transaction
-    let object_store
-    let current_steps
-    let current_step
-    let next_events
-    let my_index
+export function change_step_value(current_order, completed, new_title, new_description) {
     let new_step = {
         step_title: new_title,
         step_desc: new_description,
@@ -241,7 +221,6 @@ export function change_step_value(current_order, completed, new_title, new_descr
     }
 
     //Gets db length
-    let database_length;
     const open_request = window.indexedDB.open('student_file', 15);
     open_request.addEventListener('error', () => {
         //Error prompt
@@ -249,46 +228,48 @@ export function change_step_value(current_order, completed, new_title, new_descr
     });
 
     open_request.addEventListener('success', () => {
-        db = open_request.result;
-        transaction = db.transaction(['steps_list'], 'readwrite');
-        object_store = transaction.objectStore('steps_list');
+        console.log(new_step)
+        const db = open_request.result
+        const stored_events = db.transaction(['steps_list'], 'readwrite').objectStore('steps_list');
+        console.log(new_step)
+        if (completed === 'delete') {
+            const get_datatabase_length = stored_events.count();
+            get_datatabase_length.addEventListener('success', () => {
+                const length = get_datatabase_length.result;
 
-        //Gets current steps from db
-        object_store.openCursor().addEventListener('success', (e) => {
-            current_steps = e.target.result;
-            my_index = object_store.index('order');
+                for (let i = current_order + 1; i <= length; i++) {
+                    console.log(i)
+                    const get_event = stored_events.get(i);
+                    get_event.addEventListener('success', () => {
+                        const the_event = get_event.result;
+                        the_event.order = the_event.order - 1;
 
-            current_step = my_index.get(current_order);
-            current_step.addEventListener('success', () => {
-
-                //conditional changes
-                if (completed === 'delete') {
-                    object_store.delete(current_order);
-                    database_length = object_store.count()        
-                    database_length.addEventListener('success', () => {  
-                        //Shift order of subsequent events up by one
-                        for (let i = (current_order + 1); i <= database_length.result + 1; i++) {
-                            change_step_value(i, null, false, false, (i - 1));
-                        }
+                        stored_events.put(the_event, i - 1)
                     })
-                } else {
-                    if (new_title === false) {
-                        new_step.step_title = current_step.result.step_title;
-                    }
-                    if (new_description === false) {
-                        new_step.step_desc = current_step.result.step_desc;
-                    }
-                    if (new_order !== false) {
-                        new_step.order = new_order;
-                    }
-                    if (completed === null) {
-                        new_step.completed = current_step.result.completed;
-                    }
-                    object_store.put(new_step, current_order);                    
-                }
+
+                } 
+
+                stored_events.delete(length)
+
             })
-        });
-    })
+            
+        } else {
+            const get_event = stored_events.get(current_order);
+
+            get_event.addEventListener('success', () => {
+                const curr_event = get_event.result;
+
+                if (new_title === false) {
+                    new_step.step_title = curr_event.step_title;
+                }
+
+                if (new_description === false) {
+                    new_step.step_desc = curr_event.step_desc;
+                }
+                stored_events.put(new_step, current_order)
+            })
+        }
+    });
 
     open_request.addEventListener('error', () => {
         custom_alert('Failed to open database', "error", "Failed to open database")

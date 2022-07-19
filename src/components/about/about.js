@@ -17,7 +17,7 @@ export default class About extends React.Component {
             //console.log(information_boxes[i])
             Add_scroll_event(information_boxes[1], () => {
                 for (let i = 1; i < information_boxes.length; i++) {
-                    add_inline_animation(information_boxes[i], "bounce", "0.7s", "ease-out", `${animation_delay}s`, "both", false)
+                    add_inline_animation(information_boxes[i], `bounce 0.7s ease-out ${animation_delay}s both`, false)
                     animation_delay += 0.4;
                     information_boxes[i].style.opacity = "1";
                 }
@@ -57,7 +57,7 @@ export default class About extends React.Component {
                     <div className="about_info features">
                         <h1>Features</h1>
                         <ul>
-                            <li>Over 2000 hand picked quotes from the <NavLink to={"/quote_of_the_day"}>Quote of the Day</NavLink>.</li>
+                            <li>Over 2000 hand picked quotes for the <NavLink to={"/quote_of_the_day"}>Quote of the Day</NavLink>. Thats a quote for each day for the six years you spend at high.</li>
                             <li>A calendar and task system with search and sort capabilities.</li>
                             <li>Offline access.</li>
                             <li>Ability to set long term goals through a focus.</li>

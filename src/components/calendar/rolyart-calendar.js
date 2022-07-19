@@ -277,7 +277,7 @@ export function RolyartCalendar(config){
 
        currentMonth.classList.add('control-current-month');
 
-    if (this.currentMonth === parseInt(get_date().month) - 1) {
+    if (this.currentMonth === parseInt(get_date().month) - 1 && this.currentYear === get_date().year) {
         prevMonth.style.opacity = '0.2';
         prevMonth.style.pointerEvents = 'none';
     }
@@ -619,7 +619,7 @@ export function show_events_today(date, add_event) {
                 
                 for (let i = 0; i < event_items.length; i++) {
                     console.log('hello')
-                    add_inline_animation(event_items[i], "complete_event", "0.4s", 'ease-in', 'both', '', () => {   
+                    add_inline_animation(event_items[i], "complete_event 0.4s ease-in both", () => {   
 
                         if (i === event_items.length - 1) {
                             // Empty current events
