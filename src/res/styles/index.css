@@ -1682,6 +1682,14 @@ blockquote {
     top: 90vh;
 }
 
+@media screen and (max-width: 999px) {
+
+    #focus_function_container{
+        left: 70%;
+        top: 70vh;
+    }
+}
+
 
 
 #completed_steps_container .steps {
@@ -2290,7 +2298,7 @@ button {
     }
 
     .modal_content_wrapper {
-        top: 12vh;
+        top: 3vh;
         position: relative;
     }
 }
@@ -2375,25 +2383,6 @@ main .grid_wrapper {
     column-gap: 2rem;
 }
 
-@media screen and (max-width: 999px) {
-    #form .grid_wrapper {
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-columns: auto;
-    }
-
-    .priority_radio_btn_container {
-        grid-row: 2;
-    }
-
-    label[for='due_date'] {
-        grid-row: 3;
-    }
-
-    .event_due_date {
-        grid-row: 4;
-    }
-    
-}
 
 #form .event_title {
     inline-size: 100%;
@@ -2433,12 +2422,6 @@ input[type="date"]::-webkit-inner-spin-button {
     block-size: 20rem;
 }
 
-@media screen and (max-width: 999px){
-    #form textarea {
-        block-size: 10rem;
-    }
-}
-
 #form .clickable_button {
     margin: 0 0 1.7rem 0;
     min-width: none;
@@ -2446,6 +2429,32 @@ input[type="date"]::-webkit-inner-spin-button {
 
 #form .delete_button {
     float: right;
+}
+
+
+@media screen and (max-width: 999px) {
+    #form {
+        padding: 0;
+    }
+    #form .grid_wrapper {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto;
+    }
+
+    .priority_radio_btn_container {
+        grid-row: 2;
+    }
+
+    label[for='due_date'] {
+        grid-row: 3;
+    }
+
+    .event_due_date {
+        grid-row: 4;
+    }
+    #form textarea {
+        block-size: 4rem;
+    }    
 }
 
 /* || ALERTS */

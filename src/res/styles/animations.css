@@ -37,7 +37,7 @@
 
 
 .quote .box {
-    opacity: 0;
+    animation: bounce 0.7s ease-out forwards;
 }
 
 #container {

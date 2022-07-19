@@ -26,7 +26,7 @@ function Get_quote () {
     today_quote = Return_quote_list(diff_days).quote;
 
     // Debug
-    // today_quote = Return_quote_list(204).quote;
+    // today_quote = Return_quote_list(675).quote;
 
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
