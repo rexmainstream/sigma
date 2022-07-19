@@ -38,7 +38,7 @@ function Get_quote () {
     //console.log(today_quote.quote_author)    
     //sets text content to the quote of the day
     // document.querySelector('#quote_of_the_day').textContent = today_quote.the_quote;
-    // Write_quote_author(today_quote);
+    Write_quote_author(today_quote);
 }
 
 //this function writes the quote
@@ -209,6 +209,8 @@ function Write_quote_author(today_quote) {
         letterSpacing: letter_spacing,
     }  
     )
+
+    document.querySelector('#quote_of_the_day').textContent = today_quote.quote;
     //console.log("Write quote has been executed")
 
     // svg = container.querySelector('svg');
