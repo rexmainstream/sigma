@@ -477,7 +477,7 @@ export default function Event_item_full(props) {
                                 title = 'Remove Event'
                                 onClick = {
                                     () => {
-                                        custom_alert('Delete Event?', 'warning_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
+                                        custom_alert('Delete Event?', 'information_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
                                             delete_event()
                                         }, () => {
 
@@ -604,7 +604,7 @@ export default function Event_item_full(props) {
                                 title = 'Remove Event'
                                 onClick = {
                                     () => {
-                                        custom_alert('Delete Event?', 'warning_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
+                                        custom_alert('Delete Event?', 'information_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
                                             delete_event()
                                         }, () => {
 

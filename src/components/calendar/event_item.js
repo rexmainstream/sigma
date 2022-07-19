@@ -9,6 +9,7 @@ import { sort_events_alphabetically } from "../../res/scripts/search_and_sort_ev
 import Event_tooltip, { return_currently_hovering_over } from "./event_tooltip";
 import { CtxMenu } from "../../res/scripts/ctxmenu";
 import { check_mobile } from "../../res/scripts/check_mobile";
+import { string_validation } from "../../res/scripts/data_validation";
 
 
 
@@ -412,12 +413,13 @@ export default function Event_item( props ) {
                         new_button.addEventListener('click', (evt) => {
                             // Gets the priority
                             const priority_new = document.querySelector('input[name="priority"]:checked').title;
-
-                            // Exits modal
-                            exit_modal( evt );
-
-                            // Then adds new event to db
-                            edit_event( title_input.value, description_input.value, due_date_input.value, priority_new );
+                            if (string_validation(title_input.value, 2, 50, 'title')) {
+                                // Exits modal
+                                exit_modal( evt );
+                                
+                                // Then adds new event to db
+                                edit_event( title_input.value, description_input.value, due_date_input.value, priority_new );
+                            }
                         })
 
                         delete_button.addEventListener('click', (e) => {

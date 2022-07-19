@@ -86,6 +86,31 @@ export function custom_alert(message_title, message_type, message_description, y
             icon.className = `fa fa-info-circle`;
             icon.innerHTML = ``;
             break;
+        case 'information_yes_no':
+            icon.className = `fa fa-info-circle`;
+            icon.innerHTML = ''
+            yes_button.classList.add('clickable_button');
+            no_button.classList.add('clickable_button', 'delete_button', 'exit_modal');
+
+            yes_button.innerHTML = 'Yes';
+            no_button.innerHTML = 'No';
+
+            buttons.append(yes_button, no_button);
+            alert.focus()
+            yes_button.addEventListener('click', (e) => {
+                yes_function()
+                exit_modal(e)
+            })
+
+            //Adds no function
+            if (no_function !== null || no_function !== false) {
+                alert.querySelector('.exit_modal').addEventListener('click', 
+                (e) => {
+                    no_function();
+                    exit_modal(e);
+                });
+            }
+            break;
     }
 
     //Adds exit event

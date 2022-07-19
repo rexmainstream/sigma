@@ -1282,7 +1282,7 @@ ul[class] {
     #calendar_function_container {
         display: block;
         position: fixed;
-        top: calc(100vh - 11.5rem);
+        bottom: 0;
         left: 0;
         background-color: white;
         z-index: 1;
@@ -1524,6 +1524,7 @@ blockquote {
 .focus .steps.box {
     padding: 1rem 2rem 2rem 2rem;
     margin: 2rem 0 6rem 0;
+    border-radius: 2rem;
 }
 
 .progress_bar + .buttons_container button {
@@ -2432,6 +2433,12 @@ input[type="date"]::-webkit-inner-spin-button {
     block-size: 20rem;
 }
 
+@media screen and (max-width: 999px){
+    #form textarea {
+        block-size: 10rem;
+    }
+}
+
 #form .clickable_button {
     margin: 0 0 1.7rem 0;
     min-width: none;
@@ -2472,6 +2479,7 @@ input[type="date"]::-webkit-inner-spin-button {
 
 .alert_title {
     font-size: 2rem;
+    text-transform: capitalize;
     text-align: center;
     padding-block: 1rem;
     border-block: 0.2rem solid rgba(29, 98, 149);

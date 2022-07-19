@@ -223,20 +223,20 @@ function Write_quote_author(today_quote) {
 
 
 function play_slide_in_animation() {
-    let quote_box = (document.querySelector('.quote')).querySelector('.box');
-    const icons = quote_box.querySelectorAll('.icon_button');
-    //Removes previous animation
-    quote_box.style.animation = `none`;
-    quote_box.style.animation = null; 
-    //plays animation
-    quote_box.style.animation = `bounce 1s ease-out both`; 
+    // let quote_box = (document.querySelector('.quote')).querySelector('.box');
+    // const icons = quote_box.querySelectorAll('.icon_button');
+    // //Removes previous animation
+    // quote_box.style.animation = `none`;
+    // quote_box.style.animation = null; 
+    // //plays animation
+    // quote_box.style.animation = `bounce 1s ease-out both`; 
 
-    //Reveals the quote
-    document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`;
+    // //Reveals the quote
+    // document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`;
 
-    for(const icon of icons) {
-        icon.classList.add('span');
-    }
+    // for(const icon of icons) {
+    //     icon.classList.add('span');
+    // }
 }
 
 export default class Motivational_quote extends React.Component {
@@ -285,7 +285,7 @@ export function initialise_quotes() {
     const heading = quote.querySelector('h1');
     //Adds scroll events, change to loop later
     Get_quote();
-    play_slide_in_animation();
+    // play_slide_in_animation();
 }
 
 function open_wiki_page(author) {

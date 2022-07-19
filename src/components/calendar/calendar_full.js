@@ -948,8 +948,8 @@ export default class Full_calendar extends React.Component {
                                 onClick={
                                     () => {
                                         custom_alert(
-                                            'Delete all events',
-                                            'warning_yes_no',
+                                            'Delete all events?',
+                                            'information_yes_no',
                                             'Are you sure you want to delete these events? This action cannot be undone.',
                                             function() {
                                                 delete_all_events();

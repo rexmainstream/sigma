@@ -108,7 +108,7 @@ export default function Goal_step(props) {
         //console.log('Remove step function has run');
         const completed = step_list[order - 1].completed;
         const step = e.target.parentNode.parentNode.parentNode;
-        custom_alert('Are you sure you want to remove this step?', "warning_yes_no","Are you sure you want to remove this step, you cannot undo this action.", function() {
+        custom_alert('Remove this step?', "information_yes_no","Are you sure you want to remove this step, you cannot undo this action.", function() {
 
             add_inline_animation(step, 'delete_step 0.5s ease-in', function() {
                 step_list.splice(order - 1, 1);
