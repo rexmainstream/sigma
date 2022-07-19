@@ -44,14 +44,15 @@ function Get_quote () {
 //this function writes the quote
 //Too slow maybe just animate the quote author
 function Write_quote_author(today_quote) {
+    // sets the written quote which includes two hyphens
     let written_quote = `- ${today_quote['quote_author']} -`
-    let container = document.querySelector('#container');
-    const wiki_button = document.querySelector('.wiki_icon');
-    let svg;
-    const copy_button = document.querySelector('.copy_quote');
-    const tweet_button = document.querySelector('.twitter');
-    const clipboard_text = `${today_quote['the_quote']} -${today_quote['quote_author']}`
-    const tweet_string = `"${today_quote['the_quote'].replace(/ /g, '%20')}"%0a%0a%23${today_quote['quote_author'].replace(/ /g, '').replaceAll('.',"")}%20%23quotes`;
+    // let container = document.querySelector('#container');
+    // const wiki_button = document.querySelector('.wiki_icon');
+    // let svg;
+    // const copy_button = document.querySelector('.copy_quote');
+    // const tweet_button = document.querySelector('.twitter');
+    // const clipboard_text = `${today_quote['the_quote']} -${today_quote['quote_author']}`
+    // const tweet_string = `"${today_quote['the_quote'].replace(/ /g, '%20')}"%0a%0a%23${today_quote['quote_author'].replace(/ /g, '').replaceAll('.',"")}%20%23quotes`;
     //console.log(written_quote.length);
     let text_size = 25;
 
@@ -210,20 +211,19 @@ function Write_quote_author(today_quote) {
     )
     //console.log("Write quote has been executed")
 
-    svg = container.querySelector('svg');
-    svg.role = "img"
-    svg.ariaLabel = "Quote Author";
-    svg.setAttribute('alt', `${today_quote['quote_author']}`)
+    // svg = container.querySelector('svg');
+    // svg.ariaLabel = "Quote Author";
+    // svg.setAttribute('alt', `${today_quote['quote_author']}`)
 
-    wiki_button.addEventListener('click', () => {
-        open_wiki_page(today_quote['quote_author'])
-    })
+    // wiki_button.addEventListener('click', () => {
+    //     open_wiki_page(today_quote['quote_author'])
+    // })
 
-    copy_button.addEventListener('click', () => {
-        copy_text_to_clipboard(clipboard_text)
-    });
+    // copy_button.addEventListener('click', () => {
+    //     copy_text_to_clipboard(clipboard_text)
+    // });
 
-    tweet_button.setAttribute('href', `https://twitter.com/intent/tweet?text=${tweet_string}`);
+    // tweet_button.setAttribute('href', `https://twitter.com/intent/tweet?text=${tweet_string}`);
     
 }
 
