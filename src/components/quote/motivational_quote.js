@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {Vara} from "../../res/scripts/vara.js"
+import { Vara } from "../../res/scripts/vara.js"
 import { get_date } from "../calendar/rolyart-calendar";
 import { custom_alert } from "../../res/scripts/add_alert.js";
 import { faTwitter } from "@fortawesome/fontawesome-free-brands";
@@ -9,31 +8,31 @@ import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { check_mobile } from "../../res/scripts/check_mobile.js";
 // This function gets the quote
-function Get_quote () {
-    const date1 = new Date('07/19/2022');
-    const today = new Date(get_date().today.replace('-', ' '));
-    const diff_time = Math.abs(today - date1)
-    let diff_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24));
-    const array_length = Return_quote_list().length - 1;
-    let today_quote
+// function Get_quote () {
+//     const date1 = new Date('07/19/2022');
+//     const today = new Date(get_date().today.replace('-', ' '));
+//     const diff_time = Math.abs(today - date1)
+//     let diff_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24));
+//     const array_length = Return_quote_list().length - 1;
+//     let today_quote
 
-    if (diff_days > array_length) {
-        while (diff_days > array_length){
-            diff_days -= array_length + 1;
-        }
-    }
+//     if (diff_days > array_length) {
+//         while (diff_days > array_length){
+//             diff_days -= array_length + 1;
+//         }
+//     }
 
-    today_quote = Return_quote_list(diff_days).quote;
+//     today_quote = Return_quote_list(diff_days).quote;
 
-    // Debug
-    // today_quote = Return_quote_list(675).quote;
+//     // Debug
+//     // today_quote = Return_quote_list(675).quote;
 
-    //console.log("get_quote function has been run")
-    //console.log(today_quote.quote_author)    
-    //sets text content to the quote of the day
-    document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
-    Write_quote_author(today_quote);
-}
+//     //console.log("get_quote function has been run")
+//     //console.log(today_quote.quote_author)    
+//     //sets text content to the quote of the day
+//     document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
+//     Write_quote_author(today_quote);
+// }
 
 //this function writes the quote
 //Too slow maybe just animate the quote author
@@ -281,10 +280,8 @@ export default class Motivational_quote extends React.Component {
 }
 
 export function initialise_quotes() {
-    const quote = document.querySelector('.quote');
-    const heading = quote.querySelector('h1');
     //Adds scroll events, change to loop later
-    Get_quote();
+    // Get_quote();
     // play_slide_in_animation();
 }
 
@@ -314,41 +311,6 @@ function copy_text_to_clipboard(text) {
 
 function Return_quote_list(index = 0) {
     const quotes = require('./quotes_lists.json');
-    // let occurences = [0, 0, 0, 0, 0, 0];
-    // let total = 0;
-
-    // DEBUG
-    // for (const quote of quotes) {
-    //     const first_letter = quote.quote_author[0];
-    //     if (/[A-C]/.test(first_letter)) {
-    //         occurences[0]++;
-    //         total++;
-    //     }
-    
-    //     if (/[D-H]/.test(first_letter)) {
-    //         occurences[1]++;
-    //         total++;
-    //     }
-    
-    //     if (/[I-L]/.test(first_letter)) {
-    //         occurences[2]++;
-    //         total++;
-    //     }
-    
-    //     if (/[M-Q]/.test(first_letter)) {
-    //         occurences[3]++;
-    //         total++;
-    //     }
-    
-    //     if (/[R-T]/.test(first_letter)) {
-    //         occurences[4]++;
-    //         total++;
-    //     }
-
-    // }
-    // occurences[5] = quotes.length - total;
-    // console.log(occurences)
-
     const return_val = {
         quote: quotes[index],
         list_length: quotes.length

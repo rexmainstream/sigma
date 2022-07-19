@@ -3,7 +3,6 @@ import add_inline_animation from "../../res/scripts/animation_timing";
 import Tabs, { TabPane } from 'rc-tabs';
 import Radio_button_container from "./radio_button_container";
 import move_to_top from "../../res/scripts/move_to_top";
-import bug from "../../res/images/bugs.jpg"
 
 export default class Feedback extends React.Component {
 
@@ -57,7 +56,6 @@ export default class Feedback extends React.Component {
                                 <label>Please list bugs and problems you have encountered.</label>
                                 <input type="text" name="entry.246120418" placeholder="Your Answer"/>
                             </div>
-                            <img src={bug} alt="a bug" />
 
                             <Radio_button_container
                                 radio_buttons = {[
