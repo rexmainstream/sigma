@@ -8,31 +8,31 @@ import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { check_mobile } from "../../res/scripts/check_mobile.js";
 // This function gets the quote
-// function Get_quote () {
-//     const date1 = new Date('07/19/2022');
-//     const today = new Date(get_date().today.replace('-', ' '));
-//     const diff_time = Math.abs(today - date1)
-//     let diff_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24));
-//     const array_length = Return_quote_list().length - 1;
-//     let today_quote
+function Get_quote () {
+    const date1 = new Date('07/19/2022');
+    const today = new Date(get_date().today.replace('-', ' '));
+    const diff_time = Math.abs(today - date1)
+    let diff_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24));
+    const array_length = Return_quote_list().length - 1;
+    let today_quote
 
-//     if (diff_days > array_length) {
-//         while (diff_days > array_length){
-//             diff_days -= array_length + 1;
-//         }
-//     }
+    if (diff_days > array_length) {
+        while (diff_days > array_length){
+            diff_days -= array_length + 1;
+        }
+    }
 
-//     today_quote = Return_quote_list(diff_days).quote;
+    today_quote = Return_quote_list(diff_days).quote;
 
-//     // Debug
-//     // today_quote = Return_quote_list(675).quote;
+    // Debug
+    // today_quote = Return_quote_list(675).quote;
 
-//     //console.log("get_quote function has been run")
-//     //console.log(today_quote.quote_author)    
-//     //sets text content to the quote of the day
-//     document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
-//     Write_quote_author(today_quote);
-// }
+    //console.log("get_quote function has been run")
+    //console.log(today_quote.quote_author)    
+    //sets text content to the quote of the day
+    document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
+    // Write_quote_author(today_quote);
+}
 
 //this function writes the quote
 //Too slow maybe just animate the quote author
@@ -285,10 +285,12 @@ export function initialise_quotes() {
     // play_slide_in_animation();
 }
 
+// Opens the wiki page
 function open_wiki_page(author) {
     let url = `https://en.wikipedia.org/wiki/`
     let quote_author = author.replace(/ /g, '_');
 
+    // Gets url
     url += quote_author;
 
     if (quote_author != 'unknown') {
@@ -298,14 +300,16 @@ function open_wiki_page(author) {
     }
 }
  
+// Copu to clipboard
 function copy_text_to_clipboard(text) {
     if (!navigator.clipboard) {
       return;
     }
+    // Adds text to clipboard
     navigator.clipboard.writeText(text).then(function() {
 
     }, function() {
-      custom_alert('Could not copy text', 'error', 'This operation could not be completed.')
+      custom_alert('Could not copy text', 'error', 'Could not copy quote to clipboard.')
     });
   }
 
