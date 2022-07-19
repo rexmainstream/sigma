@@ -9,19 +9,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { check_mobile } from "../../res/scripts/check_mobile.js";
 // This function gets the quote
 function Get_quote () {
+    // Gets the date
     const date1 = new Date('07/19/2022');
     const today = new Date(get_date().today.replace('-', ' '));
-    const diff_time = Math.abs(today - date1)
+    // FInds difference
+    const diff_time = Math.abs(today - date1);
+
+    // Gets difference in date
     let diff_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24));
+
+    // Finds the length
     const array_length = Return_quote_list().length - 1;
     let today_quote
 
+    // Minuses it if the array length is smaller
     if (diff_days > array_length) {
         while (diff_days > array_length){
             diff_days -= array_length + 1;
         }
     }
-
+    // sets the todayquote tot the diff_days index
     today_quote = Return_quote_list(diff_days).quote;
 
     // Debug
@@ -30,7 +37,7 @@ function Get_quote () {
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
     //sets text content to the quote of the day
-    document.querySelector('#quote_of_the_day').textContent = today_quote['the_quote'];
+    // document.querySelector('#quote_of_the_day').textContent = today_quote.the_quote;
     // Write_quote_author(today_quote);
 }
 
@@ -220,26 +227,9 @@ function Write_quote_author(today_quote) {
     
 }
 
-
-function play_slide_in_animation() {
-    // let quote_box = (document.querySelector('.quote')).querySelector('.box');
-    // const icons = quote_box.querySelectorAll('.icon_button');
-    // //Removes previous animation
-    // quote_box.style.animation = `none`;
-    // quote_box.style.animation = null; 
-    // //plays animation
-    // quote_box.style.animation = `bounce 1s ease-out both`; 
-
-    // //Reveals the quote
-    // document.querySelector("#quote_of_the_day").style.animation = `fade_in_text 0.5s ease-out both`;
-
-    // for(const icon of icons) {
-    //     icon.classList.add('span');
-    // }
-}
-
 export default class Motivational_quote extends React.Component {
     componentDidMount() {
+        // When component is mounted initialise the quotes
         window.scrollTo(0, 0);
         initialise_quotes();
     }
