@@ -281,7 +281,7 @@ export default class Motivational_quote extends React.Component {
 
 export function initialise_quotes() {
     //Adds scroll events, change to loop later
-    // Get_quote();
+    Get_quote();
     // play_slide_in_animation();
 }
 
