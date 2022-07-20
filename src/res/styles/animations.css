@@ -154,19 +154,27 @@
         opacity: 0;
         background-color: inherit;
         transform: translateY(4rem);
+        -moz-transform: translateY(4rem);
+        -o-transform: translateY(4rem);
     }
     33% {
         transform: translateY(-2rem);
+        -moz-transform: translateY(-2rem);
+        -o-transform: translateY(-2rem);
         opacity: 1;
     }
 
     66% {
         transform: translateY(1rem);
+        -moz-transform: translateY(1rem);
+        -o-transform: translateY(1rem);
         opacity: 1;
     }
 
     100% {
         transform: translate(0%);
+        -moz-transform: translateY(0%);
+        -o-transform: translateY(0rem);
         opacity: 1;
     }
 }

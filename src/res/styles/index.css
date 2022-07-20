@@ -1289,8 +1289,9 @@ ul[class] {
         width: 90%;
         margin-top: 2rem;
         border-radius: 0;
-        padding-block: 0;
+        padding-block-end: 6rem;
     }
+
 
     #calendar_function_container .icon_button_container {
         padding: 0 0 0.5rem 0;
@@ -1457,6 +1458,10 @@ ul[class] {
 .twitter {
     display: inline;
     block-size: 3rem;
+}
+
+#container {
+    font-family: 'Segoe Script', cursive;
 }
 
 
