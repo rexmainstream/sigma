@@ -1289,7 +1289,7 @@ ul[class] {
         width: 90%;
         margin-top: 2rem;
         border-radius: 0;
-        padding-block-end: 6rem;
+        padding-block-end: 15rem;
     }
 
 
@@ -1929,6 +1929,10 @@ blockquote {
     transition: color 0.2s ease-out;
     border-inline-end: 0.1rem solid rgb(124,124,124);
     overflow: hidden;
+}
+
+.rc-tabs-nav-list .rc-tabs-tab:nth-child(2) {
+    border-inline-end: 0;
 }
 
 .rc-tabs-nav-list [role="tab"] {

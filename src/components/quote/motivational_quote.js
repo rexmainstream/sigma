@@ -46,35 +46,35 @@ function Get_quote () {
         // Vara.js does not work for mobile for some reason
 
         // Initialisation
-        let container = document.querySelector('#container');
-        const wiki_button = document.querySelector('.wiki_icon');
-        const copy_button = document.querySelector('.copy_quote');
-        const tweet_button = document.querySelector('.twitter');
+        // let container = document.querySelector('#container');
+        // const wiki_button = document.querySelector('.wiki_icon');
+        // const copy_button = document.querySelector('.copy_quote');
+        // const tweet_button = document.querySelector('.twitter');
 
 
-        // Clipboard text
-        const clipboard_text = `${today_quote['the_quote']} -${today_quote['quote_author']}`;
+        // // Clipboard text
+        // const clipboard_text = `${today_quote['the_quote']} -${today_quote['quote_author']}`;
 
-        // Twitter API
-        const tweet_string = `"${today_quote['the_quote'].replace(/ /g, '%20')}"%0a%0a%23${today_quote['quote_author'].replace(/ /g, '').replaceAll('.',"")}%20%23quotes`;
+        // // Twitter API
+        // const tweet_string = `"${today_quote['the_quote'].replace(/ /g, '%20')}"%0a%0a%23${today_quote['quote_author'].replace(/ /g, '').replaceAll('.',"")}%20%23quotes`;
 
         
         // Adds the quote of the day
         document.querySelector('#quote_of_the_day').textContent = today_quote.the_quote;
         //console.log("Write quote has been executed")
 
-        // Gives svg and buttons event listeners and attributes
-        wiki_button.addEventListener('click', () => {
-            open_wiki_page(today_quote['quote_author'])
-        })
+        // // Gives svg and buttons event listeners and attributes
+        // wiki_button.addEventListener('click', () => {
+        //     open_wiki_page(today_quote['quote_author'])
+        // })
 
-        // Adds clipboard text to the user clipboard
-        copy_button.addEventListener('click', () => {
-            copy_text_to_clipboard(clipboard_text)
-        });
+        // // Adds clipboard text to the user clipboard
+        // copy_button.addEventListener('click', () => {
+        //     copy_text_to_clipboard(clipboard_text)
+        // });
 
 
-        tweet_button.setAttribute('href', `https://twitter.com/intent/tweet?text=${tweet_string}`);
+        // tweet_button.setAttribute('href', `https://twitter.com/intent/tweet?text=${tweet_string}`);
  
         container.textContent = `- ${today_quote['quote_author']} -`;
     
