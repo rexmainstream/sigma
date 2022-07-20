@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM  from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboardCheck, faPlus, faFilePdf, faSearch, faTrash, faRotate } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardCheck, faPlus, faFilePdf, faSearch, faTrash, faRotate, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -521,7 +521,6 @@ export default class Full_calendar extends React.Component {
         return (
             <div>
                 <div id="full_calendar">
-                    
                     <div className="search_and_sort">
                         <div className="search_bar_container">
                             <FontAwesomeIcon icon = {faSearch} size = 'lg' />
@@ -601,285 +600,299 @@ export default class Full_calendar extends React.Component {
                                 }}
                             />
                         </div>
+                        <div className="drop_down_container">
+                            <ReactDropdown 
+                                className = "drop_down_button time_range"
+                                options = { time_range_options }
+                                placeholder = 'Time Range'
+                                ariaLabel = 'drop down for time range'
+                                value = { time_range_options[1] }
+                                onChange = {
+                                    (e) => {
+                                        // This occurs when user selectes the time range
+                                        let time_range;
 
-                        <ReactDropdown 
-                            className = "drop_down_button time_range"
-                            options = { time_range_options }
-                            placeholder = 'Time Range'
-                            ariaLabel = 'drop down for time range'
-                            value = { time_range_options[1] }
-                            onChange = {
-                                (e) => {
-                                    // This occurs when user selectes the time range
-                                    let time_range;
+                                        // If the selected label is changed it changes the current time range variable
+                                        switch (e.label) {
+                                            case 'All':
+                                                // Time range is an array with 2 indexs,
+                                                // Index 0 is start date for the events to be shown
+                                                // Index 1 is end date
+                                                // For all, just gets todays date and the max date
+                                                time_range = [ get_date().today, get_date().max_date, 'all' ];
+                                                break;
+                                            case 'Today':
+                                                // If selected day the time range index 0 and 1 is just the date 
+                                                time_range = [get_date().today, get_date().today, 'day']
+                                                break;
+                                            case 'Selected Month':
+                                                // If selected month then it gets the start of the month
+                                                // For example if july gets 1st of July
+                                                // Then it passes this to the get month function that outputs an array
+                                                const current_month = new Date(`${calendar.currentYear}-${calendar.currentMonth + 1}-01`)
 
-                                    // If the selected label is changed it changes the current time range variable
-                                    switch (e.label) {
-                                        case 'All':
-                                            // Time range is an array with 2 indexs,
-                                            // Index 0 is start date for the events to be shown
-                                            // Index 1 is end date
-                                            // For all, just gets todays date and the max date
-                                            time_range = [ get_date().today, get_date().max_date, 'all' ];
-                                            break;
-                                        case 'Today':
-                                            // If selected day the time range index 0 and 1 is just the date 
-                                            time_range = [get_date().today, get_date().today, 'day']
-                                            break;
-                                        case 'Selected Month':
-                                            // If selected month then it gets the start of the month
-                                            // For example if july gets 1st of July
-                                            // Then it passes this to the get month function that outputs an array
-                                            const current_month = new Date(`${calendar.currentYear}-${calendar.currentMonth + 1}-01`)
+                                                time_range = get_month_day_range(current_month)
+                                                break;
+                                        }
 
-                                            time_range = get_month_day_range(current_month)
-                                            break;
+                                        // Debug
+                                        // console.log(time_range);
+                                        
+
+                                        current_time_range = time_range;
+
+                                        // then shows the events
+
+                                        show_events(
+                                            time_range, 
+                                            current_sort_option, 
+                                            current_timeline_option, 
+                                            current_search, 
+                                            current_order,
+                                            'time range'
+                                        )
+                                    }
+                                }
+                                arrowOpen = 
+
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
+                                    </span>
+                                }
+
+                                arrowClosed = 
+                                
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
+                                    </span>
+                                }
+                            />
+
+
+                            <ReactDropdown 
+                                className = "drop_down_button"
+                                options = { sort_options }
+                                placeholder = { 'Sort By' }
+                                value = { sort_options[0] }
+                                ariaLabel = 'drop down for sort'
+                                onChange = {
+                                    (e) => {
+
+                                        // Gets the appropriate sort function
+                                        let sort_function = false;
+                                        let timeline_generator = false;
+
+
+                                        switch (e.label) {
+                                            case 'Due Date':
+                                                sort_function = false;
+                                                break;
+                                            case 'Priority':
+                                                sort_function = function(events_list) {                                                
+                                                    return bubble_sort_events_priority(events_list);
+                                                }
+
+                                                // Sets the timeline gen to an appropriate timeline creator function
+                                                timeline_generator = function(events_list) {
+                                                    let prev_value;
+                                                    let return_list = [];
+                                                    let i = 0;
+
+                                                    
+                                                    // Returns a list for timeline
+                                                    while (i < events_list.length) {
+                                                        if (events_list[i].priority !== prev_value) {
+                                                            return_list.push(events_list[i].priority)
+                                                            prev_value = events_list[i].priority;
+                                                        } else {
+                                                            return_list.push('');
+                                                        }
+                                                        i++
+                                                    }
+
+                                                    return return_list;
+                                                }
+                                                break;
+                                            case 'Alphabet':
+                                                // Timeline based on starting characters
+                                                timeline_generator = function(events_list) {
+                                                    // Maintains previous value for comparions
+                                                    let prev_value;
+                                                    let return_list = [];
+                                                    let i = 0;
+
+                                                    while (i < events_list.length) {
+                                                        // Checks if the character is a symbol
+                                                        let starting_character = events_list[i].title.charAt(0);
+                                                        const symbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                                                        const number = /[1234567890]/
+
+                                                        if (symbol.test(starting_character)) {
+                                                            starting_character = "Symbols";
+                                                        }
+
+                                                        if (number.test(starting_character)) {
+                                                            starting_character = "Numbers"
+                                                        }
+
+                                                        // Returns a list for timeline
+                                                        if (starting_character.toUpperCase() !== prev_value) {
+                                                            return_list.push(starting_character.toUpperCase());
+                                                            prev_value = starting_character.toUpperCase();
+                                                        } else {
+                                                            return_list.push('');
+                                                        }
+                                                        i++
+                                                    }
+
+                                                    return return_list;
+                                                }
+
+
+                                                
+                                                sort_function = function(events_list) {
+                                                    return bubble_sort_events_alphabetically(events_list);
+                                                };
+                                                break;
+                                            case 'Date Set':
+                                                // console.log('Date set')
+                                                break;
+                                        }
+
+                                        // Sets current sort option to the sort function
+                                        current_sort_option = sort_function;
+
+                                        current_timeline_option = timeline_generator;
+
+                                        // Shows the events
+                                        show_events(
+                                            current_time_range, 
+                                            sort_function, 
+                                            timeline_generator, 
+                                            current_search, 
+                                            current_order,
+                                            'sort option'
+                                        )
+                                    }
+                                }
+
+                                arrowOpen = 
+
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
+                                    </span>
+                                }
+
+                                arrowClosed = 
+                                
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
+                                    </span>
+                                }
+                            />
+
+                            <ReactDropdown 
+                                className = "drop_down_button"
+                                options = { completed_options }
+                                placeholder = 'Completed'
+                                ariaLabel = 'drop down for completed'
+                                value = { completed_options[0] }
+                                onChange = {
+                                    (e) => {
+                                        if (e.label === 'Completed') {
+                                            current_completed = true;
+                                        } else if (e.label === 'Incomplete') {
+                                            current_completed = false;
+                                        } else {
+                                            current_completed = e.label;
+
+                                        }
+                                        show_events(
+                                            current_time_range,
+                                            current_sort_option,
+                                            current_timeline_option,
+                                            current_search,
+                                            current_order,
+                                            'time range'
+                                        )
+                                    }
+                                }
+
+                                arrowOpen = 
+
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
+                                    </span>
+                                }
+
+                                arrowClosed = 
+                                
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
+                                    </span>
+                                }
+                            />
+                            <ReactDropdown 
+                                className = "drop_down_button"
+                                ariaLabel = 'drop down for order'
+                                options = { order_options }
+                                placeholder = {'Order'}
+                                value = {order_options[0]}
+                                onChange = { (e) => {
+                                    if (e.label === 'Descending') {
+                                        current_order = true;
+                                    } else {
+                                        current_order = false;
                                     }
 
-                                    // Debug
-                                    // console.log(time_range);
-                                    
-
-                                    current_time_range = time_range;
-
-                                    // then shows the events
-
                                     show_events(
-                                        time_range, 
+                                        current_time_range, 
                                         current_sort_option, 
                                         current_timeline_option, 
                                         current_search, 
                                         current_order,
-                                        'time range'
-                                    )
+                                        'order'
+                                    );
+
+
+
+                                }}
+                                arrowOpen = 
+
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
+                                    </span>
                                 }
-                            }
-                            arrowOpen = 
 
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
-                                </span>
-                            }
-
-                            arrowClosed = 
-                            
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
-                                </span>
-                            }
-                        />
-
-
-                        <ReactDropdown 
-                            className = "drop_down_button"
-                            options = { sort_options }
-                            placeholder = { 'Sort By' }
-                            value = { sort_options[0] }
-                            ariaLabel = 'drop down for sort'
-                            onChange = {
-                                (e) => {
-
-                                    // Gets the appropriate sort function
-                                    let sort_function = false;
-                                    let timeline_generator = false;
-
-
-                                    switch (e.label) {
-                                        case 'Due Date':
-                                            sort_function = false;
-                                            break;
-                                        case 'Priority':
-                                            sort_function = function(events_list) {                                                
-                                                return bubble_sort_events_priority(events_list);
-                                            }
-
-                                            // Sets the timeline gen to an appropriate timeline creator function
-                                            timeline_generator = function(events_list) {
-                                                let prev_value;
-                                                let return_list = [];
-                                                let i = 0;
-
-                                                
-                                                // Returns a list for timeline
-                                                while (i < events_list.length) {
-                                                    if (events_list[i].priority !== prev_value) {
-                                                        return_list.push(events_list[i].priority)
-                                                        prev_value = events_list[i].priority;
-                                                    } else {
-                                                        return_list.push('');
-                                                    }
-                                                    i++
-                                                }
-
-                                                return return_list;
-                                            }
-                                            break;
-                                        case 'Alphabet':
-                                            // Timeline based on starting characters
-                                            timeline_generator = function(events_list) {
-                                                // Maintains previous value for comparions
-                                                let prev_value;
-                                                let return_list = [];
-                                                let i = 0;
-
-                                                while (i < events_list.length) {
-                                                    // Checks if the character is a symbol
-                                                    let starting_character = events_list[i].title.charAt(0);
-                                                    const symbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-                                                    const number = /[1234567890]/
-
-                                                    if (symbol.test(starting_character)) {
-                                                        starting_character = "Symbols";
-                                                    }
-
-                                                    if (number.test(starting_character)) {
-                                                        starting_character = "Numbers"
-                                                    }
-
-                                                    // Returns a list for timeline
-                                                    if (starting_character.toUpperCase() !== prev_value) {
-                                                        return_list.push(starting_character.toUpperCase());
-                                                        prev_value = starting_character.toUpperCase();
-                                                    } else {
-                                                        return_list.push('');
-                                                    }
-                                                    i++
-                                                }
-
-                                                return return_list;
-                                            }
-
-
-                                            
-                                            sort_function = function(events_list) {
-                                                return bubble_sort_events_alphabetically(events_list);
-                                            };
-                                            break;
-                                        case 'Date Set':
-                                            // console.log('Date set')
-                                            break;
+                                arrowClosed = 
+                                
+                                {
+                                    <span>
+                                        <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
+                                    </span>
+                                }                       
+                            />
+                        </div>
+                        <button
+                                className="icon_button square no_transition"    
+                                title="Show More Options" 
+                                onClick={
+                                    (e) => {
+                                        e.currentTarget.parentNode.classList.toggle('show_drop_down')
                                     }
-
-                                    // Sets current sort option to the sort function
-                                    current_sort_option = sort_function;
-
-                                    current_timeline_option = timeline_generator;
-
-                                    // Shows the events
-                                    show_events(
-                                        current_time_range, 
-                                        sort_function, 
-                                        timeline_generator, 
-                                        current_search, 
-                                        current_order,
-                                        'sort option'
-                                    )
-                                }
-                            }
-
-                            arrowOpen = 
-
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
-                                </span>
-                            }
-
-                            arrowClosed = 
-                            
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
-                                </span>
-                            }
-                        />
-
-                        <ReactDropdown 
-                            className = "drop_down_button"
-                            options = { completed_options }
-                            placeholder = 'Completed'
-                            ariaLabel = 'drop down for completed'
-                            value = { completed_options[0] }
-                            onChange = {
-                                (e) => {
-                                    if (e.label === 'Completed') {
-                                        current_completed = true;
-                                    } else if (e.label === 'Incomplete') {
-                                        current_completed = false;
-                                    } else {
-                                        current_completed = e.label;
-
-                                    }
-                                    show_events(
-                                        current_time_range,
-                                        current_sort_option,
-                                        current_timeline_option,
-                                        current_search,
-                                        current_order,
-                                        'time range'
-                                    )
-                                }
-                            }
-
-                            arrowOpen = 
-
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
-                                </span>
-                            }
-
-                            arrowClosed = 
-                            
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
-                                </span>
-                            }
-                        />
-                        <ReactDropdown 
-                            className = "drop_down_button"
-                            ariaLabel = 'drop down for order'
-                            options = { order_options }
-                            placeholder = {'Order'}
-                            value = {order_options[0]}
-                            onChange = { (e) => {
-                                if (e.label === 'Descending') {
-                                    current_order = true;
-                                } else {
-                                    current_order = false;
-                                }
-
-                                show_events(
-                                    current_time_range, 
-                                    current_sort_option, 
-                                    current_timeline_option, 
-                                    current_search, 
-                                    current_order,
-                                    'order'
-                                );
-
-
-
-                            }}
-                            arrowOpen = 
-
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronDown }/>
-                                </span>
-                            }
-
-                            arrowClosed = 
-                            
-                            {
-                                <span>
-                                    <FontAwesomeIcon size = 'lg' icon = { faChevronLeft }/>
-                                </span>
-                            }                       
-                        />
+                                }                              
+                            >
+                                <FontAwesomeIcon
+                                    icon={ faChevronRight } 
+                                />
+                            </button>
                     </div>
                     <div id = 'calendar_function_container'>
                         <div id = "calendar_container">

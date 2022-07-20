@@ -108,6 +108,7 @@ textarea {
     background-color: inherit;
     border: 0;
     padding: 0.5rem;
+    user-select: none;
     margin-block-start: 1rem;
     min-inline-size: 10rem;
     z-index: 0;
@@ -158,6 +159,19 @@ textarea {
 
     transition: transform 250ms;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
+}
+
+.icon_button.square {
+    border-radius: 0.1rem;
+}
+
+.icon_button.no_transition {
+    transition: none;
+}
+
+.icon_button.no_transition:hover {
+    transition: none;
+    transform: none;
 }
 
 .icon_button:hover {
@@ -263,7 +277,7 @@ textarea {
 .Dropdown-control {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
 }
 
 .drop_down_button {
@@ -918,7 +932,7 @@ ul[class] {
 .search_and_sort {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     grid-row: 1;
     grid-column: 1/end;
 }
@@ -953,6 +967,54 @@ ul[class] {
 
 }
 
+.drop_down_container {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem 0 1rem;
+    border-inline-start: 0.2rem solid transparent;
+    border-inline-end: 0.2rem solid transparent;
+    max-width: 0rem;
+    transition: max-width 0.6s ease-in 0.2s, border-inline-color 0.2s ease-in 0.2s;
+}
+
+.drop_down_container .drop_down_button {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in;
+}
+
+
+.search_and_sort.show_drop_down .drop_down_container{
+    max-width: 100rem;
+    display: flex;
+    border-inline-start: 0.2rem solid rgb(124, 124, 124);
+    border-inline-end: 0.2rem solid rgb(124, 124, 124);
+    padding: 0 1rem 0 1rem;
+    transition: max-width 0.6s ease-in, opacity 0.3s ease-in 0.5s, border-inline-color 0.2s ease-in 0.6s;;
+}
+
+.icon_button[title="Show More Options"] svg{
+    transition: transform 0.2s ease-in;
+}
+
+.search_and_sort.show_drop_down .icon_button[title="Show More Options"] svg{
+    transform: rotate(180deg);
+    transition: transform 0.2s ease-in 0.4s;
+}
+
+.search_and_sort.show_drop_down .drop_down_container .drop_down_button{
+    opacity: 1;
+    transition: opacity 0.2s ease-in 0.6s;
+    pointer-events: all;
+}
+
+
+
+.drop_down_container .icon_button:hover {
+    transform: translateX(0);
+
+}
+
 
 #calendar_function_container {
     position: fixed;
@@ -961,10 +1023,14 @@ ul[class] {
     height: fit-content;
     /* grid-row: 2;
     grid-column: 4/end; */
-    left: 75%;
+    left: 65%;
     top: 70vh;
-    inline-size: 26rem;
+    inline-size: 40rem;
     animation: bounce 0.7s ease-out both;
+}
+
+#calendar_function_container .clickable_button.month-year{
+    font-size: 3rem;
 }
 
 #calendar_function_container .rolyart-calendar {
@@ -983,16 +1049,14 @@ ul[class] {
     margin-block-end: 2rem;
 }
 
+
+
 #calendar_function_container .icon_button_container {
     padding: 1rem;
     border-radius: 2rem;
 }
 
 #calendar_function_container .icon_button_container .icon_button {
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    height: 4rem;
-    width: 4rem;
     animation: span 0.4s ease-in 0.1s backwards;
 }
 
@@ -1042,7 +1106,6 @@ ul[class] {
 .timeline {
     font-size: 2rem;
     width: 23%;
-    color: rgb(124,124,124);
     display: flex;
     gap: 2rem;
     animation: fade_in 0.8s ease-in;
@@ -1119,7 +1182,7 @@ ul[class] {
 }
 
 .vl {
-    border-left: 0.6rem solid rgb(124,124,124);
+    border-left: 0.6rem solid rgba(29, 98, 149, 0.7);
     left: 50%;
     margin-left: -0.3rem;
     top: 0;
@@ -1139,7 +1202,7 @@ ul[class] {
     border-radius: 2rem;
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
     overflow: hidden;
-    inline-size: 77%;
+    inline-size: 55%;
     color: black;
     /* align-items: center; */
     padding: 1rem 2rem 1rem 2rem;
@@ -1226,11 +1289,13 @@ ul[class] {
     transform: rotate(180deg);
     transition: transform 0.2s ease-out;
     background-color: white;
+    color: rgba(29, 98, 149, 1);
 }
 
 .event_item_full button[title='Show Description'] {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
+    color: rgba(29, 98, 149, 1);
     background-color: inherit;
 }
 
@@ -1292,12 +1357,19 @@ ul[class] {
         padding-block-end: 15rem;
     }
 
+    .icon_button[title="Show More Options"] {
+        display: none;
+    }
+
 
     #calendar_function_container .icon_button_container {
         padding: 0;
     }
     
 
+    #calendar_function_container .clickable_button.month-year {
+        font-size: 1.5rem;
+    }
     #calendar_function_container #calendar_container {
         padding: 0;
         margin: 0;

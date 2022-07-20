@@ -90,6 +90,7 @@ export default function Event_item_full(props) {
             </span>
         ));
 
+        // Replaces found word with highlighted word
         description = reactStringReplace(description, search_case_insens, (match, i) => (
             <span
                 className = 'search_word'
@@ -99,6 +100,7 @@ export default function Event_item_full(props) {
             </span>
         ))
 
+        // If the description is hidden and the search is found in the description it is opened
         if (description.length > 1 && search !== "") {
             show_description_class[0] = "event_description show_description"
             show_description_class[1] = "Hide Description"
@@ -338,10 +340,10 @@ export default function Event_item_full(props) {
         const description = e.currentTarget.parentNode.parentNode.parentNode.querySelector('.event_description');
         if (description.classList.contains('hide_description')) {
             description.classList.replace("hide_description", "show_description");
-            e.currentTarget.parentNode.setAttribute('title', 'Hide Description');
+            e.currentTarget.setAttribute('title', 'Hide Description');
         } else {
             description.classList.replace("show_description", "hide_description");
-            e.currentTarget.parentNode.setAttribute('title', 'Show Description');
+            e.currentTarget.setAttribute('title', 'Show Description');
         }
     }
 
@@ -401,7 +403,7 @@ export default function Event_item_full(props) {
                             }
                         }
                     >
-                        <span>
+                        <span className='clickable_button'>
                             {`${days_left}`}
                         </span>                
                     </div>
@@ -520,7 +522,8 @@ export default function Event_item_full(props) {
                         <button 
                             title = {show_description_class[1]} 
                             className = "description_button"
-                            onClick = { (e) => {
+                            onClick = { 
+                            (e) => {
                                 // Debug
                                 // console.log('Clicked!')
 
@@ -670,7 +673,7 @@ export default function Event_item_full(props) {
                                     // Debug
                                     // console.log('Clicked!')
     
-                                    show_description(e)
+                                    show_description(e);
                                 }} 
                                 onTouchCancel = {
                                     (e) => {
