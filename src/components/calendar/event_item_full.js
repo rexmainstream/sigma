@@ -468,6 +468,19 @@ export default function Event_item_full(props) {
                                         )
                                     }
                                 }
+                                onTouchStart = {
+                                    () => {
+                                        // Opens event form, when button is clicked, edits the event
+                                        Event_form(due_date, get_date().today, get_date().max_date, 
+    
+                                        function(new_title, new_desc, new_priority, new_due_date) {
+                                            edit_event(new_title, new_desc, new_priority, new_due_date);
+                                        },
+                                        
+                                        [title_string, description_string, due_date, priority]
+                                        )
+                                    }
+                                }
                             >
                                 <FontAwesomeIcon icon = { faEdit } />
                             </button>
@@ -475,6 +488,15 @@ export default function Event_item_full(props) {
                                 className='icon_button'
                                 aria-label = 'remove event button'
                                 title = 'Remove Event'
+                                onTouchStart={
+                                    () => {
+                                        custom_alert('Delete Event?', 'information_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
+                                            delete_event()
+                                        }, () => {
+
+                                        })
+                                    }
+                                }
                                 onClick = {
                                     () => {
                                         custom_alert('Delete Event?', 'information_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
@@ -498,15 +520,23 @@ export default function Event_item_full(props) {
                         <button 
                             title = {show_description_class[1]} 
                             className = "description_button"
-                        >
-                            <FontAwesomeIcon 
-                                icon = { faChevronDown }
-                                onClick = { (e) => {
+                            onClick = { (e) => {
+                                // Debug
+                                // console.log('Clicked!')
+
+                                show_description(e)
+                            }} 
+                            onTouchEnd = {
+                                (e) => {
                                     // Debug
                                     // console.log('Clicked!')
     
                                     show_description(e)
-                                }} 
+                                }
+                            }
+                        >
+                            <FontAwesomeIcon 
+                                icon = { faChevronDown }
                             />
                         </button>
                     </div>
@@ -611,6 +641,15 @@ export default function Event_item_full(props) {
                                         })
                                     }
                                 }
+                                onTouchStart = {
+                                    () => {
+                                        custom_alert('Delete Event?', 'information_yes_no', 'Are you sure you want to delete this event? This action cannot be undone', () => {
+                                            delete_event()
+                                        }, () => {
+
+                                        })
+                                    }
+                                }
                             >
                                 <FontAwesomeIcon icon = { faTimes } />
                             </button>
@@ -619,21 +658,6 @@ export default function Event_item_full(props) {
                     </div>
                     <hr></hr>
                     <div className = {show_description_class[0]}>
-                    <div className = 'flex'>
-
-                        <div className = 'event_properties'>
-                            <div>
-                                <span className='event_property'>Due:</span>
-                                <span>{ due_date }</span>
-                            </div>
-                            <div>
-                                <span className='event_property'>Priority:</span>
-                                <span>{ priority }</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr></hr>
-
                         { description }
                     </div>
                     <div className ="button_container" id='no_print'>
@@ -642,13 +666,21 @@ export default function Event_item_full(props) {
                             className = "description_button"
                         >
                             <FontAwesomeIcon 
-                                icon = { faChevronDown }
                                 onClick = { (e) => {
                                     // Debug
                                     // console.log('Clicked!')
     
                                     show_description(e)
                                 }} 
+                                onTouchCancel = {
+                                    (e) => {
+                                        // Debug
+                                        // console.log('Clicked!')
+        
+                                        show_description(e)
+                                    }
+                                }
+                                icon = { faChevronDown }
                             />
                         </button>
                     </div>

@@ -1417,6 +1417,7 @@ export function No_events_on_day_message(props) {
 }
 
 //External library that draws the calendar. https://www.cssscript.com/es6-calendar-rolyart/
+// Lack of documentation was because of original author
 export function RolyartCalendar(config){
     this.container = document.getElementById(config.container);
     this.container.classList.add('rolyart-calendar');
@@ -1524,52 +1525,101 @@ export function RolyartCalendar(config){
         prevMonth.className = 'slide_button';
         prevMonth.ariaLabel = `previous month`;
         prevMonth.title = `Previous Month`;
-        prevMonth.addEventListener('click', ()=>{
-            this.prevMonth();
-            monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
 
-            let animation = 'time range'
-            if (current_time_range[2])
-            // Shows the events on the day
-            // Gets the current time range month, day or all
-            switch (current_time_range[2]) {
-                case 'day':
-                    // If day sets the date range to the user selected date
-                    current_time_range[0] = get_date().today;
-                    current_time_range[1] = get_date().today;
-                    animation = false;
-                    break;
-                case 'month':
-                    // If month sets the date range to the month
-                    const month = this.currentMonth + 1;
-                    const year = this.currentYear;
-                    current_time_range = get_month_day_range(new Date(`${year}-${month}-01`));
-                    break;
-                case 'all':
-                    // If all sets the date range to the max
-                    current_time_range[0] = get_date().today;
-                    current_time_range[1] = get_date().max_date;
-                    animation = false;
-                    break;
-            }
+        // If desktop adds click event listener
+        if (check_desktop()) {
+            prevMonth.addEventListener('click', ()=>{
+                this.prevMonth();
+                monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
 
-            // Then shows the events
-            show_events(
-                current_time_range,
-                current_sort_option,
-                current_timeline_option,
-                current_search,
-                current_order,
-                animation
-            );  
-            
-        })
+                let animation = 'time range'
+                if (current_time_range[2])
+                // Shows the events on the day
+                // Gets the current time range month, day or all
+                switch (current_time_range[2]) {
+                    case 'day':
+                        // If day sets the date range to the user selected date
+                        current_time_range[0] = get_date().today;
+                        current_time_range[1] = get_date().today;
+                        animation = false;
+                        break;
+                    case 'month':
+                        // If month sets the date range to the month
+                        const month = this.currentMonth + 1;
+                        const year = this.currentYear;
+                        current_time_range = get_month_day_range(new Date(`${year}-${month}-01`));
+                        break;
+                    case 'all':
+                        // If all sets the date range to the max
+                        current_time_range[0] = get_date().today;
+                        current_time_range[1] = get_date().max_date;
+                        animation = false;
+                        break;
+                }
+
+                // Then shows the events
+                show_events(
+                    current_time_range,
+                    current_sort_option,
+                    current_timeline_option,
+                    current_search,
+                    current_order,
+                    animation
+                );  
+                
+            })
+        } else {
+            // Touchstart for mobile
+            prevMonth.addEventListener('touchstart', ()=>{
+                this.prevMonth();
+                monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
+
+                let animation = 'time range'
+                if (current_time_range[2])
+                // Shows the events on the day
+                // Gets the current time range month, day or all
+                switch (current_time_range[2]) {
+                    case 'day':
+                        // If day sets the date range to the user selected date
+                        current_time_range[0] = get_date().today;
+                        current_time_range[1] = get_date().today;
+                        animation = false;
+                        break;
+                    case 'month':
+                        // If month sets the date range to the month
+                        const month = this.currentMonth + 1;
+                        const year = this.currentYear;
+                        current_time_range = get_month_day_range(new Date(`${year}-${month}-01`));
+                        break;
+                    case 'all':
+                        // If all sets the date range to the max
+                        current_time_range[0] = get_date().today;
+                        current_time_range[1] = get_date().max_date;
+                        animation = false;
+                        break;
+                }
+
+                // Then shows the events
+                show_events(
+                    current_time_range,
+                    current_sort_option,
+                    current_timeline_option,
+                    current_search,
+                    current_order,
+                    animation
+                );  
+                
+            })
+        }      
 
         nextMonth.innerHTML = '&#8250;'
         nextMonth.className = `slide_button`
         nextMonth.ariaLabel = `next month`;
         nextMonth.title = `Next Month`;
-        nextMonth.addEventListener('click', () => {
+
+        // If desktop adds click event listener
+        if (check_desktop()) {
+            nextMonth.addEventListener('click', () => {
             this.nextMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
 
@@ -1610,7 +1660,52 @@ export function RolyartCalendar(config){
                 animation
             );  
 
-        })
+            })
+        } else { 
+            // Touchstart for mobile
+            nextMonth.addEventListener('touchstart', () => {
+                this.nextMonth(); 
+                monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
+
+                let animation = 'time range'
+                // Shows the events on the day
+                // Gets the current time range month, day or all
+                switch (current_time_range[2]) {
+                    case 'day':
+                        // If day sets the date range to the user selected date
+                        current_time_range[0] = get_date().today;
+                        current_time_range[1] = get_date().today;
+
+                        // No need for animation if it wont change
+                        animation = false;
+                        break;
+                    case 'month':
+                        // If month sets the date range to the month
+                        const month = this.currentMonth + 1;
+                        const year = this.currentYear;
+
+                        current_time_range = get_month_day_range(new Date(`${year}-${month}-01`));
+                        break;
+                    case 'all':
+                        // If all sets the date range to the max
+                        current_time_range[0] = get_date().today;
+                        current_time_range[1] = get_date().max_date;
+                        animation = false;
+                        break;
+                }
+
+                // Then shows the events
+                show_events(
+                    current_time_range,
+                    current_sort_option,
+                    current_timeline_option,
+                    current_search,
+                    current_order,
+                    animation
+                );  
+
+            })
+        }
 
 
         monthAndYear.addEventListener('click', () => {

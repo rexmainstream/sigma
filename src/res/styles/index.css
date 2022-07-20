@@ -1231,7 +1231,7 @@ ul[class] {
 .event_item_full button[title='Show Description'] {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
-    background-color: white;
+    background-color: inherit;
 }
 
 /* For mobile */
@@ -1294,8 +1294,9 @@ ul[class] {
 
 
     #calendar_function_container .icon_button_container {
-        padding: 0 0 0.5rem 0;
+        padding: 0;
     }
+    
 
     #calendar_function_container #calendar_container {
         padding: 0;
@@ -1341,7 +1342,7 @@ ul[class] {
         margin: 0;
         background-color: white;
         text-align: center;
-        padding:0;
+        padding-block-end: 1rem;
     }
 
     #full_events {
