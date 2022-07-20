@@ -41,7 +41,7 @@ export default class Feedback extends React.Component {
                     noValidate
                     className="form"
                     autoComplete="off"
-                    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfRgKi2DPemroDP1Jpr6BjhTahl75sIZRm6ucaWdhR_zDSGSQ/formResponse"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSfRgKi2DPemroDP1Jpr6BjhTahl75sIZRm6ucaWdhR_zDSGSQ/viewform"
                     target="hidden_iframe"
                     method="post"
                     >
@@ -158,14 +158,14 @@ export default class Feedback extends React.Component {
                     </Tabs>
                     <div className="button_container">
                         <button 
-                            type="submit" 
+                            // type="submit" 
                             className="clickable_button" 
                             title="Submit Form"
-
+                            type="submit"
                             onClick={
                                 () => {
                                     // Clears the form when clicked
-                                    move_to_top();
+                                    // move_to_top();
                                 }
                             }
                         >
@@ -177,8 +177,8 @@ export default class Feedback extends React.Component {
                             title="Clear Form"
                             onClick={
                                 () => {
-                                    move_to_top();
-                                    clear_form();
+                                    // move_to_top();
+                                    // clear_form();
                                 }
                             }
                         >

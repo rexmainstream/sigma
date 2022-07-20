@@ -730,7 +730,7 @@ ul[class] {
 #events_container {
     overflow-y: auto;
     overflow-x: hidden;
-    block-size: 22rem;
+    block-size: 23rem;
     margin-block-end: 1rem;
 }
 
@@ -2036,6 +2036,7 @@ blockquote {
 .feedback .required_asterisk {
     user-select: none;
     color: red;
+    font-size: 1rem;
     margin-inline-start: 0.7rem;
 }
 

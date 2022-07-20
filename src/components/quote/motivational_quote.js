@@ -46,7 +46,7 @@ function Get_quote () {
         // Vara.js does not work for mobile for some reason
 
         // Initialisation
-        // let container = document.querySelector('#container');
+        let container = document.querySelector('#container');
         // const wiki_button = document.querySelector('.wiki_icon');
         // const copy_button = document.querySelector('.copy_quote');
         // const tweet_button = document.querySelector('.twitter');
@@ -76,7 +76,7 @@ function Get_quote () {
 
         // tweet_button.setAttribute('href', `https://twitter.com/intent/tweet?text=${tweet_string}`);
  
-        container.textContent = `- ${today_quote['quote_author']} -`;
+        container.textContent = `- ${today_quote.quote_author} -`;
     
         // document.querySelector('#quote_of_the_day').textContent = today_quote.the_quote;
     }

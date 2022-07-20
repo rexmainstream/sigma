@@ -1,5 +1,8 @@
+import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
+// This is the button container for a radio button
 export default function Radio_button_container(props) {
     //Gets properties
     const radio_buttons = props.radio_buttons;
@@ -9,6 +12,8 @@ export default function Radio_button_container(props) {
     const description = props.description;
     const description_placeholder = props.description_placeholder;
     const description_entry = props.description_entry;
+
+    // Radio_button elements
     let radio_buttons_element_array = [];
     let required_asterisk = (<span></span>);
     let description_input;
@@ -64,7 +69,7 @@ export default function Radio_button_container(props) {
     if (required === true) {
         required_asterisk = (
         <span className="required_asterisk">
-            *
+            <FontAwesomeIcon icon = {faAsterisk}/>
         </span>
         )
     }
