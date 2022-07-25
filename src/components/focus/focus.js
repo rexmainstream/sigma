@@ -1,3 +1,5 @@
+// Alex
+
 // Imports
 import React from "react";
 import ReactDom from "react-dom";
@@ -13,7 +15,7 @@ import img2 from "../../res/images/tutorial_2.png";
 import img3 from "../../res/images/tutorial_3.png";
 import add_inline_animation from "../../res/scripts/animation_timing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faPlus, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 let steps_list = [];
 let db;
@@ -86,14 +88,14 @@ export default class Focus extends React.Component {
                 <h1>Current Focus</h1>
                 <div className="box" id="focus_container">
                     <div className="focus_buttons_container">
-                        <button className="help_button"
+                        <button className="help_button icon_button"
                             aria-label="focus help"
                             title="Help"
                             onClick={() => {
                                 focus_help()
                             }}
                             >
-                            <i className="fa fa-question-circle"></i>
+                            <FontAwesomeIcon icon={faQuestion}/>
                         </button>
                     </div>
                     <div id="current_focus"></div>

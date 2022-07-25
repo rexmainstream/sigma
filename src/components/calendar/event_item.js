@@ -1,3 +1,6 @@
+// Alex
+
+// Imports
 import React from "react";
 import ReactDOM  from "react-dom";
 import { custom_alert } from "../../res/scripts/add_alert";

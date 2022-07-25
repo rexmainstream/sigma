@@ -7,7 +7,6 @@ import Motivational_quote from './components/quote/motivational_quote';
 import Focus from './components/focus/focus';
 import Feedback from './components/feedback/feedback';
 import About from './components/about/about';
-import Help from './components/help/help';
 import Full_calendar from './components/calendar/calendar_full';
 import { check_mobile } from './res/scripts/check_mobile';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -48,9 +47,6 @@ function App() {
           to={"/focus"}>
           Focus
         </NavLink>
-      </li>
-      <li>
-        <a href=''><Link to="/help">Help</Link></a>
       </li>
       <li>
         <NavLink
@@ -116,9 +112,6 @@ function App() {
               </NavLink>
             </li>
             <li>
-              <a href=''><Link to="/help">Help</Link></a>
-            </li>
-            <li>
               <NavLink
                 to={"/feedback"}>
                   Feedback
@@ -164,7 +157,6 @@ function App() {
             <Route exact path='/focus' element = {<Focus />} />
             <Route exact path='/quote_of_the_day' element = {<Motivational_quote />} />
             <Route path="/calendar" element={<Full_calendar />} exact />
-            <Route path="/help" element={<Help />} exact />
             <Route path='/about' element={<About />} exact />
             <Route path='/feedback' element={<Feedback />} exact />
           </Routes>

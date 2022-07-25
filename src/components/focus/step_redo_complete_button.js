@@ -1,8 +1,12 @@
+// Alex
+
+// Imports
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
+// Redo button HTML when clicked runs the prop function
 export default function Redo_complete_button(props) {
     if (props.redo === true) {
         return (

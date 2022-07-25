@@ -1,5 +1,7 @@
 import React from "react";
 
+
+// Print HTML 
 export default function Print_event_item(props) {
     const title = props.event_title;
     const due_date = props.due_date;

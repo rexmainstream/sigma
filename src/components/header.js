@@ -1,3 +1,4 @@
+// ALex
 import React from 'react';
 import logo from '../res/images/Logo-Vector-Graphics.svg'
 //import { NavLink } from 'react-router-dom';

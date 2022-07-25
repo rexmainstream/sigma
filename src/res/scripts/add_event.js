@@ -35,6 +35,7 @@ export function Event_form(current_selected_date, today, max_date, create_functi
     //delete_event_btn.className = 'clickable_button delete_button';
 
 
+    // Adds attributes to the elements
     priority1.setAttribute('type', 'radio');
     priority1.setAttribute('checked', 'checked')
     priority2.setAttribute('type', 'radio');
@@ -56,6 +57,7 @@ export function Event_form(current_selected_date, today, max_date, create_functi
     title.setAttribute('placeholder', 'Add Title');
     title.setAttribute('required', 'required');
     title.setAttribute('autofocus', true)
+    title.setAttribute('maxlength', 50);
     description_input.setAttribute('placeholder', 'Description: Max 2000 characters')
     title.setAttribute('type', 'text');
     due_date.setAttribute('value', current_selected_date);

@@ -1,3 +1,6 @@
+// Alex
+
+// Imports
 import React from 'react';
 import { custom_alert } from '../../res/scripts/add_alert';
 import { exit_modal } from '../../res/scripts/add_modal';
@@ -12,7 +15,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
+// Each goal has stesp
 export default function Goal_step(props) {
+    // Properties
     const goal_name = props.goal_name;
     let desc = props.goal_desc;
     let goal_description = desc;
@@ -20,9 +25,10 @@ export default function Goal_step(props) {
     const step_type = props.step_type;
     const step_list = return_steps_list();
 
+    // Classname may cahnge
     let step_class = `steps box`;
 
-
+    // If there are no descriptions changes it to a prompt instead of blanking it
     if (goal_description.replace(/\r?\n|\r/g, "") === '' || goal_description.replace(/\s+/g, '') === '') {
         goal_description = "This step has no description.";
     }
@@ -42,7 +48,9 @@ export default function Goal_step(props) {
             break;
     }
 
+    // If user presses chevron sows description
     function show_description(e) {
+        // gets the description
         const description = e.currentTarget.parentNode.parentNode.querySelector('.goal_description')
         if (description.classList.contains('hide_description')) {
             description.classList.replace("hide_description", "show_description");
@@ -66,7 +74,7 @@ export default function Goal_step(props) {
         //Event creation form
         Add_new_step();
 
-        //Changes some elements
+        //Changes some elements in the dom and adds preexisting values
         form = document.querySelector('#step_form');
         title = form.querySelector('.step_title');
         description = form.querySelector('textarea');
@@ -107,12 +115,12 @@ export default function Goal_step(props) {
     function remove_step(e) {
         //console.log('Remove step function has run');
         const completed = step_list[order - 1].completed;
-        const step = e.target.parentNode.parentNode.parentNode;
+        const element_step = e.target.parentNode.parentNode.parentNode;
         custom_alert('Remove this step?', "information_yes_no","Are you sure you want to remove this step, you cannot undo this action.", function() {
 
-            add_inline_animation(step, 'delete_step 0.5s ease-in', function() {
+            add_inline_animation(element_step, 'delete_step 0.5s ease-in', function() {
                 step_list.splice(order - 1, 1);
-
+                // Adds an animation, when done, plays remove animation
                 for (let i = order - 1; i <= step_list.length - 1; i++) {
                     if (completed === true && step_list[i].completed === true) {
                         step_list[i].step_type = "edit";
@@ -125,6 +133,7 @@ export default function Goal_step(props) {
                 //delete step from database
                 change_step_value(order, 'delete', false, false);
 
+                // Then renders steps
                 render_steps();
                 render_progress();
             })
@@ -133,12 +142,12 @@ export default function Goal_step(props) {
     }
     //This function is run when the user completes their step
     function complete_step(e) {
-        const step = e.target.parentNode.parentNode.parentNode;
+        const element_step = e.target.parentNode.parentNode.parentNode;
         //console.log('Complete step function has run');
 
         //Play animation
-        step.style.animation = `fade_out 0.3s ease-out`;
-        add_inline_animation(step, "fade_out 0.3s ease-out", () => {
+        element_step.style.animation = `fade_out 0.3s ease-out`;
+        add_inline_animation(element_step, "fade_out 0.3s ease-out", () => {
             step_list[order - 1].completed = true;
             change_step_value( order, true, false, false);
             
@@ -152,17 +161,17 @@ export default function Goal_step(props) {
     
     //Function runs when user presses redo button
     function redo_step(e) {
-        const step = e.target.parentNode.parentNode.parentNode;
-        step.style.animation = `fade_out 0.3s ease-out`;
+        const element_step = e.target.parentNode.parentNode.parentNode;
+        element_step.style.animation = `fade_out 0.3s ease-out`;
         render_steps();
 
-        step.addEventListener('animationend', function handler() {
-            step.style.animation = ``
+        element_step.addEventListener('animationend', function handler() {
+            element_step.style.animation = ``
             step_list[order - 1].completed = false;
             change_step_value(order, false, false, false);
             render_steps();
             render_progress()
-            step.removeEventListener('animationend', handler)
+            element_step.removeEventListener('animationend', handler)
         });
 
     }
@@ -220,7 +229,7 @@ export function change_step_value(current_order, completed, new_title, new_descr
         order: current_order
     }
 
-    //Gets db length
+    // Opens up a database
     const open_request = window.indexedDB.open('student_file', 15);
     open_request.addEventListener('error', () => {
         //Error prompt
@@ -228,17 +237,17 @@ export function change_step_value(current_order, completed, new_title, new_descr
     });
 
     open_request.addEventListener('success', () => {
-        console.log(new_step)
+        // If db request succeeds
         const db = open_request.result
         const stored_events = db.transaction(['steps_list'], 'readwrite').objectStore('steps_list');
-        console.log(new_step)
+
+        // If delete delets the event and then shifts the remaining up by one
         if (completed === 'delete') {
             const get_datatabase_length = stored_events.count();
             get_datatabase_length.addEventListener('success', () => {
                 const length = get_datatabase_length.result;
 
                 for (let i = current_order + 1; i <= length; i++) {
-                    console.log(i)
                     const get_event = stored_events.get(i);
                     get_event.addEventListener('success', () => {
                         const the_event = get_event.result;
@@ -248,17 +257,19 @@ export function change_step_value(current_order, completed, new_title, new_descr
                     })
 
                 } 
-
+                // removes final repeated
                 stored_events.delete(length)
 
             })
             
         } else {
+            // If not gets the current order and then replaces the element with new one
             const get_event = stored_events.get(current_order);
 
             get_event.addEventListener('success', () => {
                 const curr_event = get_event.result;
 
+                // If no new title sets the current event title
                 if (new_title === false) {
                     new_step.step_title = curr_event.step_title;
                 }

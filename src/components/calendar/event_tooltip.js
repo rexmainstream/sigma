@@ -1,3 +1,6 @@
+// Alex Jiang
+
+// Imports
 import React from 'react';
 import add_inline_animation from '../../res/scripts/animation_timing';
 import ReactDOM from 'react-dom'

@@ -2,6 +2,7 @@
  @import url(ctxmenu.css);
 /*Import animations stylesheet*/
 
+/* BY ALEX */
 
 /*This is the stylesheet for the index. Includes specific styles not included in the base stylesheet*/
 
@@ -1055,6 +1056,10 @@ ul[class] {
     animation: span 0.4s ease-in 0.9s backwards;
 }
 
+#calendar_function_container .icon_button_container .icon_button:nth-child(6) {
+    animation: span 0.4s ease-in 1.1s backwards;
+}
+
 
 #full_events {
     inline-size: 100%;
@@ -1087,7 +1092,6 @@ ul[class] {
     width: 23%;
     display: flex;
     gap: 2rem;
-    animation: fade_in 0.8s ease-in;
 }
 .days_left {
     inline-size: 12rem;
@@ -1552,23 +1556,10 @@ blockquote {
 }
 
 .focus_buttons_container .help_button {
-    border: 0 !important;
-    background-color: inherit;
     float: right;
-    background-image: none;
-    color: rgb(29, 98, 149);
-    transition: color 0.3s ease-in;
 }
 
-.focus_buttons_container .help_button:hover {
-    color: rgba(29, 98, 149, 0.7);
-    transition: color 0.3s ease-in;
 
-}
-
-.focus_buttons_container .help_button i{
-    font-size: 3rem;
-}
 
 
 .focus .box {
@@ -1677,7 +1668,6 @@ blockquote {
 #focus_help {
     max-block-size: inherit;
     max-inline-size: 80%;
-    animation: fade_in_text 1.5s ease-in;
     padding: 1rem 1rem 2rem 1rem;
     user-select: text;
 }

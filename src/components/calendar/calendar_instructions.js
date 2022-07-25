@@ -1,5 +1,7 @@
+// Alex
 import React from "react";
 
+// Instructions if there are no events
 export default function Calendar_instruction() {
     return (
         <div id="calendar_tutorial">

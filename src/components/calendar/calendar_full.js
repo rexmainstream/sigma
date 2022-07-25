@@ -1,8 +1,10 @@
+// Alex
+
 // Imports
 import React from "react";
 import ReactDOM  from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboardCheck, faPlus, faFilePdf, faSearch, faTrash, faRotate, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardCheck, faPlus, faFilePdf, faSearch, faTrash, faRotate, faChevronRight, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +18,7 @@ import { Event_constructor, Event_form } from "../../res/scripts/add_event";
 import { date_to_key } from "./date_to_key";
 import Print_event_item from "./print_event";
 import { ordinal_suffix_of } from "../../res/scripts/suffix";
+import { create_modal } from "../../res/scripts/add_modal";
 
 
 
@@ -881,18 +884,18 @@ export default class Full_calendar extends React.Component {
                             />
                         </div>
                         <button
-                                className="icon_button square no_transition"    
-                                title="Show More Options" 
-                                onClick={
-                                    (e) => {
-                                        e.currentTarget.parentNode.classList.toggle('show_drop_down')
-                                    }
-                                }                              
-                            >
-                                <FontAwesomeIcon
-                                    icon={ faChevronRight } 
-                                />
-                            </button>
+                            className="icon_button square no_transition"    
+                            title="Show More Options" 
+                            onClick={
+                                (e) => {
+                                    e.currentTarget.parentNode.classList.toggle('show_drop_down')
+                                }
+                            }                              
+                        >
+                            <FontAwesomeIcon
+                                icon={ faChevronRight } 
+                            />
+                        </button>
                     </div>
                     <div id = 'calendar_function_container'>
                         <div id = "calendar_container">
@@ -977,6 +980,16 @@ export default class Full_calendar extends React.Component {
                             >
                                 <FontAwesomeIcon icon = {faTrash}/>
                             </button>
+                            <button
+                                className="icon_button"
+                                aria-label="Help Button"
+                                title="Help"
+                                onClick={() => {
+                                    create_modal('75vw', true, undefined, true, true)
+                                }}
+                            >
+                                <FontAwesomeIcon icon = {faQuestion}/>
+                            </button>
                         </div>
 
 
@@ -999,6 +1012,19 @@ export default class Full_calendar extends React.Component {
             </div>
         )
     }
+}
+
+// Renders calendar help into modal
+function Calendar_help(props) {
+    return (
+        <div id="calendar_help">
+            <h1>Calendar Tutorial</h1>
+            <hr></hr>
+            <p>
+                Hello World
+            </p>
+        </div>
+    )
 }
 
 // SHow events in the selected day range. 

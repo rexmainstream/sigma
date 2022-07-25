@@ -1,3 +1,6 @@
+// Alex
+
+// Imports
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Add_scroll_event, check_scroll_pos } from '../../res/scripts/scroll';

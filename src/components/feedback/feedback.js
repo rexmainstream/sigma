@@ -1,9 +1,15 @@
+// ALEX
+
+
+// Imoorts
 import React from "react";
 import add_inline_animation from "../../res/scripts/animation_timing";
 import Tabs, { TabPane } from 'rc-tabs';
 import Radio_button_container from "./radio_button_container";
 import move_to_top from "../../res/scripts/move_to_top";
 
+
+// Feedback class
 export default class Feedback extends React.Component {
 
     componentDidMount() {
@@ -198,6 +204,7 @@ function initialise_feedback() {
     // const amount_of_input_boxes = input_boxes.length;
     // let animation_delay = 0;
 
+    // Moves to the top
     move_to_top();
     // for (let i = 0; i < amount_of_input_boxes; i++) {
     //     input_boxes[i].style.animationDelay = `${animation_delay}s`;
