@@ -351,6 +351,7 @@ export default function Event_item_full(props) {
     function show_hide_group(e) {
         const event_group = e.currentTarget.parentNode.parentNode.parentNode;
         event_group.style.maxHeight = `${event_group.scrollHeight}px`;
+        
 
         if (event_group.classList.contains('hide_event_group') === false) {
 
@@ -367,10 +368,16 @@ export default function Event_item_full(props) {
             animation_complete = false;
             event_group.classList.add('show_event_group')
             event_group.classList.remove('hide_event_group');
-            event_group.addEventListener('transitionend', function handler() {
+            // event_group.addEventListener('click', (e) => {
+            //     console.log('hello')
+            //     e.stopPropagation();
+            // })
+            event_group.addEventListener('transitionend', function handler(event) {
                 event_group.style.maxHeight = null;
                 animation_complete = true;
                 event_group.classList.remove('show_event_group');
+                event.preventDefault()
+                event.stopPropagation();
                 event_group.removeEventListener('transitionend', handler)
             })
         }
@@ -399,11 +406,12 @@ export default function Event_item_full(props) {
                             (e) => {
                                 if (animation_complete === true) {
                                     show_hide_group(e);
+                                    e.stopPropagation();
                                 }
                             }
                         }
                     >
-                        <span className='clickable_button'>
+                        <span className=''>
                             {`${days_left}`}
                         </span>                
                     </div>
@@ -426,6 +434,7 @@ export default function Event_item_full(props) {
                             (e) => {
                                 if (animation_complete === true) {
                                     show_hide_group(e);
+                                    e.stopPropagation()
                                 }
                             }
                         }

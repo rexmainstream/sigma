@@ -100,8 +100,8 @@ textarea {
 }
 
 .clickable_button {
-    position: relative;
     color: rgb(29, 98, 149);
+    transition: color 0.2s ease-out;
     text-transform: uppercase;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -112,12 +112,14 @@ textarea {
     margin-block-start: 1rem;
     min-inline-size: 10rem;
     z-index: 0;
-    transition:         0.08s ease-in;
-    -o-transition:      0.08s ease-in;
-    -ms-transition:     0.08s ease-in;
-    -moz-transition:    0.08s ease-in;
-    -webkit-transition: 0.08s ease-in;
 }
+
+.clickable_button:hover {
+    transition: color 0.3s ease-in;
+    color: black;
+}
+
+
 .exit_button {
     border-radius: 50%;
     padding: 0.5em;
@@ -157,7 +159,7 @@ textarea {
     /* background-color: #f9fcff;
     background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%); */
 
-    transition: transform 250ms;
+    transition: transform 250ms, background-color 250ms;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
 }
 
@@ -166,17 +168,18 @@ textarea {
 }
 
 .icon_button.no_transition {
-    transition: none;
+    transition: background-color 250ms;
 }
 
 .icon_button.no_transition:hover {
-    transition: none;
+    transition: background-color 0.2s ease-in;
     transform: none;
 }
 
 .icon_button:hover {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in 0.07s;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in 0.07s, background-color 0.2s ease-in;
     transform: translateY(-0.5rem);
+    background-color: black;
     box-shadow: 0 8px 16px rgb(0 0 0 / 40%);  
 }
 
@@ -429,30 +432,6 @@ ul.link_list {
     padding-inline-end: 2rem;
 }
 
-
-.clickable_button:hover {
-    color: white;
-}
-
-.clickable_button:before {
-    content: "";
-    position: absolute;
-    background: rgb(29, 98, 149);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 100%;
-    z-index: -1;
-    -webkit-transition: top 0.09s ease-in;
-}
-
-.delete_button::before {
-    background:rgb(255, 91, 91);
-}
-
-.clickable_button:hover:before {
-    top: 0;
-  }
 
 blockquote {
     font-size: 2rem;
@@ -1110,16 +1089,13 @@ ul[class] {
     gap: 2rem;
     animation: fade_in 0.8s ease-in;
 }
-
-.days_left[title="Hide Group"]:hover {
-    color: rgb(29, 98, 149);
-    transition: color 0.7s ease-out;
-}
-
-
 .days_left {
     inline-size: 12rem;
     block-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: rgba(29, 98, 149, 1);
+    font-size: 1.5rem;
 }
 
 .event_separator {
@@ -1134,11 +1110,11 @@ ul[class] {
 
 .event_group .event_item_full {
     opacity: 1;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.5s ease-in 1.5s;
 }
 
 .event_group.show_event_group {
-    transition: max-height 1s;
+    transition: max-height 1.5s;
     overflow: hidden;
 }
 
@@ -2006,15 +1982,19 @@ blockquote {
 
 .rc-tabs-nav-list .rc-tabs-tab:nth-child(2) {
     border-inline-end: 0;
+    
 }
 
 .rc-tabs-nav-list [role="tab"] {
     box-sizing: border-box;
     block-size: 2.7rem;
+    transition: color 0.2s ease-out;
+
 }
 
 .rc-tabs-nav-list .rc-tabs-tab:hover [role="tab"] {
-    border-bottom: 0.2rem solid rgb(29, 98, 149);
+    color: rgb(29, 98, 149);
+    transition: color 0.4s ease-in;
 }
 
 .rc-tabs-nav-list [aria-selected="true"] {
