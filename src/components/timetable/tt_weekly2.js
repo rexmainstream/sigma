@@ -40,28 +40,33 @@ export default function tt_weekly(props) {
                 if (props.raw.days[day].periods[periods_list[period_index]] === undefined) { // If the period is a free or a break
                     period_timetable.push(
                         <tr className="period_cycle_empty" key={`${props.raw.days[day].dayname}${key_value}`}>
-                            <td className="period_number">
+                            {/* <td className="period_number">
                                 {periods_list[period_index]}
-                            </td>
+                            </td> */}
                             <td className="period_description">
+                                -
                             </td>
                         </tr>
                     )
                 } else { // If the period has a class, then displays class details
+                    //adds the period name to the class, allows hover events
+                    
                     var period_name = props.raw.days[day].periods[periods_list[period_index]].title.split(" ")[0]
                     if (props.raw.days[day].periods[periods_list[period_index]].room === null) {
                         period_name = ""
                     }
+                    let class_name = `period_cycle_description ${period_name}`
                     period_timetable.push(
-                        <tr className="period_cycle_class" key={`${props.raw.days[day].dayname}${key_value}`}>
-                            <td className="period_cycle_number">
+                        <tr className="period_cycle_class" 
+                            key={`${props.raw.days[day].dayname}${key_value}`}>
+                            {/* <td className="period_cycle_number">
                                 {periods_list[period_index]}
-                            </td>
-                            <td className="period_cycle_description"
-                                onMouseOver={(e) => {
+                            </td> */}
+                            <td className={class_name}
+                                onMouseOver = {(e) => {
                                     highlight_classes(e);
                                 }}
-                                onMouseLeave={(e) => {
+                                onMouseLeave = {(e) =>{
                                     highlight_classes_time_out(e);
                                 }}>
                                 {period_name}
@@ -80,15 +85,15 @@ export default function tt_weekly(props) {
             </td>
         )
         period_timetable = []
-        // The list containing the week's day is pushed to the list of weeks
+        // The list containing the week's day is pushed to the list of weekss
         if (props.raw.days[day].dayname.slice(0, -1) === "Fri") {
             timetable.push(
                 <table className="week" key={props.raw.days[day].dayname.slice(-1)}>
-                    <tbody>
+                    <thead>
                         <tr>
                             {period_header_table}
                         </tr>
-                    </tbody>
+                    </thead>
                     <tbody>
                         <tr>
                             {day_timetable}
@@ -102,7 +107,7 @@ export default function tt_weekly(props) {
         day += 1
     }
     return (
-        <div className="timetable_cycle">
+        <div className="timetable_cycle" id="timetable_cycle">
             {timetable}
         </div>
     )
