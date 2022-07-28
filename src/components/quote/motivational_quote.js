@@ -32,7 +32,7 @@ function Get_quote () {
     today_quote = Return_quote_list(diff_days).quote;
 
     // Debug
-    // today_quote = Return_quote_list(675).quote;
+    // today_quote = Return_quote_list(26).quote;
 
     //console.log("get_quote function has been run")
     //console.log(today_quote.quote_author)    
@@ -86,7 +86,7 @@ function Get_quote () {
 //Too slow maybe just animate the quote author
 function write_quote_author(today_quote) {
     // sets the written quote which includes two hyphens
-    let written_quote = `- ${today_quote['quote_author']} -`;
+    let written_quote = `- ${today_quote.quote_author} -`;
 
     // Buttons initialisation
     let container = document.querySelector('#container');

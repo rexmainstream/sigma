@@ -1261,11 +1261,12 @@ export function show_events( day_range = current_time_range, sort_function = cur
 
 
 }
-
+// Initialise the full calendar
 function initialise_full_calendar() {
     // Debug
     // console.log('initialise full calendar run!');
 
+    // Initialises the royalart calendar
     let calendarConfig = {
         container: 'calendar_container',
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -1274,7 +1275,12 @@ function initialise_full_calendar() {
 
     calendar = new RolyartCalendar(calendarConfig);
 
-    current_time_range = get_month_day_range();
+    // Gets the time range
+    if (check_desktop()) {
+        current_time_range = get_month_day_range();
+    } else {
+        current_time_range = 'all'
+    }
     current_sort_option = false;
     current_search = false;
     current_order = false;
