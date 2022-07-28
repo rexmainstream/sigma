@@ -1383,9 +1383,12 @@ ul[class] {
         background-color: white;
         z-index: 1;
         width: 90%;
-        margin-top: 2rem;
+        padding-top: 2rem;
         border-radius: 0;
-        padding-block-end: 15rem;
+    }
+
+    #calendar_function_container .calendar-header{
+        display: none;
     }
 
     .icon_button[title="Show More Options"] {
@@ -1443,7 +1446,6 @@ ul[class] {
 
     .event_item_full .event_description {
         margin: 0;
-        background-color: white;
         text-align: center;
         padding-block-end: 1rem;
     }

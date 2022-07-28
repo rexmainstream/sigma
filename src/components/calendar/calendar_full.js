@@ -1276,14 +1276,12 @@ function initialise_full_calendar() {
     calendar = new RolyartCalendar(calendarConfig);
 
     // Gets the time range
-    // if (check_desktop()) {
+    if (check_desktop()) {
         current_time_range = get_month_day_range();
-        // console.log(current_time_range)
-    // } else {
-    //     current_time_range[2] = 'all'
-    //     current_time_range[0] = get_date().today;
-    //     current_time_range[1] = get_date().max_date
-    // }
+        console.log(current_time_range)
+    } else {
+        current_time_range = [get_date().today, get_date().max_date, 'All'];
+    }
     current_sort_option = false;
     current_search = false;
     current_order = false;
