@@ -18,6 +18,7 @@
     "react-helmet": "^6.1.0",
     "react-scripts": "^5.0.0",
     "react-string-replace": "^1.1.0",
+    "react-to-print": "^2.14.7",
     "vara": "^1.4.0",
     "web-vitals": "^2.1.4"
   },

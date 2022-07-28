@@ -572,6 +572,58 @@ ul[class] {
     text-align: left;
     width: 50%;
   }
+/* || TIMETABLE WEEKLY */
+
+.week thead {
+    color: rgba(124, 124, 124, 0.8);
+    text-transform: uppercase;
+  }
+  .week {
+    margin: auto;
+    width: 75%;
+    margin-block-end: 3rem;
+  }
+  .week thead td {
+    border-bottom: 2px solid rgb(124,124,124);
+  }
+  
+  .week tbody .day .period_cycle_class td{
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    background-color: white;
+    width: 4rem;
+    height: 2rem;
+  
+  }
+  .week tbody .day .period_cycle_empty td{
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    background-color: rgb(247, 247, 247);
+    width: 4rem;
+    height: 2rem;
+  
+  }
+  
+  .week tbody .day td.hovered_class {
+    background-color: #1D6295;
+    color: white;
+    transition: all 0.5s ease-in;
+  }
+  
+  /* || TIMETABLE PRINT */
+  
+  .print_button {
+    text-align: center;
+    background-color: white;
+    border: 2px solid rgb(124,124,124);
+    cursor: pointer;
+    width: 10rem;
+    height: 4rem;
+    
+  }
+
+  
+
 
 /* || CALENDAR MINI*/
 .calendar {
