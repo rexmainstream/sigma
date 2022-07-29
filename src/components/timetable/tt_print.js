@@ -1,6 +1,6 @@
 import React, { forwardRef as ForwardRef, useRef as UseRef } from "react";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
-import TT_WEEKLY from './tt_weekly'
+import TT_WEEKLY from './tt_weekly2'
 import { weekly_formatted } from "./tt_data"
 
 /*Module Obtained From
@@ -14,7 +14,7 @@ export default function tt_display(props) {
     const ref = UseRef();
 
     return (
-        <div>
+        <div className="timetable_weekly_print">
             <ComponentToPrint ref={ref} />
             <ReactToPrint content={() => ref.current}>
                 <PrintContextConsumer>
