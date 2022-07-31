@@ -16,8 +16,8 @@ export default function tt_display(props) {
     const ref = UseRef();
 
     return (
-        <div>
-            
+        <div className="timetable_weekly_print">
+            <ComponentToPrint ref={ref} />
             <ReactToPrint content={() => ref.current}>
                 <PrintContextConsumer>
                     {({ handlePrint }) => (
