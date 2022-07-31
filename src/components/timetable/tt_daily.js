@@ -2,6 +2,7 @@ export default function tt_daily(props) {
     // Timetable to be stored and variable
     let timetable = []
     var bells = props.raw.bells
+    let animation_delay = 0;
 
     //required to check for room to teacher variationA
     for (var bell_position in bells) {
@@ -19,14 +20,21 @@ export default function tt_daily(props) {
                 }
             }
             var teacher = ""
+            
             if ((period_data.fullTeacher !== undefined) && (period_data.fullTeacher !== "")) {
                 teacher = "with " + period_data.fullTeacher + ""
                 timetable.push(
-                    <tr key={bell_position} className="period_class">
+                    <tr 
+                        key={bell_position} 
+                        className="period_class"
+                        style={{animationDelay:animation_delay + "s"}}                    
+                    >
                         <td className="period_name">{period_name}<div className="period_teacher">{teacher}</div></td>
                         <td className="period_room">{period_room}</td>
                     </tr>
                 )
+                // Increment animation delay
+                animation_delay += 0.05;
             } else {
                 period_room = bells[bell_position].startTime
                 timetable.push(

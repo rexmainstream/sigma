@@ -18,16 +18,27 @@ export default function Radio_button_container(props) {
     let required_asterisk = (<span></span>);
     let description_input;
 
+    // Expands or reduce the input box if the input is larget or small
+    function expand_textarea(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight)+"px";
+    }
+
     if (description === true) {
         description_input = (
-            <input 
+            <textarea 
                 type="text"
                 name={description_entry}
                 placeholder= {description_placeholder}
                 className="additional_description"
+                onInput = {
+                    (e) => {
+                        expand_textarea(e.target);
+                    }
+                } 
             >
 
-            </input>
+            </textarea>
         )
     }
 
@@ -43,11 +54,11 @@ export default function Radio_button_container(props) {
             //radio buttons array
             <div key={i} className="radio_button_container">
                 <input 
-                    name={radio_buttons[i].entry} 
-                    type="radio" 
-                    required={required} 
-                    value={radio_buttons[i].label_name}
-                    onClick={
+                    name = {radio_buttons[i].entry} 
+                    type = "radio" 
+                    required = {required} 
+                    value = {radio_buttons[i].label_name}
+                    onClick = {
 
                         (e) => {
                             if (description === true) {

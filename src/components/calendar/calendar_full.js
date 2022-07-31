@@ -1278,7 +1278,6 @@ function initialise_full_calendar() {
     // Gets the time range
     if (check_desktop()) {
         current_time_range = get_month_day_range();
-        console.log(current_time_range)
     } else {
         current_time_range = [get_date().today, get_date().max_date, 'All'];
     }

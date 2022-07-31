@@ -7,6 +7,7 @@ import add_inline_animation from "../../res/scripts/animation_timing";
 import Tabs, { TabPane } from 'rc-tabs';
 import Radio_button_container from "./radio_button_container";
 import move_to_top from "../../res/scripts/move_to_top";
+import Text_input_form from "./text_input";
 
 
 // Feedback class
@@ -39,7 +40,7 @@ export default class Feedback extends React.Component {
         //This allows us to style it but also view results dynamically
         return(
             <div className="feedback">
-                <iframe name="hidden_iframe" id="hidden_iframe" style={{display: "none",}} 
+                <iframe name="my_iframe" id="hidden_iframe" style={{display: "none",}} 
                 > 
 
                 </iframe>
@@ -47,9 +48,10 @@ export default class Feedback extends React.Component {
                     noValidate
                     className="form"
                     autoComplete="off"
-                    action="https://docs.google.com/forms/d/e/1FAIpQLSfRgKi2DPemroDP1Jpr6BjhTahl75sIZRm6ucaWdhR_zDSGSQ/viewform"
-                    target="hidden_iframe"
+                    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfRgKi2DPemroDP1Jpr6BjhTahl75sIZRm6ucaWdhR_zDSGSQ/formResponse"
                     method="post"
+                    target="my_iframe"
+                    onSubmit={() => {clear_form()}}
                     >
                     <Tabs 
                         defaultActiveKey="1" 
@@ -58,10 +60,10 @@ export default class Feedback extends React.Component {
                             initialise_feedback();
                         }}>
                         <TabPane tab="Report a bug" key="1">
-                            <div className="box">
-                                <label>Please list bugs and problems you have encountered.</label>
-                                <input type="text" name="entry.246120418" placeholder="Your Answer"/>
-                            </div>
+                            <Text_input_form 
+                                title = "Please list bugs and problems you have encountered."
+                                entry = "246120418"                            
+                            />
 
                             <Radio_button_container
                                 radio_buttons = {[
@@ -126,40 +128,21 @@ export default class Feedback extends React.Component {
                         />
 
 
+                        <Text_input_form 
+                            title = 'Is there a quote you would recommend for "Quote of the Day?"'
+                            entry = "284096315"
+                            placeholder = "Your Quote"                        
+                        />
 
-                        <div className="box">
-                            <label 
-                                htmlFor="entry.284096315">
-                                Is there a quote you would recommend for "Quote of the Day?"
-                            </label>
-                            <input 
-                                type="text" 
-                                placeholder="Your Quote" 
-                                name="entry.284096315" 
-                            />
-                        </div>
+                        <Text_input_form 
+                            title = ' What are the current features you like about Sigma?'
+                            entry = "1696689808"                      
+                        />
 
-                        <div className="box">
-                            <label 
-                                htmlFor="entry.1696689808"
-                            >
-                                What are the current features you like about Sigma?
-                            </label>
-                            <input 
-                                type="text" 
-                                placeholder="Your Answer" 
-                                name="entry.1696689808" 
-                            />
-                        </div>
-
-                        <div className="box">
-                            <label 
-                                htmlFor="entry.120304055"
-                            >
-                                Do you have any additional suggestions/comments?
-                            </label>
-                            <input type="text" placeholder = "Your Answer" name="entry.120304055" />
-                        </div>
+                        <Text_input_form 
+                            title = 'Do you have any additional suggestions/comments?'
+                            entry = "120304055"                      
+                        />
                         </TabPane>
                     </Tabs>
                     <div className="button_container">
@@ -171,7 +154,8 @@ export default class Feedback extends React.Component {
                             onClick={
                                 () => {
                                     // Clears the form when clicked
-                                    // move_to_top();
+                                    move_to_top();
+                                    
                                 }
                             }
                         >
@@ -183,8 +167,8 @@ export default class Feedback extends React.Component {
                             title="Clear Form"
                             onClick={
                                 () => {
-                                    // move_to_top();
-                                    // clear_form();
+                                    move_to_top();
+                                    clear_form();
                                 }
                             }
                         >

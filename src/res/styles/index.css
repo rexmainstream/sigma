@@ -369,6 +369,7 @@ input[type='radio'] {
     background-color: #fff;
     border-radius: 50%;
     inline-size: 2rem;
+    cursor: pointer;
     block-size: 2rem;
     border: 0.2rem solid black;
     color: rgb(29, 98, 149);
@@ -503,11 +504,24 @@ ul[class] {
     grid-row: 1;
     text-align: center;
   }
+
+  .timetable [role="tablist"] {
+    margin-inline-start: 5rem;
+    animation: none; 
+  }
+
+  .timetable .rc-tabs-nav-list .rc-tabs-tab {
+    animation: none;
+  }
   
   .timetable_countdown {
-    margin-block-end: 2rem;
+    /* margin-block-end: 2rem; */
     font-weight: bold;
   }
+
+  /* .timetable_cycle {
+    display: none;
+  } */
   
   .timetable_today {
     max-width: 1000px;
@@ -515,9 +529,15 @@ ul[class] {
     margin: auto;
     table-layout: fixed;
     border-collapse: separate;
-    padding: 1.5rem;
+    padding-inline: 1.5rem;
     text-align: left;
     border-spacing: 0 0.5rem;
+  }
+
+  @media screen and (max-width: 999px) {
+    .timetable_today {
+        width: 90%;
+    }
   }
   
   .timetable tbody td {
@@ -530,10 +550,9 @@ ul[class] {
     color: rgba(124, 124, 124, 0.8);
   }
   
-  
   .timetable tbody tr.period_class td {
     transition: background-color 0.4s ease-out;
-    background-color: white;
+    background-color: rgba(255,255,255, 0.6);
   }
   
   .timetable .period_break {
@@ -549,9 +568,10 @@ ul[class] {
   }
   
   .timetable_today tbody tr.period_class {
-    animation: table_slide 0.3s ease-in;
+    opacity: 0;
+    animation: fade-top 0.3s ease-in forwards;
   }
-  
+
   .timetable_today td:nth-child(2) {
     padding-inline-end: 1rem;
     text-align: right;
@@ -580,18 +600,40 @@ ul[class] {
   }
   .week {
     margin: auto;
-    width: 75%;
+    opacity: 0;
+    animation: bounce 0.7s ease-in forwards;
+    width: 90%;
     margin-block-end: 3rem;
   }
+
+  .week:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .week:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+
+
   .week thead td {
     border-bottom: 2px solid rgb(124,124,124);
   }
   
+  .week tbody .day .period_cycle_class {
+    display: flex;
+    justify-content: center;
+  }
+
+  .week tbody .day .period_cycle_empty {
+    display: flex;
+    justify-content: center;
+  }
   .week tbody .day .period_cycle_class td{
     cursor: pointer;
     transition: all 0.2s ease-out;
     background-color: white;
-    width: 4rem;
+    width: 11rem;
     height: 2rem;
   
   }
@@ -599,7 +641,7 @@ ul[class] {
     cursor: pointer;
     transition: all 0.2s ease-out;
     background-color: rgb(247, 247, 247);
-    width: 4rem;
+    width: 11rem;
     height: 2rem;
   
   }
@@ -609,18 +651,17 @@ ul[class] {
     color: white;
     transition: all 0.5s ease-in;
   }
-  
-  /* || TIMETABLE PRINT */
-  
-  .print_button {
-    text-align: center;
-    background-color: white;
-    border: 2px solid rgb(124,124,124);
-    cursor: pointer;
-    width: 10rem;
-    height: 4rem;
-    
+
+  .print_button_container {
+    block-size: 5rem;
+    width: 85%;
+    margin: auto;
   }
+
+  .print_button {
+    float: right;
+  }
+  
 
   
 
@@ -629,6 +670,7 @@ ul[class] {
 .calendar {
     grid-column: 4/end;
     grid-row: 1;
+    height: 85vh;
 }
 
 
@@ -775,7 +817,7 @@ ul[class] {
 #events_container {
     overflow-y: auto;
     overflow-x: hidden;
-    block-size: 23rem;
+    block-size: 35vh;
     margin-block-end: 1rem;
 }
 
@@ -2015,7 +2057,7 @@ blockquote {
 }
 .rc-tabs-nav-list .rc-tabs-tab {
     animation: bounce 0.7s ease-out;
-    color: rgba(124,124,124,0.5);
+    color: rgba(29, 98, 149, 0.5);
     cursor: pointer;
     padding-inline-end: 2rem;
     transition: color 0.2s ease-out;
@@ -2036,12 +2078,13 @@ blockquote {
 }
 
 .rc-tabs-nav-list .rc-tabs-tab:hover [role="tab"] {
-    color: rgb(29, 98, 149);
+    color: black;
     transition: color 0.4s ease-in;
 }
 
 .rc-tabs-nav-list [aria-selected="true"] {
-    color: black;
+    color: rgba(29, 98, 149, 1);
+    text-shadow: 0px 0px 0.07rem rgba(29, 98, 149, 1);
     transition: color 0.3s ease-in;
 }
 
@@ -2144,11 +2187,11 @@ blockquote {
     margin-inline-end: 2rem;
 }
 
-.feedback input {
+.feedback textarea {
     font-size: 1.5rem;
 }
 
-.feedback input[type="text"] {
+.feedback textarea[type="text"] {
     display: block;
     inline-size: calc(100% - 1rem);
     margin: 2rem 0 2rem 0;
@@ -2156,6 +2199,9 @@ blockquote {
     outline: none;
     border: none;
     border-block-end: 0.1rem solid rgba(124,124,124,0.8);
+    font-family: inherit;
+    height: 2.5rem;
+    max-height: 10rem;
 }
 
 
